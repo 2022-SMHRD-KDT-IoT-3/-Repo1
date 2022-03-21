@@ -86,7 +86,7 @@ public class MemberDAO {
 		public MemberDTO login(String id, String pw) {
 			dbconn();
 			try {
-				String sql = "select * from tbl_member where id = ? and pw = ? ";
+				String sql = "select * from tbl_member where mb_id = ? and mb_pw = ? ";
 				psmt =conn.prepareStatement(sql);
 				psmt.setString(1, id);
 				psmt.setString(2, pw);

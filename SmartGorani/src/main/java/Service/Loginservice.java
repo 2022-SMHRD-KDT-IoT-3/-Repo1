@@ -30,8 +30,12 @@ public class Loginservice implements Command {
 		// 3-2. 회원가입 데이터 받아오기
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
-		
-
+		String name = request.getParameter("name");
+		String type = request.getParameter("type");
+		String reg_date = request.getParameter("reg_date");
+		System.out.println(id+pw);
+//		
+//
 		System.out.println("id : " + id);
 		System.out.println("pw : " + pw);
 
@@ -46,6 +50,7 @@ public class Loginservice implements Command {
 			HttpSession session =request.getSession();
 			session.setAttribute("info", dto);
 		} else {
+			System.out.println(dto);
 			System.out.println("===로그인 실패===");
 		}
 		nextpage = "main.jsp";
