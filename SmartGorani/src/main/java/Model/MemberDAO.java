@@ -83,5 +83,30 @@ public class MemberDAO {
 		return cnt;
 
 	}
+	
+		public MemberDTO login(String id, String pw) {
+			dbconn();
+			try {
+				String sql = "select * from tbl_member where id = ? and pw = ? ";
+				psmt =conn.prepareStatement(sql);
+				psmt.setString(1, id);
+				psmt.setString(2, pw);
+				rs = psmt.executeQuery();  
+				
+				if(rs.next()) {
+					id= rs.getString(1);
+					pw = rs.getString(2);
+					String name = rs.getString(3);
+					String type =rs.getString(4);
+					String reg_date = rs.getString(5);
+					// 실행결과
+					 dto = new MemberDTO(id, pw, name, type, reg_date);
+					}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				dbclose();
+			}return dto;
+		}
 
 }
