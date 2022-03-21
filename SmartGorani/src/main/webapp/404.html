@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - 404</title>
+    <title> 페이지를 찾을 수 없습니다. </title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -24,128 +24,85 @@
 
 <body id="page-top">
 
-    <!-- Page Wrapper -->
-    <div id="wrapper">
+    <!-- @ strat : Page Wrapper -->
+	<div id="wrapper">
+		<!-- Sidebar -->
+		<ul
+			class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+			id="accordionSidebar">
 
-        <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+			<!-- Sidebar - Brand -->
+			<a
+				class="sidebar-brand d-flex align-items-center justify-content-center"
+				href="main.html">
+				<div class="sidebar-brand-icon rotate-n-15"></div>
+				<div class="sidebar-brand-text mx-3">SmartGorani</div>
+			</a>
 
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
-            </a>
+			<!-- Divider -->
+			<hr class="sidebar-divider my-0">
 
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
+			<!-- Nav Item - Dashboard -->
+			<li class="nav-item active"><a class="nav-link" href="main.html">
+					<i class="fas fa-fw fa-tachometer-alt"></i> <span>메인</span>
+			</a></li>
 
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span>
-                </a>
-            </li>
+			<!-- Divider -->
+			<hr class="sidebar-divider">
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
+			<!-- Nav Item - Charts -->
+			<li class="nav-item"><a class="nav-link" href="check.html">
+					<i class="fas fa-fw fa-chart-area"></i> <span>조회</span>
+			</a></li>
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Interface
-            </div>
+			<!-- Divider -->
+			<hr class="sidebar-divider my-0">
 
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Components</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
-                    </div>
-                </div>
-            </li>
 
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Utilities</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
-                    </div>
-                </div>
-            </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
+			<!-- Nav Item - Utilities Collapse Menu -->
+			<li class="nav-item"><a class="nav-link collapsed"
+				href="power_control.html"> <i class="fas fa-fw fa-wrench"></i> <span>전기제어</span>
+			</a></li>
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Addons
-            </div>
+			<!-- Divider -->
+			<hr class="sidebar-divider">
 
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item active">
-                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
-                    aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
-                </a>
-                <div id="collapsePages" class="collapse show" aria-labelledby="headingPages"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item active" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
-                    </div>
-                </div>
-            </li>
+			<!-- Nav Item - Tables -->
+			<li class="nav-item"><a class="nav-link" href="board.jsp">
+					<i class="fas fa-fw fa-table"></i> <span>게시판</span>
+			</a></li>
 
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
-            </li>
+			<!-- Divider -->
+			<hr class="sidebar-divider">
 
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
-            </li>
+			<!-- Nav Item - Pages Collapse Menu -->
+			<li class="nav-item"><a class="nav-link collapsed"
+				href="setting.html"> <i class="fas fa-fw fa-cog"></i> <span>환경설정</span>
+			</a></li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
+			<!-- Divider -->
+			<hr class="sidebar-divider">
+			<!-- @ end -->
 
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
 
-        </ul>
-        <!-- End of Sidebar -->
+			<div id="collapsePages" class="collapse"
+				aria-labelledby="headingPages" data-parent="#accordionSidebar">
+				<div class="bg-white py-2 collapse-inner rounded">
+					<h6 class="collapse-header">Login Screens:</h6>
+					<a class="collapse-item" href="login.html">Login</a> <a
+						class="collapse-item" href="register.html">Register</a> <a
+						class="collapse-item" href="forgot-password.html">Forgot
+						Password</a>
+					<div class="collapse-divider"></div>
+					<h6 class="collapse-header">Other Pages:</h6>
+					<a class="collapse-item" href="404.html">404 Page</a> <a
+						class="collapse-item" href="blank.html">Blank Page</a>
+				</div>
+			</div>
+			</li>
+		</ul>
+		<!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -160,20 +117,6 @@
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
-
-                    <!-- Topbar Search -->
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -363,9 +306,10 @@
                     <!-- 404 Error Text -->
                     <div class="text-center">
                         <div class="error mx-auto" data-text="404">404</div>
-                        <p class="lead text-gray-800 mb-5">Page Not Found</p>
-                        <p class="text-gray-500 mb-0">It looks like you found a glitch in the matrix...</p>
-                        <a href="index.html">&larr; Back to Dashboard</a>
+                        <p class="lead text-gray-800 mb-5">페이지를 찾을 수 없습니다.</p>
+                        <p class="text-gray-500 mb-0"> 페이지가 삭제되었거나 주소가 변경되었을 수 있습니다.</p>
+                        <p class="text-gray-500 mb-0"> <a href="main.html">&larr; 메인페이지</a>로 이동해 주세요.</p>
+                        <p class="text-gray-500 mb-0"> 지속해서 에러가 발생한다면 관리자 email@test.com 으로 문의 주십시오.</p>
                     </div>
 
                 </div>
@@ -378,7 +322,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
+                        <span>Copyright &copy; Smart Gorani</span>
                     </div>
                 </div>
             </footer>
@@ -426,5 +370,12 @@
     <script src="js/sb-admin-2.min.js"></script>
 
 </body>
+<!-- 
+에러페이지 연결하는 방법 : 서버 -> web.xml 파일 들어가서 아래 코드 추가
+<error-page>
+      <error-code>404</error-code>
+      <location>/404.html</location>
+  </error-page>
+ -->
 
 </html>
