@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +9,8 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>전기 제어</title>
+
+<title>전력량 조회</title>
 
 <!-- Custom fonts for this template-->
 <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
@@ -20,79 +21,11 @@
 
 <!-- Custom styles for this template-->
 <link href="css/sb-admin-2.min.css" rel="stylesheet">
-<script type="text/javascript"
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
-<style>
-.switch {
-	position: relative;
-	display: inline-block;
-	width: 60px;
-	height: 34px;
-	vertical-align: middle;
-}
 
-/* Hide default HTML checkbox */
-.switch input {
-	display: none;
-}
-
-/* The slider */
-.slider {
-	position: absolute;
-	cursor: pointer;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background-color: #ccc;
-	-webkit-transition: .4s;
-	transition: .4s;
-}
-
-.slider:before {
-	position: absolute;
-	content: "";
-	height: 26px;
-	width: 26px;
-	left: 4px;
-	bottom: 4px;
-	background-color: white;
-	-webkit-transition: .4s;
-	transition: .4s;
-}
-
-input:checked+.slider {
-	background-color: #2196F3;
-}
-
-input:focus+.slider {
-	box-shadow: 0 0 1px #2196F3;
-}
-
-input:checked+.slider:before {
-	-webkit-transform: translateX(26px);
-	-ms-transform: translateX(26px);
-	transform: translateX(26px);
-}
-
-/* Rounded sliders */
-.slider.round {
-	border-radius: 34px;
-}
-
-.slider.round:before {
-	border-radius: 50%;
-}
-
-p {
-	margin: 0px;
-	display: inline-block;
-	font-size: 15px;
-	font-weight: bold;
-}
-</style>
+<!-- 차트 CDN -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 </head>
-<body>
 <body id="page-top">
 
 
@@ -123,7 +56,7 @@ p {
 			<hr class="sidebar-divider my-0">
 
 			<!-- Nav Item - Charts -->
-			<li class="nav-item"><a class="nav-link" href="check.jsp">
+			<li class="nav-item"><a class="nav-link" href="check.html">
 					<i class="fas fa-fw fa-chart-area"></i> <span>조회</span>
 			</a></li>
 
@@ -160,7 +93,7 @@ p {
 
 		</ul>
 		<!-- @ end -->
-		<!-- End of Sidebar -->
+
 
 		<!-- Content Wrapper -->
 		<div id="content-wrapper" class="d-flex flex-column">
@@ -178,6 +111,7 @@ p {
 						<i class="fa fa-bars"></i>
 					</button>
 
+
 					<!-- Topbar Navbar -->
 					<ul class="navbar-nav ml-auto">
 
@@ -189,21 +123,7 @@ p {
 						</a> <!-- Dropdown - Messages -->
 							<div
 								class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-								aria-labelledby="searchDropdown">
-								<form class="form-inline mr-auto w-100 navbar-search">
-									<div class="input-group">
-										<input type="text"
-											class="form-control bg-light border-0 small"
-											placeholder="Search for..." aria-label="Search"
-											aria-describedby="basic-addon2">
-										<div class="input-group-append">
-											<button class="btn btn-primary" type="button">
-												<i class="fas fa-search fa-sm"></i>
-											</button>
-										</div>
-									</div>
-								</form>
-							</div></li>
+								aria-labelledby="searchDropdown"></div></li>
 
 						<!-- Nav Item - Alerts -->
 						<li class="nav-item dropdown no-arrow mx-1"><a
@@ -253,63 +173,6 @@ p {
 							</div></li>
 
 						<!-- Nav Item - Messages -->
-						<li class="nav-item dropdown no-arrow mx-1"><a
-							class="nav-link dropdown-toggle" href="#" id="messagesDropdown"
-							role="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false"> </a> <!-- Dropdown - Messages -->
-							<div
-								class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-								aria-labelledby="messagesDropdown">
-								<h6 class="dropdown-header">Message Center</h6>
-								<a class="dropdown-item d-flex align-items-center" href="#">
-									<div class="dropdown-list-image mr-3">
-										<img class="rounded-circle" src="img/undraw_profile_1.svg"
-											alt="...">
-										<div class="status-indicator bg-success"></div>
-									</div>
-									<div class="font-weight-bold">
-										<div class="text-truncate">Hi there! I am wondering if
-											you can help me with a problem I've been having.</div>
-										<div class="small text-gray-500">Emily Fowler · 58m</div>
-									</div>
-								</a> <a class="dropdown-item d-flex align-items-center" href="#">
-									<div class="dropdown-list-image mr-3">
-										<img class="rounded-circle" src="img/undraw_profile_2.svg"
-											alt="...">
-										<div class="status-indicator"></div>
-									</div>
-									<div>
-										<div class="text-truncate">I have the photos that you
-											ordered last month, how would you like them sent to you?</div>
-										<div class="small text-gray-500">Jae Chun · 1d</div>
-									</div>
-								</a> <a class="dropdown-item d-flex align-items-center" href="#">
-									<div class="dropdown-list-image mr-3">
-										<img class="rounded-circle" src="img/undraw_profile_3.svg"
-											alt="...">
-										<div class="status-indicator bg-warning"></div>
-									</div>
-									<div>
-										<div class="text-truncate">Last month's report looks
-											great, I am very happy with the progress so far, keep up the
-											good work!</div>
-										<div class="small text-gray-500">Morgan Alvarez · 2d</div>
-									</div>
-								</a> <a class="dropdown-item d-flex align-items-center" href="#">
-									<div class="dropdown-list-image mr-3">
-										<img class="rounded-circle"
-											src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="...">
-										<div class="status-indicator bg-success"></div>
-									</div>
-									<div>
-										<div class="text-truncate">Am I a good boy? The reason I
-											ask is because someone told me that people say this to all
-											dogs, even if they aren't good...</div>
-										<div class="small text-gray-500">Chicken the Dog · 2w</div>
-									</div>
-								</a> <a class="dropdown-item text-center small text-gray-500"
-									href="#">Read More Messages</a>
-							</div></li>
 
 						<div class="topbar-divider d-none d-sm-block"></div>
 
@@ -318,7 +181,8 @@ p {
 							class="nav-link dropdown-toggle" href="#" id="userDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> <span
-								class="mr-2 d-none d-lg-inline text-gray-600 small">UserName</span>
+								class="mr-2 d-none d-lg-inline text-gray-600 small">user
+									name</span>
 						</a> <!-- Dropdown - User Information -->
 							<div
 								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -345,122 +209,79 @@ p {
 				</nav>
 				<!-- End of Topbar -->
 
-
 				<!-- Begin Page Content -->
 				<div class="container-fluid">
 
 					<!-- Page Heading -->
-					<h1 class="h3 mb-1 text-gray-800">전력 제어</h1>
-					<p class="mb-4"></p>
+					<h1 class="h3 mb-2 text-gray-800">사용 전력 조회</h1>
+					<p class="mb-4">여기에서 포트별 전력량, 전체 전력량, 월별 사용량, 발전 전기 사용량을 확인할 수
+						있습니다!</p>
 
 					<!-- Content Row -->
 					<div class="row">
 
-						<!-- First Column -->
-						<div class="col-lg-4">
+						<div style="width: 900px; height: 900px;">
+							<!--차트가 그려질 부분-->
+							<canvas id="myChart"></canvas>
+						</div>
 
-							<!-- Custom Font Size Utilities -->
+
+
+						<div class="col-xl-8 col-lg-7">
+
+							<!-- Area Chart -->
 							<div class="card shadow mb-4">
 								<div class="card-header py-3">
-									<h6 class="m-0 font-weight-bold text-primary">전체 전력 제어</h6>
+									<h6 class="m-0 font-weight-bold text-primary">Area Chart</h6>
 								</div>
 								<div class="card-body">
-									<div>
-										<label class="switch"> <input type="checkbox">
-											<div class="slider round"></div>
-											<p>OFF</p>
-											<p style="display: none;">ON</p>
+									<div class="chart-area">
+										<canvas id="myAreaChart"></canvas>
 									</div>
-
-								</div>
-
-							</div>
-
-							<!-- Custom Text Color Utilities -->
-							<div class="card shadow mb-4">
-								<div class="card-header py-3">
-									<h6 class="m-0 font-weight-bold text-primary">포트별 전력 제어</h6>
-								</div>
-								<div class="card-body">
-									<div>
-										포트 1<label class="switch"> <input type="checkbox">
-											<div class="slider round"></div>
-											<p>OFF</p>
-											<p style="display: none;">ON</p>
-									</div>
-									<div>
-										포트 2<label class="switch"> <input type="checkbox">
-											<div class="slider round"></div>
-											<p>OFF</p>
-											<p style="display: none;">ON</p>
-									</div>
-									<div>
-										포트 3<label class="switch"> <input type="checkbox">
-											<div class="slider round"></div>
-											<p>OFF</p>
-											<p style="display: none;">ON</p>
-									</div>
-									<div>
-										포트 4<label class="switch"> <input type="checkbox">
-											<div class="slider round"></div>
-											<p>OFF</p>
-											<p style="display: none;">ON</p>
-									</div>
-									<div>
-										포트 5<label class="switch"> <input type="checkbox">
-											<div class="slider round"></div>
-											<p>OFF</p>
-											<p style="display: none;">ON</p>
-									</div>
-									<div>
-										포트 6<label class="switch"> <input type="checkbox">
-											<div class="slider round"></div>
-											<p>OFF</p>
-											<p style="display: none;">ON</p>
-									</div>
-									<div>
-										포트 7<label class="switch"> <input type="checkbox">
-											<div class="slider round"></div>
-											<p>OFF</p>
-											<p style="display: none;">ON</p>
-									</div>
-									<div>
-										포트 8<label class="switch"> <input type="checkbox">
-											<div class="slider round"></div>
-											<p>OFF</p>
-											<p style="display: none;">ON</p>
-									</div>
-									<div>
-										포트 9<label class="switch"> <input type="checkbox">
-											<div class="slider round"></div>
-											<p>OFF</p>
-											<p style="display: none;">ON</p>
-									</div>
+									<hr>
+									Styling for the area chart can be found in the
+									<code>/js/demo/chart-area-demo.js</code>
+									file.
 								</div>
 							</div>
 
+							<!-- Bar Chart -->
+							<div class="card shadow mb-4">
+								<div class="card-header py-3">
+									<h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
+								</div>
+								<div class="card-body">
+									<div class="chart-bar">
+										<canvas id="myBarChart"></canvas>
+									</div>
+									<hr>
+									Styling for the bar chart can be found in the
+									<code>/js/demo/chart-bar-demo.js</code>
+									file.
+								</div>
+							</div>
 
 						</div>
-						<!-- Third Column -->
-						<div class="col-lg-4">
 
-							<!-- Grayscale Utilities -->
+						<!-- Donut Chart -->
+						<div class="col-xl-4 col-lg-5">
 							<div class="card shadow mb-4">
+								<!-- Card Header - Dropdown -->
 								<div class="card-header py-3">
-									<h6 class="m-0 font-weight-bold text-primary">발전기 전력 제어</h6>
+									<h6 class="m-0 font-weight-bold text-primary">Donut Chart</h6>
 								</div>
+								<!-- Card Body -->
 								<div class="card-body">
-									<div>
-										<label class="switch"> <input type="checkbox">
-											<div class="slider round"></div>
-											<p>OFF</p>
-											<p style="display: none;">ON</p>
+									<div class="chart-pie pt-4">
+										<canvas id="myPieChart"></canvas>
 									</div>
-
+									<hr>
+									Styling for the donut chart can be found in the
+									<code>/js/demo/chart-pie-demo.js</code>
+									file.
 								</div>
 							</div>
 						</div>
-
 					</div>
 
 				</div>
@@ -513,13 +334,9 @@ p {
 		</div>
 	</div>
 
+
+
 	<!-- Bootstrap core JavaScript-->
-	<script type="text/javascript">
-		let check = $("input[type='checkbox']");
-		check.click(function() {
-			$("p").toggle();
-		});
-	</script>
 	<script src="vendor/jquery/jquery.min.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -529,7 +346,69 @@ p {
 	<!-- Custom scripts for all pages-->
 	<script src="js/sb-admin-2.min.js"></script>
 
+	<!-- Page level plugins -->
+	<script src="vendor/chart.js/Chart.min.js"></script>
+
+	<!-- Page level custom scripts -->
+	<script src="js/demo/chart-area-demo.js"></script>
+	<script src="js/demo/chart-pie-demo.js"></script>
+	<script src="js/demo/chart-bar-demo.js"></script>
+
+	<!-- 차트 부분 -->
+	<script type="text/javascript">
+		let context = document.getElementById('myChart').getContext('2d');
+		let myChart = new Chart(context,
+				{
+					type : 'bar', // 차트의 형태
+					data : { // 차트에 들어갈 데이터
+						labels : [
+						//x 축
+						'1', '2', '3', '4', '5', '6', '7' ],
+						datasets : [ { //데이터
+							label : 'test1', //차트 제목
+							fill : false, // line 형태일 때, 선 안쪽을 채우는지 안채우는지
+							data : [ 21, 19, 25, 20, 23, 26, 25 //x축 label에 대응되는 데이터 값
+							],
+							backgroundColor : [
+							//색상
+							'rgba(255, 99, 132, 0.2)',
+									'rgba(54, 162, 235, 0.2)',
+									'rgba(255, 206, 86, 0.2)',
+									'rgba(75, 192, 192, 0.2)',
+									'rgba(153, 102, 255, 0.2)',
+									'rgba(255, 159, 64, 0.2)' ],
+							borderColor : [
+							//경계선 색상
+							'rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)',
+									'rgba(255, 206, 86, 1)',
+									'rgba(75, 192, 192, 1)',
+									'rgba(153, 102, 255, 1)',
+									'rgba(255, 159, 64, 1)' ],
+							borderWidth : 1
+						//경계선 굵기
+						} /* ,
+						                        {
+						                            label: 'test2',
+						                            fill: false,
+						                            data: [
+						                                8, 34, 12, 24
+						                            ],
+						                            backgroundColor: 'rgb(157, 109, 12)',
+						                            borderColor: 'rgb(157, 109, 12)'
+						                        } */
+						]
+					},
+					options : {
+						scales : {
+							yAxes : [ {
+								ticks : {
+									beginAtZero : true
+								}
+							} ]
+						}
+					}
+				});
+	</script>
 </body>
 
-</body>
 </html>
