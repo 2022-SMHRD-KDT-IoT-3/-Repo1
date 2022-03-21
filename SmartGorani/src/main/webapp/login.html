@@ -41,17 +41,17 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4"> 스마트 고라니 로그인 </h1>
                                     </div>
-                                    <form class="user">
+                                    <form class="user" action ="Loginservice.do" method = "post">
                                         <div class="form-group">
                                         	<!-- @ 1. 아이디 입력 -->
-                                            <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
+                                            <input type="text" class="form-control form-control-user"
+                                                id="exampleInputEmail" name = "id" aria-describedby="emailHelp"
                                                 placeholder="ID를 입력해주세요.">
                                         </div>
                                         <div class="form-group">
                                         	<!-- @ 2. 비밀번호 입력 -->
                                             <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="비밀번호를 입력해주세요.">
+                                                id="exampleInputPassword" name = "pw" placeholder="비밀번호를 입력해주세요.">
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
@@ -59,9 +59,9 @@
                                                 <label class="custom-control-label" for="customCheck"> 아이디/비밀번호 저장하기</label>
                                             </div>
                                         </div>
-                                        <a href="main.html" class="btn btn-primary btn-user btn-block">
-                                            Login
-                                        </a>
+                                        <input type="submit" class="btn btn-primary btn-user btn-block" value="Login">
+                                            
+                                        
                                         <hr>
                                     </form>
                                     <div class="text-center">

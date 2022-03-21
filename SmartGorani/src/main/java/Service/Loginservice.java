@@ -48,7 +48,7 @@ public class Loginservice implements Command {
 		} else {
 			System.out.println("===로그인 실패===");
 		}
-		nextpage = "main.html";
+		nextpage = "main.jsp";
 		// response.sendRedirect("goMain");     <- String nextpage 있어서 지움
 		return nextpage;
 		

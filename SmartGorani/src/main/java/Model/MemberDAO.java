@@ -21,7 +21,6 @@ public class MemberDAO {
 		// 1. DB연결
 		// 1-1. class 찾기 : DB와 이클립스를 연결해주는 class
 		try {
-			System.out.println("테스트");
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
 			// 1-2. DB에 접속하기 위한 주소, 아이디, 패스워드 지정

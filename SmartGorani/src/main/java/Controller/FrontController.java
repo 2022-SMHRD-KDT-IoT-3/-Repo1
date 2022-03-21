@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import Inter.Command;
+import Service.Loginservice;
 import Service.RegisterService;
 
 @WebServlet("*.do")
@@ -33,8 +34,8 @@ public class FrontController extends HttpServlet {
 		System.out.println(command);
 
 		if (command.equals("Loginservice.do")) { // 준범
-			// com = new LoginService();
-			// nextpage = com.execute(request, response);
+			 com = new Loginservice();
+			 nextpage = com.execute(request, response);
 		} else if (command.equals("RegisterService.do")) { // 진옥
 			// 회원가입
 			// com = new RegisterService();
