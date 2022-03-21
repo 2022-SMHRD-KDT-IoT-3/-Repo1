@@ -12,7 +12,6 @@ import javax.servlet.http.HttpSession;
 import Inter.Command;
 import Service.RegisterService;
 
-
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
@@ -33,16 +32,26 @@ public class FrontController extends HttpServlet {
 		String command = uri.substring(path.length() + 1);
 		System.out.println(command);
 
-		if (command.equals("Loginservice.do")) {
-			//com = new LoginService();
-			//nextpage = com.execute(request, response);
-		} else if (command.equals("RegisterService.do")) {
+		if (command.equals("Loginservice.do")) { // 준범
+			// com = new LoginService();
+			// nextpage = com.execute(request, response);
+		} else if (command.equals("RegisterService.do")) { // 진옥
 			// 회원가입
-			com = new RegisterService();
-			nextpage = com.execute(request, response);
-		} else if (command.equals("BoardService.do")) {
-			
-		} 
-	}
+			// com = new RegisterService();
+			// nextpage = com.execute(request, response);
+		} else if (command.equals("BoardService.do")) { // 고은
+			// com = new BoardService();
+			// nextpage = com.execute(request, response);
+		} else if (command.equals("SaveIdPwService.do")) { // 비밀번호, 아이디 계속 저장하기
+			// com = new BoardService();
+			// nextpage = com.execute(request, response);
+		} else if (command.equals("ResetPwService.do")) { // 비밀번호 초기화 기능 -> 준호
+			// com = new ResetPwService();
+			// nextpage = com.execute(request, response);
+		} else if (command.equals("IDcheckService.do")) { // 아이디 중복체크
+			// com = new IDcheckService();
+			// nextpage = com.execute(request, response);
+		}
 
+	}
 }
