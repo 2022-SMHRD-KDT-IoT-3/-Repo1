@@ -73,14 +73,14 @@
 
 			<!-- Nav Item - Utilities Collapse Menu -->
 			<li class="nav-item"><a class="nav-link collapsed"
-				href="power_control.html"> <i class="fas fa-fw fa-wrench"></i> <span>전기제어</span>
+				href="power_control.jsp"> <i class="fas fa-fw fa-wrench"></i> <span>전기제어</span>
 			</a></li>
 
 			<!-- Divider -->
 			<hr class="sidebar-divider">
 
 			<!-- Nav Item - Tables -->
-			<li class="nav-item"><a class="nav-link" href="board.html">
+			<li class="nav-item"><a class="nav-link" href="board.jsp">
 					<i class="fas fa-fw fa-table"></i> <span>게시판</span>
 			</a></li>
 
