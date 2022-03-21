@@ -68,7 +68,7 @@ public class WriteBoardService implements Command {
 			e.printStackTrace();
 		}
 
-		return "boardMain.jsp";
+		return "board.jsp";
 		
 	}
 
