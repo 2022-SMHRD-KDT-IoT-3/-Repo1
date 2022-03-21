@@ -35,9 +35,9 @@
 
 <body id="page-top">
 
-	<!-- Start Page Wrapper -->
+	<!-- @ strat : Page Wrapper -->
 	<div id="wrapper">
-		<!-- @ start Sidebar -->
+		<!-- Sidebar -->
 		<ul
 			class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
 			id="accordionSidebar">
@@ -59,7 +59,7 @@
 			</a></li>
 
 			<!-- Divider -->
-			<hr class="sidebar-divider">
+			<hr class="sidebar-divider my-0">
 
 			<!-- Nav Item - Charts -->
 			<li class="nav-item"><a class="nav-link" href="check.html">
@@ -69,23 +69,21 @@
 			<!-- Divider -->
 			<hr class="sidebar-divider my-0">
 
-
-
 			<!-- Nav Item - Utilities Collapse Menu -->
 			<li class="nav-item"><a class="nav-link collapsed"
 				href="power_control.jsp"> <i class="fas fa-fw fa-wrench"></i> <span>전기제어</span>
 			</a></li>
 
 			<!-- Divider -->
-			<hr class="sidebar-divider">
+			<hr class="sidebar-divider my-0">
 
 			<!-- Nav Item - Tables -->
-			<li class="nav-item"><a class="nav-link" href="board.jsp">
-					<i class="fas fa-fw fa-table"></i> <span>게시판</span>
+			<li class="nav-item"><a class="nav-link" href="board.jsp"> <i
+					class="fas fa-fw fa-table"></i> <span>게시판</span>
 			</a></li>
 
 			<!-- Divider -->
-			<hr class="sidebar-divider">
+			<hr class="sidebar-divider my-0">
 
 			<!-- Nav Item - Pages Collapse Menu -->
 			<li class="nav-item"><a class="nav-link collapsed"
@@ -93,28 +91,16 @@
 			</a></li>
 
 			<!-- Divider -->
+			<hr class="sidebar-divider my-0">
+			<!-- @ end -->
+
+			<!-- Divider -->
 			<hr class="sidebar-divider">
-			<!-- @ end Sidebar -->
 
-
-			<div id="collapsePages" class="collapse"
-				aria-labelledby="headingPages" data-parent="#accordionSidebar">
-				<div class="bg-white py-2 collapse-inner rounded">
-					<h6 class="collapse-header">Login Screens:</h6>
-					<a class="collapse-item" href="login.html">Login</a> <a
-						class="collapse-item" href="register.html">Register</a> <a
-						class="collapse-item" href="forgot-password.html">Forgot
-						Password</a>
-					<div class="collapse-divider"></div>
-					<h6 class="collapse-header">Other Pages:</h6>
-					<a class="collapse-item" href="404.html">404 Page</a> <a
-						class="collapse-item" href="blank.html">Blank Page</a>
-				</div>
-			</div>
-			</li>
 		</ul>
-		<!-- End Page Wrapper -->
-
+		<!-- @ end -->
+		
+		
 		<!-- Content Wrapper -->
 		<div id="content-wrapper" class="d-flex flex-column">
 
@@ -133,20 +119,7 @@
 					</button>
 				</form>
 
-				<!-- Topbar Search -->
-				<form
-					class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-					<div class="input-group">
-						<input type="text" class="form-control bg-light border-0 small"
-							placeholder="Search for..." aria-label="Search"
-							aria-describedby="basic-addon2">
-						<div class="input-group-append">
-							<button class="btn btn-primary" type="button">
-								<i class="fas fa-search fa-sm"></i>
-							</button>
-						</div>
-					</div>
-				</form>
+				
 
 				<!-- Topbar Navbar -->
 				<ul class="navbar-nav ml-auto">
@@ -156,23 +129,8 @@
 						class="nav-link dropdown-toggle" href="#" id="searchDropdown"
 						role="button" data-toggle="dropdown" aria-haspopup="true"
 						aria-expanded="false"> <i class="fas fa-search fa-fw"></i>
-					</a> <!-- Dropdown - Messages -->
-						<div
-							class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-							aria-labelledby="searchDropdown">
-							<form class="form-inline mr-auto w-100 navbar-search">
-								<div class="input-group">
-									<input type="text" class="form-control bg-light border-0 small"
-										placeholder="Search for..." aria-label="Search"
-										aria-describedby="basic-addon2">
-									<div class="input-group-append">
-										<button class="btn btn-primary" type="button">
-											<i class="fas fa-search fa-sm"></i>
-										</button>
-									</div>
-								</div>
-							</form>
-						</div></li>
+					</a> 
+						</li>
 
 					<!-- Nav Item - Alerts -->
 					<li class="nav-item dropdown no-arrow mx-1"><a
@@ -221,13 +179,7 @@
 								href="#">Show All Alerts</a>
 						</div></li>
 
-					<!-- Nav Item - Messages -->
-					<li class="nav-item dropdown no-arrow mx-1"><a
-						class="nav-link dropdown-toggle" href="#" id="messagesDropdown"
-						role="button" data-toggle="dropdown" aria-haspopup="true"
-						aria-expanded="false"> <i class="fas fa-envelope fa-fw"></i> <!-- Counter - Messages -->
-							<span class="badge badge-danger badge-counter">7</span>
-					</a> <!-- Dropdown - Messages -->
+					<!-- Dropdown - Messages -->
 						<div
 							class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
 							aria-labelledby="messagesDropdown">
@@ -289,9 +241,7 @@
 						class="nav-link dropdown-toggle" href="#" id="userDropdown"
 						role="button" data-toggle="dropdown" aria-haspopup="true"
 						aria-expanded="false"> <span
-							class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas
-								McGee</span> <img class="img-profile rounded-circle"
-							src="img/undraw_profile.svg">
+							class="mr-2 d-none d-lg-inline text-gray-600 small">user name</span> 
 					</a> <!-- Dropdown - User Information -->
 						<div
 							class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
