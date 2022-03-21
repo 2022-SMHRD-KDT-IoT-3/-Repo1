@@ -409,7 +409,7 @@ p {
 									<h6 class="m-0 font-weight-bold text-primary">전체 전력 제어</h6>
 								</div>
 								<div class="card-body">
-									<div class="p-3 bg-gray-100"><label class="switch"> <input type="checkbox">
+									<div ><label class="switch"> <input type="checkbox">
 										<div class="slider round"></div>
 										<p>OFF</p>
 										<p style="display: none;">ON</p></div>
@@ -424,42 +424,41 @@ p {
 									<h6 class="m-0 font-weight-bold text-primary">포트별 전력 제어</h6>
 								</div>
 								<div class="card-body">
-									<div class="p-3 bg-gray-100">
+									<div >
 										포트 1<label class="switch"> <input type="checkbox">
 											<div class="slider round"></div>
 											<p>OFF</p>
 											<p style="display: none;">ON</p>
 									</div>
-									<div class="p-3 bg-gray-200">포트 2
-									<label class="switch"> <input type="checkbox">
+									<div >포트 2<label class="switch"> <input type="checkbox">
 										<div class="slider round"></div>
 										<p>OFF</p>
 										<p style="display: none;">ON</p></div>
-									<div class="p-3 bg-gray-300">포트 3<label class="switch"> <input type="checkbox">
+									<div >포트 3<label class="switch"> <input type="checkbox">
 										<div class="slider round"></div>
 										<p>OFF</p>
 										<p style="display: none;">ON</p></div>
-									<div class="p-3 bg-gray-400">포트 4<label class="switch"> <input type="checkbox">
+									<div >포트 4<label class="switch"> <input type="checkbox">
 										<div class="slider round"></div>
 										<p>OFF</p>
 										<p style="display: none;">ON</p></div>
-									<div class="p-3 bg-gray-500 text-white">포트 5<label class="switch"> <input type="checkbox">
+									<div >포트 5<label class="switch"> <input type="checkbox">
 										<div class="slider round"></div>
 										<p>OFF</p>
 										<p style="display: none;">ON</p></div>
-									<div class="p-3 bg-gray-600 text-white">포트 6<label class="switch"> <input type="checkbox">
+									<div >포트 6<label class="switch"> <input type="checkbox">
 										<div class="slider round"></div>
 										<p>OFF</p>
 										<p style="display: none;">ON</p></div>
-									<div class="p-3 bg-gray-700 text-white">포트 7<label class="switch"> <input type="checkbox">
+									<div >포트 7<label class="switch"> <input type="checkbox">
 										<div class="slider round"></div>
 										<p>OFF</p>
 										<p style="display: none;">ON</p></div>
-									<div class="p-3 bg-gray-800 text-white">포트 8<label class="switch"> <input type="checkbox">
+									<div >포트 8<label class="switch"> <input type="checkbox">
 										<div class="slider round"></div>
 										<p>OFF</p>
 										<p style="display: none;">ON</p></div>
-									<div class="p-3 bg-gray-900 text-white">포트 9<label class="switch"> <input type="checkbox">
+									<div >포트 9<label class="switch"> <input type="checkbox">
 										<div class="slider round"></div>
 										<p>OFF</p>
 										<p style="display: none;">ON</p></div>
@@ -477,7 +476,7 @@ p {
 									<h6 class="m-0 font-weight-bold text-primary">발전기 전력 제어</h6>
 								</div>
 								<div class="card-body">
-									<div class="p-3 bg-gray-100"><label class="switch"> <input type="checkbox">
+									<div ><label class="switch"> <input type="checkbox">
 										<div class="slider round"></div>
 										<p>OFF</p>
 										<p style="display: none;">ON</p></div>
