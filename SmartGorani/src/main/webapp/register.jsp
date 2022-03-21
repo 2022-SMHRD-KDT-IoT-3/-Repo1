@@ -1,9 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -36,31 +38,29 @@
 					<div class="col-lg-7">
 						<div class="p-5">
 							<div class="text-center">
-								<h1 class="h4 text-gray-900 mb-4">회원가입</h1>
+								<h1 class="h4 text-gray-900 mb-4">회원가입 type 지정해서 넣어야함</h1>
 							</div>
-							<form class="user">
+							<form class="user" action="RegisterService.do" method="post">
 								<div class="form-group">
 									<input type="text" class="form-control form-control-user"
-										id="exampleLastName" placeholder="사용자 이름을 입력하세요.">
+										id="exampleLastName" name="name" placeholder="사용자 이름을 입력하세요.">
 								</div>
 
 								<div class="form-group">
-									<input type="email" class="form-control form-control-user"
-										id="exampleInputEmail" placeholder="아이디를 입력해주세요.">
+									<input type="text" class="form-control form-control-user"
+										id="exampleInputEmail" name="id" placeholder="아이디를 입력해주세요.">
 								</div>
 								<div class="form-group row">
 									<div class="col-sm-6 mb-3 mb-sm-0">
 										<input type="password" class="form-control form-control-user"
-											id="exampleInputPassword" placeholder="비밀번호 입력">
+											id="exampleInputPassword" name="pw" placeholder="비밀번호 입력">
 									</div>
 									<div class="col-sm-6">
 										<input type="password" class="form-control form-control-user"
 											id="exampleRepeatPassword" placeholder="비밀번호 확인">
 									</div>
 								</div>
-								<a href="login.html" class="btn btn-primary btn-user btn-block">
-									회원가입 </a>
-
+								<input type="submit" class="btn btn-primary btn-user btn-block" value="회원가입">
 							</form>
 							<hr>
 							<div class="text-center">
