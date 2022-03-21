@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -141,8 +141,8 @@ p {
 			<hr class="sidebar-divider">
 
 			<!-- Nav Item - Tables -->
-			<li class="nav-item"><a class="nav-link" href="board.jsp">
-					<i class="fas fa-fw fa-table"></i> <span>게시판</span>
+			<li class="nav-item"><a class="nav-link" href="board.jsp"> <i
+					class="fas fa-fw fa-table"></i> <span>게시판</span>
 			</a></li>
 
 			<!-- Divider -->
@@ -173,11 +173,6 @@ p {
 				</div>
 			</div>
 			</li>
-
-
-
-
-
 			<!-- Divider -->
 			<hr class="sidebar-divider d-none d-md-block">
 
@@ -186,22 +181,8 @@ p {
 				<button class="rounded-circle border-0" id="sidebarToggle"></button>
 			</div>
 
-			<!-- Sidebar Message -->
-			<div class="sidebar-card d-none d-lg-flex">
-				<img class="sidebar-card-illustration mb-2"
-					src="img/undraw_rocket.svg" alt="...">
-				<p class="text-center mb-2">
-					<strong>SB Admin Pro</strong> is packed with premium features,
-					components, and more!
-				</p>
-				<a class="btn btn-success btn-sm"
-					href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to
-					Pro!</a>
-			</div>
-
 		</ul>
 		<!-- End of Sidebar -->
-
 
 		<!-- Content Wrapper -->
 		<div id="content-wrapper" class="d-flex flex-column">
@@ -218,8 +199,6 @@ p {
 						class="btn btn-link d-md-none rounded-circle mr-3">
 						<i class="fa fa-bars"></i>
 					</button>
-
-
 
 					<!-- Topbar Navbar -->
 					<ul class="navbar-nav ml-auto">
@@ -394,8 +373,7 @@ p {
 
 					<!-- Page Heading -->
 					<h1 class="h3 mb-1 text-gray-800">전력 제어</h1>
-					<p class="mb-4">
-					</p>
+					<p class="mb-4"></p>
 
 					<!-- Content Row -->
 					<div class="row">
@@ -409,10 +387,12 @@ p {
 									<h6 class="m-0 font-weight-bold text-primary">전체 전력 제어</h6>
 								</div>
 								<div class="card-body">
-									<div ><label class="switch"> <input type="checkbox">
-										<div class="slider round"></div>
-										<p>OFF</p>
-										<p style="display: none;">ON</p></div>
+									<div>
+										<label class="switch"> <input type="checkbox">
+											<div class="slider round"></div>
+											<p>OFF</p>
+											<p style="display: none;">ON</p>
+									</div>
 
 								</div>
 
@@ -424,44 +404,60 @@ p {
 									<h6 class="m-0 font-weight-bold text-primary">포트별 전력 제어</h6>
 								</div>
 								<div class="card-body">
-									<div >
+									<div>
 										포트 1<label class="switch"> <input type="checkbox">
 											<div class="slider round"></div>
 											<p>OFF</p>
 											<p style="display: none;">ON</p>
 									</div>
-									<div >포트 2<label class="switch"> <input type="checkbox">
-										<div class="slider round"></div>
-										<p>OFF</p>
-										<p style="display: none;">ON</p></div>
-									<div >포트 3<label class="switch"> <input type="checkbox">
-										<div class="slider round"></div>
-										<p>OFF</p>
-										<p style="display: none;">ON</p></div>
-									<div >포트 4<label class="switch"> <input type="checkbox">
-										<div class="slider round"></div>
-										<p>OFF</p>
-										<p style="display: none;">ON</p></div>
-									<div >포트 5<label class="switch"> <input type="checkbox">
-										<div class="slider round"></div>
-										<p>OFF</p>
-										<p style="display: none;">ON</p></div>
-									<div >포트 6<label class="switch"> <input type="checkbox">
-										<div class="slider round"></div>
-										<p>OFF</p>
-										<p style="display: none;">ON</p></div>
-									<div >포트 7<label class="switch"> <input type="checkbox">
-										<div class="slider round"></div>
-										<p>OFF</p>
-										<p style="display: none;">ON</p></div>
-									<div >포트 8<label class="switch"> <input type="checkbox">
-										<div class="slider round"></div>
-										<p>OFF</p>
-										<p style="display: none;">ON</p></div>
-									<div >포트 9<label class="switch"> <input type="checkbox">
-										<div class="slider round"></div>
-										<p>OFF</p>
-										<p style="display: none;">ON</p></div>
+									<div>
+										포트 2<label class="switch"> <input type="checkbox">
+											<div class="slider round"></div>
+											<p>OFF</p>
+											<p style="display: none;">ON</p>
+									</div>
+									<div>
+										포트 3<label class="switch"> <input type="checkbox">
+											<div class="slider round"></div>
+											<p>OFF</p>
+											<p style="display: none;">ON</p>
+									</div>
+									<div>
+										포트 4<label class="switch"> <input type="checkbox">
+											<div class="slider round"></div>
+											<p>OFF</p>
+											<p style="display: none;">ON</p>
+									</div>
+									<div>
+										포트 5<label class="switch"> <input type="checkbox">
+											<div class="slider round"></div>
+											<p>OFF</p>
+											<p style="display: none;">ON</p>
+									</div>
+									<div>
+										포트 6<label class="switch"> <input type="checkbox">
+											<div class="slider round"></div>
+											<p>OFF</p>
+											<p style="display: none;">ON</p>
+									</div>
+									<div>
+										포트 7<label class="switch"> <input type="checkbox">
+											<div class="slider round"></div>
+											<p>OFF</p>
+											<p style="display: none;">ON</p>
+									</div>
+									<div>
+										포트 8<label class="switch"> <input type="checkbox">
+											<div class="slider round"></div>
+											<p>OFF</p>
+											<p style="display: none;">ON</p>
+									</div>
+									<div>
+										포트 9<label class="switch"> <input type="checkbox">
+											<div class="slider round"></div>
+											<p>OFF</p>
+											<p style="display: none;">ON</p>
+									</div>
 								</div>
 							</div>
 
@@ -476,10 +472,12 @@ p {
 									<h6 class="m-0 font-weight-bold text-primary">발전기 전력 제어</h6>
 								</div>
 								<div class="card-body">
-									<div ><label class="switch"> <input type="checkbox">
-										<div class="slider round"></div>
-										<p>OFF</p>
-										<p style="display: none;">ON</p></div>
+									<div>
+										<label class="switch"> <input type="checkbox">
+											<div class="slider round"></div>
+											<p>OFF</p>
+											<p style="display: none;">ON</p>
+									</div>
 
 								</div>
 							</div>
