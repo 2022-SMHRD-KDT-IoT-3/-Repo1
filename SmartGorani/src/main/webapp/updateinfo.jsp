@@ -1,3 +1,4 @@
+<%@page import="Model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -21,6 +22,7 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
 	rel="stylesheet">
+
 <!-- Custom styles for this template-->
 <link href="css/sb-admin-2.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/table1.css">
@@ -29,7 +31,9 @@
 </head>
 
 <body id="page-top">
-
+	<%
+	MemberDTO info = (MemberDTO) session.getAttribute("info");
+	%>
 	<!-- @ strat : Page Wrapper -->
 	<div id="wrapper">
 		<!-- Sidebar -->
@@ -82,7 +86,7 @@
 
 			<!-- Nav Item - Pages Collapse Menu -->
 			<li class="nav-item"><a class="nav-link collapsed"
-				href="setting.html"> <i class="fas fa-fw fa-cog"></i> <span>환경설정</span>
+				href="setting.jsp"> <i class="fas fa-fw fa-cog"></i> <span>환경설정</span>
 			</a></li>
 
 			<!-- Divider -->
@@ -270,9 +274,14 @@
 						<li class="nav-item dropdown no-arrow"><a
 							class="nav-link dropdown-toggle" href="#" id="userDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false"> <span
-								class="mr-2 d-none d-lg-inline text-gray-600 small">세션으로
-									사용자 이름 가져오기</span>
+							aria-expanded="false"> <%
+ if (info != null) {
+ %> <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getName()%>
+									<%
+									} else {
+									%> user name <%
+									}
+									%></span>
 						</a> <!-- Dropdown - User Information -->
 							<div
 								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -298,186 +307,156 @@
 
 				<!-- Begin Page Content -->
 				<div class="container-fluid">
-					<!-- @@@@@@ -->
-					<div class="table100 ver1">
-						<div class="table100-firstcol">
-							<table>
-								<thead>
-									<tr class="row100 head">
-										<th class="cell100 column1">Employees</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr class="row100 body">
-										<td class="cell100 column1">Brandon Green</td>
-									</tr>
+					<div
+						class="d-sm-flex align-items-center justify-content-between mb-4">
+						<h1 class="h3 mb-0 text-gray-800">회원정보</h1>
 
-									<tr class="row100 body">
-										<td class="cell100 column1">Kathy Daniels</td>
-									</tr>
-
-									<tr class="row100 body">
-										<td class="cell100 column1">Elizabeth Alvarado</td>
-									</tr>
-
-									<tr class="row100 body">
-										<td class="cell100 column1">Michael Coleman</td>
-									</tr>
-
-									<tr class="row100 body">
-										<td class="cell100 column1">Jason Cox</td>
-									</tr>
-
-									<tr class="row100 body">
-										<td class="cell100 column1">Christian Perkins</td>
-									</tr>
-
-									<tr class="row100 body">
-										<td class="cell100 column1">Emily Wheeler</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-
-						<div class="wrap-table100-nextcols js-pscroll">
-							<div class="table100-nextcols">
-								<table>
-									<thead>
-										<tr class="row100 head">
-											<th class="cell100 column2">Position</th>
-											<th class="cell100 column3">Start date</th>
-											<th class="cell100 column4">Last Activity</th>
-											<th class="cell100 column5">Contacts</th>
-											<th class="cell100 column6">Age</th>
-											<th class="cell100 column7">Address</th>
-											<th class="cell100 column8">Card No</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr class="row100 body">
-											<td class="cell100 column2">CMO</td>
-											<td class="cell100 column3">16 Nov 2012</td>
-											<td class="cell100 column4">16 Nov 2017</td>
-											<td class="cell100 column5">brandon94@example.com</td>
-											<td class="cell100 column6">30</td>
-											<td class="cell100 column7">New York City, NY</td>
-											<td class="cell100 column8">424242xxxxxx6262</td>
-										</tr>
-
-										<tr class="row100 body">
-											<td class="cell100 column2">Marketing</td>
-											<td class="cell100 column3">16 Nov 2015</td>
-											<td class="cell100 column4">30 Nov 2017</td>
-											<td class="cell100 column5">kathy_82@example.com</td>
-											<td class="cell100 column6">26</td>
-											<td class="cell100 column7">New York City, NY</td>
-											<td class="cell100 column8">424242xxxxxx1616</td>
-										</tr>
-
-										<tr class="row100 body">
-											<td class="cell100 column2">CFO</td>
-											<td class="cell100 column3">16 Nov 2013</td>
-											<td class="cell100 column4">30 Nov 2017</td>
-											<td class="cell100 column5">elizabeth82@example.com</td>
-											<td class="cell100 column6">32</td>
-											<td class="cell100 column7">New York City, NY</td>
-											<td class="cell100 column8">424242xxxxxx5326</td>
-										</tr>
-
-										<tr class="row100 body">
-											<td class="cell100 column2">Designer</td>
-											<td class="cell100 column3">16 Nov 2013</td>
-											<td class="cell100 column4">30 Nov 2017</td>
-											<td class="cell100 column5">michael94@example.com</td>
-											<td class="cell100 column6">22</td>
-											<td class="cell100 column7">New York City, NY</td>
-											<td class="cell100 column8">424242xxxxxx6328</td>
-										</tr>
-
-										<tr class="row100 body">
-											<td class="cell100 column2">Developer</td>
-											<td class="cell100 column3">16 Nov 2017</td>
-											<td class="cell100 column4">30 Nov 2017</td>
-											<td class="cell100 column5">jasoncox@example.com</td>
-											<td class="cell100 column6">25</td>
-											<td class="cell100 column7">New York City, NY</td>
-											<td class="cell100 column8">424242xxxxxx7648</td>
-										</tr>
-
-										<tr class="row100 body">
-											<td class="cell100 column2">Sale</td>
-											<td class="cell100 column3">16 Nov 2016</td>
-											<td class="cell100 column4">30 Nov 2017</td>
-											<td class="cell100 column5">christian_83@example.com</td>
-											<td class="cell100 column6">28</td>
-											<td class="cell100 column7">New York City, NY</td>
-											<td class="cell100 column8">424242xxxxxx4152</td>
-										</tr>
-
-										<tr class="row100 body">
-											<td class="cell100 column2">Support</td>
-											<td class="cell100 column3">16 Nov 2013</td>
-											<td class="cell100 column4">30 Nov 2017</td>
-											<td class="cell100 column5">emily90@example.com</td>
-											<td class="cell100 column6">24</td>
-											<td class="cell100 column7">New York City, NY</td>
-											<td class="cell100 column8">424242xxxxxx6668</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-						<!-- @@@@@@ -->
 					</div>
-					<!-- End of Content Wrapper -->
-				</div>
-				<!-- End of Page Wrapper -->
+					<div class="">
+						<div class="wrap-table100">
+							<div class="table100 ver1">
+								<div class="table100-firstcol">
+									<table>
+										<tbody>
+											<tr class="row100 body">
+												<td class="cell100 column1">
+													<p class="form-control border-0 small">사용자 이름</p>
+												</td>
+											</tr>
+											<tr class="row100 body">
+												<td class="cell100 column1">
+													<p class="form-control border-0 small">사용자 아이디</p>
+												</td>
+											</tr>
+											<tr class="row100 body">
+												<td class="cell100 column1">
+													<p class="form-control border-0 small">사용자 비밀번호</p>
+												</td>
+											</tr>
+											<tr class="row100 body">
+												<td class="cell100 column1">
+													<p class="form-control border-0 small">사용자 타입</p>
+												</td>
+											</tr>
 
-				<!-- Scroll to Top Button-->
-				<a class="scroll-to-top rounded" href="#page-top"> <i
-					class="fas fa-angle-up"></i>
-				</a>
+											<tr class="row100 body">
+												<td class="cell100 column1">
+													<p class="form-control border-0 small">가입일</p>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
 
-				<!-- Logout Modal-->
-				<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
-					aria-labelledby="exampleModalLabel" aria-hidden="true">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title" id="exampleModalLabel">Ready to
-									Leave?</h5>
-								<button class="close" type="button" data-dismiss="modal"
-									aria-label="Close">
-									<span aria-hidden="true">×</span>
-								</button>
-							</div>
-							<div class="modal-body">Select "Logout" below if you are
-								ready to end your current session.</div>
-							<div class="modal-footer">
-								<button class="btn btn-secondary" type="button"
-									data-dismiss="modal">Cancel</button>
-								<a class="btn btn-primary" href="login.html">Logout</a>
+								<div class="wrap-table100-nextcols js-pscroll">
+									<div class="table100-nextcols">
+										<table>
+
+											<tbody>
+												<tr class="row100 body">
+													<td class="cell100 column1"><input
+														class="form-control bg-light border-0 small"
+														value="name test"></td>
+												</tr>
+												<tr class="row100 body">
+													<td class="cell100 column1"><input
+														class="form-control bg-light border-0 small"
+														value="id test"></td>
+												</tr>
+												<tr class="row100 body">
+													<td class="cell100 column1">
+													<input
+														class="form-control bg-light border-0 small"
+														value="pw test"></td>
+												</tr>
+												<tr class="row100 body">
+													<td class="cell100 column1">
+													<input
+														class="form-control bg-light border-0 small"
+														value="type test"></td>
+												</tr>
+												<tr class="row100 body">
+													<td class="cell100 column1">
+													<input
+														class="form-control bg-light border-0 small"
+														value="reg_date test"></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
+					<br> <a href="#"
+						class="d-none d-sm-block btn btn-sm btn-primary shadow-sm"><i
+						class="fa-sm text-white-50"></i> 수정하기 </a>
 				</div>
+				<!-- /.container-fluid -->
 
-				<!-- Bootstrap core JavaScript-->
-				<script src="vendor/jquery/jquery.min.js"></script>
-				<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+			</div>
+			<!-- End of Main Content -->
 
-				<!-- Core plugin JavaScript-->
-				<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+			<!-- Footer -->
+			<footer class="sticky-footer bg-white">
+				<div class="container my-auto">
+					<div class="copyright text-center my-auto">
+						<span>Copyright &copy; Your Website 2021</span>
+					</div>
+				</div>
+			</footer>
+			<!-- End of Footer -->
 
-				<!-- Custom scripts for all pages-->
-				<script src="js/sb-admin-2.min.js"></script>
+		</div>
+		<!-- End of Content Wrapper -->
 
-				<!-- Page level plugins -->
-				<script src="vendor/chart.js/Chart.min.js"></script>
+	</div>
+	<!-- End of Page Wrapper -->
 
-				<!-- Page level custom scripts -->
-				<script src="js/demo/chart-area-demo.js"></script>
-				<script src="js/demo/chart-pie-demo.js"></script>
+	<!-- Scroll to Top Button-->
+	<a class="scroll-to-top rounded" href="#page-top"> <i
+		class="fas fa-angle-up"></i>
+	</a>
+
+	<!-- Logout Modal-->
+	<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+					<button class="close" type="button" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="modal-body">Select "Logout" below if you are ready
+					to end your current session.</div>
+				<div class="modal-footer">
+					<button class="btn btn-secondary" type="button"
+						data-dismiss="modal">Cancel</button>
+					<a class="btn btn-primary" href="login.html">Logout</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Bootstrap core JavaScript-->
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Core plugin JavaScript-->
+	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+	<!-- Custom scripts for all pages-->
+	<script src="js/sb-admin-2.min.js"></script>
+
+	<!-- Page level plugins -->
+	<script src="vendor/chart.js/Chart.min.js"></script>
+
+	<!-- Page level custom scripts -->
+	<script src="js/demo/chart-area-demo.js"></script>
+	<script src="js/demo/chart-pie-demo.js"></script>
 </body>
 
 </html>

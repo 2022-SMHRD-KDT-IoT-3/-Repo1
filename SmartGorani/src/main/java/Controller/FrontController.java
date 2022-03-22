@@ -68,7 +68,7 @@ public class FrontController extends HttpServlet {
 			com = new UpdateInfoService();
 			nextpage = com.execute(request, response);
 
-		} else if (command.equals("CheckTotalPowerService.do")) { // 전체전력조회
+		} else if (command.equals("CheckTotalPowerService.do")) { // 전체전력조회 -> 준범
 			com = new CheckTotalPowerService();
 			nextpage = com.execute(request, response);
 
