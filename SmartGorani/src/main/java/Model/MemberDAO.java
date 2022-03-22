@@ -151,5 +151,25 @@ public class MemberDAO {
 		}
 		return cnt;
 	}
+	
+	//회원정보 수정 메소드
+	public int update(MemberDTO dto) {
+		dbconn();
+		try {					
+			String sql = "update tbl_member set mb_pw = ?, mb_name = ?, mb_type = ? where mb_id = ?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getPw());
+			psmt.setString(2, dto.getName());
+			psmt.setString(3, dto.getType());
+			psmt.setString(4, dto.getId());
+			cnt = psmt.executeUpdate();
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			dbclose();
+			return cnt;
+		}
+	}
 
 }
