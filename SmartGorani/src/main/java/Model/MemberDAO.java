@@ -87,7 +87,7 @@ public class MemberDAO {
 		boolean result = false;
 		try {
 			dbconn();
-			String sql = "select mb_id from tbl_member where id = ?";
+			String sql = "select mb_id from tbl_member where mb_id = ?";
 
 			psmt = conn.prepareStatement(sql);
 
