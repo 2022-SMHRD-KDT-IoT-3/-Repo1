@@ -49,6 +49,15 @@
 								<div class="form-group">
 									<input type="text" class="form-control form-control-user"
 										id="exampleInputEmail" name="id" placeholder="아이디를 입력해주세요.">
+									<div class="my-2"></div>
+									<a href="#" class="btn btn-success btn-icon-split" id="idcheck_btn">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-check"></i>
+                                        </span>
+                                        <span class="text"> 아이디 중복체크</span>
+                                    </a>
+                                    <p id="idcheck"></p>
+                                    <div class="my-2"></div>
 								</div>
 								<div class="form-group row">
 									<div class="col-sm-6 mb-3 mb-sm-0">
@@ -76,6 +85,39 @@
 		</div>
 
 	</div>
+	
+	<!-- 스크립트 파일 작성 -->
+	<script type="text/javascript">
+		// 0. 아이디 중복체크 버튼을 클릭했을 때
+		$('#idcheck_btn').on('click', function() {
+			// 1. 입력한 email 가져오기
+			let id = $('input[name=id]').val()
+			console.log(id)
+
+			// 2. ajax로 email 보내기 (IdCheckServiceCon)
+			$.ajax({
+				url : 'IDcheckService.do', /* 어디로 보낼지*/
+				data : { /* 입력한 email data 보내기*/
+					email : email
+				},
+				dataType : "text", /* 중복체크 결과값 text로 받아오기*/
+				success : function(result) {
+					alert('성공')
+					if (result == 'false') {
+						// 중복 x
+						$('#idcheck').html('중복되는 아이디가 없습니다.')
+					} else {
+						// 중복 O
+						$('#idcheck').html('아이디가 중복됩니다.')
+					}
+				},
+				error : function() {
+					alert('실패')
+				}
+			})
+
+		})
+	</script>
 
 	<!-- Bootstrap core JavaScript-->
 	<script src="vendor/jquery/jquery.min.js"></script>

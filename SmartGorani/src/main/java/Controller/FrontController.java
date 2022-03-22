@@ -32,15 +32,15 @@ public class FrontController extends HttpServlet {
 		String command = uri.substring(path.length() + 1);
 		System.out.println(command);
 
-		if (command.equals("Loginservice.do")) { // 준범
+		if (command.equals("Loginservice.do")) { // 로그인 -> 준범
 			// com = new LoginService();
 			// nextpage = com.execute(request, response);
-		} else if (command.equals("RegisterService.do")) { // 진옥
+		} else if (command.equals("RegisterService.do")) { // 회원가입 -> 진옥
 			// 회원가입
 			// com = new RegisterService();
 			// nextpage = com.execute(request, response);
-		} else if (command.equals("BoardService.do")) { // 고은
-			// com = new BoardService();
+		} else if (command.equals("WriteBoardService.do")) { // 게시판 -> 고은
+			// com = new WriteBoardService();
 			// nextpage = com.execute(request, response);
 		} else if (command.equals("SaveIdPwService.do")) { // 비밀번호, 아이디 계속 저장하기
 			// com = new BoardService();
@@ -48,7 +48,7 @@ public class FrontController extends HttpServlet {
 		} else if (command.equals("ResetPwService.do")) { // 비밀번호 초기화 기능 -> 준호
 			// com = new ResetPwService();
 			// nextpage = com.execute(request, response);
-		} else if (command.equals("IDcheckService.do")) { // 아이디 중복체크
+		} else if (command.equals("IDcheckService.do")) { // 아이디 중복체크 -> 진옥
 			// com = new IDcheckService();
 			// nextpage = com.execute(request, response);
 		}

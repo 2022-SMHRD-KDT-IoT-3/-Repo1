@@ -81,7 +81,31 @@ public class MemberDAO {
 			dbclose();
 		}
 		return cnt;
+	}
 
+	// 아이디 중복체크 메소드
+	public boolean idCheck(String id) {
+		boolean result = false;
+		try {
+			dbconn();
+			String sql = "select email from tbl_member where id = ?";
+
+			psmt = conn.prepareStatement(sql);
+
+			psmt.setString(1, id);
+			rs = psmt.executeQuery();
+
+			if (rs.next()) {
+				result = true;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			dbclose();
+
+		}
+		return result;
 	}
 
 }
