@@ -42,18 +42,21 @@ public class Loginservice implements Command {
 		// 3-3. 데이터 DTO로 묶기
 		MemberDTO dto = new MemberDAO().login(id, pw);
 
-		
-		if (dto != null) {
+		if (dto.getId().equals("admin")) {
+			nextpage="admin_member.jsp";
+		} else if (dto != null) {
 			System.out.println("===로그인 성공===");
 			System.out.println(dto.getId());
 			// 세션을 써야 정보가 유지되며 넘어간다     Redirect 
 			HttpSession session =request.getSession();
 			session.setAttribute("info", dto);
+			nextpage = "main.jsp";
 		} else {
 			System.out.println(dto);
 			System.out.println("===로그인 실패===");
+			nextpage = "login.html";
 		}
-		nextpage = "main.jsp";
+		
 		return nextpage;
 		
 	}

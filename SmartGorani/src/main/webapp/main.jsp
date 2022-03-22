@@ -32,6 +32,7 @@
 <%
 MemberDTO info = (MemberDTO)session.getAttribute("info");
 
+
 %>
 	<!-- @ strat : Page Wrapper -->
 	<div id="wrapper">
@@ -283,15 +284,22 @@ MemberDTO info = (MemberDTO)session.getAttribute("info");
 								aria-labelledby="userDropdown">
 								<a class="dropdown-item" href="updateinfo.jsp"> <i
 									class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
-								</a> <a class="dropdown-item" href="#"> <i
+								</a> <a class="dropdown-item" href="admin_member.jsp"> <i
 									class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-									Activity Log
+									Admin page
 								</a>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="#" data-toggle="modal"
-									data-target="#logoutModal"> <i
+									data-target="#logoutModal"> 
+									<%if(info!=null){ %>
+									<i
 									class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
 									Logout
+									<%} else {%>
+									<i
+									class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+									Login
+									<%} %>
 								</a>
 							</div></li>
 

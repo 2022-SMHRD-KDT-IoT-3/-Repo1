@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class MemberDAO {
 	// 메서드를 함 만드러바?
@@ -133,7 +134,7 @@ public class MemberDAO {
 		}
 		return dto;
 	}
-	
+
 	// 비밀번호 초기화
 	public int Resetpw(String id) {
 		dbconn();
@@ -151,11 +152,11 @@ public class MemberDAO {
 		}
 		return cnt;
 	}
-	
-	//회원정보 수정 메소드
+
+	// 회원정보 수정 메소드
 	public int update(MemberDTO dto) {
 		dbconn();
-		try {					
+		try {
 			String sql = "update tbl_member set mb_pw = ?, mb_name = ?, mb_type = ? where mb_id = ?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getPw());
@@ -163,13 +164,40 @@ public class MemberDAO {
 			psmt.setString(3, dto.getType());
 			psmt.setString(4, dto.getId());
 			cnt = psmt.executeUpdate();
-		}
-		catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			dbclose();
 			return cnt;
 		}
+	}
+
+	public ArrayList<MemberDTO> selectAll() {
+		ArrayList<MemberDTO> list = new ArrayList<MemberDTO>();
+
+		dbconn();
+		try {
+			String sql = "select * from tbl_member";
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				String id = rs.getString(1);
+				String pw = rs.getString(2);
+				String name = rs.getString(3);
+				String type = rs.getString(4);
+				String reg_date = rs.getString(5);
+				MemberDTO dto = new MemberDTO(id, pw, name, type, reg_date);
+				list.add(dto);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			dbclose();
+		}
+
+		return list;
+
 	}
 
 }
