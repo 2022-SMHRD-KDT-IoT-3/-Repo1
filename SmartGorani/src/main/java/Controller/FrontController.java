@@ -14,6 +14,7 @@ import Service.IDcheckService;
 import Service.Loginservice;
 import Service.RegisterService;
 import Service.ResetPwService;
+import Service.UpdateInfoService;
 import Service.WriteBoardService;
 
 @WebServlet("*.do")
@@ -36,6 +37,10 @@ public class FrontController extends HttpServlet {
 		String command = uri.substring(path.length() + 1);
 		System.out.println(command);
 
+		// back
+		// 테이블dto 생성 -> 준범
+		
+		// 기능정의
 		if (command.equals("Loginservice.do")) { // 로그인 -> 준범 O
 			com = new Loginservice();
 			nextpage = com.execute(request, response);
@@ -48,15 +53,15 @@ public class FrontController extends HttpServlet {
 		} else if (command.equals("SaveIdPwService.do")) { // 비밀번호, 아이디 계속 저장하기
 			// com = new BoardService();
 			// nextpage = com.execute(request, response);
-		} else if (command.equals("ResetPwService.do")) { // 비밀번호 초기화 기능 -> 준호 세모
+		} else if (command.equals("ResetPwService.do")) { // 비밀번호 초기화 기능 -> 준호 O
 			com = new ResetPwService();
 			nextpage = com.execute(request, response);
-		} else if (command.equals("IDcheckService.do")) { // 아이디 중복체크 -> 진옥
+		} else if (command.equals("IDcheckService.do")) { // 아이디 중복체크 -> 진옥 세모 -> 다 중복없음으로 나옴 이거 이슈 해결해야함 도와주세요오오
 			com = new IDcheckService();
 			nextpage = com.execute(request, response);
-		} else if (command.equals("UpdateInfoService.do")) { // 회원 정보 수정 -> 준범
-			// com = new UpdateInfoService();
-			// nextpage = com.execute(request, response);
+		} else if (command.equals("UpdateInfoService.do")) { // 회원 정보 수정 -> 진옥
+			 com = new UpdateInfoService();
+			 nextpage = com.execute(request, response);
 		}
 		if(nextpage!=null) {
 			response.sendRedirect(nextpage);
