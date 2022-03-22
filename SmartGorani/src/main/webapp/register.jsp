@@ -56,6 +56,7 @@
                                         </span>
                                         <span class="text"> 아이디 중복체크</span>
                                     </a>
+                                    <!-- 중복여부 알려주는 곳 -->
                                     <p id="idcheck"></p>
                                     <div class="my-2"></div>
 								</div>
@@ -90,15 +91,15 @@
 	<script type="text/javascript">
 		// 0. 아이디 중복체크 버튼을 클릭했을 때
 		$('#idcheck_btn').on('click', function() {
-			// 1. 입력한 email 가져오기
+			// 1. 입력한 id 가져오기
 			let id = $('input[name=id]').val()
 			console.log(id)
 
-			// 2. ajax로 email 보내기 (IdCheckServiceCon)
+			// 2. ajax로 id 보내기 (IdCheckServiceCon)
 			$.ajax({
 				url : 'IDcheckService.do', /* 어디로 보낼지*/
 				data : { /* 입력한 email data 보내기*/
-					email : email
+					id : id
 				},
 				dataType : "text", /* 중복체크 결과값 text로 받아오기*/
 				success : function(result) {

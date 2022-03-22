@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import Inter.Command;
+import Service.IDcheckService;
 import Service.Loginservice;
 import Service.RegisterService;
 
@@ -50,8 +51,8 @@ public class FrontController extends HttpServlet {
 			// com = new ResetPwService();
 			// nextpage = com.execute(request, response);
 		} else if (command.equals("IDcheckService.do")) { // 아이디 중복체크 -> 진옥
-			// com = new IDcheckService();
-			// nextpage = com.execute(request, response);
+			com = new IDcheckService();
+			nextpage = com.execute(request, response);
 		} else if (command.equals("UpdateInfoService.do")) { // 회원 정보 수정 -> 준범
 			// com = new UpdateInfoService();
 			// nextpage = com.execute(request, response);

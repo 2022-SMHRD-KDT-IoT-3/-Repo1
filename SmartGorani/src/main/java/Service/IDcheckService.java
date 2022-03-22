@@ -18,7 +18,7 @@ public class IDcheckService implements Command {
 		// 1. post방식 인코딩
 		request.setCharacterEncoding("UTF-8");
 
-		System.out.println("[IdCheckService]");
+		System.out.println("IDCheckService");
 
 		// 아이디 중복체크 버튼을 눌렀을 때 ajax로 보낸 email 값 받아오기
 		String id = request.getParameter("id");
