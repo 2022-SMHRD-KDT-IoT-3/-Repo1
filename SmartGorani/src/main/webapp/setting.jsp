@@ -5,9 +5,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<head>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -86,7 +83,7 @@ MemberDTO info = (MemberDTO)session.getAttribute("info");
 
 			<!-- Nav Item - Pages Collapse Menu -->
 			<li class="nav-item"><a class="nav-link collapsed"
-				href="setting.html"> <i class="fas fa-fw fa-cog"></i> <span>환경설정</span>
+				href="setting.jsp"> <i class="fas fa-fw fa-cog"></i> <span>환경설정</span>
 			</a></li>
 
 			<!-- Divider -->
