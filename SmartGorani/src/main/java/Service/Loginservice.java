@@ -46,7 +46,7 @@ public class Loginservice implements Command {
 		if (dto != null) {
 			System.out.println("===로그인 성공===");
 			System.out.println(dto.getId());
-			// 세션을 써야 정보가 유지되며 넘어간다     Rediredct 
+			// 세션을 써야 정보가 유지되며 넘어간다     Redirect 
 			HttpSession session =request.getSession();
 			session.setAttribute("info", dto);
 		} else {
@@ -54,7 +54,6 @@ public class Loginservice implements Command {
 			System.out.println("===로그인 실패===");
 		}
 		nextpage = "main.jsp";
-		// response.sendRedirect("goMain");     <- String nextpage 있어서 지움
 		return nextpage;
 		
 	}

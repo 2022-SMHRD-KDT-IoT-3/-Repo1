@@ -87,7 +87,7 @@ public class MemberDAO {
 		boolean result = false;
 		try {
 			dbconn();
-			String sql = "select email from tbl_member where id = ?";
+			String sql = "select mb_id from tbl_member where id = ?";
 
 			psmt = conn.prepareStatement(sql);
 
@@ -106,30 +106,50 @@ public class MemberDAO {
 		}
 		return result;
 	}
-	
-		public MemberDTO login(String id, String pw) {
-			dbconn();
-			try {
-				String sql = "select * from tbl_member where mb_id = ? and mb_pw = ? ";
-				psmt =conn.prepareStatement(sql);
-				psmt.setString(1, id);
-				psmt.setString(2, pw);
-				rs = psmt.executeQuery();  
-				
-				if(rs.next()) {
-					id= rs.getString(1);
-					pw = rs.getString(2);
-					String name = rs.getString(3);
-					String type =rs.getString(4);
-					String reg_date = rs.getString(5);
-					// 실행결과
-					 dto = new MemberDTO(id, pw, name, type, reg_date);
-					}
-			} catch (Exception e) {
-				e.printStackTrace();
-			}finally {
-				dbclose();
-			}return dto;
+
+	// 로그인 메소드
+	public MemberDTO login(String id, String pw) {
+		dbconn();
+		try {
+			String sql = "select * from tbl_member where mb_id = ? and mb_pw = ? ";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			psmt.setString(2, pw);
+			rs = psmt.executeQuery();
+
+			if (rs.next()) {
+				id = rs.getString(1);
+				pw = rs.getString(2);
+				String name = rs.getString(3);
+				String type = rs.getString(4);
+				String reg_date = rs.getString(5);
+				// 실행결과
+				dto = new MemberDTO(id, pw, name, type, reg_date);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			dbclose();
 		}
+		return dto;
+	}
+	
+	// 비밀번호 초기화
+	public int Resetpw(String id) {
+		dbconn();
+		try {
+
+			String sql = "update tbl_member set pw=0000 where id=?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+
+			cnt = psmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			dbclose();
+		}
+		return cnt;
+	}
 
 }
