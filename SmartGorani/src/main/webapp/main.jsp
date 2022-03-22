@@ -284,7 +284,7 @@ MemberDTO info = (MemberDTO)session.getAttribute("info");
 								aria-labelledby="userDropdown">
 								<a class="dropdown-item" href="updateinfo.jsp"> <i
 									class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
-								</a> <a class="dropdown-item" href="#"> <i
+								</a> <a class="dropdown-item" href="admin_member.jsp"> <i
 									class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
 									Admin page
 								</a>

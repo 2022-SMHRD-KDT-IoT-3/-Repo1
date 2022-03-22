@@ -33,8 +33,13 @@
 <body id="page-top">
 	<%
 	MemberDTO info = (MemberDTO) session.getAttribute("info");
-	ArrayList<MemberDTO> list = new MemberDAO().selectAll();
+		ArrayList<MemberDTO> list = new MemberDAO().selectAll(); 
+	
 	%>
+		
+		
+	
+	
 	<!-- @ strat : Page Wrapper -->
 	<div id="wrapper">
 		<!-- Sidebar -->
@@ -383,6 +388,8 @@
 			</div>
 		</div>
 	</div>
+
+
 
 	<!-- Bootstrap core JavaScript-->
 	<script src="vendor/jquery/jquery.min.js"></script>

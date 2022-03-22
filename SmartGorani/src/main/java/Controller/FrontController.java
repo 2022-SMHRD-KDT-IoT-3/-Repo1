@@ -44,7 +44,7 @@ public class FrontController extends HttpServlet {
 		// 테이블dto 생성 -> 준범
 
 		// 기능정의
-		if (command.equals("Loginservice.do")) { // 로그인 -> 준범 O
+		if (command.equals("Loginservice.do")) { // 로그인 admin 분리 완 -> 준범 O
 			com = new Loginservice();
 			nextpage = com.execute(request, response);
 		} else if (command.equals("RegisterService.do")) { // 회원가입 -> 진옥 O
@@ -78,11 +78,9 @@ public class FrontController extends HttpServlet {
 		} else if (command.equals("PowerControlService.do")) { // 전력 on/off 제어
 			com = new PowerControlService();
 			nextpage = com.execute(request, response);
-		}
-
+		} 
 		if (nextpage != null) {
 			response.sendRedirect(nextpage);
 		}
-
 	}
 }
