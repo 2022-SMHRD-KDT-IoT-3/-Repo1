@@ -1,10 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-
-
-
 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,11 +13,6 @@
 <meta name="author" content="">
 
 <title>SB Admin 2 - Dashboard</title>
-
-
-
-
-
 
 
 <!-- Custom fonts for this template-->
@@ -62,8 +56,8 @@
 			<hr class="sidebar-divider my-0">
 
 			<!-- Nav Item - Charts -->
-			<li class="nav-item"><a class="nav-link" href="check.jsp">
-					<i class="fas fa-fw fa-chart-area"></i> <span>조회</span>
+			<li class="nav-item"><a class="nav-link" href="check.jsp"> <i
+					class="fas fa-fw fa-chart-area"></i> <span>조회</span>
 			</a></li>
 
 			<!-- Divider -->
@@ -101,21 +95,21 @@
 		<!-- @ end -->
 
 
-			<div id="collapsePages" class="collapse"
-				aria-labelledby="headingPages" data-parent="#accordionSidebar">
-				<div class="bg-white py-2 collapse-inner rounded">
-					<h6 class="collapse-header">Login Screens:</h6>
-					<a class="collapse-item" href="login.html">Login</a> <a
-						class="collapse-item" href="register.html">Register</a> <a
-						class="collapse-item" href="forgot-password.html">Forgot
-						Password</a>
-					<div class="collapse-divider"></div>
-					<h6 class="collapse-header">Other Pages:</h6>
-					<a class="collapse-item" href="404.html">404 Page</a> <a
-						class="collapse-item" href="blank.html">Blank Page</a>
-				</div>
+		<div id="collapsePages" class="collapse"
+			aria-labelledby="headingPages" data-parent="#accordionSidebar">
+			<div class="bg-white py-2 collapse-inner rounded">
+				<h6 class="collapse-header">Login Screens:</h6>
+				<a class="collapse-item" href="login.html">Login</a> <a
+					class="collapse-item" href="register.html">Register</a> <a
+					class="collapse-item" href="forgot-password.html">Forgot
+					Password</a>
+				<div class="collapse-divider"></div>
+				<h6 class="collapse-header">Other Pages:</h6>
+				<a class="collapse-item" href="404.html">404 Page</a> <a
+					class="collapse-item" href="blank.html">Blank Page</a>
 			</div>
-			</li>
+		</div>
+		</li>
 		</ul>
 		<!-- End of Sidebar -->
 
