@@ -58,6 +58,9 @@ public class FrontController extends HttpServlet {
 			// com = new UpdateInfoService();
 			// nextpage = com.execute(request, response);
 		}
+		if(nextpage!=null) {
+			response.sendRedirect(nextpage);
+		}
 
 	}
 }

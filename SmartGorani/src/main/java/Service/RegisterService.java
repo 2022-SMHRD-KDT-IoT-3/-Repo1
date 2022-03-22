@@ -32,15 +32,15 @@ public class RegisterService implements Command {
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
 		String name = request.getParameter("name");
-		String type = request.getParameter("type");
-		String reg_date = request.getParameter("reg_date");
+		// String type = request.getParameter("type");
+		// String reg_date = request.getParameter("reg_date");
 
 		System.out.println("id : " + id);
 		System.out.println("pw : " + pw);
 
 
 		// 3-3. 데이터 DTO로 묶기
-		MemberDTO dto = new MemberDTO(id, pw, name, type, reg_date);
+		MemberDTO dto = new MemberDTO(id, pw, name, "test", "test");
 
 		// 3-4. DB연결할 DAO 호출 및 join메소드 실행
 		MemberDAO dao = new MemberDAO();
