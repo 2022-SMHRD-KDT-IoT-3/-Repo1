@@ -54,7 +54,7 @@ public class RegisterService implements Command {
 			System.out.println("-- 회원가입 성공");
 			// id session
 			session.setAttribute("id", id);
-			nextpage = "main.html";
+			nextpage = "login.html";
 		} else {
 			System.out.println("-- 회원가입 실패");
 			nextpage = "login.html";

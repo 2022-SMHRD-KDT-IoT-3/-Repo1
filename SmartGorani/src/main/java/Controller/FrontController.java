@@ -13,6 +13,8 @@ import Inter.Command;
 import Service.IDcheckService;
 import Service.Loginservice;
 import Service.RegisterService;
+import Service.ResetPwService;
+import Service.WriteBoardService;
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -35,21 +37,20 @@ public class FrontController extends HttpServlet {
 		System.out.println(command);
 
 		if (command.equals("Loginservice.do")) { // 로그인 -> 준범 O
-			// com = new LoginService();
-			// nextpage = com.execute(request, response);
+			com = new Loginservice();
+			nextpage = com.execute(request, response);
 		} else if (command.equals("RegisterService.do")) { // 회원가입 -> 진옥 O
-			// 회원가입
-			// com = new RegisterService();
-			// nextpage = com.execute(request, response);
-		} else if (command.equals("WriteBoardService.do")) { // 게시판 -> 고은 O 
-			// com = new WriteBoardService();
-			// nextpage = com.execute(request, response);
+			com = new RegisterService();
+			nextpage = com.execute(request, response);
+		} else if (command.equals("WriteBoardService.do")) { // 게시판 -> 고은 O
+			com = new WriteBoardService();
+			nextpage = com.execute(request, response);
 		} else if (command.equals("SaveIdPwService.do")) { // 비밀번호, 아이디 계속 저장하기
 			// com = new BoardService();
 			// nextpage = com.execute(request, response);
 		} else if (command.equals("ResetPwService.do")) { // 비밀번호 초기화 기능 -> 준호 세모
-			// com = new ResetPwService();
-			// nextpage = com.execute(request, response);
+			com = new ResetPwService();
+			nextpage = com.execute(request, response);
 		} else if (command.equals("IDcheckService.do")) { // 아이디 중복체크 -> 진옥
 			com = new IDcheckService();
 			nextpage = com.execute(request, response);

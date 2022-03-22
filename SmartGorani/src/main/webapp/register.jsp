@@ -12,6 +12,8 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <title>SG - Register</title>
 
 <!-- Custom fonts for this template-->
@@ -103,7 +105,6 @@
 				},
 				dataType : "text", /* 중복체크 결과값 text로 받아오기*/
 				success : function(result) {
-					alert('성공')
 					if (result == 'false') {
 						// 중복 x
 						$('#idcheck').html('중복되는 아이디가 없습니다.')
@@ -113,7 +114,6 @@
 					}
 				},
 				error : function() {
-					alert('실패')
 				}
 			})
 
