@@ -21,7 +21,6 @@ public class MemberDAO {
 		// 1. DB연결
 		// 1-1. class 찾기 : DB와 이클립스를 연결해주는 class
 		try {
-			System.out.println("테스트");
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
 			// 1-2. DB에 접속하기 위한 주소, 아이디, 패스워드 지정
@@ -107,5 +106,30 @@ public class MemberDAO {
 		}
 		return result;
 	}
+	
+		public MemberDTO login(String id, String pw) {
+			dbconn();
+			try {
+				String sql = "select * from tbl_member where mb_id = ? and mb_pw = ? ";
+				psmt =conn.prepareStatement(sql);
+				psmt.setString(1, id);
+				psmt.setString(2, pw);
+				rs = psmt.executeQuery();  
+				
+				if(rs.next()) {
+					id= rs.getString(1);
+					pw = rs.getString(2);
+					String name = rs.getString(3);
+					String type =rs.getString(4);
+					String reg_date = rs.getString(5);
+					// 실행결과
+					 dto = new MemberDTO(id, pw, name, type, reg_date);
+					}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				dbclose();
+			}return dto;
+		}
 
 }
