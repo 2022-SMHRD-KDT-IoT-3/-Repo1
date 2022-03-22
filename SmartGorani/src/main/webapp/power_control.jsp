@@ -106,7 +106,7 @@ p {
 			<!-- Sidebar - Brand -->
 			<a
 				class="sidebar-brand d-flex align-items-center justify-content-center"
-				href="main.html">
+				href="main.jsp">
 				<div class="sidebar-brand-icon rotate-n-15"></div>
 				<div class="sidebar-brand-text mx-3">SmartGorani</div>
 			</a>
@@ -115,7 +115,7 @@ p {
 			<hr class="sidebar-divider my-0">
 
 			<!-- Nav Item - Dashboard -->
-			<li class="nav-item active"><a class="nav-link" href="main.html">
+			<li class="nav-item active"><a class="nav-link" href="main.jsp">
 					<i class="fas fa-fw fa-tachometer-alt"></i> <span>메인</span>
 			</a></li>
 
