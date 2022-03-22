@@ -56,12 +56,10 @@
                                         <span class="icon text-white-50">
                                             <i class="fas fa-check"></i>
                                         </span>
-                                        <span class="text"> 아이디 중복체크</span>
+                                        <span class="text"> 아이디 중복체크</span> <a id="idcheck"></a>
                                     </a>
-                                    <!-- 중복여부 알려주는 곳 -->
-                                    <p id="idcheck"></p>
-                                    <div class="my-2"></div>
 								</div>
+								
 								<div class="form-group row">
 									<div class="col-sm-6 mb-3 mb-sm-0">
 										<input type="password" class="form-control form-control-user"
@@ -107,10 +105,10 @@
 				success : function(result) {
 					if (result == 'false') {
 						// 중복 x
-						$('#idcheck').html('중복되는 아이디가 없습니다.')
+						$('#idcheck').html('&emsp; 중복되는 아이디가 없습니다.')
 					} else {
 						// 중복 O
-						$('#idcheck').html('아이디가 중복됩니다.')
+						$('#idcheck').html('&emsp; 아이디가 중복됩니다.')
 					}
 				},
 				error : function() {

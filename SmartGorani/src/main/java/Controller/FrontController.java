@@ -56,8 +56,7 @@ public class FrontController extends HttpServlet {
 		} else if (command.equals("ResetPwService.do")) { // 비밀번호 초기화 기능 -> 준호 O
 			com = new ResetPwService();
 			nextpage = com.execute(request, response);
-		} else if (command.equals("IDcheckService.do")) { // 아이디 중복체크 -> 진옥 세모 -> 다 중복없음으로 나옴 이거 이슈 해결해야함 도와주세요오오
-			com = new IDcheckService();
+		} else if (command.equals("IDcheckService.do")) { // 아이디 중복체크 -> 진옥 O
 			nextpage = com.execute(request, response);
 		} else if (command.equals("UpdateInfoService.do")) { // 회원 정보 수정 -> 진옥
 			 com = new UpdateInfoService();
