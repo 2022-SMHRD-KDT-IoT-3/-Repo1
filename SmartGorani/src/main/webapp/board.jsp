@@ -1,3 +1,6 @@
+<%@page import="Model.BoardDTO"%>
+<%@page import="Model.BoardDAO"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="Model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -36,9 +39,11 @@
 
 <body id="page-top">
 
-<%
- MemberDTO info = (MemberDTO)session.getAttribute("info");
-%>
+	<%
+	MemberDTO info = (MemberDTO) session.getAttribute("info");
+
+	ArrayList<BoardDTO> list = new BoardDAO().showBoard();
+	%>
 
 	<!-- @ strat : Page Wrapper -->
 	<div id="wrapper">
@@ -292,7 +297,8 @@
 						enctype="multipart/form-data">
 						<div class="card shadow mb-4">
 							<div class="card-header py-3">
-								<h6 class="m-0 font-weight-bold text-primary">게시글 입력하기 - 구리지만 봐주세요..</h6>
+								<h6 class="m-0 font-weight-bold text-primary">게시글 입력하기 -
+									구리지만 봐주세요..</h6>
 								<div class="card-body">
 									<div class="table-responsive">
 										<table>
@@ -302,11 +308,17 @@
 											</tr>
 											<tr>
 												<td>작성자</td>
-												<% if (info != null){ %>
-												<td><%= info.getId() %></td>
-												<%} else { %>
+												<%
+												if (info != null) {
+												%>
+												<td><%=info.getId()%></td>
+												<%
+												} else {
+												%>
 												<td><input type="text" name="mb_id"></td>
-												<%} %>
+												<%
+												}
+												%>
 											</tr>
 											<tr>
 												<td colspan="2">내용</td>
@@ -334,6 +346,9 @@
 	</div>
 
 
+
+
+
 	<div class="card shadow mb-4">
 		<div class="card-header py-3">
 			<h6 class="m-0 font-weight-bold text-primary">게시글 목록</h6>
@@ -350,21 +365,22 @@
 							<th>작성시간</th>
 						</tr>
 					</thead>
-					<tfoot>
-						<tr>
-							<th>번호</th>
-							<th>제목</th>
-							<th>작성자</th>
-							<th>작성시간</th>
-						</tr>
-					</tfoot>
 					<tbody>
+
+						<%
+						for (int i = 0; i < list.size(); i++) {
+						%>
 						<tr>
-							<td>1</td>
-							<td>board.jsp</td>
-							<td>admin</td>
-							<td>2022.03.21</td>
+							<td><%=i + 1%></td>
+							<td><a
+								href="boardselectone.jsp?num=<%=list.get(i).getQna_seq() %>"> <%=list.get(i).getQna_title() %></a></td>
+							<td><%=list.get(i).getMb_id()%></td>
+							<td><%=list.get(i).getDate()%></td>
 						</tr>
+
+						<%
+						}
+						%>
 					</tbody>
 				</table>
 			</div>
