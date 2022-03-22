@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import Inter.Command;
+import Service.CheckTotalPowerService;
 import Service.IDcheckService;
 import Service.Loginservice;
 import Service.PowerControlService;
@@ -53,7 +54,7 @@ public class FrontController extends HttpServlet {
 			com = new WriteBoardService();
 			nextpage = com.execute(request, response);
 		} else if (command.equals("SaveIdPwService.do")) { // 비밀번호, 아이디 계속 저장하기
-			// com = new BoardService();
+			// com = new SaveIdPwService();
 			// nextpage = com.execute(request, response);
 		} else if (command.equals("ResetPwService.do")) { // 비밀번호 초기화 기능 -> 준호 O
 			com = new ResetPwService();
@@ -64,8 +65,8 @@ public class FrontController extends HttpServlet {
 		} else if (command.equals("UpdateInfoService.do")) { // 회원 정보 수정 -> 진옥
 			com = new UpdateInfoService();
 			nextpage = com.execute(request, response);
-		} else if (command.equals("UpdateInfoService.do")) { // 회원 정보 수정 -> 진옥
-			com = new UpdateInfoService();
+		} else if (command.equals("CheckTotalPowerService.do")) { // 전체전력조회
+			com = new CheckTotalPowerService();
 			nextpage = com.execute(request, response);
 		} else if (command.equals("RealtimeInfoService.do")) { // 실시간 요금/사용량
 			com = new RealtimeInfoService();
@@ -73,8 +74,7 @@ public class FrontController extends HttpServlet {
 		} else if (command.equals("PowerControlService.do")) { // 전력 on/off 제어
 			com = new PowerControlService();
 			nextpage = com.execute(request, response);
-		} 
-
+		}
 
 		if (nextpage != null) {
 			response.sendRedirect(nextpage);
