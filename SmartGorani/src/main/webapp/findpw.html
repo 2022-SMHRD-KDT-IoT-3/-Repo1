@@ -45,16 +45,14 @@
                                         <h1 class="h4 text-gray-900 mb-2">비밀번호를 잊어버리셨나요?</h1>
                                         <p class="mb-4">가입하신 ID를 입력 후, "비밀번호 초기화" 버튼을 눌러주세요! 그러면 비밀번호가 초기화 됩니다.</p>
                                     </div>
-                                    <form class="user">
+                                    <form action="ResetPwService.do" method="post" class="user">
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
+                                            <input type="text" name="id" class="form-control form-control-user"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
                                                 placeholder="ID를 입력해주세요.">
                                         </div>
-                                        <a href="login.html" class="btn btn-primary btn-user btn-block">
-                                            비밀번호 초기화
-                                        </a>
-                                    </form>
+                                        <input type="submit" value="비밀번호 초기화" class="btn btn-primary btn-user btn-block">
+                                     </form>
                                     <hr>
                                     <div class="text-center">
                                         <a class="small" href="register.html">계정이 없으신가요?</a>
