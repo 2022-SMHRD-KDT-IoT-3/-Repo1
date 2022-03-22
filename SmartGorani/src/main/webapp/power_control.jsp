@@ -369,7 +369,7 @@ MemberDTO info = (MemberDTO)session.getAttribute("info");
 							<!-- Custom Font Size Utilities -->
 							<div class="card shadow mb-4">
 								<div class="card-header py-3">
-									<h6 class="m-0 font-weight-bold text-primary">전체 전력 제어</h6>
+									<h6 class="m-0 font-weight-bold text-primary" >전체 전력 제어</h6>
 								</div>
 								<div class="card-body">
 									<div>
@@ -386,7 +386,7 @@ MemberDTO info = (MemberDTO)session.getAttribute("info");
 							<!-- Custom Text Color Utilities -->
 							<div class="card shadow mb-4">
 								<div class="card-header py-3">
-									<h6 class="m-0 font-weight-bold text-primary">포트별 전력 제어</h6>
+									<h6 class="m-0 font-weight-bold text-primary" >포트별 전력 제어</h6>
 								</div>
 								<div class="card-body">
 									<div>
