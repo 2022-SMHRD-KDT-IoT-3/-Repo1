@@ -12,10 +12,12 @@ import javax.servlet.http.HttpSession;
 import Inter.Command;
 import Service.IDcheckService;
 import Service.Loginservice;
+import Service.PowerControlService;
 import Service.RegisterService;
 import Service.ResetPwService;
 import Service.UpdateInfoService;
 import Service.WriteBoardService;
+import Service.RealtimeInfoService;
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -39,7 +41,7 @@ public class FrontController extends HttpServlet {
 
 		// back
 		// 테이블dto 생성 -> 준범
-		
+
 		// 기능정의
 		if (command.equals("Loginservice.do")) { // 로그인 -> 준범 O
 			com = new Loginservice();
@@ -57,12 +59,24 @@ public class FrontController extends HttpServlet {
 			com = new ResetPwService();
 			nextpage = com.execute(request, response);
 		} else if (command.equals("IDcheckService.do")) { // 아이디 중복체크 -> 진옥 O
+			com = new IDcheckService();
 			nextpage = com.execute(request, response);
 		} else if (command.equals("UpdateInfoService.do")) { // 회원 정보 수정 -> 진옥
-			 com = new UpdateInfoService();
-			 nextpage = com.execute(request, response);
-		}
-		if(nextpage!=null) {
+			com = new UpdateInfoService();
+			nextpage = com.execute(request, response);
+		} else if (command.equals("UpdateInfoService.do")) { // 회원 정보 수정 -> 진옥
+			com = new UpdateInfoService();
+			nextpage = com.execute(request, response);
+		} else if (command.equals("RealtimeInfoService.do")) { // 실시간 요금/사용량
+			com = new RealtimeInfoService();
+			nextpage = com.execute(request, response);
+		} else if (command.equals("PowerControlService.do")) { // 전력 on/off 제어
+			com = new PowerControlService();
+			nextpage = com.execute(request, response);
+		} 
+
+
+		if (nextpage != null) {
 			response.sendRedirect(nextpage);
 		}
 
