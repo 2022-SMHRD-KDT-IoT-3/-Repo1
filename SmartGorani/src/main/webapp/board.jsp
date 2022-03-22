@@ -273,7 +273,6 @@
 									Logout
 								</a>
 							</div></li>
-
 					</ul>
 
 				</nav>
@@ -286,68 +285,14 @@
 					<h1 class="h3 mb-2 text-gray-800">📝 게시판</h1>
 					<p class="mb-4">
 					<li>관리자가 공지사항을 게시합니다</li>
-					<li>사용시 불편사항을 해당 게시판에 작성하시면 관리자가 답변해줍니다.</li> <a target="_blank"
+					
+					<li>사용시 불편사항을 해당 게시판에 작성하시면 관리자가 답변해줍니다.</li> 
+					<li>글쓰기 버튼을 클릭해주세요!</li><a target="_blank"
 						href="https://datatables.net">official DataTables
 						documentation</a> 데이터 테이블 사용설명서
 					</p>
 
 					<!-- 2. DataTales Example -->
-
-					<form action="WriteBoardService.do" method="post"
-						enctype="multipart/form-data">
-						<div class="card shadow mb-4">
-							<div class="card-header py-3">
-								<h6 class="m-0 font-weight-bold text-primary">게시글 입력하기 -
-									구리지만 봐주세요..</h6>
-								<div class="card-body">
-									<div class="table-responsive">
-										<table>
-											<tr>
-												<td>제목</td>
-												<td><input type="text" name="title"></td>
-											</tr>
-											<tr>
-												<td>작성자</td>
-												<%
-												if (info != null) {
-												%>
-												<td><%=info.getId()%></td>
-												<%
-												} else {
-												%>
-												<td><input type="text" name="mb_id"></td>
-												<%
-												}
-												%>
-											</tr>
-											<tr>
-												<td colspan="2">내용</td>
-											</tr>
-											<tr>
-												<td colspan="2"><input name="file" type="file"
-													style="float: right;"> <textarea name="content"
-														rows="10" style="resize: none;"></textarea></td>
-											</tr>
-											<tr>
-												<td colspan="2"><input type="reset" value="초기화">
-													<input type="submit" value="업로드"></td>
-											</tr>
-										</table>
-					</form>
-
-
-
-
-				</div>
-
-			</div>
-
-		</div>
-	</div>
-
-
-
-
 
 	<div class="card shadow mb-4">
 		<div class="card-header py-3">
@@ -382,6 +327,8 @@
 						}
 						%>
 					</tbody>
+				<button onclick="location='writeboard.jsp'">글쓰기</button>
+
 				</table>
 			</div>
 		</div>
@@ -390,7 +337,7 @@
 	<!-- /.container-fluid -->
 	</div>
 	<!-- End of Main Content -->
-
+	
 	<!-- Footer -->
 	<footer class="sticky-footer bg-white">
 		<div class="container my-auto">
