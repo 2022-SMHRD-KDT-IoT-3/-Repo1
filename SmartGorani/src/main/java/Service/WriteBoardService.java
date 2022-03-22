@@ -43,7 +43,7 @@ public class WriteBoardService implements Command {
 			String file = "";
 			// fileName은 getFilesystemName로 받아와야됨
 			if (multi.getFilesystemName("file") != null) {
-				file = URLEncoder.encode(multi.getFilesystemName("fileName"), "UTF-8");
+				file = URLEncoder.encode(multi.getFilesystemName("file"), "UTF-8");
 				// 파일이름에 한글이 있다면 인코딩(문자를 코드화함) 해줘야됨 문자를코드화시켜서 DB에 저장
 			}
 
