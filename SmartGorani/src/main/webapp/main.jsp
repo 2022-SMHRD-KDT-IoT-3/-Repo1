@@ -277,7 +277,10 @@ MemberDTO info = (MemberDTO)session.getAttribute("info");
 							aria-expanded="false"> 
 							<%if (info!=null){ %>
 							<span class="mr-2 d-none d-lg-inline text-gray-600 small"> 
-							<%= info.getName() %> <%} else{ %> user name	<%} %></span>
+							<%= info.getName() %>  </span> 
+							<%} else{ %> 
+							<span class="mr-2 d-none d-lg-inline text-gray-600 small"> user name </span>
+							<%} %>
 						</a> <!-- Dropdown - User Information -->
 							<div
 								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
