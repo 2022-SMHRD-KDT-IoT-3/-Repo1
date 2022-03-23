@@ -54,15 +54,13 @@ public class ReplyDAO {
 		try {
 
 			dbconn();
-			String sql = "insert into tbl_reply values(?, ?, ?, ?, ?, ?)";
+			String sql = "insert into tbl_reply values(tbl_reply_seq.nextval, ?, ?, ?, sysdate, ?)";
 			psmt = conn.prepareStatement(sql);
 			
-			psmt.setString(1, rdto.getREPLY_SEQ());
-			psmt.setString(2, rdto.getQNA_SEQ());
-			psmt.setString(3, rdto.getREPLY_CONTENT());
-			psmt.setString(4, rdto.getREPLY_FILE());
-			psmt.setString(5, rdto.getREPLY_DATE());
-			psmt.setString(6, rdto.getMB_ID());
+			psmt.setInt(1, rdto.getQNA_SEQ());
+			psmt.setString(2, rdto.getREPLY_CONTENT());
+			psmt.setString(3, rdto.getREPLY_FILE());
+			psmt.setString(4, rdto.getMB_ID());
 
 			cnt = psmt.executeUpdate();
 
@@ -75,7 +73,37 @@ public class ReplyDAO {
 	}
 		
 	
-	//답글 가져오기
+	//답글 조회 (하나만)메소드
+	
+	public ReplyDTO replySelectOne(int num) {
+
+		ReplyDTO rdto = null;
+		dbconn();
+
+		try {
+			String sql = "select * from tbl_reply where qna_seq = ?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, num);
+			rs = psmt.executeQuery();
+
+			if (rs.next()) {
+				int r_seq = rs.getInt(1);
+				int qna_seq = num;
+				String r_content = rs.getString(3);
+				String r_file = rs.getString(4);
+				String r_date = rs.getString(5);
+				String mb_id = rs.getString(6);
+
+				rdto = new ReplyDTO(r_seq, qna_seq, r_content, r_file, r_date, mb_id);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			dbclose();
+		}
+
+		return rdto;
+	}	
 	
 	
 }

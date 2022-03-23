@@ -2,13 +2,13 @@ package Model;
 
 public class ReplyDTO {
 
-	String REPLY_SEQ;
-	String QNA_SEQ;
+	int REPLY_SEQ;
+	int QNA_SEQ;
 	String REPLY_CONTENT;
 	String REPLY_FILE;
 	String REPLY_DATE;
 	String MB_ID;
-	public ReplyDTO(String rEPLY_SEQ, String qNA_SEQ, String rEPLY_CONTENT, String rEPLY_FILE, String rEPLY_DATE,
+	public ReplyDTO(int rEPLY_SEQ, int qNA_SEQ, String rEPLY_CONTENT, String rEPLY_FILE, String rEPLY_DATE,
 			String mB_ID) {
 		super();
 		REPLY_SEQ = rEPLY_SEQ;
@@ -18,16 +18,16 @@ public class ReplyDTO {
 		REPLY_DATE = rEPLY_DATE;
 		MB_ID = mB_ID;
 	}
-	public String getREPLY_SEQ() {
+	public int getREPLY_SEQ() {
 		return REPLY_SEQ;
 	}
-	public void setREPLY_SEQ(String rEPLY_SEQ) {
+	public void setREPLY_SEQ(int rEPLY_SEQ) {
 		REPLY_SEQ = rEPLY_SEQ;
 	}
-	public String getQNA_SEQ() {
+	public int getQNA_SEQ() {
 		return QNA_SEQ;
 	}
-	public void setQNA_SEQ(String qNA_SEQ) {
+	public void setQNA_SEQ(int qNA_SEQ) {
 		QNA_SEQ = qNA_SEQ;
 	}
 	public String getREPLY_CONTENT() {
@@ -54,6 +54,8 @@ public class ReplyDTO {
 	public void setMB_ID(String mB_ID) {
 		MB_ID = mB_ID;
 	}
+
+	
 	
 	
 }

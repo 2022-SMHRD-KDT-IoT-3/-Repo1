@@ -18,6 +18,7 @@ import Service.RegisterService;
 import Service.ResetPwService;
 import Service.UpdateInfoService;
 import Service.WriteBoardService;
+import Service.WriteReplyService;
 import Service.RealtimeInfoService;
 
 @WebServlet("*.do")
@@ -78,7 +79,10 @@ public class FrontController extends HttpServlet {
 		} else if (command.equals("PowerControlService.do")) { // 전력 on/off 제어
 			com = new PowerControlService();
 			nextpage = com.execute(request, response);
-		} 
+		} else if (command.equals("WriteReplyService.do")){			//답변 DB 등록
+			com = new WriteReplyService();
+			nextpage = com.execute(request, response);
+		}
 		if (nextpage != null) {
 			response.sendRedirect(nextpage);
 		}
