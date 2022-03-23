@@ -1,3 +1,5 @@
+<%@page import="Model.ReplyDTO"%>
+<%@page import="Model.ReplyDAO"%>
 <%@page import="Model.BoardDTO"%>
 <%@page import="Model.BoardDAO"%>
 <%@page import="java.util.ArrayList"%>
@@ -41,8 +43,8 @@
 
 	<%
 	MemberDTO info = (MemberDTO) session.getAttribute("info");
-
 	ArrayList<BoardDTO> list = new BoardDAO().showBoard();
+
 	%>
 
 	<!-- @ strat : Page Wrapper -->
@@ -227,7 +229,15 @@
 													<%=list.get(i).getQna_title()%></a></td>
 											<td><%=list.get(i).getMb_id()%></td>
 											<td><%=list.get(i).getDate()%></td>
-											<td>답변 상태</td>
+											<%
+											ReplyDTO rdto = new ReplyDAO().replySelectOne(list.get(i).getQna_seq());
+											
+											if(rdto != null){%>
+											<td>완료</td>
+											<%} else {%>
+											<td>대기</td>
+											<% } %>
+											
 											<td><button onclick="location='board_reply.jsp?num=<%=list.get(i).getQna_seq()%>'">답변</button>
 											</td>
 										</tr>
