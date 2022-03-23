@@ -299,7 +299,7 @@
 									</tr>
 									
 									<button onclick="location='board_admin.jsp'">돌아가기</button>
-									<button onclick="location='board_reply.jsp'">답변등록</button>
+									<button onclick="location='board_reply.jsp?num=<%=dto.getQna_seq()%>'">답변등록</button>
 									
 								</table>
 							</div>

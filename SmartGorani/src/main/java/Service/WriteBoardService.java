@@ -68,8 +68,8 @@ public class WriteBoardService implements Command {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		return "board.jsp";
+		String nextpage = "board.jsp";
+		return nextpage;
 		
 	}
 

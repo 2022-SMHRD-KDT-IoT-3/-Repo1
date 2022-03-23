@@ -42,7 +42,7 @@ public class WriteReplyService implements Command {
 			// 데이터 꺼내오기 MultipartRequest객체로 파라미터 수집해야됨
 			
 			String r_title = multi.getParameter("r_title");
-			int q_seq = Integer.parseInt(multi.getParameter("num"));
+			int q_seq = Integer.parseInt(request.getParameter("num"));
 			String r_content = multi.getParameter("content");
 			String r_file = "";
 			// fileName은 getFilesystemName로 받아와야됨
@@ -51,7 +51,7 @@ public class WriteReplyService implements Command {
 				// 파일이름에 한글이 있다면 인코딩(문자를 코드화함) 해줘야됨 문자를코드화시켜서 DB에 저장
 			}
 			
-			String mb_id = multi.getParameter("mb_id");
+			String mb_id = request.getParameter("mb_id");
 
 			System.out.println("r_title : " + r_title);
 			System.out.println("q_seq : " + q_seq);

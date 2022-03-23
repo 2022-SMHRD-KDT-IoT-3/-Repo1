@@ -36,8 +36,9 @@
 
 	<%
 	MemberDTO info = (MemberDTO) session.getAttribute("info");
-	
-	
+	int num = Integer.parseInt(request.getParameter("num"));
+	BoardDAO dao = new BoardDAO();
+	BoardDTO dto = dao.boardSelectOne(num);
 	%>
 
 	<!-- @ strat : Page Wrapper -->
@@ -59,8 +60,8 @@
 			<hr class="sidebar-divider my-0">
 
 			<!-- Nav Item - Dashboard -->
-			<li class="nav-item"><a class="nav-link" href="admin_member.jsp"> <span>회원
-						조회</span>
+			<li class="nav-item"><a class="nav-link" href="admin_member.jsp">
+					<span>회원 조회</span>
 			</a></li>
 
 			<!-- Divider -->
@@ -173,8 +174,8 @@
 						<li class="nav-item dropdown no-arrow"><a
 							class="nav-link dropdown-toggle" href="#" id="userDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false">
-							<span class="mr-2 d-none d-lg-inline text-gray-600 small">admin</span>
+							aria-expanded="false"> <span
+								class="mr-2 d-none d-lg-inline text-gray-600 small">admin</span>
 						</a> <!-- Dropdown - User Information -->
 							<div
 								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -212,11 +213,12 @@
 
 					<!-- 2. DataTales Example -->
 
-					<form action="WriteReplyService.do" method="post"
+					<form action="WriteReplyService.do?num=<%=dto.getQna_seq()%>&mb_id=<%=dto.getMb_id()%>" method="post"
 						enctype="multipart/form-data">
 						<div class="card shadow mb-4">
 							<div class="card-header py-3">
-								<h6 class="m-0 font-weight-bold text-primary">답변 입력 - 추후 레이아웃변경예정</h6>
+								<h6 class="m-0 font-weight-bold text-primary">답변 입력 - 추후
+									레이아웃변경예정</h6>
 								<div class="card-body">
 									<div class="table-responsive">
 										<table>

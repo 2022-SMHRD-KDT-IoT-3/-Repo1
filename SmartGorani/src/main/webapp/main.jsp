@@ -285,12 +285,19 @@ MemberDTO info = (MemberDTO)session.getAttribute("info");
 							<div
 								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
 								aria-labelledby="userDropdown">
+								<%if(info.getName().equals("admin")){ %>
 								<a class="dropdown-item" href="updateinfo.jsp"> <i
 									class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
-								</a> <a class="dropdown-item" href="admin_member.jsp"> <i
+								</a>
+								<a class="dropdown-item" href="admin_member.jsp"> <i
 									class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
 									Admin page
 								</a>
+								<%}else{ %>
+								<a class="dropdown-item" href="updateinfo.jsp"> <i
+								class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
+								</a>
+								<%} %>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="#" data-toggle="modal"
 									data-target="#logoutModal"> 
