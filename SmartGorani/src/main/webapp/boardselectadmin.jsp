@@ -44,6 +44,7 @@
 	int num = Integer.parseInt(request.getParameter("num"));
 	BoardDAO dao = new BoardDAO();
 	BoardDTO dto = dao.boardSelectOne(num);
+	
 	%>
 
 	<!-- @ strat : Page Wrapper -->
@@ -292,8 +293,13 @@
 										<td><img alt="" src="file/<%=dto.getFile()%>">
 											<%=dto.getContent()%></td>
 									</tr>
+									<tr>
+										<td>답변 상태</td>
+										<td> 답변완료 </td>
+									</tr>
 									
 									<button onclick="location='board_admin.jsp'">돌아가기</button>
+									<button onclick="location='board_reply.jsp'">답변등록</button>
 									
 								</table>
 							</div>

@@ -36,6 +36,8 @@
 
 	<%
 	MemberDTO info = (MemberDTO) session.getAttribute("info");
+	
+	
 	%>
 
 	<!-- @ strat : Page Wrapper -->
@@ -220,7 +222,7 @@
 										<table>
 											<tr>
 												<td>제목</td>
-												<td><input type="text" name="title"></td>
+												<td><input type="text" name="r_title"></td>
 											</tr>
 											<tr>
 												<td>작성자</td>

@@ -139,7 +139,7 @@ public class MemberDAO {
 		dbconn();
 		try {
 
-			String sql = "update tbl_member set pw=0000 where id=?";
+			String sql = "update tbl_member set mb_pw='0000' where mb_id=?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, id);
 
