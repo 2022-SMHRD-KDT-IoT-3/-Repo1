@@ -7,7 +7,7 @@ public class MemberDTO {
 	private String name;
 	private String type;
 	private String reg_date;
-	
+
 	public MemberDTO(String id, String pw, String name, String type, String reg_date) {
 		super();
 		this.id = id;
