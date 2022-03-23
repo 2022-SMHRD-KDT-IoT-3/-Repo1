@@ -17,6 +17,7 @@ import Service.PowerControlService;
 import Service.RegisterService;
 import Service.ResetPwService;
 import Service.UpdateInfoService;
+import Service.EditInfoService;
 import Service.WriteBoardService;
 import Service.WriteReplyService;
 import Service.RealtimeInfoService;
