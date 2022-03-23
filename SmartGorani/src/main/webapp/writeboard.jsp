@@ -188,13 +188,17 @@
 						<li class="nav-item dropdown no-arrow"><a
 							class="nav-link dropdown-toggle" href="#" id="userDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false">
-							<%if (info!=null){ %>
-							<span class="mr-2 d-none d-lg-inline text-gray-600 small"> 
-							<%= info.getName() %>  </span> 
-							<%} else{ %> 
-							<span class="mr-2 d-none d-lg-inline text-gray-600 small"> user name </span>
-							<%} %>
+							aria-expanded="false"> <%
+ if (info != null) {
+ %> <span
+								class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getName()%>
+							</span> <%
+ } else {
+ %> <span
+								class="mr-2 d-none d-lg-inline text-gray-600 small"> user
+									name </span> <%
+ }
+ %>
 						</a> <!-- Dropdown - User Information -->
 							<div
 								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -239,14 +243,13 @@
 						enctype="multipart/form-data">
 						<div class="card shadow mb-4">
 							<div class="card-header py-3">
-								<h6 class="m-0 font-weight-bold text-primary">게시글 입력하기 -
-									구리지만 일단 봐주세요..</h6>
+								<h6 class="m-0 font-weight-bold text-primary">게시글 입력하기</h6>
 								<div class="card-body">
 									<div class="table-responsive">
-										<table>
+										<table hight="100%" width="100%">
 											<tr>
 												<td>제목</td>
-												<td><input type="text" name="title"></td>
+												<td><input type="text" name="title" size="20" style="width:100%;"></td>
 											</tr>
 											<tr>
 												<td>작성자</td>
@@ -267,14 +270,21 @@
 											</tr>
 											<tr>
 												<td colspan="2"><input name="file" type="file"
-													style="float: right;"> <textarea name="content"
-														rows="10" style="resize: none;"></textarea></td>
+													style="float: right;"></td>
+											</tr>
+											<tr>
+												<td colspan="2"><textarea name="content" rows="10" style="width:100%; resize: none;"></textarea></td>
 											</tr>
 											<tr>
 												<td colspan="2"><input type="reset" value="초기화">
 													<input type="submit" value="업로드"></td>
 											</tr>
 										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+
 					</form>
 
 				</div>
