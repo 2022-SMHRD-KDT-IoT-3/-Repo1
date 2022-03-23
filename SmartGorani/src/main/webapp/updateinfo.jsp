@@ -350,39 +350,36 @@
 
 								<div class="wrap-table100-nextcols js-pscroll">
 									<div class="table100-nextcols">
-										<table>
+										<form action="UpdateInfoService.do" method="post">
+											<table>
 
-											<tbody>
-												<tr class="row100 body">
-													<td class="cell100 column1"><input
-														class="form-control bg-light border-0 small"
-														value="name test"></td>
-												</tr>
-												<tr class="row100 body">
-													<td class="cell100 column1"><input
-														class="form-control bg-light border-0 small"
-														value="id test"></td>
-												</tr>
-												<tr class="row100 body">
-													<td class="cell100 column1">
-													<input
-														class="form-control bg-light border-0 small"
-														value="pw test"></td>
-												</tr>
-												<tr class="row100 body">
-													<td class="cell100 column1">
-													<input
-														class="form-control bg-light border-0 small"
-														value="type test"></td>
-												</tr>
-												<tr class="row100 body">
-													<td class="cell100 column1">
-													<input
-														class="form-control bg-light border-0 small"
-														value="reg_date test"></td>
-												</tr>
-											</tbody>
-										</table>
+												<tbody>
+													<tr class="row100 body">
+														<td class="cell100 column1"><div
+																class="form-control bg-light border-0 small"><%=info.getName()%></div></td>
+													</tr>
+													<tr class="row100 body">
+														<td class="cell100 column1"><div
+																class="form-control bg-light border-0 small"><%=info.getId()%></div></td>
+													</tr>
+													<tr class="row100 body">
+														<td class="cell100 column1"><input
+															class="form-control bg-light border-0 small"
+															value="<%=info.getPw()%>"></td>
+													</tr>
+													<tr class="row100 body">
+														<td class="cell100 column1"><input
+															class="form-control bg-light border-0 small"
+															value="<%=info.getType()%>"></td>
+													</tr>
+													<tr class="row100 body">
+														<td class="cell100 column1"><input
+															class="form-control bg-light border-0 small"
+															value="<%=info.getReg_date()%>"></td>
+													</tr>
+												</tbody>
+											</table>
+										</form>
 									</div>
 								</div>
 							</div>

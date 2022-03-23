@@ -8,7 +8,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class MemberDAO {
-	// 메서드를 함 만드러바?
 
 	// 전역변수 선언
 	PreparedStatement psmt = null;
@@ -168,8 +167,8 @@ public class MemberDAO {
 			e.printStackTrace();
 		} finally {
 			dbclose();
-			return cnt;
 		}
+		return cnt;
 	}
 
 	public ArrayList<MemberDTO> selectAll() {
