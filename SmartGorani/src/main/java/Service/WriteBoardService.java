@@ -13,6 +13,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import Inter.Command;
 import Model.BoardDAO;
 import Model.BoardDTO;
+import Model.ReplyDTO;
 
 public class WriteBoardService implements Command {
 
@@ -53,7 +54,7 @@ public class WriteBoardService implements Command {
 			System.out.println("content : " + content);
 			System.out.println("file : " + file);
 			System.out.println("mb_id : " + mb_id);
-
+			
 			BoardDTO dto = new BoardDTO(0, qna_title, content, file, "", mb_id); // 생성자안만들고 임의의값넣어줌 어차피 메소드호출해서
 																					// 디비에서 입력됨
 			int cnt = new BoardDAO().insertBoard(dto);

@@ -48,7 +48,7 @@
 			<!-- Sidebar - Brand -->
 			<a
 				class="sidebar-brand d-flex align-items-center justify-content-center"
-				href="main.jsp">
+				href="admin_member.jsp">
 				<div class="sidebar-brand-icon rotate-n-15"></div>
 				<div class="sidebar-brand-text mx-3">SmartGorani</div>
 			</a>
@@ -57,40 +57,23 @@
 			<hr class="sidebar-divider my-0">
 
 			<!-- Nav Item - Dashboard -->
-			<li class="nav-item active"><a class="nav-link" href="main.jsp">
-					<i class="fas fa-fw fa-tachometer-alt"></i> <span>메인</span>
-			</a></li>
-
-			<!-- Divider -->
-			<hr class="sidebar-divider my-0">
-
-			<!-- Nav Item - Charts -->
-			<li class="nav-item"><a class="nav-link" href="check.html">
-					<i class="fas fa-fw fa-chart-area"></i> <span>조회</span>
-			</a></li>
-
-			<!-- Divider -->
-			<hr class="sidebar-divider my-0">
-
-			<!-- Nav Item - Utilities Collapse Menu -->
-			<li class="nav-item"><a class="nav-link collapsed"
-				href="power_control.jsp"> <i class="fas fa-fw fa-wrench"></i> <span>전기제어</span>
+			<li class="nav-item"><a class="nav-link" href="admin_member.jsp"> <span>회원
+						조회</span>
 			</a></li>
 
 			<!-- Divider -->
 			<hr class="sidebar-divider my-0">
 
 			<!-- Nav Item - Tables -->
-			<li class="nav-item"><a class="nav-link" href="board.jsp"> <i
-					class="fas fa-fw fa-table"></i> <span>게시판</span>
-			</a></li>
+			<li class="nav-item"><a class="nav-link" href="board_admin.jsp"><span>게시판
+						조회</span> </a></li>
 
 			<!-- Divider -->
 			<hr class="sidebar-divider my-0">
 
 			<!-- Nav Item - Pages Collapse Menu -->
 			<li class="nav-item"><a class="nav-link collapsed"
-				href="setting.html"> <i class="fas fa-fw fa-cog"></i> <span>환경설정</span>
+				href="setting.jsp"> <i class="fas fa-fw fa-cog"></i> <span>환경설정</span>
 			</a></li>
 
 			<!-- Divider -->
@@ -189,12 +172,7 @@
 							class="nav-link dropdown-toggle" href="#" id="userDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false">
-							<%if (info!=null){ %>
-							<span class="mr-2 d-none d-lg-inline text-gray-600 small"> 
-							<%= info.getName() %>  </span> 
-							<%} else{ %> 
-							<span class="mr-2 d-none d-lg-inline text-gray-600 small"> user name </span>
-							<%} %>
+							<span class="mr-2 d-none d-lg-inline text-gray-600 small">admin</span>
 						</a> <!-- Dropdown - User Information -->
 							<div
 								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -227,20 +205,16 @@
 					<!-- Page Heading -->
 					<h1 class="h3 mb-2 text-gray-800">📝 게시판</h1>
 					<p class="mb-4">
-					<li>관리자가 공지사항을 게시합니다</li>
-					<li>사용시 불편사항을 해당 게시판에 작성하시면 관리자가 답변해줍니다.</li> <a target="_blank"
-						href="https://datatables.net">official DataTables
-						documentation</a> 데이터 테이블 사용설명서
+					<li>관리자의 답변 페이지입니다.</li>
 					</p>
 
 					<!-- 2. DataTales Example -->
 
-					<form action="WriteBoardService.do" method="post"
+					<form action="WriteReplyService.do" method="post"
 						enctype="multipart/form-data">
 						<div class="card shadow mb-4">
 							<div class="card-header py-3">
-								<h6 class="m-0 font-weight-bold text-primary">게시글 입력하기 -
-									구리지만 일단 봐주세요..</h6>
+								<h6 class="m-0 font-weight-bold text-primary">답변 입력 - 추후 레이아웃변경예정</h6>
 								<div class="card-body">
 									<div class="table-responsive">
 										<table>
@@ -250,17 +224,7 @@
 											</tr>
 											<tr>
 												<td>작성자</td>
-												<%
-												if (info != null) {
-												%>
-												<td><%=info.getId()%></td>
-												<%
-												} else {
-												%>
-												<td><input type="text" name="mb_id"></td>
-												<%
-												}
-												%>
+												<td>admin</td>
 											</tr>
 											<tr>
 												<td colspan="2">내용</td>

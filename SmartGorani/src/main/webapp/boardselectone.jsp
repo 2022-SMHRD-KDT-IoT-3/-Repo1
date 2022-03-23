@@ -1,45 +1,51 @@
-<%@page import="Model.MemberDAO"%>
+<%@page import="Model.BoardDTO"%>
+<%@page import="Model.BoardDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Model.MemberDTO"%>
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
 <head>
 
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>SG- Main</title>
+<title>Smart Grani - Board</title>
 
-
-<!-- Custom fonts for this template-->
+<!-- Custom fonts for this template -->
 <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
 	type="text/css">
 <link
 	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
 	rel="stylesheet">
 
-<!-- Custom styles for this template-->
+<!-- Custom styles for this template -->
 <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+<!-- Custom styles for this page -->
+<link href="vendor/datatables/dataTables.bootstrap4.min.css"
+	rel="stylesheet">
 
 </head>
 
 <body id="page-top">
+
 	<%
 	MemberDTO info = (MemberDTO) session.getAttribute("info");
-		ArrayList<MemberDTO> list = new MemberDAO().selectAll(); 
-	
+	int num = Integer.parseInt(request.getParameter("num"));
+	BoardDAO dao = new BoardDAO();
+	BoardDTO dto = dao.boardSelectOne(num);
 	%>
-		
-		
-	
-	
+
 	<!-- @ strat : Page Wrapper -->
 	<div id="wrapper">
 		<!-- Sidebar -->
@@ -50,7 +56,7 @@
 			<!-- Sidebar - Brand -->
 			<a
 				class="sidebar-brand d-flex align-items-center justify-content-center"
-				href="admin_member.jsp">
+				href="main.jsp">
 				<div class="sidebar-brand-icon rotate-n-15"></div>
 				<div class="sidebar-brand-text mx-3">SmartGorani</div>
 			</a>
@@ -59,23 +65,40 @@
 			<hr class="sidebar-divider my-0">
 
 			<!-- Nav Item - Dashboard -->
-			<li class="nav-item"><a class="nav-link" href=""> <span>회원
-						조회</span>
+			<li class="nav-item active"><a class="nav-link" href="main.jsp">
+					<i class="fas fa-fw fa-tachometer-alt"></i> <span>메인</span>
+			</a></li>
+
+			<!-- Divider -->
+			<hr class="sidebar-divider my-0">
+
+			<!-- Nav Item - Charts -->
+			<li class="nav-item"><a class="nav-link" href="check.html">
+					<i class="fas fa-fw fa-chart-area"></i> <span>조회</span>
+			</a></li>
+
+			<!-- Divider -->
+			<hr class="sidebar-divider my-0">
+
+			<!-- Nav Item - Utilities Collapse Menu -->
+			<li class="nav-item"><a class="nav-link collapsed"
+				href="power_control.jsp"> <i class="fas fa-fw fa-wrench"></i> <span>전기제어</span>
 			</a></li>
 
 			<!-- Divider -->
 			<hr class="sidebar-divider my-0">
 
 			<!-- Nav Item - Tables -->
-			<li class="nav-item"><a class="nav-link" href="board_admin.jsp"><span>게시판
-						조회</span> </a></li>
+			<li class="nav-item"><a class="nav-link" href="board.jsp"> <i
+					class="fas fa-fw fa-table"></i> <span>게시판</span>
+			</a></li>
 
 			<!-- Divider -->
 			<hr class="sidebar-divider my-0">
 
 			<!-- Nav Item - Pages Collapse Menu -->
 			<li class="nav-item"><a class="nav-link collapsed"
-				href="setting.jsp"> <i class="fas fa-fw fa-cog"></i> <span>환경설정</span>
+				href="setting.html"> <i class="fas fa-fw fa-cog"></i> <span>환경설정</span>
 			</a></li>
 
 			<!-- Divider -->
@@ -91,18 +114,21 @@
 
 		<!-- Content Wrapper -->
 		<div id="content-wrapper" class="d-flex flex-column">
+
 			<!-- Main Content -->
 			<div id="content">
 
-				<!-- Topbar -->
+				<!-- @@ start Topbar -->
 				<nav
 					class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
 					<!-- Sidebar Toggle (Topbar) -->
-					<button id="sidebarToggleTop"
-						class="btn btn-link d-md-none rounded-circle mr-3">
-						<i class="fa fa-bars"></i>
-					</button>
+					<form class="form-inline">
+						<button id="sidebarToggleTop"
+							class="btn btn-link d-md-none rounded-circle mr-3">
+							<i class="fa fa-bars"></i>
+						</button>
+					</form>
 
 
 
@@ -114,24 +140,7 @@
 							class="nav-link dropdown-toggle" href="#" id="searchDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> <i class="fas fa-search fa-fw"></i>
-						</a> <!-- Dropdown - Messages -->
-							<div
-								class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-								aria-labelledby="searchDropdown">
-								<form class="form-inline mr-auto w-100 navbar-search">
-									<div class="input-group">
-										<input type="text"
-											class="form-control bg-light border-0 small"
-											placeholder="Search for..." aria-label="Search"
-											aria-describedby="basic-addon2">
-										<div class="input-group-append">
-											<button class="btn btn-primary" type="button">
-												<i class="fas fa-search fa-sm"></i>
-											</button>
-										</div>
-									</div>
-								</form>
-							</div></li>
+						</a></li>
 
 						<!-- Nav Item - Alerts -->
 						<li class="nav-item dropdown no-arrow mx-1"><a
@@ -180,59 +189,61 @@
 									href="#">Show All Alerts</a>
 							</div></li>
 
-						<!-- Nav Item - Messages -->
-						<li class="nav-item dropdown no-arrow mx-1"><a
-							class="nav-link dropdown-toggle" href="#" id="messagesDropdown"
-							role="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false"> </a> <!-- Dropdown - Messages -->
-							<div
-								class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-								aria-labelledby="messagesDropdown">
-								<h6 class="dropdown-header">Message Center</h6>
-								<a class="dropdown-item d-flex align-items-center" href="#">
-									<div class="dropdown-list-image mr-3">
-										<img class="rounded-circle" src="img/undraw_profile_1.svg"
-											alt="...">
-										<div class="status-indicator bg-success"></div>
-									</div>
-									<div class="font-weight-bold">
-										<div class="text-truncate">Hi there! I am wondering if
-											you can help me with a problem I've been having.</div>
-										<div class="small text-gray-500">Emily Fowler · 58m</div>
-									</div>
-								</a> <a class="dropdown-item d-flex align-items-center" href="#">
-									<div class="dropdown-list-image mr-3">
-										<img class="rounded-circle" src="img/undraw_profile_2.svg"
-											alt="...">
-										<div class="status-indicator"></div>
-									</div>
-								</a> <a class="dropdown-item d-flex align-items-center" href="#">
-									<div class="dropdown-list-image mr-3">
-										<img class="rounded-circle" src="img/undraw_profile_3.svg"
-											alt="...">
-										<div class="status-indicator bg-warning"></div>
-									</div>
-									<div>
-										<div class="text-truncate">Last month's report looks
-											great, I am very happy with the progress so far, keep up the
-											good work!</div>
-										<div class="small text-gray-500">Morgan Alvarez · 2d</div>
-									</div>
-								</a> <a class="dropdown-item d-flex align-items-center" href="#">
-									<div class="dropdown-list-image mr-3">
-										<img class="rounded-circle"
-											src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="...">
-										<div class="status-indicator bg-success"></div>
-									</div>
-									<div>
-										<div class="text-truncate">Am I a good boy? The reason I
-											ask is because someone told me that people say this to all
-											dogs, even if they aren't good...</div>
-										<div class="small text-gray-500">Chicken the Dog · 2w</div>
-									</div>
-								</a> <a class="dropdown-item text-center small text-gray-500"
-									href="#">Read More Messages</a>
-							</div></li>
+						<!-- Dropdown - Messages -->
+						<div
+							class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+							aria-labelledby="messagesDropdown">
+							<h6 class="dropdown-header">Message Center</h6>
+							<a class="dropdown-item d-flex align-items-center" href="#">
+								<div class="dropdown-list-image mr-3">
+									<img class="rounded-circle" src="img/undraw_profile_1.svg"
+										alt="...">
+									<div class="status-indicator bg-success"></div>
+								</div>
+								<div class="font-weight-bold">
+									<div class="text-truncate">Hi there! I am wondering if
+										you can help me with a problem I've been having.</div>
+									<div class="small text-gray-500">Emily Fowler · 58m</div>
+								</div>
+							</a> <a class="dropdown-item d-flex align-items-center" href="#">
+								<div class="dropdown-list-image mr-3">
+									<img class="rounded-circle" src="img/undraw_profile_2.svg"
+										alt="...">
+									<div class="status-indicator"></div>
+								</div>
+								<div>
+									<div class="text-truncate">I have the photos that you
+										ordered last month, how would you like them sent to you?</div>
+									<div class="small text-gray-500">Jae Chun · 1d</div>
+								</div>
+							</a> <a class="dropdown-item d-flex align-items-center" href="#">
+								<div class="dropdown-list-image mr-3">
+									<img class="rounded-circle" src="img/undraw_profile_3.svg"
+										alt="...">
+									<div class="status-indicator bg-warning"></div>
+								</div>
+								<div>
+									<div class="text-truncate">Last month's report looks
+										great, I am very happy with the progress so far, keep up the
+										good work!</div>
+									<div class="small text-gray-500">Morgan Alvarez · 2d</div>
+								</div>
+							</a> <a class="dropdown-item d-flex align-items-center" href="#">
+								<div class="dropdown-list-image mr-3">
+									<img class="rounded-circle"
+										src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="...">
+									<div class="status-indicator bg-success"></div>
+								</div>
+								<div>
+									<div class="text-truncate">Am I a good boy? The reason I
+										ask is because someone told me that people say this to all
+										dogs, even if they aren't good...</div>
+									<div class="small text-gray-500">Chicken the Dog · 2w</div>
+								</div>
+							</a> <a class="dropdown-item text-center small text-gray-500"
+								href="#">Read More Messages</a>
+						</div>
+						</li>
 
 						<div class="topbar-divider d-none d-sm-block"></div>
 
@@ -240,16 +251,26 @@
 						<li class="nav-item dropdown no-arrow"><a
 							class="nav-link dropdown-toggle" href="#" id="userDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false"> 
-							<span class="mr-2 d-none d-lg-inline text-gray-600 small"> 
-							admin</span> 
-							
+							aria-expanded="false">
+								<%
+								if (info != null) {
+								%> <span
+								class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getName()%> </span>
+									<%
+									} else {
+									%> <span
+								class="mr-2 d-none d-lg-inline text-gray-600 small">user name<%
+									}
+									%></span>
 						</a> <!-- Dropdown - User Information -->
 							<div
 								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
 								aria-labelledby="userDropdown">
-								<a class="dropdown-item" href="updateinfo.jsp"> <i
+								<a class="dropdown-item" href="#"> <i
 									class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
+								</a> <a class="dropdown-item" href="#"> <i
+									class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+									Settings
 								</a> <a class="dropdown-item" href="#"> <i
 									class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
 									Activity Log
@@ -261,81 +282,51 @@
 									Logout
 								</a>
 							</div></li>
-
 					</ul>
 
 				</nav>
-				<!-- End of Topbar -->
+				<!-- @@ End of Topbar -->
 
-				<!-- Begin Page Content -->
+				<!-- 1. start Page Content -->
 				<div class="container-fluid">
 
 					<!-- Page Heading -->
-					<div
-						class="d-sm-flex align-items-center justify-content-between mb-4">
-						<h1 class="h3 mb-0 text-gray-800">회원정보조회</h1>
-						
-					</div>
-
-					<div class="row"></div>
-
-					<!-- Content Row -->
-					<div class="row">
-
-						<!-- Content Column -->
-						<div class="col-lg-6 mb-4"></div>
-
-						<div class="col-lg-6 mb-4"></div>
-					</div>
-
-					<div id="wrapper">
-						<!-- Menu -->
-						<nav id="Update">
-							<div class="card shadow mb-4">
-								<div class="card-header py-3">
-									<h6 class="m-0 font-weight-bold text-primary">회원 목록</h6>
-								</div>
-								<div class="card-body">
-									<div class="table-responsive">
-										<table class="table table-bordered" id="dataTable"
-											width="100%" cellspacing="0">
-											<thead>
-												<tr>
-													<td>ID</td>
-													<td>PW</td>
-													<td>이름</td>
-													<td>유형</td>
-													<td>가입일</td>
-												</tr>
-											</thead>
-											<tbody>
-
-												<%
-												for (int i = 0; i < list.size(); i++) {
-												%>
-												<tr>
-													<td><%=list.get(i).getId()%></a></td>
-													<td><%=list.get(i).getPw()%></td>
-													<td><%=list.get(i).getName()%></td>
-													<td><%=list.get(i).getType()%></td>
-													<td><%=list.get(i).getReg_date()%></td>
-												</tr>
-
-												<%
-												}
-												%>
-											</tbody>
+					<h1 class="h3 mb-2 text-gray-800">📝 게시판</h1>
+					<p class="mb-4">
+					<li>게시글을 확인하는 페이지입니다.</li>
+					</p>
 
 
-										</table>
-									</div>
-								</div>
+					<div class="card shadow mb-4">
+						<div class="card-header py-3">
+							<h6 class="m-0 font-weight-bold text-primary">게시글 목록</h6>
+						</div>
+						<div class="card-body">
+							<div class="table-responsive">
+								<table class="table table-bordered" id="dataTable" width="100%"
+									cellspacing="0">
+									<tr>
+										<td>제목</td>
+										<td><%=dto.getQna_title()%></td>
+									</tr>
+									<tr>
+										<td>작성자</td>
+										<td><%=dto.getMb_id()%></td>
+									</tr>
+									<tr>
+										<td>내용</td>
+										<td><img alt="" src="file/<%=dto.getFile()%>">
+											<%=dto.getContent()%></td>
+									</tr>
+									
+									<button onclick="location='board.jsp'">돌아가기</button>
+									
+								</table>
 							</div>
-						</nav>
+						</div>
 					</div>
-
 				</div>
-
+				<!-- /.container-fluid -->
 			</div>
 			<!-- End of Main Content -->
 
@@ -343,7 +334,7 @@
 			<footer class="sticky-footer bg-white">
 				<div class="container my-auto">
 					<div class="copyright text-center my-auto">
-						<span>Copyright &copy; Your Website 2021</span>
+						<span>Copyright &copy; Smart Gorani</span>
 					</div>
 				</div>
 			</footer>
@@ -383,8 +374,6 @@
 		</div>
 	</div>
 
-
-
 	<!-- Bootstrap core JavaScript-->
 	<script src="vendor/jquery/jquery.min.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -396,12 +385,10 @@
 	<script src="js/sb-admin-2.min.js"></script>
 
 	<!-- Page level plugins -->
-	<script src="vendor/chart.js/Chart.min.js"></script>
+	<script src="vendor/datatables/jquery.dataTables.min.js"></script>
+	<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
 	<!-- Page level custom scripts -->
-	<script src="js/demo/chart-area-demo.js"></script>
-	<script src="js/demo/chart-pie-demo.js"></script>
-
+	<script src="js/demo/datatables-demo.js"></script>
 </body>
-
 </html>
