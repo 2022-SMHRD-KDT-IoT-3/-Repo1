@@ -350,43 +350,48 @@
 
 								<div class="wrap-table100-nextcols js-pscroll">
 									<div class="table100-nextcols">
+										<form action="UpdateInfoService.do" method="post">
+											<table>
 
-										<table>
-
-											<tbody>
-												<tr class="row100 body">
-													<td class="cell100 column1"><div
-															class="form-control bg-light border-0 small"><%=info.getName()%></div></td>
-												</tr>
-												<tr class="row100 body">
-													<td class="cell100 column1"><div
-															class="form-control bg-light border-0 small"><%=info.getId()%></div></td>
-												</tr>
-												<tr class="row100 body">
-													<td class="cell100 column1"><div
-															class="form-control bg-light border-0 small"><%=info.getPw()%></div></td>
-												</tr>
-												<tr class="row100 body">
-													<td class="cell100 column1"><div
-															class="form-control bg-light border-0 small"><%=info.getType()%></div></td>
-												</tr>
-												<tr class="row100 body">
-													<td class="cell100 column1"><div
-															class="form-control bg-light border-0 small"><%=info.getReg_date()%></div>
-													</td>
-												</tr>
-											</tbody>
-										</table>
+												<tbody>
+													<tr class="row100 body">
+														<td class="cell100 column1"><div
+																class="form-control bg-light border-0 small"
+																name="name"><%=info.getName()%></div></td>
+													</tr>
+													<tr class="row100 body">
+														<td class="cell100 column1"><div
+																class="form-control bg-light border-0 small"
+																name="id"><%=info.getId()%></div></td>
+													</tr>
+													<tr class="row100 body">
+														<td class="cell100 column1"><input
+															class="form-control bg-light border-0 small"
+															 name="pw"><%=info.getPw()%></td>
+													</tr>
+													<tr class="row100 body">
+														<td class="cell100 column1"><input
+															class="form-control bg-light border-0 small"
+															name="type"><%=info.getType()%></td>
+													</tr>
+													<tr class="row100 body">
+														<td class="cell100 column1"><div
+																class="form-control bg-light border-0 small" name="reg_date"><%=info.getReg_date()%></div>
+														</td>
+													</tr>
+												</tbody>
+											</table>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 					<br>
-					<a href="Editinfo.jsp" class="d-none d-sm-block btn btn-sm btn-primary shadow-sm">
+					<button type="submit"
+						class="d-none d-sm-block btn btn-sm btn-primary shadow-sm">
 						<i class="fa-sm text-white-50"></i>수정하기
-					</a>
-
+					</button>
+					</form>
 				</div>
 				<!-- /.container-fluid -->
 

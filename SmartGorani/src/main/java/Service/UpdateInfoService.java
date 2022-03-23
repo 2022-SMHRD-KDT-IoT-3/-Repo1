@@ -36,7 +36,7 @@ public class UpdateInfoService implements Command {
 		System.out.println("type : " + type);
 		System.out.println("reg_date : " + reg_date);
 
-		MemberDTO dto = new MemberDTO(name, id, pw, type, reg_date);
+		MemberDTO dto = new MemberDTO(id, pw, type, name, reg_date);
 
 		int cnt = new MemberDAO().update(dto);
 
