@@ -279,7 +279,7 @@ MemberDTO info = (MemberDTO)session.getAttribute("info");
 							<span class="mr-2 d-none d-lg-inline text-gray-600 small"> 
 							<%= info.getName() %>  </span> 
 							<%} else{ %> 
-							<span class="mr-2 d-none d-lg-inline text-gray-600 small"> user name </span>
+							<span class="mr-2 d-none d-lg-inline text-gray-600 small"> 로그인을 하세요 </span>
 							<%} %>
 						</a> <!-- Dropdown - User Information -->
 							<div
@@ -704,20 +704,39 @@ MemberDTO info = (MemberDTO)session.getAttribute("info");
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+			<%
+			if(info!=null){%>
+			<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">로그아웃 하시겠습니까?</h5>
 					<button class="close" type="button" data-dismiss="modal"
 						aria-label="Close">
 						<span aria-hidden="true">×</span>
 					</button>
 				</div>
-				<div class="modal-body">Select "Logout" below if you are ready
-					to end your current session.</div>
+								<div class="modal-body">로그아웃 하시겠습니까?</div>
 				<div class="modal-footer">
 					<button class="btn btn-secondary" type="button"
-						data-dismiss="modal">Cancel</button>
-					<a class="btn btn-primary" href="login.html">Logout</a>
+						data-dismiss="modal">취소</button>
+					<a class="btn btn-primary" href="LogoutService.do">확인</a>
 				</div>
+			 <%} else{%>
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">로그인 하시겠습니까?</h5>
+					<button class="close" type="button" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div> 
+				<div class="modal-body">로그인 하시겠습니까?</div>
+				<div class="modal-footer">
+					<button class="btn btn-secondary" type="button"
+						data-dismiss="modal">취소</button>
+					<a class="btn btn-primary" href="login.html">확인</a>
+				</div>
+				<% 
+				
+			 } %>
+				
 			</div>
 		</div>
 	</div>

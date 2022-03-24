@@ -1,6 +1,6 @@
 <%@page import="Model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+	pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,10 +28,9 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 </head>
 <body id="page-top">
-<%
-MemberDTO info = (MemberDTO)session.getAttribute("info");
-
-%>
+	<%
+	MemberDTO info = (MemberDTO) session.getAttribute("info");
+	%>
 
 
 	<!-- @ strat : Page Wrapper -->
@@ -185,9 +184,16 @@ MemberDTO info = (MemberDTO)session.getAttribute("info");
 						<li class="nav-item dropdown no-arrow"><a
 							class="nav-link dropdown-toggle" href="#" id="userDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false"><%if (info!=null){ %>
-							<span class="mr-2 d-none d-lg-inline text-gray-600 small"> 
-							<%= info.getName() %> <%} else{ %> user name	<%} %></span>
+							aria-expanded="false">
+								<%
+								if (info != null) {
+								%> <span
+								class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getName()%>
+									<%
+									} else {
+									%> user name <%
+									}
+									%></span>
 						</a> <!-- Dropdown - User Information -->
 							<div
 								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -321,24 +327,45 @@ MemberDTO info = (MemberDTO)session.getAttribute("info");
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
+				<%
+				if (info != null) {
+				%>
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+					<h5 class="modal-title" id="exampleModalLabel">로그아웃 하시겠습니까?</h5>
 					<button class="close" type="button" data-dismiss="modal"
 						aria-label="Close">
 						<span aria-hidden="true">×</span>
 					</button>
 				</div>
-				<div class="modal-body">Select "Logout" below if you are ready
-					to end your current session.</div>
+				<div class="modal-body">로그아웃 하시겠습니까?</div>
 				<div class="modal-footer">
 					<button class="btn btn-secondary" type="button"
-						data-dismiss="modal">Cancel</button>
-					<a class="btn btn-primary" href="login.html">Logout</a>
+						data-dismiss="modal">취소</button>
+					<a class="btn btn-primary" href="LogoutService.do">확인</a>
 				</div>
+				<%
+				} else {
+				%>
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">로그인 하시겠습니까?</h5>
+					<button class="close" type="button" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="modal-body">로그인 하시겠습니까?</div>
+				<div class="modal-footer">
+					<button class="btn btn-secondary" type="button"
+						data-dismiss="modal">취소</button>
+					<a class="btn btn-primary" href="login.html">확인</a>
+				</div>
+				<%
+				}
+				%>
+
 			</div>
 		</div>
 	</div>
-
 
 
 	<!-- Bootstrap core JavaScript-->
@@ -392,15 +419,15 @@ MemberDTO info = (MemberDTO)session.getAttribute("info");
 							borderWidth : 1
 						//경계선 굵기
 						} /* ,
-						                        {
-						                            label: 'test2',
-						                            fill: false,
-						                            data: [
-						                                8, 34, 12, 24
-						                            ],
-						                            backgroundColor: 'rgb(157, 109, 12)',
-						                            borderColor: 'rgb(157, 109, 12)'
-						                        } */
+											                        {
+											                            label: 'test2',
+											                            fill: false,
+											                            data: [
+											                                8, 34, 12, 24
+											                            ],
+											                            backgroundColor: 'rgb(157, 109, 12)',
+											                            borderColor: 'rgb(157, 109, 12)'
+											                        } */
 						]
 					},
 					options : {
