@@ -9,6 +9,9 @@ public class MemberDTO {
 	private String type;
 	private String reg_date;
 	
+	public MemberDTO() {
+		super();
+	}
 	public MemberDTO(String id, String pw, String name, String gender, String type, String reg_date) {
 		super();
 		this.id = id;
@@ -19,9 +22,6 @@ public class MemberDTO {
 		this.reg_date = reg_date;
 	}
 	
-	public MemberDTO() {
-		super();
-	}
 
 	public MemberDTO(String id, String pw, String name, String gender, String type) {
 		super();

@@ -28,15 +28,17 @@ public class UpdateInfoService implements Command {
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
 		String type = request.getParameter("type");
-		String reg_date = request.getParameter("reg_date");
+		String gender = request.getParameter("gender");
+		// String reg_date = request.getParameter("reg_date");
 
 		System.out.println("name : " + name);
 		System.out.println("id : " + id);
 		System.out.println("pw : " + pw);
 		System.out.println("type : " + type);
-		System.out.println("reg_date : " + reg_date);
+		System.out.println("gender : " + gender);
+		//System.out.println("reg_date : " + reg_date);
 
-		MemberDTO dto = new MemberDTO(id, pw, type, name, reg_date);
+		MemberDTO dto = new MemberDTO(id, pw, type, name, gender);
 				
 		int cnt = new MemberDAO().update(dto);
 		

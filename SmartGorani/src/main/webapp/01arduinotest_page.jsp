@@ -13,7 +13,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>회원정보수정</title>
+<title>SG- Main</title>
 
 
 <!-- Custom fonts for this template-->
@@ -25,15 +25,15 @@
 
 <!-- Custom styles for this template-->
 <link href="css/sb-admin-2.min.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="css/table1.css">
-<link rel="stylesheet" type="text/css" href="css/table1main.css">
 
 </head>
 
 <body id="page-top">
-	<%
-	MemberDTO info = (MemberDTO) session.getAttribute("info");
-	%>
+<%
+MemberDTO info = (MemberDTO)session.getAttribute("info");
+
+
+%>
 	<!-- @ strat : Page Wrapper -->
 	<div id="wrapper">
 		<!-- Sidebar -->
@@ -274,29 +274,42 @@
 						<li class="nav-item dropdown no-arrow"><a
 							class="nav-link dropdown-toggle" href="#" id="userDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false"> <%
- if (info != null) {
- %> <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getName()%>
-									<%
-									} else {
-									%> user name <%
-									}
-									%></span>
+							aria-expanded="false"> 
+							<%if (info!=null){ %>
+							<span class="mr-2 d-none d-lg-inline text-gray-600 small"> 
+							<%= info.getName() %>  </span> 
+							<%} else{ %> 
+							<span class="mr-2 d-none d-lg-inline text-gray-600 small"> 로그인을 하세요 </span>
+							<%} %>
 						</a> <!-- Dropdown - User Information -->
 							<div
 								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
 								aria-labelledby="userDropdown">
+								<%if(info.getName().equals("admin")){ %>
 								<a class="dropdown-item" href="updateinfo.jsp"> <i
 									class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
-								</a> <a class="dropdown-item" href="#"> <i
-									class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-									Activity Log
 								</a>
+								<a class="dropdown-item" href="admin_member.jsp"> <i
+									class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+									Admin page
+								</a>
+								<%}else{ %>
+								<a class="dropdown-item" href="updateinfo.jsp"> <i
+								class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
+								</a>
+								<%} %>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="#" data-toggle="modal"
-									data-target="#logoutModal"> <i
+									data-target="#logoutModal"> 
+									<%if(info!=null){ %>
+									<i
 									class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
 									Logout
+									<%} else {%>
+									<i
+									class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+									Login
+									<%} %>
 								</a>
 							</div></li>
 
@@ -307,89 +320,12 @@
 
 				<!-- Begin Page Content -->
 				<div class="container-fluid">
+
+					<!-- Page Heading -->
 					<div
 						class="d-sm-flex align-items-center justify-content-between mb-4">
-						<h1 class="h3 mb-0 text-gray-800">회원정보</h1>
-
+						<h1 class="h3 mb-0 text-gray-800">아두이노 테스트 페이지</h1>
 					</div>
-					<div class="">
-						<div class="wrap-table100">
-							<div class="table100 ver1">
-								<div class="table100-firstcol">
-									<table>
-										<tbody>
-											<tr class="row100 body">
-												<td class="cell100 column1">
-													<p class="form-control border-0 small">아이디</p>
-												</td>
-											</tr>
-											<tr class="row100 body">
-												<td class="cell100 column1">
-													<p class="form-control border-0 small">비밀번호</p>
-												</td>
-											</tr>
-											<tr class="row100 body">
-												<td class="cell100 column1">
-													<p class="form-control border-0 small">이름</p>
-												</td>
-											</tr>
-											<tr class="row100 body">
-												<td class="cell100 column1">
-													<p class="form-control border-0 small">성별</p>
-												</td>
-											</tr>
-											<tr class="row100 body">
-												<td class="cell100 column1">
-													<p class="form-control border-0 small">구분</p>
-												</td>
-											</tr>
-
-											
-										</tbody>
-									</table>
-								</div>
-
-								<div class="wrap-table100-nextcols js-pscroll">
-									<div class="table100-nextcols">
-
-										<table>
-
-											<tbody>
-												<tr class="row100 body">
-													<td class="cell100 column1"><div
-															class="form-control bg-light border-0 small"><%=info.getId()%></div></td>
-												</tr>
-												<tr class="row100 body">
-													<td class="cell100 column1"><div
-															class="form-control bg-light border-0 small"><%=info.getPw()%></div></td>
-												</tr>
-												<tr class="row100 body">
-													<td class="cell100 column1"><div
-															class="form-control bg-light border-0 small"><%=info.getName()%></div></td>
-												</tr>
-												<tr class="row100 body">
-													<td class="cell100 column1"><div
-															class="form-control bg-light border-0 small"><%=info.getGender()%></div></td>
-												</tr>
-												<tr class="row100 body">
-													<td class="cell100 column1"><div
-															class="form-control bg-light border-0 small"><%=info.getType()%></div>
-													</td>
-												
-												</tr>
-											</tbody>
-										</table>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<br>
-					<button type="button"
-						onclick="location.href='/SmartGorani/editinfo.jsp'"
-						class="d-none d-sm-block btn btn-sm btn-primary shadow-sm">
-						<i class="fa-sm text-white-50"></i>수정하기
-					</button>
 
 				</div>
 				<!-- /.container-fluid -->
@@ -423,20 +359,39 @@
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+			<%
+			if(info!=null){%>
+			<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">로그아웃 하시겠습니까?</h5>
 					<button class="close" type="button" data-dismiss="modal"
 						aria-label="Close">
 						<span aria-hidden="true">×</span>
 					</button>
 				</div>
-				<div class="modal-body">Select "Logout" below if you are ready
-					to end your current session.</div>
+								<div class="modal-body">로그아웃 하시겠습니까?</div>
 				<div class="modal-footer">
 					<button class="btn btn-secondary" type="button"
-						data-dismiss="modal">Cancel</button>
-					<a class="btn btn-primary" href="login.html">Logout</a>
+						data-dismiss="modal">취소</button>
+					<a class="btn btn-primary" href="LogoutService.do">확인</a>
 				</div>
+			 <%} else{%>
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">로그인 하시겠습니까?</h5>
+					<button class="close" type="button" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div> 
+				<div class="modal-body">로그인 하시겠습니까?</div>
+				<div class="modal-footer">
+					<button class="btn btn-secondary" type="button"
+						data-dismiss="modal">취소</button>
+					<a class="btn btn-primary" href="login.html">확인</a>
+				</div>
+				<% 
+				
+			 } %>
+				
 			</div>
 		</div>
 	</div>
@@ -457,6 +412,7 @@
 	<!-- Page level custom scripts -->
 	<script src="js/demo/chart-area-demo.js"></script>
 	<script src="js/demo/chart-pie-demo.js"></script>
+
 </body>
 
 </html>

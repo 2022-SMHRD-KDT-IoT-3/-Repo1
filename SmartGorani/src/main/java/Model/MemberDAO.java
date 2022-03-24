@@ -157,12 +157,12 @@ public class MemberDAO {
 	public int update(MemberDTO dto) {
 		dbconn();
 		try {
-			String sql = "update tbl_member set mb_name =?, mb_pw = ?, mb_type = ?, mb_joindate = ? where mb_id = ?";
+			String sql = "update tbl_member set mb_name =?, mb_pw = ?, mb_type = ?, mb_gender = ? where mb_id = ?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getName());
 			psmt.setString(2, dto.getPw());
 			psmt.setString(3, dto.getType());
-			psmt.setString(4, dto.getReg_date());
+			psmt.setString(4, dto.getGender());
 			psmt.setString(5, dto.getId());
 			cnt = psmt.executeUpdate();
 		} catch (Exception e) {

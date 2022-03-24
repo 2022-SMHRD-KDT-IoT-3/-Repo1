@@ -320,30 +320,31 @@
 										<tbody>
 											<tr class="row100 body">
 												<td class="cell100 column1">
-													<p class="form-control border-0 small">사용자 이름</p>
+													<p class="form-control border-0 small">아이디</p>
 												</td>
 											</tr>
 											<tr class="row100 body">
 												<td class="cell100 column1">
-													<p class="form-control border-0 small">사용자 아이디</p>
+													<p class="form-control border-0 small">비밀번호</p>
 												</td>
 											</tr>
 											<tr class="row100 body">
 												<td class="cell100 column1">
-													<p class="form-control border-0 small">사용자 비밀번호</p>
+													<p class="form-control border-0 small">이름</p>
 												</td>
 											</tr>
 											<tr class="row100 body">
 												<td class="cell100 column1">
-													<p class="form-control border-0 small">사용자 타입</p>
+													<p class="form-control border-0 small">성별</p>
+												</td>
+											</tr>
+											<tr class="row100 body">
+												<td class="cell100 column1">
+													<p class="form-control border-0 small">구분</p>
 												</td>
 											</tr>
 
-											<tr class="row100 body">
-												<td class="cell100 column1">
-													<p class="form-control border-0 small">가입일</p>
-												</td>
-											</tr>
+											
 										</tbody>
 									</table>
 								</div>
@@ -355,28 +356,28 @@
 												<tbody>
 													<tr class="row100 body">
 														<td class="cell100 column1"><input
-																class="form-control bg-light border-0 small"
-																name="name" value="<%=info.getName()%>" readonly></td>
+															class="form-control bg-light border-0 small" name="id"
+															value="<%=info.getId()%>" readonly></td>
 													</tr>
 													<tr class="row100 body">
 														<td class="cell100 column1"><input
-																class="form-control bg-light border-0 small"
-																name="id" value="<%=info.getId()%>" readonly></td>
-													</tr>
-													<tr class="row100 body">
-														<td class="cell100 column1"><input
-															class="form-control bg-light border-0 small" value="<%=info.getPw()%>"
-															 name="pw"></td>
+															class="form-control bg-light border-0 small" name="pw"
+															value="<%=info.getPw()%>"></td>
 													</tr>
 													<tr class="row100 body">
 														<td class="cell100 column1"><input
 															class="form-control bg-light border-0 small"
-															name="type" value="<%=info.getType()%>"></td>
+															value="<%=info.getName()%>" name="name"></td>
 													</tr>
 													<tr class="row100 body">
 														<td class="cell100 column1"><input
-																class="form-control bg-light border-0 small" name="reg_date" value="<%=info.getReg_date()%>" readonly>
-														</td>
+															class="form-control bg-light border-0 small"
+															value="<%=info.getGender()%>" name="gender"></td>
+													</tr>
+													<tr class="row100 body">
+														<td class="cell100 column1"><input
+															class="form-control bg-light border-0 small" name="type"
+															value="<%=info.getType()%>"></td>
 													</tr>
 												</tbody>
 											</table>
@@ -386,8 +387,9 @@
 						</div>
 					</div>
 					<br>
-					
-					<button type="submit" class="d-none d-sm-block btn btn-sm btn-primary shadow-sm">
+
+					<button type="submit"
+						class="d-none d-sm-block btn btn-sm btn-primary shadow-sm">
 						<i class="fa-sm text-white-50"></i>수정완료
 					</button>
 					</form>

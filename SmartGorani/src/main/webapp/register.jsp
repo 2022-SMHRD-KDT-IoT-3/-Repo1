@@ -75,7 +75,7 @@
 								<div class="form-group">
 									구분 &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="type"
 										value="HOME"><label>가정용</label> &nbsp; &nbsp; &nbsp; <input
-										type="radio" name="type" value=" FARMING_INDUSTRY"><label>농업용</label>
+										type="radio" name="type" value="FARMING_INDUSTRY"><label>농업용</label>
 									&nbsp; &nbsp; &nbsp; <input type="radio" name="type"
 										value="INDUSTRY"><label>산업용</label>
 								</div>
