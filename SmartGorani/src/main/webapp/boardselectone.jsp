@@ -251,17 +251,16 @@
 						<li class="nav-item dropdown no-arrow"><a
 							class="nav-link dropdown-toggle" href="#" id="userDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false">
-								<%
-								if (info != null) {
-								%> <span
-								class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getName()%> </span>
-									<%
-									} else {
-									%> <span
-								class="mr-2 d-none d-lg-inline text-gray-600 small">user name<%
-									}
-									%></span>
+							aria-expanded="false"> <%
+ if (info != null) {
+ %> <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getName()%>
+							</span> <%
+ } else {
+ %> <span class="mr-2 d-none d-lg-inline text-gray-600 small">user
+									name<%
+ }
+ %>
+							</span>
 						</a> <!-- Dropdown - User Information -->
 							<div
 								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -314,14 +313,16 @@
 										<td><%=dto.getMb_id()%></td>
 									</tr>
 									<tr>
-										<td>내용</td>
-										<td><img alt="" src="file/<%=dto.getFile()%>">
-											<%=dto.getContent()%></td>
+										<td colspan="2">내용</td>
 									</tr>
-									
-									<button onclick="location='board.jsp'">돌아가기</button>
-									
+									<tr>
+										<td colspan="2"><%=dto.getContent()%> <img alt=""
+											src="file/<%=dto.getFile()%>"></td>
+									</tr>
+
+
 								</table>
+								<button onclick="location='board.jsp'">돌아가기</button>
 							</div>
 						</div>
 					</div>

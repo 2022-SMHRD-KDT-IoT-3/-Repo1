@@ -260,7 +260,7 @@
 												<%
 												} else {
 												%>
-												<td><input type="text" name="mb_id"></td>
+												<td><input type="text" name="mb_id" size="20" style="width:100%;"></td>
 												<%
 												}
 												%>

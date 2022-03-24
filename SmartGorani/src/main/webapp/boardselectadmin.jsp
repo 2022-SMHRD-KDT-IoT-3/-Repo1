@@ -1,3 +1,5 @@
+<%@page import="Model.ReplyDAO"%>
+<%@page import="Model.ReplyDTO"%>
 <%@page import="Model.BoardDTO"%>
 <%@page import="Model.BoardDAO"%>
 <%@page import="java.util.ArrayList"%>
@@ -289,19 +291,28 @@
 										<td><%=dto.getMb_id()%></td>
 									</tr>
 									<tr>
-										<td>내용</td>
-										<td><img alt="" src="file/<%=dto.getFile()%>">
-											<%=dto.getContent()%></td>
+										<td colspan="2">내용</td>
 									</tr>
 									<tr>
-										<td>답변 상태</td>
-										<td> 답변완료 </td>
+										<td colspan="2"><%=dto.getContent()%> <img alt=""
+											src="file/<%=dto.getFile()%>"></td>
+									</tr>
+									<tr>
+									<td>답변상태</td>
+									<%
+											ReplyDTO rdto = new ReplyDAO().replySelectOne(num);
+											
+											if(rdto != null){%>
+											<td>완료</td>
+											<%} else {%>
+											<td>대기</td>
+											<% } %>
 									</tr>
 									
-									<button onclick="location='board_admin.jsp'">돌아가기</button>
-									<button onclick="location='board_reply.jsp?num=<%=dto.getQna_seq()%>'">답변등록</button>
 									
 								</table>
+									<button onclick="location='board_admin.jsp'">돌아가기</button>
+									<button onclick="location='board_reply.jsp?num=<%=dto.getQna_seq()%>'">답변등록</button>
 							</div>
 						</div>
 					</div>
