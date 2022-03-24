@@ -65,7 +65,7 @@ public class FrontController extends HttpServlet {
 		} else if (command.equals("IDcheckService.do")) { // 아이디 중복체크 -> 진옥 O
 			com = new IDcheckService();
 			nextpage = com.execute(request, response);
-		} else if (command.equals("UpdateInfoService.do")) { // 회원 정보 수정 -> 진옥 아 모르겠는데여... 아무나 도와주세여.....
+		} else if (command.equals("UpdateInfoService.do")) { // 회원 정보 수정 -> 진옥 O
 			com = new UpdateInfoService();
 			nextpage = com.execute(request, response);
 

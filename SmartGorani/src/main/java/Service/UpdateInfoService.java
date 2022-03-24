@@ -32,13 +32,15 @@ public class UpdateInfoService implements Command {
 
 		System.out.println("name : " + name);
 		System.out.println("id : " + id);
-		System.out.println("pw : " + type);
+		System.out.println("pw : " + pw);
 		System.out.println("type : " + type);
 		System.out.println("reg_date : " + reg_date);
 
 		MemberDTO dto = new MemberDTO(id, pw, type, name, reg_date);
-
+		dto.setReg_date(dto.getReg_date().substring(0, 10));
+		
 		int cnt = new MemberDAO().update(dto);
+		
 
 		if (cnt > 0) {
 			System.out.println("-- 회원정보수정 성공");

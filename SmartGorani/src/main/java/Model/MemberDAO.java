@@ -156,12 +156,13 @@ public class MemberDAO {
 	public int update(MemberDTO dto) {
 		dbconn();
 		try {
-			String sql = "update tbl_member set mb_pw = ?, mb_name = ?, mb_type = ? where mb_id = ?";
+			String sql = "update tbl_member set mb_name =?, mb_pw = ?, mb_type = ?, mb_joindate = ? where mb_id = ?";
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, dto.getPw());
-			psmt.setString(2, dto.getName());
+			psmt.setString(1, dto.getName());
+			psmt.setString(2, dto.getPw());
 			psmt.setString(3, dto.getType());
-			psmt.setString(4, dto.getId());
+			psmt.setString(4, dto.getReg_date());
+			psmt.setString(5, dto.getId());
 			cnt = psmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -171,6 +172,7 @@ public class MemberDAO {
 		return cnt;
 	}
 
+	// 회원 전체조회 메소드
 	public ArrayList<MemberDTO> selectAll() {
 		ArrayList<MemberDTO> list = new ArrayList<MemberDTO>();
 

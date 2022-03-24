@@ -17,6 +17,8 @@ public class MemberDTO {
 		this.reg_date = reg_date;
 	}
 
+	
+	
 	public String getId() {
 		return id;
 	}
@@ -55,6 +57,14 @@ public class MemberDTO {
 
 	public void setReg_date(String reg_date) {
 		this.reg_date = reg_date;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "MemberDTO [id=" + id + ", pw=" + pw + ", name=" + name + ", type=" + type + ", reg_date=" + reg_date
+				+ "]";
 	}
 	
 }

@@ -383,9 +383,9 @@
 						</div>
 					</div>
 					<br>
-					<a href="Editinfo.jsp" class="d-none d-sm-block btn btn-sm btn-primary shadow-sm">
+					<button type="button" onclick="location.href='/SmartGorani/editinfo.jsp'" class="d-none d-sm-block btn btn-sm btn-primary shadow-sm">
 						<i class="fa-sm text-white-50"></i>수정하기
-					</a>
+					</button>
 
 				</div>
 				<!-- /.container-fluid -->

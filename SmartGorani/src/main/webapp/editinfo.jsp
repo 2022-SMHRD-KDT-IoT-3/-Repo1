@@ -352,31 +352,30 @@
 									<div class="table100-nextcols">
 										<form action="UpdateInfoService.do" method="post">
 											<table>
-
 												<tbody>
 													<tr class="row100 body">
-														<td class="cell100 column1"><div
+														<td class="cell100 column1"><input
 																class="form-control bg-light border-0 small"
-																name="name"><%=info.getName()%></div></td>
+																name="name" value="<%=info.getName()%>" readonly></td>
 													</tr>
 													<tr class="row100 body">
-														<td class="cell100 column1"><div
+														<td class="cell100 column1"><input
 																class="form-control bg-light border-0 small"
-																name="id"><%=info.getId()%></div></td>
+																name="id" value="<%=info.getId()%>" readonly></td>
+													</tr>
+													<tr class="row100 body">
+														<td class="cell100 column1"><input
+															class="form-control bg-light border-0 small" value="<%=info.getPw()%>"
+															 name="pw"></td>
 													</tr>
 													<tr class="row100 body">
 														<td class="cell100 column1"><input
 															class="form-control bg-light border-0 small"
-															 name="pw"><%=info.getPw()%></td>
+															name="type" value="<%=info.getType()%>"></td>
 													</tr>
 													<tr class="row100 body">
 														<td class="cell100 column1"><input
-															class="form-control bg-light border-0 small"
-															name="type"><%=info.getType()%></td>
-													</tr>
-													<tr class="row100 body">
-														<td class="cell100 column1"><div
-																class="form-control bg-light border-0 small" name="reg_date"><%=info.getReg_date()%></div>
+																class="form-control bg-light border-0 small" name="reg_date" value="<%=info.getReg_date()%>" readonly>
 														</td>
 													</tr>
 												</tbody>
@@ -387,9 +386,9 @@
 						</div>
 					</div>
 					<br>
-					<button type="submit"
-						class="d-none d-sm-block btn btn-sm btn-primary shadow-sm">
-						<i class="fa-sm text-white-50"></i>수정하기
+					
+					<button type="submit" class="d-none d-sm-block btn btn-sm btn-primary shadow-sm">
+						<i class="fa-sm text-white-50"></i>수정완료
 					</button>
 					</form>
 				</div>
