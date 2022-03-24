@@ -59,7 +59,7 @@ public class MemberDAO {
 
 			dbconn();
 			// 2. SQL문 작성
-			String sql = "insert into tbl_member values(?, ?, ?, 'a', sysdate)";
+			String sql = "insert into tbl_member values(?, ?, ?, ?, ?, sysdate)";
 
 			// sql문 DB에 전달
 			psmt = conn.prepareStatement(sql);
@@ -68,7 +68,8 @@ public class MemberDAO {
 			psmt.setString(1, dto.getId());
 			psmt.setString(2, dto.getPw());
 			psmt.setString(3, dto.getName());
-//			psmt.setString(4, dto.getType());
+			psmt.setString(4, dto.getGender());
+			psmt.setString(5, dto.getType());
 //			psmt.setString(5, dto.getReg_date());
 
 			// sql문 실행(실행된 행의 숫자로 반환)

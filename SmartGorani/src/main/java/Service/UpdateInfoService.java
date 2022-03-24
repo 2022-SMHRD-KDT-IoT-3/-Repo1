@@ -37,8 +37,7 @@ public class UpdateInfoService implements Command {
 		System.out.println("reg_date : " + reg_date);
 
 		MemberDTO dto = new MemberDTO(id, pw, type, name, reg_date);
-		dto.setReg_date(dto.getReg_date().substring(0, 10));
-		
+				
 		int cnt = new MemberDAO().update(dto);
 		
 

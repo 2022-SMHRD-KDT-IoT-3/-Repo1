@@ -14,7 +14,7 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<title>SG - Register</title>
+<title>회원가입</title>
 
 <!-- Custom fonts for this template-->
 <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
@@ -40,26 +40,19 @@
 					<div class="col-lg-7">
 						<div class="p-5">
 							<div class="text-center">
-								<h1 class="h4 text-gray-900 mb-4">회원가입 type 지정해서 넣어야함</h1>
+								<h1 class="h4 text-gray-900 mb-4">회원가입</h1>
 							</div>
 							<form class="user" action="RegisterService.do" method="post">
 								<div class="form-group">
 									<input type="text" class="form-control form-control-user"
-										id="exampleLastName" name="name" placeholder="사용자 이름을 입력하세요.">
-								</div>
-
-								<div class="form-group">
-									<input type="text" class="form-control form-control-user"
 										id="exampleInputEmail" name="id" placeholder="아이디를 입력해주세요.">
 									<div class="my-2"></div>
-									<a href="#" class="btn btn-success btn-icon-split" id="idcheck_btn">
-                                        <span class="icon text-white-50">
-                                            <i class="fas fa-check"></i>
-                                        </span>
-                                        <span class="text"> 아이디 중복체크</span> <a id="idcheck"></a>
-                                    </a>
+									<a href="#" class="btn btn-success btn-icon-split"
+										id="idcheck_btn"> <span class="icon text-white-50">
+											<i class="fas fa-check"></i>
+									</span> <span class="text"> 아이디 중복체크</span> <a id="idcheck"></a>
+									</a>
 								</div>
-								
 								<div class="form-group row">
 									<div class="col-sm-6 mb-3 mb-sm-0">
 										<input type="password" class="form-control form-control-user"
@@ -70,7 +63,24 @@
 											id="exampleRepeatPassword" placeholder="비밀번호 확인">
 									</div>
 								</div>
-								<input type="submit" class="btn btn-primary btn-user btn-block" value="회원가입">
+								<div class="form-group">
+									<input type="text" class="form-control form-control-user"
+										id="exampleLastName" name="name" placeholder="사용자 이름을 입력하세요.">
+								</div>
+								<div class="form-group">
+									성별 &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio"
+										name="gender" value="M"><label>남자</label> &nbsp;
+									&nbsp; &nbsp; <input type="radio" name="gender" value="F"><label>여자</label>
+								</div>
+								<div class="form-group">
+									구분 &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="type"
+										value="HOME"><label>가정용</label> &nbsp; &nbsp; &nbsp; <input
+										type="radio" name="type" value=" FARMING_INDUSTRY"><label>농업용</label>
+									&nbsp; &nbsp; &nbsp; <input type="radio" name="type"
+										value="INDUSTRY"><label>산업용</label>
+								</div>
+								<input type="submit" class="btn btn-primary btn-user btn-block"
+									value="회원가입">
 							</form>
 							<hr>
 							<div class="text-center">
@@ -84,9 +94,8 @@
 				</div>
 			</div>
 		</div>
-
 	</div>
-	
+
 	<!-- 스크립트 파일 작성 -->
 	<script type="text/javascript">
 		// 0. 아이디 중복체크 버튼을 클릭했을 때
