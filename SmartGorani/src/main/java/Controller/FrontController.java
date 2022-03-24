@@ -13,6 +13,7 @@ import Inter.Command;
 import Service.CheckTotalPowerService;
 import Service.IDcheckService;
 import Service.Loginservice;
+import Service.LogoutService;
 import Service.PowerControlService;
 import Service.RegisterService;
 import Service.ResetPwService;
@@ -81,6 +82,9 @@ public class FrontController extends HttpServlet {
 			nextpage = com.execute(request, response);
 		} else if (command.equals("WriteReplyService.do")){			//답변 DB 등록
 			com = new WriteReplyService();
+			nextpage = com.execute(request, response);
+		} else if (command.equals("LogoutService.do")) {		//로그아웃
+			com = new LogoutService();
 			nextpage = com.execute(request, response);
 		}
 		if (nextpage != null) {
