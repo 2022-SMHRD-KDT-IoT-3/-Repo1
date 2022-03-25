@@ -375,8 +375,17 @@ $.get(
   }
 );
 function run(_rawData) {
-  var countries = ['Australia', 'Canada', 'China', 'Cuba', 'Finland', 'France', 'Germany', 'Iceland', 'India', 'Japan', 'North Korea', 'South Korea', 'New Zealand', 'Norway', 'Poland', 'Russia', 'Turkey', 'United Kingdom', 'United States'];
-  
+  // var countries = ['Australia', 'Canada', 'China', 'Cuba', 'Finland', 'France', 'Germany', 'Iceland', 'India', 'Japan', 'North Korea', 'South Korea', 'New Zealand', 'Norway', 'Poland', 'Russia', 'Turkey', 'United Kingdom', 'United States'];
+  const countries = [
+	    'Finland',
+	    'France',
+	    'Germany',
+	    'Iceland',
+	    'Norway',
+	    'Poland',
+	    'Russia',
+	    'United Kingdom'
+	  ];
   const datasetWithFilters = [];
   const seriesList = [];
   echarts.util.each(countries, function (country) {
