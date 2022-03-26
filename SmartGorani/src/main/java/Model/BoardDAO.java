@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 public class BoardDAO {
-	
+
 	PreparedStatement psmt = null;
 	Connection conn = null;
 	ResultSet rs = null;
@@ -43,7 +43,7 @@ public class BoardDAO {
 		}
 	}
 
-	//게시글작성 메소드
+	// 게시글작성 메소드
 	public int insertBoard(BoardDTO dto) {
 		dbconn();
 		try {
@@ -54,7 +54,7 @@ public class BoardDAO {
 			psmt.setString(3, dto.getFile());
 			psmt.setString(4, dto.getMb_id());
 			cnt = psmt.executeUpdate();
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -63,8 +63,8 @@ public class BoardDAO {
 		}
 		return cnt;
 	}
-	
-	//게시글 조회 메소드
+
+	// 게시글 조회 메소드
 	public ArrayList<BoardDTO> showBoard() {
 		ArrayList<BoardDTO> list = new ArrayList<BoardDTO>();
 		// 여러개의 dto를 담기위해
@@ -81,7 +81,6 @@ public class BoardDAO {
 				String date = rs.getString(5);
 				String mb_id = rs.getString(6);
 				BoardDTO dto = new BoardDTO(qna_seq, qna_title, content, file, date, mb_id);
-				
 
 				list.add(dto);
 			}
@@ -95,7 +94,7 @@ public class BoardDAO {
 		return list;
 	}
 
-	//  게시글 하나만 가져오는 메소드
+	// 게시글 하나만 가져오는 메소드
 	public BoardDTO boardSelectOne(int num) {
 
 		BoardDTO dto = null;
@@ -126,5 +125,56 @@ public class BoardDAO {
 
 		return dto;
 	}
+
+	// 게시글 삭제 메소드
+
+	public int boardDelete(int qna_seq, String mb_id) {
+		dbconn();
+		try {
+			String sql = "delete from tbl_qna where qna_seq=? and mb_id=?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, qna_seq);
+			psmt.setString(2, mb_id);
+			cnt = psmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			dbclose();
+
+		}
+
+		return cnt;
+	}
+
 	
+	
+	
+	
+	// 게시글 수정 메소드
+	public int boardUpdate(BoardDTO dto) {
+		dbconn();
+		try {
+			
+			String sql = "update tbl_qna set qna_title=?, qna_content=?, qna_file=?, qna_date=sysdate where tbl_qna_seq=? and mb_id=?";
+
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getQna_title());
+			psmt.setString(2, dto.getContent());
+			psmt.setString(3, dto.getFile());
+			psmt.setInt(4, dto.getQna_seq());
+			psmt.setString(5, dto.getMb_id());
+			
+			cnt = psmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			dbclose();
+
+		}
+
+		return cnt;
+	}
+
 }

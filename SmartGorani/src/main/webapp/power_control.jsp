@@ -266,59 +266,63 @@ MemberDTO info = (MemberDTO)session.getAttribute("info");
 								</div>
 								<div class="card-body">
 									<div>
+									<input type="checkbox" name="port" value="port2">
 										포트 1<label class="switch"> <input type="checkbox">
 											<div class="slider round"></div>
 											<p>OFF</p>
 											<p style="display: none;">ON</p>
 									</div>
-									<div>
+									<div> <input type="checkbox" name="port" value="port2">
 										포트 2<label class="switch"> <input type="checkbox">
 											<div class="slider round"></div>
 											<p>OFF</p>
 											<p style="display: none;">ON</p>
 									</div>
-									<div>
+									<div> <input type="checkbox" name="port" value="port2">
 										포트 3<label class="switch"> <input type="checkbox">
 											<div class="slider round"></div>
 											<p>OFF</p>
 											<p style="display: none;">ON</p>
 									</div>
-									<div>
+									<div> <input type="checkbox" name="port" value="port2">
 										포트 4<label class="switch"> <input type="checkbox">
 											<div class="slider round"></div>
 											<p>OFF</p>
 											<p style="display: none;">ON</p>
 									</div>
-									<div>
+									<div> <input type="checkbox" name="port" value="port2">
 										포트 5<label class="switch"> <input type="checkbox">
 											<div class="slider round"></div>
 											<p>OFF</p>
 											<p style="display: none;">ON</p>
 									</div>
-									<div>
+									<div> <input type="checkbox" name="port" value="port2">
 										포트 6<label class="switch"> <input type="checkbox">
 											<div class="slider round"></div>
 											<p>OFF</p>
 											<p style="display: none;">ON</p>
 									</div>
-									<div>
+									<div> <input type="checkbox" name="port" value="port2">
 										포트 7<label class="switch"> <input type="checkbox">
 											<div class="slider round"></div>
 											<p>OFF</p>
 											<p style="display: none;">ON</p>
 									</div>
-									<div>
+									<div> <input type="checkbox" name="port" value="port2">
 										포트 8<label class="switch"> <input type="checkbox">
 											<div class="slider round"></div>
 											<p>OFF</p>
 											<p style="display: none;">ON</p>
 									</div>
-									<div>
+									<div> <input type="checkbox" name="port" value="port2">
 										포트 9<label class="switch"> <input type="checkbox">
 											<div class="slider round"></div>
 											<p>OFF</p>
 											<p style="display: none;">ON</p>
 									</div>
+									<a href="#" class="btn btn-danger btn-circle">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
 								</div>
 							</div>
 

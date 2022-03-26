@@ -20,6 +20,8 @@ import Service.ResetPwService;
 import Service.UpdateInfoService;
 import Service.WriteBoardService;
 import Service.WriteReplyService;
+import Service.boardDeleteService;
+import Service.boardUpdateService;
 import Service.RealtimeInfoService;
 
 @WebServlet("*.do")
@@ -85,6 +87,12 @@ public class FrontController extends HttpServlet {
 			nextpage = com.execute(request, response);
 		} else if (command.equals("LogoutService.do")) {		//로그아웃
 			com = new LogoutService();
+			nextpage = com.execute(request, response);
+		} else if (command.equals("boardDeleteService.do")) {		//게시글삭제
+			com = new boardDeleteService();
+			nextpage = com.execute(request, response);
+		} else if (command.equals("boardUpdateService.do")) {		//게시글 수정
+			com = new boardUpdateService();
 			nextpage = com.execute(request, response);
 		}
 		if (nextpage != null) {
