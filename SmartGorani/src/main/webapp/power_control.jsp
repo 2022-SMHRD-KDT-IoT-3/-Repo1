@@ -270,15 +270,15 @@
 								</div>
 								<div class="card-body">
 									<div class="portName">
-										<input type="checkbox" name="port" value="port1"> 포트 1<label
-											class="switch"> <input type="checkbox">
+										<input type="checkbox" name="port" value="port1" id="port1">
+										포트 1<label class="switch"> <input type="checkbox">
 											<div class="slider round"></div>
 											<p>OFF</p>
 											<p style="display: none;">ON</p>
 									</div>
 									<div class="portName">
-										<input type="checkbox" name="port" value="port2"> 포트 2<label
-											class="switch"> <input type="checkbox">
+										<input type="checkbox" name="port" value="port2" id="port2">
+										포트 2<label class="switch"> <input type="checkbox">
 											<div class="slider round"></div>
 											<p>OFF</p>
 											<p style="display: none;">ON</p>
@@ -416,8 +416,7 @@
 
 	<!-- Bootstrap core JavaScript-->
 	<script type="text/javascript">
-	
-	//토글버튼으로 on off 제어하기....
+		//토글버튼으로 on off 제어하기....
 		let check = $("input[type='checkbox']");
 		check.click(function() {
 			$("p").toggle();
@@ -452,23 +451,10 @@
 			let checkBoxArr = [];
 			$("input:checkbox[name='port']:checked").each(function() {
 				checkBoxArr.push($(this).val()); // 체크된 것만 값을 뽑아서 배열에 push
-				console.log(checkBoxArr);
+				console.log(checkBoxArr)
 			})
 			if (confirm("선택된 포트를 삭제 할까요?") == true) {
-
-/* 				$.ajax({
-					url : "portDelete.do",
-					type : "POST",
-					data : {
-						checkBoxArr : checkBoxArr
-					},
-					success : function(result) {
-						console.log(result);
-					},
-					error : function() {
-					}
-				}); */
-					checkBoxArr.parent().remove();
+				$("div").remove("#port1");
 			} else {
 				return false;
 			}
