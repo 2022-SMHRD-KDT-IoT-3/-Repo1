@@ -240,7 +240,7 @@
 
 					<!-- 2. DataTales Example -->
 
-					<form action="boardUpdateService.do?mb_id=<%=info.getId()%>"
+					<form action="boardUpdateService.do?mb_id=<%=info.getId()%>&qna_seq=<%= dto.getQna_seq() %>"
 						method="post" enctype="multipart/form-data">
 						<div class="card shadow mb-4">
 							<div class="card-header py-3">

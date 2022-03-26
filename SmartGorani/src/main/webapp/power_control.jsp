@@ -29,10 +29,9 @@
 <body>
 <body id="page-top">
 
-<%
-MemberDTO info = (MemberDTO)session.getAttribute("info");
-
-%>
+	<%
+	MemberDTO info = (MemberDTO) session.getAttribute("info");
+	%>
 
 
 	<!-- @ strat : Page Wrapper -->
@@ -62,8 +61,8 @@ MemberDTO info = (MemberDTO)session.getAttribute("info");
 			<hr class="sidebar-divider my-0">
 
 			<!-- Nav Item - Charts -->
-			<li class="nav-item"><a class="nav-link" href="check.jsp">
-					<i class="fas fa-fw fa-chart-area"></i> <span>조회</span>
+			<li class="nav-item"><a class="nav-link" href="check.jsp"> <i
+					class="fas fa-fw fa-chart-area"></i> <span>조회</span>
 			</a></li>
 
 			<!-- Divider -->
@@ -199,9 +198,14 @@ MemberDTO info = (MemberDTO)session.getAttribute("info");
 						<li class="nav-item dropdown no-arrow"><a
 							class="nav-link dropdown-toggle" href="#" id="userDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false"> <%if (info!=null){ %>
-							<span class="mr-2 d-none d-lg-inline text-gray-600 small"> 
-							<%= info.getName() %> <%} else{ %> user name	<%} %></span>
+							aria-expanded="false"> <%
+ if (info != null) {
+ %> <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getName()%>
+									<%
+									} else {
+									%> user name <%
+									}
+									%></span>
 						</a> <!-- Dropdown - User Information -->
 							<div
 								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -245,7 +249,7 @@ MemberDTO info = (MemberDTO)session.getAttribute("info");
 							<!-- Custom Font Size Utilities -->
 							<div class="card shadow mb-4">
 								<div class="card-header py-3">
-									<h6 class="m-0 font-weight-bold text-primary" >전체 전력 제어</h6>
+									<h6 class="m-0 font-weight-bold text-primary">전체 전력 제어</h6>
 								</div>
 								<div class="card-body">
 									<div>
@@ -262,67 +266,55 @@ MemberDTO info = (MemberDTO)session.getAttribute("info");
 							<!-- Custom Text Color Utilities -->
 							<div class="card shadow mb-4">
 								<div class="card-header py-3">
-									<h6 class="m-0 font-weight-bold text-primary" >포트별 전력 제어</h6>
+									<h6 class="m-0 font-weight-bold text-primary">포트별 전력 제어</h6>
 								</div>
 								<div class="card-body">
-									<div>
-									<input type="checkbox" name="port" value="port2">
-										포트 1<label class="switch"> <input type="checkbox">
+									<div class="portName">
+										<input type="checkbox" name="port" value="port1"> 포트 1<label
+											class="switch"> <input type="checkbox">
 											<div class="slider round"></div>
 											<p>OFF</p>
 											<p style="display: none;">ON</p>
 									</div>
-									<div> <input type="checkbox" name="port" value="port2">
-										포트 2<label class="switch"> <input type="checkbox">
+									<div class="portName">
+										<input type="checkbox" name="port" value="port2"> 포트 2<label
+											class="switch"> <input type="checkbox">
 											<div class="slider round"></div>
 											<p>OFF</p>
 											<p style="display: none;">ON</p>
 									</div>
-									<div> <input type="checkbox" name="port" value="port2">
-										포트 3<label class="switch"> <input type="checkbox">
+									<div class="portName">
+										<input type="checkbox" name="port" value="port3"> 포트 3<label
+											class="switch"> <input type="checkbox">
 											<div class="slider round"></div>
 											<p>OFF</p>
 											<p style="display: none;">ON</p>
 									</div>
-									<div> <input type="checkbox" name="port" value="port2">
-										포트 4<label class="switch"> <input type="checkbox">
+									<div class="portName">
+										<input type="checkbox" name="port" value="port4"> 포트 4<label
+											class="switch"> <input type="checkbox">
 											<div class="slider round"></div>
 											<p>OFF</p>
 											<p style="display: none;">ON</p>
 									</div>
-									<div> <input type="checkbox" name="port" value="port2">
-										포트 5<label class="switch"> <input type="checkbox">
+									<div class="portName">
+										<input type="checkbox" name="port" value="port5"> 포트 5<label
+											class="switch"> <input type="checkbox">
 											<div class="slider round"></div>
 											<p>OFF</p>
 											<p style="display: none;">ON</p>
 									</div>
-									<div> <input type="checkbox" name="port" value="port2">
-										포트 6<label class="switch"> <input type="checkbox">
+									<div class="portName">
+										<input type="checkbox" name="port" value="port6"> 포트 6<label
+											class="switch"> <input type="checkbox">
 											<div class="slider round"></div>
 											<p>OFF</p>
 											<p style="display: none;">ON</p>
 									</div>
-									<div> <input type="checkbox" name="port" value="port2">
-										포트 7<label class="switch"> <input type="checkbox">
-											<div class="slider round"></div>
-											<p>OFF</p>
-											<p style="display: none;">ON</p>
-									</div>
-									<div> <input type="checkbox" name="port" value="port2">
-										포트 8<label class="switch"> <input type="checkbox">
-											<div class="slider round"></div>
-											<p>OFF</p>
-											<p style="display: none;">ON</p>
-									</div>
-									<div> <input type="checkbox" name="port" value="port2">
-										포트 9<label class="switch"> <input type="checkbox">
-											<div class="slider round"></div>
-											<p>OFF</p>
-											<p style="display: none;">ON</p>
-									</div>
-									<a href="#" class="btn btn-danger btn-circle">
-                                        <i class="fas fa-trash"></i>
-                                    </a>
+
+									<a href="#" class="btn btn-danger btn-circle"
+										onclick="deleteCheck()"> <i class="fas fa-trash"></i>
+									</a>
 								</div>
 							</div>
 
@@ -377,79 +369,110 @@ MemberDTO info = (MemberDTO)session.getAttribute("info");
 		class="fas fa-angle-up"></i>
 	</a>
 
-		<!-- Logout Modal-->
+	<!-- Logout Modal-->
 	<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
-			<%
-			if(info!=null){%>
-			<div class="modal-header">
+				<%
+				if (info != null) {
+				%>
+				<div class="modal-header">
 					<h5 class="modal-title" id="exampleModalLabel">로그아웃 하시겠습니까?</h5>
 					<button class="close" type="button" data-dismiss="modal"
 						aria-label="Close">
 						<span aria-hidden="true">×</span>
 					</button>
 				</div>
-								<div class="modal-body">로그아웃 하시겠습니까?</div>
+				<div class="modal-body">로그아웃 하시겠습니까?</div>
 				<div class="modal-footer">
 					<button class="btn btn-secondary" type="button"
 						data-dismiss="modal">취소</button>
 					<a class="btn btn-primary" href="LogoutService.do">확인</a>
 				</div>
-			 <%} else{%>
+				<%
+				} else {
+				%>
 				<div class="modal-header">
 					<h5 class="modal-title" id="exampleModalLabel">로그인 하시겠습니까?</h5>
 					<button class="close" type="button" data-dismiss="modal"
 						aria-label="Close">
 						<span aria-hidden="true">×</span>
 					</button>
-				</div> 
+				</div>
 				<div class="modal-body">로그인 하시겠습니까?</div>
 				<div class="modal-footer">
 					<button class="btn btn-secondary" type="button"
 						data-dismiss="modal">취소</button>
 					<a class="btn btn-primary" href="login.html">확인</a>
 				</div>
-				<% 
-				
-			 } %>
-				
+				<%
+				}
+				%>
+
 			</div>
 		</div>
 	</div>
 
 	<!-- Bootstrap core JavaScript-->
 	<script type="text/javascript">
+	
+	//토글버튼으로 on off 제어하기....
 		let check = $("input[type='checkbox']");
 		check.click(function() {
 			$("p").toggle();
 			let control = this.checked;
 			console.log(control);
 			//location.href = "PowerControlService.do?control="+control;
-		
-		
-		         $.ajax({
-		            url : 'PowerControlService.do',   //어디로 보낼지 주소
-		            data : {
-		               control : control //입력한 email data 보내기
-		            },
-		            dataType : "text",   // 결과값 text로 받아오기
-		            success : function(result){
-		               if(result == 'true'){
-		       			$("p").toggle();
-		               }else {
-		       			$("p").toggle();
-		               }
-		            },
-		            error : function(){
-		               alert('실패');
-		            }
 
-		         });
+			$.ajax({
+				url : 'PowerControlService.do', //어디로 보낼지 주소
+				data : {
+					control : control
+				//입력한 email data 보내기
+				},
+				dataType : "text", // 결과값 text로 받아오기
+				success : function(result) {
+					if (result == 'true') {
+						$("p").toggle();
+					} else {
+						$("p").toggle();
+					}
+				},
+				error : function() {
+					alert('실패');
+				}
+
+			});
 
 		});
-		
+
+		//삭제버튼 누를시 삭제되게 .. 
+		function deleteCheck() {
+			let checkBoxArr = [];
+			$("input:checkbox[name='port']:checked").each(function() {
+				checkBoxArr.push($(this).val()); // 체크된 것만 값을 뽑아서 배열에 push
+				console.log(checkBoxArr);
+			})
+			if (confirm("선택된 포트를 삭제 할까요?") == true) {
+
+/* 				$.ajax({
+					url : "portDelete.do",
+					type : "POST",
+					data : {
+						checkBoxArr : checkBoxArr
+					},
+					success : function(result) {
+						console.log(result);
+					},
+					error : function() {
+					}
+				}); */
+					checkBoxArr.parent().remove();
+			} else {
+				return false;
+			}
+		}
 	</script>
 	<script src="vendor/jquery/jquery.min.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
