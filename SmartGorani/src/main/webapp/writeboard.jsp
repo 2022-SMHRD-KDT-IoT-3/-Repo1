@@ -239,7 +239,7 @@
 
 					<!-- 2. DataTales Example -->
 
-					<form action="WriteBoardService.do" method="post"
+					<form action="WriteBoardService.do?mb_id=<%=info.getId()%>" method="post"
 						enctype="multipart/form-data">
 						<div class="card shadow mb-4">
 							<div class="card-header py-3">
@@ -277,7 +277,8 @@
 											</tr>
 											<tr>
 												<td colspan="2"><input type="reset" value="초기화">
-													<input type="submit" value="업로드"></td>
+													<input type="submit" value="업로드">
+													</td>
 											</tr>
 										</table>
 									</div>

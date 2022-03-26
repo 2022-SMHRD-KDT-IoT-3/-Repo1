@@ -8,11 +8,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<head>
-
-<meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -41,9 +36,9 @@
 
 	<%
 	MemberDTO info = (MemberDTO) session.getAttribute("info");
-	int num = Integer.parseInt(request.getParameter("num"));
-	BoardDAO dao = new BoardDAO();
-	BoardDTO dto = dao.boardSelectOne(num);
+		int num = Integer.parseInt(request.getParameter("num"));
+		BoardDAO dao = new BoardDAO();
+		BoardDTO dto = dao.boardSelectOne(num);
 	%>
 
 	<!-- @ strat : Page Wrapper -->
@@ -189,61 +184,6 @@
 									href="#">Show All Alerts</a>
 							</div></li>
 
-						<!-- Dropdown - Messages -->
-						<div
-							class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-							aria-labelledby="messagesDropdown">
-							<h6 class="dropdown-header">Message Center</h6>
-							<a class="dropdown-item d-flex align-items-center" href="#">
-								<div class="dropdown-list-image mr-3">
-									<img class="rounded-circle" src="img/undraw_profile_1.svg"
-										alt="...">
-									<div class="status-indicator bg-success"></div>
-								</div>
-								<div class="font-weight-bold">
-									<div class="text-truncate">Hi there! I am wondering if
-										you can help me with a problem I've been having.</div>
-									<div class="small text-gray-500">Emily Fowler · 58m</div>
-								</div>
-							</a> <a class="dropdown-item d-flex align-items-center" href="#">
-								<div class="dropdown-list-image mr-3">
-									<img class="rounded-circle" src="img/undraw_profile_2.svg"
-										alt="...">
-									<div class="status-indicator"></div>
-								</div>
-								<div>
-									<div class="text-truncate">I have the photos that you
-										ordered last month, how would you like them sent to you?</div>
-									<div class="small text-gray-500">Jae Chun · 1d</div>
-								</div>
-							</a> <a class="dropdown-item d-flex align-items-center" href="#">
-								<div class="dropdown-list-image mr-3">
-									<img class="rounded-circle" src="img/undraw_profile_3.svg"
-										alt="...">
-									<div class="status-indicator bg-warning"></div>
-								</div>
-								<div>
-									<div class="text-truncate">Last month's report looks
-										great, I am very happy with the progress so far, keep up the
-										good work!</div>
-									<div class="small text-gray-500">Morgan Alvarez · 2d</div>
-								</div>
-							</a> <a class="dropdown-item d-flex align-items-center" href="#">
-								<div class="dropdown-list-image mr-3">
-									<img class="rounded-circle"
-										src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="...">
-									<div class="status-indicator bg-success"></div>
-								</div>
-								<div>
-									<div class="text-truncate">Am I a good boy? The reason I
-										ask is because someone told me that people say this to all
-										dogs, even if they aren't good...</div>
-									<div class="small text-gray-500">Chicken the Dog · 2w</div>
-								</div>
-							</a> <a class="dropdown-item text-center small text-gray-500"
-								href="#">Read More Messages</a>
-						</div>
-						</li>
 
 						<div class="topbar-divider d-none d-sm-block"></div>
 
@@ -256,11 +196,10 @@
  %> <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getName()%>
 							</span> <%
  } else {
- %> <span class="mr-2 d-none d-lg-inline text-gray-600 small">user
-									name<%
+ %> <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+									user name </span> <%
  }
  %>
-							</span>
 						</a> <!-- Dropdown - User Information -->
 							<div
 								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -281,6 +220,7 @@
 									Logout
 								</a>
 							</div></li>
+
 					</ul>
 
 				</nav>
@@ -292,129 +232,71 @@
 					<!-- Page Heading -->
 					<h1 class="h3 mb-2 text-gray-800">📝 게시판</h1>
 					<p class="mb-4">
-					<li>게시글을 확인하는 페이지입니다.</li>
+					<li>관리자가 공지사항을 게시합니다</li>
+					<li>사용시 불편사항을 해당 게시판에 작성하시면 관리자가 답변해줍니다.</li> <a target="_blank"
+						href="https://datatables.net">official DataTables
+						documentation</a> 데이터 테이블 사용설명서
 					</p>
 
+					<!-- 2. DataTales Example -->
 
-					<div class="card shadow mb-4">
-						<div class="card-header py-3">
-							<h6 class="m-0 font-weight-bold text-primary">게시글 작성</h6>
-						</div>
-						<div class="card-body">
-							<div class="table-responsive">
-								<table class="table table-bordered" id="dataTable" width="100%"
-									cellspacing="0">
-									<tr>
-										<td>제목</td>
-										<td><%=dto.getQna_title()%></td>
-									</tr>
-									<tr>
-										<td>작성자</td>
-										<td><%=dto.getMb_id()%></td>
-									</tr>
-									<tr>
-										<td colspan="2">내용</td>
-									</tr>
-									<tr>
-										<td colspan="2"><%=dto.getContent()%> <img alt=""
-											src="file/<%=dto.getFile()%>"></td>
-									</tr>
-
-
-								</table>
-								<button onclick="location='board.jsp'">돌아가기</button>
-									<button onclick="location='boardDeleteService.do?qna_seq=<%= dto.getQna_seq()%>&mb_id=<%= info.getId()%>'">삭제</button>
-									<button onclick="location='boardUpdate.jsp?num=<%= dto.getQna_seq()%>&mb_id=<%= info.getId()%>'">수정</button>
-								
+					<form action="boardUpdateService.do?mb_id=<%=info.getId()%>"
+						method="post" enctype="multipart/form-data">
+						<div class="card shadow mb-4">
+							<div class="card-header py-3">
+								<h6 class="m-0 font-weight-bold text-primary">게시글 입력하기</h6>
+								<div class="card-body">
+									<div class="table-responsive">
+										<table hight="100%" width="100%">
+											<tr>
+												<td>제목</td>
+												<td><input type="text" name="title" size="20"
+													style="width: 100%;" placeholder="<%= dto.getQna_title() %>"></td>
+											</tr>
+											<tr>
+												<td>작성자</td>
+												<%
+												if (info != null) {
+												%>
+												<td><%=info.getId()%></td>
+												<%
+												} else {
+												%>
+												<td><input type="text" name="mb_id" size="20"
+													style="width: 100%;"></td>
+												<%
+												}
+												%>
+											</tr>
+											<tr>
+												<td colspan="2">내용</td>
+											</tr>
+											<tr>
+												<td colspan="2"><input name="file" type="file" placeholder="<%=dto.getFile() %>"
+													style="float: right;"></td>
+											</tr>
+											<tr>
+												<td colspan="2"><textarea name="content" placeholder="<%= dto.getContent() %>" rows="10"
+														style="width: 100%; resize: none;"></textarea></td>
+											</tr>
+											<tr>
+												<td colspan="2"><input type="reset" value="초기화">
+													<input type="submit" value="업로드"></td>
+											</tr>
+										</table>
+									</div>
+								</div>
 							</div>
 						</div>
-					</div>
-				</div>
-				<!-- /.container-fluid -->
-			</div>
-			<!-- End of Main Content -->
 
-			<!-- Footer -->
-			<footer class="sticky-footer bg-white">
-				<div class="container my-auto">
-					<div class="copyright text-center my-auto">
-						<span>Copyright &copy; Smart Gorani</span>
-					</div>
-				</div>
-			</footer>
-			<!-- End of Footer -->
+					</form>
 
-		</div>
-		<!-- End of Content Wrapper -->
-
-	</div>
-	<!-- End of Page Wrapper -->
-
-	<!-- Scroll to Top Button-->
-	<a class="scroll-to-top rounded" href="#page-top"> <i
-		class="fas fa-angle-up"></i>
-	</a>
-
-	<!-- Logout Modal-->
-	<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
-		aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<%
-				if (info != null) {
-				%>
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">로그아웃 하시겠습니까?</h5>
-					<button class="close" type="button" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">×</span>
-					</button>
 				</div>
-				<div class="modal-body">로그아웃 하시겠습니까?</div>
-				<div class="modal-footer">
-					<button class="btn btn-secondary" type="button"
-						data-dismiss="modal">취소</button>
-					<a class="btn btn-primary" href="LogoutService.do">확인</a>
-				</div>
-				<%
-				} else {
-				%>
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">로그인 하시겠습니까?</h5>
-					<button class="close" type="button" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">×</span>
-					</button>
-				</div>
-				<div class="modal-body">로그인 하시겠습니까?</div>
-				<div class="modal-footer">
-					<button class="btn btn-secondary" type="button"
-						data-dismiss="modal">취소</button>
-					<a class="btn btn-primary" href="login.html">확인</a>
-				</div>
-				<%
-				}
-				%>
 
 			</div>
+
 		</div>
 	</div>
 
-	<!-- Bootstrap core JavaScript-->
-	<script src="vendor/jquery/jquery.min.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-	<!-- Core plugin JavaScript-->
-	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-	<!-- Custom scripts for all pages-->
-	<script src="js/sb-admin-2.min.js"></script>
-
-	<!-- Page level plugins -->
-	<script src="vendor/datatables/jquery.dataTables.min.js"></script>
-	<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
-	<!-- Page level custom scripts -->
-	<script src="js/demo/datatables-demo.js"></script>
 </body>
 </html>
