@@ -49,7 +49,7 @@ public class boardUpdateService implements Command {
 			}
 
 			String mb_id = multi.getParameter("mb_id");
-
+			System.out.println("qna seq : " + qna_seq);
 			System.out.println("qna_title : " + qna_title);
 			System.out.println("content : " + content);
 			System.out.println("file : " + file);
