@@ -60,7 +60,7 @@
 			<hr class="sidebar-divider my-0">
 
 			<!-- Nav Item - Charts -->
-			<li class="nav-item"><a class="nav-link" href="check.html">
+			<li class="nav-item"><a class="nav-link" href="check.jsp">
 					<i class="fas fa-fw fa-chart-area"></i> <span>조회</span>
 			</a></li>
 
@@ -85,7 +85,7 @@
 
 			<!-- Nav Item - Pages Collapse Menu -->
 			<li class="nav-item"><a class="nav-link collapsed"
-				href="setting.html"> <i class="fas fa-fw fa-cog"></i> <span>환경설정</span>
+				href="setting.jsp"> <i class="fas fa-fw fa-cog"></i> <span>환경설정</span>
 			</a></li>
 
 			<!-- Divider -->

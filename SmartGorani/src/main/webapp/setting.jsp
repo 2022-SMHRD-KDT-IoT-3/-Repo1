@@ -13,7 +13,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>SB Admin 2 - Cards</title>
+<title>환경설정</title>
 
 <!-- Custom fonts for this template-->
 <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
@@ -118,12 +118,14 @@
 
 		</ul>
 		<!-- End of Sidebar -->
+		
 
 
 		<!-- Content Wrapper -->
 		<div id="content-wrapper" class="d-flex flex-column">
 
 			<!-- Main Content -->
+			
 			<div id="content">
 
 				<!-- Topbar -->
@@ -313,6 +315,14 @@
 				<div class="container-fluid">
 
 					<!-- Page Heading -->
+					<!-- Page Heading -->
+					<div
+						class="d-sm-flex align-items-center justify-content-between mb-4">
+						<h1 class="h3 mb-0 text-gray-800">회원정보</h1>
+						<a href="updateinfo.jsp"
+							class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+							class="fa-sm text-white-50"></i> 수정하기 </a>
+					</div>
 					<div
 						class="d-sm-flex align-items-center justify-content-between mb-4">
 						<h1 class="h3 mb-0 text-gray-800">Cards</h1>
