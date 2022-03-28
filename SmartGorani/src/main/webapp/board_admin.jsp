@@ -249,8 +249,8 @@
 											}
 											%>
 
-											<td><button
-													onclick="location='board_reply.jsp?num=<%=list.get(i).getQna_seq()%>'">답변</button>
+											<td text-align="center">
+											<a class="btn btn-primary" href="board_reply.jsp?num=<%=list.get(i).getQna_seq()%>">답변</a>
 											</td>
 										</tr>
 										<%

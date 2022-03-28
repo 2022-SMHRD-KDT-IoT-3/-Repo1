@@ -331,10 +331,9 @@
 								<%
 								}
 								%>
+								<a class="btn btn-primary" href="board_admin.jsp">목록으로</a>
+								<a class="btn btn-primary" href="board_reply.jsp?num=<%=dto.getQna_seq()%>">답변등록</a>
 
-								<button onclick="location='board_admin.jsp'">돌아가기</button>
-								<button
-									onclick="location='board_reply.jsp?num=<%=dto.getQna_seq()%>'">답변등록</button>
 							</div>
 						</div>
 					</div>

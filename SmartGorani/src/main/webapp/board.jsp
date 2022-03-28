@@ -37,6 +37,14 @@
 <link href="vendor/datatables/dataTables.bootstrap4.min.css"
 	rel="stylesheet">
 
+
+<style type="text/css">
+.button-div{
+display: flex;
+justify-content: flex-end; /* flex-start / center / flex-end */
+}
+
+</style>
 </head>
 
 <body id="page-top">
@@ -258,16 +266,15 @@
 						<li class="nav-item dropdown no-arrow"><a
 							class="nav-link dropdown-toggle" href="#" id="userDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false">
-								<%
-								if (info != null) {
-								%> <span
-								class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getName()%>
+							aria-expanded="false"> <%
+ if (info != null) {
+ %> <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getName()%>
 									<%
 									} else {
 									%> user name <%
 									}
-									%></span>
+									%>
+							</span>
 						</a> <!-- Dropdown - User Information -->
 							<div
 								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -302,9 +309,9 @@
 					<li>관리자가 공지사항을 게시합니다</li>
 
 					<li>사용시 불편사항을 해당 게시판에 작성하시면 관리자가 답변해줍니다.</li>
-					<li>글쓰기 버튼을 클릭해주세요!</li>
-					<a target="_blank" href="https://datatables.net">official
-						DataTables documentation</a> 데이터 테이블 사용설명서
+					<li>글쓰기 버튼을 클릭해주세요!</li> <a target="_blank"
+						href="https://datatables.net">official DataTables
+						documentation</a> 데이터 테이블 사용설명서
 					</p>
 
 					<!-- 2. DataTales Example -->
@@ -355,9 +362,9 @@
 										}
 										%>
 									</tbody>
-									<button onclick="location='writeboard.jsp'">글쓰기</button>
-
 								</table>
+								<div>
+								<a class="btn btn-primary" href="writeboard.jsp">글쓰기</a>
 							</div>
 						</div>
 					</div>
@@ -432,6 +439,11 @@
 		</div>
 	</div>
 
+	<script type="text/javascript">
+		$('.btn-two').click(function(event) {
+			event.preventDefault();
+		});
+	</script>
 	<!-- Bootstrap core JavaScript-->
 	<script src="vendor/jquery/jquery.min.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

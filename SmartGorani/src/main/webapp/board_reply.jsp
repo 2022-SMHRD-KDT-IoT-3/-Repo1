@@ -249,9 +249,11 @@
 														style="width: 100%; resize: none;"></textarea></td>
 											</tr>
 											<tr>
-												<td colspan="2"><input type="reset" value="초기화">
-													<input type="submit" value="업로드"></td>
+												<td colspan="2"><input class="btn btn-primary" type="reset" value="초기화">
+													<input class="btn btn-primary" type="submit" value="업로드"></td>
 											</tr>
+											
+											
 										</table>
 					</form>
 
