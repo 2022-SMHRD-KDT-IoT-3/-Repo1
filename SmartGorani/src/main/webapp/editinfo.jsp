@@ -42,6 +42,10 @@
 			id="accordionSidebar">
 
 			<!-- Sidebar - Brand -->
+			<a href="main.jsp"> <img src="img/goraniface.png"
+				style="width: 25%; display: block; margin: 0px auto; margin-top: 20px"></a>
+
+
 			<a
 				class="sidebar-brand d-flex align-items-center justify-content-center"
 				href="main.jsp">
@@ -95,7 +99,9 @@
 
 			<!-- Divider -->
 			<hr class="sidebar-divider">
-
+			<a href="main.jsp"><img src="img/logo4.png"
+				style="width: 70%; display: block; margin: 0px auto; margin-top: 20px">
+			</a>
 		</ul>
 		<!-- @ end -->
 
@@ -344,7 +350,7 @@
 												</td>
 											</tr>
 
-											
+
 										</tbody>
 									</table>
 								</div>

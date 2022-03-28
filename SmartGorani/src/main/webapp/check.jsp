@@ -41,6 +41,9 @@
 			id="accordionSidebar">
 
 			<!-- Sidebar - Brand -->
+			<a href="main.jsp"> <img src="img/goraniface.png"
+				style="width: 25%; display: block; margin: 0px auto; margin-top: 20px"></a>
+
 			<a
 				class="sidebar-brand d-flex align-items-center justify-content-center"
 				href="main.jsp">
@@ -60,8 +63,8 @@
 			<hr class="sidebar-divider my-0">
 
 			<!-- Nav Item - Charts -->
-			<li class="nav-item"><a class="nav-link" href="check.html">
-					<i class="fas fa-fw fa-chart-area"></i> <span>조회</span>
+			<li class="nav-item"><a class="nav-link" href="check.jsp"> <i
+					class="fas fa-fw fa-chart-area"></i> <span>조회</span>
 			</a></li>
 
 			<!-- Divider -->
@@ -85,7 +88,7 @@
 
 			<!-- Nav Item - Pages Collapse Menu -->
 			<li class="nav-item"><a class="nav-link collapsed"
-				href="setting.html"> <i class="fas fa-fw fa-cog"></i> <span>환경설정</span>
+				href="setting.jsp"> <i class="fas fa-fw fa-cog"></i> <span>환경설정</span>
 			</a></li>
 
 			<!-- Divider -->
@@ -95,6 +98,9 @@
 			<!-- Divider -->
 			<hr class="sidebar-divider">
 
+			<a href="main.jsp"><img src="img/logo4.png"
+				style="width: 70%; display: block; margin: 0px auto; margin-top: 20px">
+			</a>
 		</ul>
 		<!-- @ end -->
 
@@ -184,16 +190,15 @@
 						<li class="nav-item dropdown no-arrow"><a
 							class="nav-link dropdown-toggle" href="#" id="userDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false">
-								<%
-								if (info != null) {
-								%> <span
-								class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getName()%>
-									<%
-									} else {
-									%> user name <%
-									}
-									%></span>
+							aria-expanded="false"> <%
+ if (info != null) {
+ %> <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+									<%=info.getName()%> <%
+ } else {
+ %> user name <%
+ }
+ %>
+							</span>
 						</a> <!-- Dropdown - User Information -->
 							<div
 								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -419,15 +424,15 @@
 							borderWidth : 1
 						//경계선 굵기
 						} /* ,
-											                        {
-											                            label: 'test2',
-											                            fill: false,
-											                            data: [
-											                                8, 34, 12, 24
-											                            ],
-											                            backgroundColor: 'rgb(157, 109, 12)',
-											                            borderColor: 'rgb(157, 109, 12)'
-											                        } */
+																                        {
+																                            label: 'test2',
+																                            fill: false,
+																                            data: [
+																                                8, 34, 12, 24
+																                            ],
+																                            backgroundColor: 'rgb(157, 109, 12)',
+																                            borderColor: 'rgb(157, 109, 12)'
+																                        } */
 						]
 					},
 					options : {

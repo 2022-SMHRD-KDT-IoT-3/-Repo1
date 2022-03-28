@@ -33,13 +33,12 @@
 <body id="page-top">
 	<%
 	MemberDTO info = (MemberDTO) session.getAttribute("info");
-		ArrayList<MemberDTO> list = new MemberDAO().selectAll(); 
-	
+	ArrayList<MemberDTO> list = new MemberDAO().selectAll();
 	%>
-		
-		
-	
-	
+
+
+
+
 	<!-- @ strat : Page Wrapper -->
 	<div id="wrapper">
 		<!-- Sidebar -->
@@ -48,6 +47,10 @@
 			id="accordionSidebar">
 
 			<!-- Sidebar - Brand -->
+			<a href="main.jsp"> <img src="img/goraniface.png"
+				style="width: 25%; display: block; margin: 0px auto; margin-top: 20px"></a>
+
+
 			<a
 				class="sidebar-brand d-flex align-items-center justify-content-center"
 				href="admin_member.jsp">
@@ -84,7 +87,9 @@
 
 			<!-- Divider -->
 			<hr class="sidebar-divider">
-
+			<a href="main.jsp"><img src="img/logo4.png"
+				style="width: 70%; display: block; margin: 0px auto; margin-top: 20px">
+			</a>
 		</ul>
 		<!-- @ end -->
 
@@ -240,10 +245,10 @@
 						<li class="nav-item dropdown no-arrow"><a
 							class="nav-link dropdown-toggle" href="#" id="userDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false"> 
-							<span class="mr-2 d-none d-lg-inline text-gray-600 small"> 
-							admin</span> 
-							
+							aria-expanded="false"> <span
+								class="mr-2 d-none d-lg-inline text-gray-600 small">
+									admin</span>
+
 						</a> <!-- Dropdown - User Information -->
 							<div
 								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -274,7 +279,7 @@
 					<div
 						class="d-sm-flex align-items-center justify-content-between mb-4">
 						<h1 class="h3 mb-0 text-gray-800">회원정보조회</h1>
-						
+
 					</div>
 
 					<div class="row"></div>
@@ -291,7 +296,7 @@
 					<div id="wrapper">
 						<!-- Menu -->
 						<nav id="Update" hight="100%" width="100%">
-							<div class="card shadow mb-4" >
+							<div class="card shadow mb-4">
 								<div class="card-header py-3">
 									<h6 class="m-0 font-weight-bold text-primary">회원 목록</h6>
 								</div>

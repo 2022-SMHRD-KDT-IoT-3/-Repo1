@@ -1,3 +1,5 @@
+<%@page import="Model.ReplyDAO"%>
+<%@page import="Model.ReplyDTO"%>
 <%@page import="Model.BoardDTO"%>
 <%@page import="Model.BoardDAO"%>
 <%@page import="java.util.ArrayList"%>
@@ -8,7 +10,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>게시판</title>
 </head>
 <head>
 
@@ -53,6 +55,10 @@
 			id="accordionSidebar">
 
 			<!-- Sidebar - Brand -->
+			<a href="main.jsp"> <img src="img/goraniface.png"
+				style="width: 25%; display: block; margin: 0px auto; margin-top: 20px"></a>
+
+
 			<a
 				class="sidebar-brand d-flex align-items-center justify-content-center"
 				href="main.jsp">
@@ -72,8 +78,8 @@
 			<hr class="sidebar-divider my-0">
 
 			<!-- Nav Item - Charts -->
-			<li class="nav-item"><a class="nav-link" href="check.jsp">
-					<i class="fas fa-fw fa-chart-area"></i> <span>조회</span>
+			<li class="nav-item"><a class="nav-link" href="check.jsp"> <i
+					class="fas fa-fw fa-chart-area"></i> <span>조회</span>
 			</a></li>
 
 			<!-- Divider -->
@@ -97,7 +103,7 @@
 
 			<!-- Nav Item - Pages Collapse Menu -->
 			<li class="nav-item"><a class="nav-link collapsed"
-				href="setting.html"> <i class="fas fa-fw fa-cog"></i> <span>환경설정</span>
+				href="setting.jsp"> <i class="fas fa-fw fa-cog"></i> <span>환경설정</span>
 			</a></li>
 
 			<!-- Divider -->
@@ -106,7 +112,9 @@
 
 			<!-- Divider -->
 			<hr class="sidebar-divider">
-
+			<a href="main.jsp"><img src="img/logo4.png"
+				style="width: 70%; display: block; margin: 0px auto; margin-top: 20px">
+			</a>
 		</ul>
 		<!-- @ end -->
 
@@ -250,9 +258,16 @@
 						<li class="nav-item dropdown no-arrow"><a
 							class="nav-link dropdown-toggle" href="#" id="userDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false"><%if (info!=null){ %>
-							<span class="mr-2 d-none d-lg-inline text-gray-600 small"> 
-							<%= info.getName() %> <%} else{ %> user name	<%} %></span>
+							aria-expanded="false">
+								<%
+								if (info != null) {
+								%> <span
+								class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getName()%>
+									<%
+									} else {
+									%> user name <%
+									}
+									%></span>
 						</a> <!-- Dropdown - User Information -->
 							<div
 								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -285,71 +300,84 @@
 					<h1 class="h3 mb-2 text-gray-800">📝 게시판</h1>
 					<p class="mb-4">
 					<li>관리자가 공지사항을 게시합니다</li>
-					
-					<li>사용시 불편사항을 해당 게시판에 작성하시면 관리자가 답변해줍니다.</li> 
-					<li>글쓰기 버튼을 클릭해주세요!</li><a target="_blank"
-						href="https://datatables.net">official DataTables
-						documentation</a> 데이터 테이블 사용설명서
+
+					<li>사용시 불편사항을 해당 게시판에 작성하시면 관리자가 답변해줍니다.</li>
+					<li>글쓰기 버튼을 클릭해주세요!</li>
+					<a target="_blank" href="https://datatables.net">official
+						DataTables documentation</a> 데이터 테이블 사용설명서
 					</p>
 
 					<!-- 2. DataTales Example -->
 
-	<div class="card shadow mb-4">
-		<div class="card-header py-3">
-			<h6 class="m-0 font-weight-bold text-primary">게시글 목록</h6>
-		</div>
-		<div class="card-body">
-			<div class="table-responsive">
-				<table class="table table-bordered" id="dataTable" width="100%"
-					cellspacing="0">
-					<thead>
-						<tr>
-							<th>번호</th>
-							<th>제목</th>
-							<th>작성자</th>
-							<th>작성시간</th>
-						</tr>
-					</thead>
-					<tbody>
+					<div class="card shadow mb-4">
+						<div class="card-header py-3">
+							<h6 class="m-0 font-weight-bold text-primary">게시글 목록</h6>
+						</div>
+						<div class="card-body">
+							<div class="table-responsive">
+								<table class="table table-bordered" id="dataTable" width="100%"
+									cellspacing="0">
+									<thead>
+										<tr>
+											<th>번호</th>
+											<th>제목</th>
+											<th>작성자</th>
+											<th>작성시간</th>
+											<th>답변상태</th>
+										</tr>
+									</thead>
+									<tbody>
 
-						<%
-						for (int i = 0; i < list.size(); i++) {
-						%>
-						<tr>
-							<td><%=i + 1%></td>
-							<td><a
-								href="boardselectone.jsp?num=<%=list.get(i).getQna_seq() %>"> <%=list.get(i).getQna_title() %></a></td>
-							<td><%=list.get(i).getMb_id()%></td>
-							<td><%=list.get(i).getDate()%></td>
-						</tr>
+										<%
+										for (int i = 0; i < list.size(); i++) {
+										%>
+										<tr>
+											<td><%=i + 1%></td>
+											<td><a
+												href="boardselectone.jsp?num=<%=list.get(i).getQna_seq()%>">
+													<%=list.get(i).getQna_title()%></a></td>
+											<td><%=list.get(i).getMb_id()%></td>
+											<td><%=list.get(i).getDate()%></td>
+											<%
+											ReplyDTO rdto = new ReplyDAO().replySelectOne(list.get(i).getQna_seq());
 
-						<%
-						}
-						%>
-					</tbody>
-				<button onclick="location='writeboard.jsp'">글쓰기</button>
+											if (rdto != null) {
+											%>
+											<td>완료</td>
+											<%} else {%>
+											<td>대기</td>
+											<%
+											}
+											%>
+										</tr>
 
-				</table>
+										<%
+										}
+										%>
+									</tbody>
+									<button onclick="location='writeboard.jsp'">글쓰기</button>
+
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /.container-fluid -->
 			</div>
-		</div>
-	</div>
-	</div>
-	<!-- /.container-fluid -->
-	</div>
-	<!-- End of Main Content -->
-	
-	<!-- Footer -->
-	<footer class="sticky-footer bg-white">
-		<div class="container my-auto">
-			<div class="copyright text-center my-auto">
-				<span>Copyright &copy; Smart Gorani</span>
-			</div>
-		</div>
-	</footer>
-	<!-- End of Footer -->
+			<!-- End of Main Content -->
 
-	</div>
-	<!-- End of Content Wrapper -->
+			<!-- Footer -->
+			<footer class="sticky-footer bg-white">
+				<div class="container my-auto">
+					<div class="copyright text-center my-auto">
+						<span>Copyright &copy; Smart Gorani</span>
+					</div>
+				</div>
+			</footer>
+			<!-- End of Footer -->
+
+		</div>
+		<!-- End of Content Wrapper -->
 
 	</div>
 	<!-- End of Page Wrapper -->
@@ -364,39 +392,42 @@
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
-			<%
-			if(info!=null){%>
-			<div class="modal-header">
+				<%
+				if (info != null) {
+				%>
+				<div class="modal-header">
 					<h5 class="modal-title" id="exampleModalLabel">로그아웃 하시겠습니까?</h5>
 					<button class="close" type="button" data-dismiss="modal"
 						aria-label="Close">
 						<span aria-hidden="true">×</span>
 					</button>
 				</div>
-								<div class="modal-body">로그아웃 하시겠습니까?</div>
+				<div class="modal-body">로그아웃 하시겠습니까?</div>
 				<div class="modal-footer">
 					<button class="btn btn-secondary" type="button"
 						data-dismiss="modal">취소</button>
 					<a class="btn btn-primary" href="LogoutService.do">확인</a>
 				</div>
-			 <%} else{%>
+				<%
+				} else {
+				%>
 				<div class="modal-header">
 					<h5 class="modal-title" id="exampleModalLabel">로그인 하시겠습니까?</h5>
 					<button class="close" type="button" data-dismiss="modal"
 						aria-label="Close">
 						<span aria-hidden="true">×</span>
 					</button>
-				</div> 
+				</div>
 				<div class="modal-body">로그인 하시겠습니까?</div>
 				<div class="modal-footer">
 					<button class="btn btn-secondary" type="button"
 						data-dismiss="modal">취소</button>
 					<a class="btn btn-primary" href="login.html">확인</a>
 				</div>
-				<% 
-				
-			 } %>
-				
+				<%
+				}
+				%>
+
 			</div>
 		</div>
 	</div>

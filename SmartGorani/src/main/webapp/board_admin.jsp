@@ -44,7 +44,6 @@
 	<%
 	MemberDTO info = (MemberDTO) session.getAttribute("info");
 	ArrayList<BoardDTO> list = new BoardDAO().showBoard();
-
 	%>
 
 	<!-- @ strat : Page Wrapper -->
@@ -55,6 +54,10 @@
 			id="accordionSidebar">
 
 			<!-- Sidebar - Brand -->
+			<a href="main.jsp"> <img src="img/goraniface.png"
+				style="width: 25%; display: block; margin: 0px auto; margin-top: 20px"></a>
+
+
 			<a
 				class="sidebar-brand d-flex align-items-center justify-content-center"
 				href="admin_member.jsp">
@@ -91,7 +94,9 @@
 
 			<!-- Divider -->
 			<hr class="sidebar-divider">
-
+			<a href="main.jsp"><img src="img/logo4.png"
+				style="width: 70%; display: block; margin: 0px auto; margin-top: 20px">
+			</a>
 		</ul>
 		<!-- @ end -->
 
@@ -163,8 +168,9 @@
 						<li class="nav-item dropdown no-arrow"><a
 							class="nav-link dropdown-toggle" href="#" id="userDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false"> <span class="mr-2 d-none d-lg-inline text-gray-600 small">
-									admin </span> 
+							aria-expanded="false"> <span
+								class="mr-2 d-none d-lg-inline text-gray-600 small">
+									admin </span>
 						</a> <!-- Dropdown - User Information -->
 							<div
 								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -231,14 +237,20 @@
 											<td><%=list.get(i).getDate()%></td>
 											<%
 											ReplyDTO rdto = new ReplyDAO().replySelectOne(list.get(i).getQna_seq());
-											
-											if(rdto != null){%>
+
+											if (rdto != null) {
+											%>
 											<td>완료</td>
-											<%} else {%>
+											<%
+											} else {
+											%>
 											<td>대기</td>
-											<% } %>
-											
-											<td><button onclick="location='board_reply.jsp?num=<%=list.get(i).getQna_seq()%>'">답변</button>
+											<%
+											}
+											%>
+
+											<td><button
+													onclick="location='board_reply.jsp?num=<%=list.get(i).getQna_seq()%>'">답변</button>
 											</td>
 										</tr>
 										<%

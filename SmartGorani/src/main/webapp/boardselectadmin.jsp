@@ -46,7 +46,8 @@
 	int num = Integer.parseInt(request.getParameter("num"));
 	BoardDAO dao = new BoardDAO();
 	BoardDTO dto = dao.boardSelectOne(num);
-	
+	ReplyDAO rdao = new ReplyDAO();
+	ReplyDTO rdto = rdao.replySelectOne(num);
 	%>
 
 	<!-- @ strat : Page Wrapper -->
@@ -57,6 +58,10 @@
 			id="accordionSidebar">
 
 			<!-- Sidebar - Brand -->
+			<a href="main.jsp"> <img src="img/goraniface.png"
+				style="width: 25%; display: block; margin: 0px auto; margin-top: 20px"></a>
+
+
 			<a
 				class="sidebar-brand d-flex align-items-center justify-content-center"
 				href="admin_member.jsp">
@@ -93,8 +98,11 @@
 
 			<!-- Divider -->
 			<hr class="sidebar-divider">
-
+			<a href="main.jsp"><img src="img/logo4.png"
+				style="width: 70%; display: block; margin: 0px auto; margin-top: 20px">
+			</a>
 		</ul>
+
 		<!-- @ end -->
 
 
@@ -237,8 +245,7 @@
 						<li class="nav-item dropdown no-arrow"><a
 							class="nav-link dropdown-toggle" href="#" id="userDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false">
-								admin</span>
+							aria-expanded="false"> admin</span>
 						</a> <!-- Dropdown - User Information -->
 							<div
 								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -297,22 +304,37 @@
 										<td colspan="2"><%=dto.getContent()%> <img alt=""
 											src="file/<%=dto.getFile()%>"></td>
 									</tr>
-									<tr>
-									<td>답변상태</td>
-									<%
-											ReplyDTO rdto = new ReplyDAO().replySelectOne(num);
-											
-											if(rdto != null){%>
-											<td>완료</td>
-											<%} else {%>
-											<td>대기</td>
-											<% } %>
-									</tr>
-									
-									
 								</table>
-									<button onclick="location='board_admin.jsp'">돌아가기</button>
-									<button onclick="location='board_reply.jsp?num=<%=dto.getQna_seq()%>'">답변등록</button>
+								<%
+								if (rdto != null) {
+								%>
+								<br>
+								<table class="table table-bordered" id="dataTable" width="100%"
+									cellspacing="0">
+									<h3>답글내용</h3>
+									<tr>
+										<td>작성자</td>
+										<td>관리자</td>
+									</tr>
+									<tr>
+										<td colspan="2">내용</td>
+									</tr>
+									<tr>
+										<td colspan="2"><%=rdto.getREPLY_CONTENT()%> <img alt=""
+											src="file/<%=rdto.getREPLY_FILE()%>"></td>
+									</tr>
+								</table>
+								<%
+								} else {
+								%>
+								<h1>답변대기중</h1>
+								<%
+								}
+								%>
+
+								<button onclick="location='board_admin.jsp'">돌아가기</button>
+								<button
+									onclick="location='board_reply.jsp?num=<%=dto.getQna_seq()%>'">답변등록</button>
 							</div>
 						</div>
 					</div>

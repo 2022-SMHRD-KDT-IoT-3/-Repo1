@@ -46,6 +46,10 @@
 			id="accordionSidebar">
 
 			<!-- Sidebar - Brand -->
+			<a href="main.jsp"> <img src="img/goraniface.png"
+				style="width: 25%; display: block; margin: 0px auto; margin-top: 20px"></a>
+
+
 			<a
 				class="sidebar-brand d-flex align-items-center justify-content-center"
 				href="main.jsp">
@@ -99,7 +103,9 @@
 
 			<!-- Divider -->
 			<hr class="sidebar-divider">
-
+			<a href="main.jsp"><img src="img/logo4.png"
+				style="width: 70%; display: block; margin: 0px auto; margin-top: 20px">
+			</a>
 		</ul>
 		<!-- @ end -->
 
@@ -190,13 +196,11 @@
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> <%
  if (info != null) {
- %> <span
-								class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getName()%>
+ %> <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getName()%>
 							</span> <%
  } else {
- %> <span
-								class="mr-2 d-none d-lg-inline text-gray-600 small"> user
-									name </span> <%
+ %> <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+									user name </span> <%
  }
  %>
 						</a> <!-- Dropdown - User Information -->
@@ -239,8 +243,8 @@
 
 					<!-- 2. DataTales Example -->
 
-					<form action="WriteBoardService.do?mb_id=<%=info.getId()%>" method="post"
-						enctype="multipart/form-data">
+					<form action="WriteBoardService.do?mb_id=<%=info.getId()%>"
+						method="post" enctype="multipart/form-data">
 						<div class="card shadow mb-4">
 							<div class="card-header py-3">
 								<h6 class="m-0 font-weight-bold text-primary">게시글 입력하기</h6>
@@ -249,7 +253,8 @@
 										<table hight="100%" width="100%">
 											<tr>
 												<td>제목</td>
-												<td><input type="text" name="title" size="20" style="width:100%;"></td>
+												<td><input type="text" name="title" size="20"
+													style="width: 100%;"></td>
 											</tr>
 											<tr>
 												<td>작성자</td>
@@ -260,7 +265,8 @@
 												<%
 												} else {
 												%>
-												<td><input type="text" name="mb_id" size="20" style="width:100%;"></td>
+												<td><input type="text" name="mb_id" size="20"
+													style="width: 100%;"></td>
 												<%
 												}
 												%>
@@ -273,12 +279,12 @@
 													style="float: right;"></td>
 											</tr>
 											<tr>
-												<td colspan="2"><textarea name="content" rows="10" style="width:100%; resize: none;"></textarea></td>
+												<td colspan="2"><textarea name="content" rows="10"
+														style="width: 100%; resize: none;"></textarea></td>
 											</tr>
 											<tr>
 												<td colspan="2"><input type="reset" value="초기화">
-													<input type="submit" value="업로드">
-													</td>
+													<input type="submit" value="업로드"></td>
 											</tr>
 										</table>
 									</div>
