@@ -1,3 +1,5 @@
+<%@page import="Model.ReplyDTO"%>
+<%@page import="Model.ReplyDAO"%>
 <%@page import="Model.BoardDTO"%>
 <%@page import="Model.BoardDAO"%>
 <%@page import="java.util.ArrayList"%>
@@ -44,6 +46,8 @@
 	int num = Integer.parseInt(request.getParameter("num"));
 	BoardDAO dao = new BoardDAO();
 	BoardDTO dto = dao.boardSelectOne(num);
+	ReplyDAO rdao = new ReplyDAO();
+	ReplyDTO rdto = rdao.replySelectOne(num);
 	%>
 
 	<!-- @ strat : Page Wrapper -->
@@ -322,10 +326,29 @@
 
 
 								</table>
+								<% if(rdto != null){ %>
+								<br>
+								<table class="table table-bordered" id="dataTable" width="100%"
+									cellspacing="0">
+									<h3>답글내용</h3>
+									<tr>
+										<td>작성자</td>
+										<td>관리자</td>
+									</tr>
+									<tr>
+										<td colspan="2">내용</td>
+									</tr>
+									<tr>
+										<td colspan="2"><%=rdto.getREPLY_CONTENT()%> <img alt=""
+											src="file/<%=rdto.getREPLY_FILE()%>"></td>
+									</tr>
+								</table>
+								<%}else{ %>
+								<h1>답변대기중</h1>
+								<%} %>
 								<button onclick="location='board.jsp'">돌아가기</button>
 									<button onclick="location='boardDeleteService.do?qna_seq=<%= dto.getQna_seq()%>&mb_id=<%= info.getId()%>'">삭제</button>
 									<button onclick="location='boardUpdate.jsp?num=<%= dto.getQna_seq()%>&mb_id=<%= info.getId()%>'">수정</button>
-								
 							</div>
 						</div>
 					</div>

@@ -21,6 +21,8 @@ public class WriteBoardService implements Command {
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		System.out.println("테스트");
+		
 		try {
 			request.setCharacterEncoding("UTF-8"); // POST방식인코딩
 			String savePath = request.getServletContext().getRealPath("./file");

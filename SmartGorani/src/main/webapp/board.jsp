@@ -1,3 +1,5 @@
+<%@page import="Model.ReplyDAO"%>
+<%@page import="Model.ReplyDTO"%>
 <%@page import="Model.BoardDTO"%>
 <%@page import="Model.BoardDAO"%>
 <%@page import="java.util.ArrayList"%>
@@ -308,6 +310,7 @@
 							<th>제목</th>
 							<th>작성자</th>
 							<th>작성시간</th>
+							<th>답변상태</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -321,6 +324,14 @@
 								href="boardselectone.jsp?num=<%=list.get(i).getQna_seq() %>"> <%=list.get(i).getQna_title() %></a></td>
 							<td><%=list.get(i).getMb_id()%></td>
 							<td><%=list.get(i).getDate()%></td>
+							<%
+							ReplyDTO rdto = new ReplyDAO().replySelectOne(list.get(i).getQna_seq());
+											
+							if(rdto != null){%>
+							<td>완료</td>
+							<%} else {%>
+							<td>대기</td>
+							<% } %>
 						</tr>
 
 						<%
