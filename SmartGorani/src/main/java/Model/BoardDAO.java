@@ -156,7 +156,7 @@ public class BoardDAO {
 		dbconn();
 		try {
 			
-			String sql = "update tbl_qna set qna_title=?, qna_content=?, qna_file=?, qna_date=sysdate where tbl_qna_seq=? and mb_id=?";
+			String sql = "update tbl_qna set qna_title=?, qna_content=?, qna_file=?, qna_date=sysdate where qna_seq=? and mb_id=?";
 
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getQna_title());

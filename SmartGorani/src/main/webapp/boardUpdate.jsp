@@ -240,7 +240,7 @@
 
 					<!-- 2. DataTales Example -->
 
-					<form action="boardUpdateService.do?mb_id=<%=info.getId()%>"
+					<form action="boardUpdateService.do?mb_id=<%=info.getId()%>&qna_seq=<%= dto.getQna_seq() %>"
 						method="post" enctype="multipart/form-data">
 						<div class="card shadow mb-4">
 							<div class="card-header py-3">
@@ -251,7 +251,7 @@
 											<tr>
 												<td>제목</td>
 												<td><input type="text" name="title" size="20"
-													style="width: 100%;" placeholder="<%= dto.getQna_title() %>"></td>
+													style="width: 100%;" value="<%= dto.getQna_title() %>"></td>
 											</tr>
 											<tr>
 												<td>작성자</td>
@@ -272,12 +272,12 @@
 												<td colspan="2">내용</td>
 											</tr>
 											<tr>
-												<td colspan="2"><input name="file" type="file" placeholder="<%=dto.getFile() %>"
+												<td colspan="2"><input name="file" type="file"
 													style="float: right;"></td>
 											</tr>
 											<tr>
-												<td colspan="2"><textarea name="content" placeholder="<%= dto.getContent() %>" rows="10"
-														style="width: 100%; resize: none;"></textarea></td>
+												<td colspan="2"><textarea name="content" rows="10"
+														style="width: 100%; resize: none;"><%= dto.getContent() %></textarea></td>
 											</tr>
 											<tr>
 												<td colspan="2"><input type="reset" value="초기화">
