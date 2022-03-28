@@ -91,9 +91,10 @@ h1, p {
 
 	<!-- JS -->
 	<script>
+		// 비밀번호 초기화 알림창
 		let resetpw = document.getElementById("resetpw");
 		resetpw.addEventListener('click', function() {
-			alert("비밀번호가 초기화 됩니다.");
+			confirm("비밀번호가 초기화 됩니다." + "\n" + "초기화 하시겠습니까?");
 		})
 	</script>
 </body>
