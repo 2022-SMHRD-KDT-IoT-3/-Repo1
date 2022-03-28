@@ -1,6 +1,7 @@
 package Service;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -25,6 +26,14 @@ public class ResetPwService implements Command{
 		if(cnt>0) {
 			nextpage="login.html";
 		}else {
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+
+			out.println("<script language='javascript'>");
+			out.println("alert('입력하신 아이디가 존재하지 않습니다.')");
+			out.println("</script>");
+			out.flush();
+			
 			nextpage="findpw.html";
 		}
 		

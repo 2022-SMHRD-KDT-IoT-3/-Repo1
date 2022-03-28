@@ -11,7 +11,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 :root {
-  --blue: #4e73df;
+  --blue: #4e73d
   --indigo: #6610f2;
   --purple: #6f42c1;
   --pink: #e83e8c;
@@ -585,8 +585,7 @@ pre code {
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin-right: -0.75rem;
-  margin-left: -0.75rem;
+  
 }
 
 .no-gutters {
@@ -7911,6 +7910,7 @@ button.bg-dark:focus {
 
 .p-5 {
   padding: 3rem !important;
+  
 }
 
 .pt-5,
