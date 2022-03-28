@@ -58,6 +58,11 @@
 			id="accordionSidebar">
 
 			<!-- Sidebar - Brand -->
+			<a href="main.jsp"> <img src="img/goraniface.png"
+				style="width: 25%; display: block; margin: 0px auto; margin-top: 20px"></a>
+
+
+
 			<a
 				class="sidebar-brand d-flex align-items-center justify-content-center"
 				href="main.jsp">
@@ -111,7 +116,9 @@
 
 			<!-- Divider -->
 			<hr class="sidebar-divider">
-
+			<a href="main.jsp"><img src="img/logo4.png"
+				style="width: 70%; display: block; margin: 0px auto; margin-top: 20px">
+			</a>
 		</ul>
 		<!-- @ end -->
 
@@ -326,7 +333,9 @@
 
 
 								</table>
-								<% if(rdto != null){ %>
+								<%
+								if (rdto != null) {
+								%>
 								<br>
 								<table class="table table-bordered" id="dataTable" width="100%"
 									cellspacing="0">
@@ -343,12 +352,18 @@
 											src="file/<%=rdto.getREPLY_FILE()%>"></td>
 									</tr>
 								</table>
-								<%}else{ %>
+								<%
+								} else {
+								%>
 								<h1>답변대기중</h1>
-								<%} %>
+								<%
+								}
+								%>
 								<button onclick="location='board.jsp'">돌아가기</button>
-									<button onclick="location='boardDeleteService.do?qna_seq=<%= dto.getQna_seq()%>&mb_id=<%= info.getId()%>'">삭제</button>
-									<button onclick="location='boardUpdate.jsp?num=<%= dto.getQna_seq()%>&mb_id=<%= info.getId()%>'">수정</button>
+								<button
+									onclick="location='boardDeleteService.do?qna_seq=<%=dto.getQna_seq()%>&mb_id=<%=info.getId()%>'">삭제</button>
+								<button
+									onclick="location='boardUpdate.jsp?num=<%=dto.getQna_seq()%>&mb_id=<%=info.getId()%>'">수정</button>
 							</div>
 						</div>
 					</div>

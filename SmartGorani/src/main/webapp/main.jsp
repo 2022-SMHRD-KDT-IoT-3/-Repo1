@@ -29,11 +29,9 @@
 </head>
 
 <body id="page-top">
-<%
-MemberDTO info = (MemberDTO)session.getAttribute("info");
-
-
-%>
+	<%
+	MemberDTO info = (MemberDTO) session.getAttribute("info");
+	%>
 	<!-- @ strat : Page Wrapper -->
 	<div id="wrapper">
 		<!-- Sidebar -->
@@ -42,6 +40,8 @@ MemberDTO info = (MemberDTO)session.getAttribute("info");
 			id="accordionSidebar">
 
 			<!-- Sidebar - Brand -->
+			<a href="main.jsp"> <img src="img/goraniface.png"
+				style="width: 25%; display: block; margin: 0px auto; margin-top: 20px"></a>
 			<a
 				class="sidebar-brand d-flex align-items-center justify-content-center"
 				href="main.jsp">
@@ -95,7 +95,9 @@ MemberDTO info = (MemberDTO)session.getAttribute("info");
 
 			<!-- Divider -->
 			<hr class="sidebar-divider">
-
+			<a href="main.jsp"><img src="img/logo4.png"
+				style="width: 70%; display: block; margin: 0px auto; margin-top: 20px">
+			</a>
 		</ul>
 		<!-- @ end -->
 
@@ -271,47 +273,53 @@ MemberDTO info = (MemberDTO)session.getAttribute("info");
 						<div class="topbar-divider d-none d-sm-block"></div>
 
 						<!-- Nav Item - User Information -->
-						<li class="nav-item dropdown no-arrow">
-						<a
+						<li class="nav-item dropdown no-arrow"><a
 							class="nav-link dropdown-toggle" href="#" id="userDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false"> 
-							<%if (info!=null){ %>
-							<span class="mr-2 d-none d-lg-inline text-gray-600 small"> 
-							<%= info.getName() %>  </span> 
-							<%} else{ %> 
-							<span class="mr-2 d-none d-lg-inline text-gray-600 small"> 로그인을 하세요 </span>
-							<%} %>
-						</a> 
-						<!-- Dropdown - User Information -->
+							aria-expanded="false"> <%
+ if (info != null) {
+ %> <span
+								class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getName()%>
+							</span> <%
+ } else {
+ %> <span
+								class="mr-2 d-none d-lg-inline text-gray-600 small"> 로그인을
+									하세요 </span> <%
+ }
+ %>
+						</a> <!-- Dropdown - User Information -->
 							<div
 								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
 								aria-labelledby="userDropdown">
-								<%if(info.getName().equals("admin")){ %>
+								<%
+								if (info.getName().equals("admin")) {
+								%>
+								<a class="dropdown-item" href="updateinfo.jsp"> <i
+									class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
+								</a> <a class="dropdown-item" href="admin_member.jsp"> <i
+									class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i> Admin
+									page
+								</a>
+								<%
+								} else {
+								%>
 								<a class="dropdown-item" href="updateinfo.jsp"> <i
 									class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
 								</a>
-								<a class="dropdown-item" href="admin_member.jsp"> <i
-									class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-									Admin page
-								</a>
-								<%}else{ %>
-								<a class="dropdown-item" href="updateinfo.jsp"> <i
-								class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
-								</a>
-								<%} %>
+								<%
+								}
+								%>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="#" data-toggle="modal"
-									data-target="#logoutModal"> 
-									<%if(info!=null){ %>
-									<i
+									data-target="#logoutModal"> <%
+ if (info != null) {
+ %> <i
 									class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-									Logout
-									<%} else {%>
-									<i
+									Logout <%} else {%> <i
 									class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-									Login
-									<%} %>
+									Login <%
+ }
+ %>
 								</a>
 							</div></li>
 
@@ -706,39 +714,42 @@ MemberDTO info = (MemberDTO)session.getAttribute("info");
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
-			<%
-			if(info!=null){%>
-			<div class="modal-header">
+				<%
+				if (info != null) {
+				%>
+				<div class="modal-header">
 					<h5 class="modal-title" id="exampleModalLabel">로그아웃 하시겠습니까?</h5>
 					<button class="close" type="button" data-dismiss="modal"
 						aria-label="Close">
 						<span aria-hidden="true">×</span>
 					</button>
 				</div>
-								<div class="modal-body">로그아웃 하시겠습니까?</div>
+				<div class="modal-body">로그아웃 하시겠습니까?</div>
 				<div class="modal-footer">
 					<button class="btn btn-secondary" type="button"
 						data-dismiss="modal">취소</button>
 					<a class="btn btn-primary" href="LogoutService.do">확인</a>
 				</div>
-			 <%} else{%>
+				<%
+				} else {
+				%>
 				<div class="modal-header">
 					<h5 class="modal-title" id="exampleModalLabel">로그인 하시겠습니까?</h5>
 					<button class="close" type="button" data-dismiss="modal"
 						aria-label="Close">
 						<span aria-hidden="true">×</span>
 					</button>
-				</div> 
+				</div>
 				<div class="modal-body">로그인 하시겠습니까?</div>
 				<div class="modal-footer">
 					<button class="btn btn-secondary" type="button"
 						data-dismiss="modal">취소</button>
 					<a class="btn btn-primary" href="login.html">확인</a>
 				</div>
-				<% 
-				
-			 } %>
-				
+				<%
+				}
+				%>
+
 			</div>
 		</div>
 	</div>

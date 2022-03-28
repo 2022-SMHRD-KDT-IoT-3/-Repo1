@@ -40,6 +40,11 @@
 			id="accordionSidebar">
 
 			<!-- Sidebar - Brand -->
+			<a href="main.jsp"> <img src="img/goraniface.png"
+				style="width: 25%; display: block; margin: 0px auto; margin-top: 20px"></a>
+
+
+
 			<a
 				class="sidebar-brand d-flex align-items-center justify-content-center"
 				href="main.jsp">
@@ -93,7 +98,9 @@
 
 			<!-- Divider -->
 			<hr class="sidebar-divider">
-
+			<a href="main.jsp"><img src="img/logo4.png"
+				style="width: 70%; display: block; margin: 0px auto; margin-top: 20px">
+			</a>
 		</ul>
 		<!-- @ end -->
 
@@ -118,14 +125,14 @@
 
 		</ul>
 		<!-- End of Sidebar -->
-		
+
 
 
 		<!-- Content Wrapper -->
 		<div id="content-wrapper" class="d-flex flex-column">
 
 			<!-- Main Content -->
-			
+
 			<div id="content">
 
 				<!-- Topbar -->
@@ -279,8 +286,7 @@
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> <%
  if (info != null) {
- %> <span
-								class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getName()%>
+ %> <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getName()%>
 									<%
 									} else {
 									%> user name <%

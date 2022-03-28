@@ -49,6 +49,10 @@
 			id="accordionSidebar">
 
 			<!-- Sidebar - Brand -->
+			<a href="main.jsp"> <img src="img/goraniface.png"
+				style="width: 25%; display: block; margin: 0px auto; margin-top: 20px"></a>
+
+
 			<a
 				class="sidebar-brand d-flex align-items-center justify-content-center"
 				href="admin_member.jsp">
@@ -85,7 +89,9 @@
 
 			<!-- Divider -->
 			<hr class="sidebar-divider">
-
+			<a href="main.jsp"><img src="img/logo4.png"
+				style="width: 70%; display: block; margin: 0px auto; margin-top: 20px">
+			</a>
 		</ul>
 		<!-- @ end -->
 
@@ -213,8 +219,9 @@
 
 					<!-- 2. DataTales Example -->
 
-					<form action="WriteReplyService.do?num=<%=dto.getQna_seq()%>&mb_id=<%=dto.getMb_id()%>" method="post"
-						enctype="multipart/form-data">
+					<form
+						action="WriteReplyService.do?num=<%=dto.getQna_seq()%>&mb_id=<%=dto.getMb_id()%>"
+						method="post" enctype="multipart/form-data">
 						<div class="card shadow mb-4">
 							<div class="card-header py-3">
 								<h6 class="m-0 font-weight-bold text-primary">답변 입력</h6>
@@ -223,7 +230,8 @@
 										<table hight="100%" width="100%">
 											<tr>
 												<td>제목</td>
-												<td><input type="text" name="r_title" size="20" style="width:100%;"></td>
+												<td><input type="text" name="r_title" size="20"
+													style="width: 100%;"></td>
 											</tr>
 											<tr>
 												<td>작성자</td>
@@ -233,12 +241,12 @@
 												<td colspan="2">내용</td>
 											</tr>
 											<tr>
-											<td colspan="2"><input name="file" type="file"
-													style="float: right;"> </td>
+												<td colspan="2"><input name="file" type="file"
+													style="float: right;"></td>
 											</tr>
 											<tr>
-												<td colspan="2"><textarea name="content"
-														rows="10" style="width:100%; resize: none;"></textarea></td>
+												<td colspan="2"><textarea name="content" rows="10"
+														style="width: 100%; resize: none;"></textarea></td>
 											</tr>
 											<tr>
 												<td colspan="2"><input type="reset" value="초기화">
