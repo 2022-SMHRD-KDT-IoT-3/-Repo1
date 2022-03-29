@@ -33,7 +33,6 @@ public class ResetPwService implements Command{
 			out.println("alert('입력하신 아이디가 존재하지 않습니다.')");
 			out.println("</script>");
 			out.flush();
-			
 			nextpage="findpw.html";
 		}
 		

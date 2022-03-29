@@ -57,13 +57,6 @@ public class RegisterService implements Command {
 		if (cnt > 0) {
 			
 			System.out.println("-- 회원가입 성공");
-			PrintWriter out = response.getWriter();
-			out.println("<script language='javascript'>");
-			out.println("alert('입력하신 아이디가 존재하지 않습니다.')");
-			out.println("</script>");
-			out.flush();
-			// id session
-			session.setAttribute("id", id);
 			nextpage = "login.html";
 		} else {
 			System.out.println("-- 회원가입 실패");

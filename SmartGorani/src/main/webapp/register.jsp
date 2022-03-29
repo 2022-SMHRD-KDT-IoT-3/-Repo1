@@ -141,7 +141,9 @@ body, h1, p, span, a {
 		let joinalert = document.getElementById("join")
 		joinalert.addEventListener('click', function() {
 			if(confirm("회원가입을 하시겠습니까?")==true){
+				alert("회원가입이 완료되었습니다.")
 				document.form.submit()
+				
 			}
 		})
 	</script>
