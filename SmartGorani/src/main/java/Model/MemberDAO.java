@@ -187,8 +187,9 @@ public class MemberDAO {
 				String pw = rs.getString(2);
 				String name = rs.getString(3);
 				String type = rs.getString(4);
-				String reg_date = rs.getString(5);
-				MemberDTO dto = new MemberDTO(id, pw, name, type, reg_date);
+				String gender = rs.getString(5);
+				String reg_date = rs.getString(6);
+				MemberDTO dto = new MemberDTO(id, pw, name, type, gender,reg_date);
 				list.add(dto);
 			}
 
