@@ -276,51 +276,46 @@
 								</div>
 								<div class="card-body">
 									<div class="portName">
-										<input type="checkbox" name="port" value="port1" id="port1">
 										포트 1<label class="switch"> <input type="checkbox">
 											<div class="slider round"></div>
-											<p>OFF</p>
+											<p>OFF</p></label>
 											<p style="display: none;">ON</p>
 									</div>
 									<div class="portName">
-										<input type="checkbox" name="port" value="port2" id="port2">
 										포트 2<label class="switch"> <input type="checkbox">
 											<div class="slider round"></div>
-											<p>OFF</p>
+											<p>OFF</p></label>
 											<p style="display: none;">ON</p>
 									</div>
 									<div class="portName">
-										<input type="checkbox" name="port" value="port3"> 포트 3<label
+										포트 3<label
 											class="switch"> <input type="checkbox">
 											<div class="slider round"></div>
-											<p>OFF</p>
+											<p>OFF</p></label>
 											<p style="display: none;">ON</p>
 									</div>
 									<div class="portName">
-										<input type="checkbox" name="port" value="port4"> 포트 4<label
+										포트 4<label
 											class="switch"> <input type="checkbox">
 											<div class="slider round"></div>
-											<p>OFF</p>
+											<p>OFF</p></label>
 											<p style="display: none;">ON</p>
 									</div>
 									<div class="portName">
-										<input type="checkbox" name="port" value="port5"> 포트 5<label
+										포트 5<label
 											class="switch"> <input type="checkbox">
 											<div class="slider round"></div>
-											<p>OFF</p>
+											<p>OFF</p></label>
 											<p style="display: none;">ON</p>
 									</div>
 									<div class="portName">
-										<input type="checkbox" name="port" value="port6"> 포트 6<label
+										포트 6<label
 											class="switch"> <input type="checkbox">
 											<div class="slider round"></div>
-											<p>OFF</p>
+											<p>OFF</p></label>
 											<p style="display: none;">ON</p>
 									</div>
 
-									<a href="#" class="btn btn-danger btn-circle"
-										onclick="deleteCheck()"> <i class="fas fa-trash"></i>
-									</a>
 								</div>
 							</div>
 
@@ -465,6 +460,11 @@
 				return false;
 			}
 		}
+		
+		
+		
+		
+		
 	</script>
 	<script src="vendor/jquery/jquery.min.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

@@ -190,14 +190,15 @@
 						<li class="nav-item dropdown no-arrow"><a
 							class="nav-link dropdown-toggle" href="#" id="userDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false"> <%
- if (info != null) {
- %> <span class="mr-2 d-none d-lg-inline text-gray-600 small">
-									<%=info.getName()%> <%
- } else {
- %> user name <%
- }
- %>
+							aria-expanded="false"> 
+							<%
+ 							if (info != null) {
+ 							%> <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getName()%>
+									<%
+									} else {
+									%> user name <%
+									}
+									%>
 							</span>
 						</a> <!-- Dropdown - User Information -->
 							<div
@@ -424,15 +425,15 @@
 							borderWidth : 1
 						//경계선 굵기
 						} /* ,
-																                        {
-																                            label: 'test2',
-																                            fill: false,
-																                            data: [
-																                                8, 34, 12, 24
-																                            ],
-																                            backgroundColor: 'rgb(157, 109, 12)',
-																                            borderColor: 'rgb(157, 109, 12)'
-																                        } */
+																															                        {
+																															                            label: 'test2',
+																															                            fill: false,
+																															                            data: [
+																															                                8, 34, 12, 24
+																															                            ],
+																															                            backgroundColor: 'rgb(157, 109, 12)',
+																															                            borderColor: 'rgb(157, 109, 12)'
+																															                        } */
 						]
 					},
 					options : {
