@@ -88,7 +88,15 @@
 			<!-- Divider -->
 			<hr class="sidebar-divider my-0">
 
-
+			<!-- Nav Item - Pages Collapse Menu -->
+			<li class="nav-item"><a class="nav-link collapsed"
+				href="setting.jsp" data-toggle="collapse"
+				data-target="#collapsePages" aria-expanded="true"
+				aria-controls="collapsePages"> <i class="fas fa-fw fa-folder"></i>
+					<span>환경설정</span>
+			</a>
+			
+			
 			<!-- Divider -->
 			<hr class="sidebar-divider my-0">
 			<!-- @ end -->

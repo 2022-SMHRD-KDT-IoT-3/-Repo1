@@ -13,7 +13,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>SG- Main</title>
+<title>제품등록</title>
 
 
 <!-- Custom fonts for this template-->
@@ -25,6 +25,8 @@
 
 <!-- Custom styles for this template-->
 <link href="css/sb-admin-2.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/table1.css">
+<link rel="stylesheet" type="text/css" href="css/table1main.css">
 
 </head>
 
@@ -42,6 +44,8 @@
 			<!-- Sidebar - Brand -->
 			<a href="main.jsp"> <img src="img/goraniface.png"
 				style="width: 25%; display: block; margin: 0px auto; margin-top: 20px"></a>
+
+
 			<a
 				class="sidebar-brand d-flex align-items-center justify-content-center"
 				href="main.jsp">
@@ -276,188 +280,26 @@
 						<li class="nav-item dropdown no-arrow"><a
 							class="nav-link dropdown-toggle" href="#" id="userDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false"> 
-							<% if (info != null) {%> 
-							<span class="mr-2 d-none d-lg-inline text-gray-600 small"> 
-							<%=info.getName()%>
-							</span> 
-							<% } else {%> 
-							<span class="mr-2 d-none d-lg-inline text-gray-600 small"> 
-							로그인을 하세요 
-							</span> 
-							<% } %>
-						</a> 
-						
-						
-						<!-- Dropdown - User Information -->
-							aria-expanded="false"> <%
- if (info != null) {
- %> <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getName()%>
-							</span> <%
- } else {
- %> <span class="mr-2 d-none d-lg-inline text-gray-600 small">
-									로그인을 하세요 </span> <%
- }
- %>
+							aria-expanded="false"> <%if (info != null) {%> <span
+								class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getName()%></span>
+								<%} else {%> <span
+								class="mr-2 d-none d-lg-inline text-gray-600 small"> user
+									name </span> <%}%>
 						</a> <!-- Dropdown - User Information -->
 							<div
 								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
 								aria-labelledby="userDropdown">
-								<%
-								if (info.getName().equals("admin")) {
-								%>
 								<a class="dropdown-item" href="updateinfo.jsp"> <i
 									class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
-								</a> <a class="dropdown-item" href="admin_member.jsp"> <i
-									class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i> Admin
-									page
+								</a> <a class="dropdown-item" href="#"> <i
+									class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+									Activity Log
 								</a>
-								<%
-								} else {
-								%>
-								<a class="dropdown-item" href="updateinfo.jsp"> <i
-									class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
-								</a>
-								<%
-								}
-								%>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="#" data-toggle="modal"
-									data-target="#logoutModal"> <%
- if (info != null) {
- %> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-									Logout <%
- } else {
- %> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-									Login <%
- }
- %>
-							aria-expanded="false"> <%
- if (info != null) {
- %> <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getName()%>
-							</span> <%
- } else {
- %> <span class="mr-2 d-none d-lg-inline text-gray-600 small">
-									로그인을 하세요 </span> <%
- }
- %>
-						</a> <!-- Dropdown - User Information -->
-							<div
-								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-								aria-labelledby="userDropdown">
-								<%
-								if (info.getName().equals("admin")) {
-								%>
-								<a class="dropdown-item" href="updateinfo.jsp"> <i
-									class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
-								</a> <a class="dropdown-item" href="admin_member.jsp"> <i
-									class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i> Admin
-									page
-								</a>
-								<%
-								} else {
-								%>
-								<a class="dropdown-item" href="updateinfo.jsp"> <i
-									class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
-								</a>
-								<%
-								}
-								%>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#" data-toggle="modal"
-									data-target="#logoutModal"> <%
- if (info != null) {
- %> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-									Logout <%
- } else {
- %> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-									Login <%
- }
- %>
-							aria-expanded="false"> <%
- if (info != null) {
- %> <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getName()%>
-							</span> <%
- } else {
- %> <span class="mr-2 d-none d-lg-inline text-gray-600 small">
-									로그인을 하세요 </span> <%
- }
- %>
-						</a> <!-- Dropdown - User Information -->
-							<div
-								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-								aria-labelledby="userDropdown">
-								<%
-								if (info.getName().equals("admin")) {
-								%>
-								<a class="dropdown-item" href="updateinfo.jsp"> <i
-									class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
-								</a> <a class="dropdown-item" href="admin_member.jsp"> <i
-									class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i> Admin
-									page
-								</a>
-								<%
-								} else {
-								%>
-								<a class="dropdown-item" href="updateinfo.jsp"> <i
-									class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
-								</a>
-								<%
-								}
-								%>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#" data-toggle="modal"
-									data-target="#logoutModal"> <%
- if (info != null) {
- %> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-									Logout <%
- } else {
- %> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-									Login <%
- }
- %>
-							aria-expanded="false"> <%
- if (info != null) {
- %> <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getName()%>
-							</span> <%
- } else {
- %> <span class="mr-2 d-none d-lg-inline text-gray-600 small">
-									로그인을 하세요 </span> <%
- }
- %>
-						</a> <!-- Dropdown - User Information -->
-							<div
-								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-								aria-labelledby="userDropdown">
-								<%
-								if (info.getName().equals("admin")) {
-								%>
-								<a class="dropdown-item" href="updateinfo.jsp"> <i
-									class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
-								</a> <a class="dropdown-item" href="admin_member.jsp"> <i
-									class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i> Admin
-									page
-								</a>
-								<%
-								} else {
-								%>
-								<a class="dropdown-item" href="updateinfo.jsp"> <i
-									class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
-								</a>
-								<%
-								}
-								%>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#" data-toggle="modal"
-									data-target="#logoutModal"> <%
- if (info != null) {
- %> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-									Logout <%
- } else {
- %> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-									Login <%
- }
- %>
+									data-target="#logoutModal"> <i
+									class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+									Logout
 								</a>
 							</div></li>
 
@@ -468,131 +310,89 @@
 
 				<!-- Begin Page Content -->
 				<div class="container-fluid">
-
-					<!-- Page Heading -->
-
-
-					<!-- Content Row -->
-					<div class="row"></div>
-
-					<!-- Content Row -->
-
-					<div class="row">
-						<!-- Earnings (Monthly) Card Example -->
-						<div class="col-xl-10 col-md-6 mb-4">
-							<div class="card border-left-primary shadow h-100 py-2">
-								<div class="card-body">
-									<div class="row no-gutters align-items-center">
-										<div class="col mr-2">
-											<div
-												class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-												이번달 예상 요금</div>
-											<div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
-										</div>
-										<div class="col-auto">
-											<i class="fas fa-calendar fa-2x text-gray-300"></i>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Area Chart -->
-						<div class="col-xl-5 col-lg-7">
-							<div class="card shadow mb-4">
-								<!-- Card Header - Dropdown -->
-								<div
-									class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-									<h6 class="m-0 font-weight-bold text-primary">실시간 사용요금 추이
-										: 차트는 수정하기 js/demo/차트 여있음</h6>
-									<div class="dropdown no-arrow">
-										<a class="dropdown-toggle" href="#" role="button"
-											id="dropdownMenuLink" data-toggle="dropdown"
-											aria-haspopup="true" aria-expanded="false"> <i
-											class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-										</a>
-										<div
-											class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-											aria-labelledby="dropdownMenuLink">
-											<div class="dropdown-header">Dropdown Header:</div>
-											<a class="dropdown-item" href="#">Action</a> <a
-												class="dropdown-item" href="#">Another action</a>
-											<div class="dropdown-divider"></div>
-											<a class="dropdown-item" href="#">Something else here</a>
-										</div>
-									</div>
-								</div>
-								<!-- Card Body -->
-								<div class="card-body">
-									<div class="chart-area">
-										<canvas id="myAreaChart"></canvas>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Pie Chart -->
-						<div class="col-xl-5 col-lg-7">
-							<div class="card shadow mb-4">
-								<!-- Card Header - Dropdown -->
-								<div
-									class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-									<h6 class="m-0 font-weight-bold text-primary">디바이스 전력 사용 :
-										차트는 수정하기</h6>
-									<div class="dropdown no-arrow">
-										<a class="dropdown-toggle" href="#" role="button"
-											id="dropdownMenuLink" data-toggle="dropdown"
-											aria-haspopup="true" aria-expanded="false"> <i
-											class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-										</a>
-										<div
-											class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-											aria-labelledby="dropdownMenuLink">
-											<div class="dropdown-header">Dropdown Header:</div>
-											<a class="dropdown-item" href="#">Action</a> <a
-												class="dropdown-item" href="#">Another action</a>
-											<div class="dropdown-divider"></div>
-											<a class="dropdown-item" href="#">Something else here</a>
-										</div>
-									</div>
-								</div>
-								<!-- Card Body -->
-								<div class="card-body">
-									<div class="chart-pie pt-4 pb-2">
-										<canvas id="myPieChart"></canvas>
-									</div>
-									<div class="mt-4 text-center small">
-										<span class="mr-2"> <i
-											class="fas fa-circle text-primary"></i> Direct
-										</span> <span class="mr-2"> <i
-											class="fas fa-circle text-success"></i> Social
-										</span> <span class="mr-2"> <i class="fas fa-circle text-info"></i>
-											Referral
-										</span>
-									</div>
-								</div>
-							</div>
-						</div>
+					<div
+						class="d-sm-flex align-items-center justify-content-between mb-4">
+						<h1 class="h3 mb-0 text-gray-800">제품등록</h1>
 
 					</div>
-					<!-- Basic Card Example -->
-					<div class="card shadow mb-4">
-						<div class="card-header py-3">
-							<h6 class="m-0 font-weight-bold text-primary">제품 등록하기</h6>
+					<div class="">
+						<div class="wrap-table100">
+							<div class="table100 ver1">
+								<div class="table100-firstcol">
+									<table>
+										<tbody>
+											<tr class="row100 body">
+												<td class="cell100 column1">
+													<p class="form-control border-0 small">아이디</p>
+												</td>
+											</tr>
+											<tr class="row100 body">
+												<td class="cell100 column1">
+													<p class="form-control border-0 small">비밀번호</p>
+												</td>
+											</tr>
+											<tr class="row100 body">
+												<td class="cell100 column1">
+													<p class="form-control border-0 small">이름</p>
+												</td>
+											</tr>
+											<tr class="row100 body">
+												<td class="cell100 column1">
+													<p class="form-control border-0 small">성별</p>
+												</td>
+											</tr>
+											<tr class="row100 body">
+												<td class="cell100 column1">
+													<p class="form-control border-0 small">구분</p>
+												</td>
+											</tr>
 
-						</div>
 
-						<div class="card-body">
-							구매하신 "ssems"를 설치한 후, 고유번호를 등록해야만 smartgorani 서비스를 이용하실 수 있습니다. 다음
-							버튼을 클릭하여 제품을 등록해주세요. <br><br> <a href="enrollproduct.jsp"
-								class="btn btn-primary btn-icon-split btn-sm"> <span
-								class="icon text-white-50"> <i class="fas fa-flag"></i>
-							</span> <span class="text">제품 등록하기</span>
-							</a>
+										</tbody>
+									</table>
+								</div>
+
+								<div class="wrap-table100-nextcols js-pscroll">
+									<div class="table100-nextcols">
+
+										<table>
+
+											<tbody>
+												<tr class="row100 body">
+													<td class="cell100 column1"><div
+															class="form-control bg-light border-0 small"><%=info.getId()%></div></td>
+												</tr>
+												<tr class="row100 body">
+													<td class="cell100 column1"><div
+															class="form-control bg-light border-0 small"><%=info.getPw()%></div></td>
+												</tr>
+												<tr class="row100 body">
+													<td class="cell100 column1"><div
+															class="form-control bg-light border-0 small"><%=info.getName()%></div></td>
+												</tr>
+												<tr class="row100 body">
+													<td class="cell100 column1"><div
+															class="form-control bg-light border-0 small"><%=info.getGender()%></div></td>
+												</tr>
+												<tr class="row100 body">
+													<td class="cell100 column1"><div
+															class="form-control bg-light border-0 small"><%=info.getType()%></div>
+													</td>
+
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
-
-
+					<br>
+					<button type="button"
+						onclick="location.href='/SmartGorani/editinfo.jsp'"
+						class="d-none d-sm-block btn btn-sm btn-primary shadow-sm">
+						<i class="fa-sm text-white-50"></i>수정하기
+					</button>
 
 				</div>
 				<!-- /.container-fluid -->
@@ -604,7 +404,7 @@
 			<footer class="sticky-footer bg-white">
 				<div class="container my-auto">
 					<div class="copyright text-center my-auto">
-						<span>Copyright &copy; SMARTGORANI</span>
+						<span>Copyright &copy; Your Website 2021</span>
 					</div>
 				</div>
 			</footer>
@@ -643,8 +443,25 @@
 					<a class="btn btn-primary" href="LogoutService.do">확인</a>
 				</div>
 				<%
+				} else {
+				%>
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">로그인 하시겠습니까?</h5>
+					<button class="close" type="button" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="modal-body">로그인 하시겠습니까?</div>
+				<div class="modal-footer">
+					<button class="btn btn-secondary" type="button"
+						data-dismiss="modal">취소</button>
+					<a class="btn btn-primary" href="login.html">확인</a>
+				</div>
+				<%
 				}
 				%>
+
 			</div>
 		</div>
 	</div>
