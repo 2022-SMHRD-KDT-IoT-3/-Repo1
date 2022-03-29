@@ -109,10 +109,26 @@ justify-content: flex-end; /* flex-start / center / flex-end */
 			<!-- Divider -->
 			<hr class="sidebar-divider my-0">
 
+
 			<!-- Nav Item - Pages Collapse Menu -->
-			<li class="nav-item"><a class="nav-link collapsed"
-				href="setting.jsp"> <i class="fas fa-fw fa-cog"></i> <span>환경설정</span>
-			</a></li>
+			<li class="nav-item"><a class="nav-link collapsed" href="#"
+				data-toggle="collapse" data-target="#collapsePages"
+				aria-expanded="true" aria-controls="collapsePages"> <i
+					class="fas fa-fw fa-cog"></i> <span>환경설정</span>
+			</a>
+				<div id="collapsePages" class="collapse"
+					aria-labelledby="headingPages" data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<h6 class="collapse-header">my page</h6>
+						<a class="collapse-item" href="port.jsp">포트 추가 등록</a> <a
+							class="collapse-item" href="">제품 추가 등록</a> <a
+							class="collapse-item" href="editinfo.jsp">회원 정보 수정</a>
+						<div class="collapse-divider"></div>
+					</div>
+				</div></li>
+
+
+
 
 			<!-- Divider -->
 			<hr class="sidebar-divider my-0">
