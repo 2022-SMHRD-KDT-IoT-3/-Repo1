@@ -31,7 +31,6 @@
 h2 {
 	font-family: 'Dela Gothic One', cursive;
 }
-
 </style>
 
 </head>
@@ -44,52 +43,51 @@ h2 {
 		<div class="row justify-content-center">
 
 			<div style="width: 50%">
-				<div> <img src="img/logo4.png" style="width:15%; display: block; margin: 0px auto;  margin-top: 50px; "> </div>
+				<div>
+					<img src="img/logo4.png"
+						style="width: 15%; display: block; margin: 0px auto; margin-top: 50px;">
+				</div>
 				<div class="card o-hidden border-0 shadow-lg my-5">
 					<div class="card-body p-0">
 						<!-- Nested Row within Card Body -->
-							<div >
-								<div class="p-5">
-									<div class="text-center">
-										<h2 class="h4 text-gray-900 mb-4"> Login </h2>
+						<div>
+							<div class="p-5">
+								<div class="text-center">
+									<h2 class="h4 text-gray-900 mb-4">Login</h2>
+								</div>
+
+								<form class="user" action="Loginservice.do" method="post">
+									<div class="form-group">
+										<!-- @ 1. 아이디 입력 -->
+										<input type="text" class="form-control form-control-user"
+											id="exampleInputEmail" name="id" aria-describedby="emailHelp"
+											placeholder="ID를 입력해주세요.">
+									</div>
+									<div class="form-group">
+										<!-- @ 2. 비밀번호 입력 -->
+										<input type="password" class="form-control form-control-user"
+											id="exampleInputPassword" name="pw"
+											placeholder="비밀번호를 입력해주세요.">
 									</div>
 
-									<form class="user" action="Loginservice.do" method="post">
-										<div class="form-group">
-											<!-- @ 1. 아이디 입력 -->
-											<input type="text" class="form-control form-control-user"
-												id="exampleInputEmail" name="id"
-												aria-describedby="emailHelp" placeholder="ID를 입력해주세요.">
-										</div>
-										<div class="form-group">
-											<!-- @ 2. 비밀번호 입력 -->
-											<input type="password" class="form-control form-control-user"
-												id="exampleInputPassword" name="pw"
-												placeholder="비밀번호를 입력해주세요.">
-										</div>
-										
-										<input type="submit"
-											class="btn btn-primary btn-user btn-block" value="Login">
+									<input type="submit" class="btn btn-primary btn-user btn-block"
+										value="Login">
 
 
-										<hr>
-									</form>
-									<div class="text-center">
-										<a class="small" href="findpw.html">비밀번호를 잊으셨나요?</a>
-									</div>
-									<div class="text-center">
-										<a class="small" href="register.jsp">계정이 없으신가요?</a>
-									</div>
+									<hr>
+								</form>
+								<div class="text-center">
+									<a class="small" href="findpw.html">비밀번호를 잊으셨나요?</a>
+								</div>
+								<div class="text-center">
+									<a class="small" href="register.jsp">계정이 없으신가요?</a>
 								</div>
 							</div>
-					
+						</div>
 					</div>
 				</div>
-
 			</div>
-
 		</div>
-
 	</div>
 
 	<!-- Bootstrap core JavaScript-->
