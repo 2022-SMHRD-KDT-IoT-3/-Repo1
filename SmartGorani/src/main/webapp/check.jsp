@@ -192,6 +192,47 @@
 						<li class="nav-item dropdown no-arrow"><a
 							class="nav-link dropdown-toggle" href="#" id="userDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"> 
+							<%
+ 							if (info != null) {
+ 							%> <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getName()%>
+									<%
+									} else {
+									%> user name <%
+									}
+									%>
+							aria-expanded="false"> <%
+ if (info != null) {
+ %> <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getName()%>
+									<%
+									} else {
+									%> user name <%
+									}
+									%>
+							aria-expanded="false"> <%
+ if (info != null) {
+ %> <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getName()%>
+									<%
+									} else {
+									%> user name <%
+									}
+									%>
+							aria-expanded="false"> <%
+ if (info != null) {
+ %> <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getName()%>
+									<%
+									} else {
+									%> user name <%
+									}
+									%>
+							aria-expanded="false"> <%
+ if (info != null) {
+ %> <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getName()%>
+									<%
+									} else {
+									%> user name <%
+									}
+									%>
 							aria-expanded="false"> <%
  if (info != null) {
  %> <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getName()%>
@@ -335,6 +376,701 @@
 	<script src="js/demo/chart-bar-demo.js"></script>
 
 	<!-- 차트 부분 -->
+	<script type="text/javascript">
+		let context = document.getElementById('myChart').getContext('2d');
+		let myChart = new Chart(context,
+				{
+					type : 'bar', // 차트의 형태
+					data : { // 차트에 들어갈 데이터
+						labels : [
+						//x 축
+						'1', '2', '3', '4', '5', '6', '7' ],
+						datasets : [ { //데이터
+							label : 'test1', //차트 제목
+							fill : false, // line 형태일 때, 선 안쪽을 채우는지 안채우는지
+							data : [ 21, 19, 25, 20, 23, 26, 25 //x축 label에 대응되는 데이터 값
+							],
+							backgroundColor : [
+							//색상
+							'rgba(255, 99, 132, 0.2)',
+									'rgba(54, 162, 235, 0.2)',
+									'rgba(255, 206, 86, 0.2)',
+									'rgba(75, 192, 192, 0.2)',
+									'rgba(153, 102, 255, 0.2)',
+									'rgba(255, 159, 64, 0.2)' ],
+							borderColor : [
+							//경계선 색상
+							'rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)',
+									'rgba(255, 206, 86, 1)',
+									'rgba(75, 192, 192, 1)',
+									'rgba(153, 102, 255, 1)',
+									'rgba(255, 159, 64, 1)' ],
+							borderWidth : 1
+						//경계선 굵기
+						} /* ,
+																															                        {
+																															                            label: 'test2',
+																															                            fill: false,
+																															                            data: [
+																															                                8, 34, 12, 24
+																															                            ],
+																															                            backgroundColor: 'rgb(157, 109, 12)',
+																															                            borderColor: 'rgb(157, 109, 12)'
+																															                        } */
+						]
+					},
+					options : {
+						scales : {
+							yAxes : [ {
+								ticks : {
+									beginAtZero : true
+								}
+							} ]
+						}
+	<script>
+		//구글 시각화 API를 로딩하는 메소드
+
+		google.charts.load('current', {
+			packages : [ 'corechart' ]
+		});
+
+		// 구글 시각화 API가 로딩이 완료되면,
+
+		// 인자로 전달된 콜백함수를 내부적으로 호출하여 차트를 그리는 메소드
+
+		// 화면이 실행될때 함께 실행된다.
+
+		// google.charts.setOnLoadCallback(drawChart);
+
+		/* 30초마다 재갱신
+
+		 google.charts.setOnLoadCallback(function(){
+
+		 setInterval(columnChart1(),30000);
+
+		
+
+		 }); */
+
+		// 묶은 세로 막대형 차트 1
+		function columnChart1(arrayList) {
+
+			// 실 데이터를 가진 데이터테이블 객체를 반환하는 메소드
+
+			var dataTable = google.visualization.arrayToDataTable(arrayList);
+
+			// 옵션객체 준비
+
+			var options = {
+
+				title : '거주지 별 인원수',
+
+				hAxis : {
+
+					title : '거주지',
+
+					titleTextStyle : {
+
+						color : 'red'
+
+	<script>
+		//구글 시각화 API를 로딩하는 메소드
+
+		google.charts.load('current', {
+			packages : [ 'corechart' ]
+		});
+
+		// 구글 시각화 API가 로딩이 완료되면,
+
+		// 인자로 전달된 콜백함수를 내부적으로 호출하여 차트를 그리는 메소드
+
+		// 화면이 실행될때 함께 실행된다.
+
+		// google.charts.setOnLoadCallback(drawChart);
+
+		/* 30초마다 재갱신
+
+		 google.charts.setOnLoadCallback(function(){
+
+		 setInterval(columnChart1(),30000);
+
+		
+
+		 }); */
+
+		// 묶은 세로 막대형 차트 1
+		function columnChart1(arrayList) {
+
+			// 실 데이터를 가진 데이터테이블 객체를 반환하는 메소드
+
+			var dataTable = google.visualization.arrayToDataTable(arrayList);
+
+			// 옵션객체 준비
+
+			var options = {
+
+				title : '거주지 별 인원수',
+
+				hAxis : {
+
+					title : '거주지',
+
+					titleTextStyle : {
+
+						color : 'red'
+
+	<script>
+		//구글 시각화 API를 로딩하는 메소드
+
+		google.charts.load('current', {
+			packages : [ 'corechart' ]
+		});
+
+		// 구글 시각화 API가 로딩이 완료되면,
+
+		// 인자로 전달된 콜백함수를 내부적으로 호출하여 차트를 그리는 메소드
+
+		// 화면이 실행될때 함께 실행된다.
+
+		// google.charts.setOnLoadCallback(drawChart);
+
+		/* 30초마다 재갱신
+
+		 google.charts.setOnLoadCallback(function(){
+
+		 setInterval(columnChart1(),30000);
+
+		
+
+		 }); */
+
+		// 묶은 세로 막대형 차트 1
+		function columnChart1(arrayList) {
+
+			// 실 데이터를 가진 데이터테이블 객체를 반환하는 메소드
+
+			var dataTable = google.visualization.arrayToDataTable(arrayList);
+
+			// 옵션객체 준비
+
+			var options = {
+
+				title : '거주지 별 인원수',
+
+				hAxis : {
+
+					title : '거주지',
+
+					titleTextStyle : {
+
+						color : 'red'
+
+	<script>
+		//구글 시각화 API를 로딩하는 메소드
+
+		google.charts.load('current', {
+			packages : [ 'corechart' ]
+		});
+
+		// 구글 시각화 API가 로딩이 완료되면,
+
+		// 인자로 전달된 콜백함수를 내부적으로 호출하여 차트를 그리는 메소드
+
+		// 화면이 실행될때 함께 실행된다.
+
+		// google.charts.setOnLoadCallback(drawChart);
+
+		/* 30초마다 재갱신
+
+		 google.charts.setOnLoadCallback(function(){
+
+		 setInterval(columnChart1(),30000);
+
+		
+
+		 }); */
+
+		// 묶은 세로 막대형 차트 1
+		function columnChart1(arrayList) {
+
+			// 실 데이터를 가진 데이터테이블 객체를 반환하는 메소드
+
+			var dataTable = google.visualization.arrayToDataTable(arrayList);
+
+			// 옵션객체 준비
+
+			var options = {
+
+				title : '거주지 별 인원수',
+
+				hAxis : {
+
+					title : '거주지',
+
+					titleTextStyle : {
+
+						color : 'red'
+
+	<script>
+		//구글 시각화 API를 로딩하는 메소드
+
+		google.charts.load('current', {
+			packages : [ 'corechart' ]
+		});
+
+		// 구글 시각화 API가 로딩이 완료되면,
+
+		// 인자로 전달된 콜백함수를 내부적으로 호출하여 차트를 그리는 메소드
+
+		// 화면이 실행될때 함께 실행된다.
+
+		// google.charts.setOnLoadCallback(drawChart);
+
+		/* 30초마다 재갱신
+
+		 google.charts.setOnLoadCallback(function(){
+
+		 setInterval(columnChart1(),30000);
+
+		
+
+		 }); */
+
+		// 묶은 세로 막대형 차트 1
+		function columnChart1(arrayList) {
+
+			// 실 데이터를 가진 데이터테이블 객체를 반환하는 메소드
+
+			var dataTable = google.visualization.arrayToDataTable(arrayList);
+
+			// 옵션객체 준비
+
+			var options = {
+
+				title : '거주지 별 인원수',
+
+				hAxis : {
+
+					title : '거주지',
+
+					titleTextStyle : {
+
+						color : 'red'
+
+	<script>
+		//구글 시각화 API를 로딩하는 메소드
+
+		google.charts.load('current', {
+			packages : [ 'corechart' ]
+		});
+
+		// 구글 시각화 API가 로딩이 완료되면,
+
+		// 인자로 전달된 콜백함수를 내부적으로 호출하여 차트를 그리는 메소드
+
+		// 화면이 실행될때 함께 실행된다.
+
+		// google.charts.setOnLoadCallback(drawChart);
+
+		/* 30초마다 재갱신
+
+		 google.charts.setOnLoadCallback(function(){
+
+		 setInterval(columnChart1(),30000);
+
+		
+
+		 }); */
+
+		// 묶은 세로 막대형 차트 1
+		function columnChart1(arrayList) {
+
+			// 실 데이터를 가진 데이터테이블 객체를 반환하는 메소드
+
+			var dataTable = google.visualization.arrayToDataTable(arrayList);
+
+			// 옵션객체 준비
+
+			var options = {
+
+				title : '거주지 별 인원수',
+
+				hAxis : {
+
+					title : '거주지',
+
+					titleTextStyle : {
+
+						color : 'red'
+
+	<script>
+		//구글 시각화 API를 로딩하는 메소드
+
+		google.charts.load('current', {
+			packages : [ 'corechart' ]
+		});
+
+		// 구글 시각화 API가 로딩이 완료되면,
+
+		// 인자로 전달된 콜백함수를 내부적으로 호출하여 차트를 그리는 메소드
+
+		// 화면이 실행될때 함께 실행된다.
+
+		// google.charts.setOnLoadCallback(drawChart);
+
+		/* 30초마다 재갱신
+
+		 google.charts.setOnLoadCallback(function(){
+
+		 setInterval(columnChart1(),30000);
+
+		
+
+		 }); */
+
+		// 묶은 세로 막대형 차트 1
+		function columnChart1(arrayList) {
+
+			// 실 데이터를 가진 데이터테이블 객체를 반환하는 메소드
+
+			var dataTable = google.visualization.arrayToDataTable(arrayList);
+
+			// 옵션객체 준비
+
+			var options = {
+
+				title : '거주지 별 인원수',
+
+				hAxis : {
+
+					title : '거주지',
+
+					titleTextStyle : {
+
+						color : 'red'
+
+	<script>
+		//구글 시각화 API를 로딩하는 메소드
+
+		google.charts.load('current', {
+			packages : [ 'corechart' ]
+		});
+
+		// 구글 시각화 API가 로딩이 완료되면,
+
+		// 인자로 전달된 콜백함수를 내부적으로 호출하여 차트를 그리는 메소드
+
+		// 화면이 실행될때 함께 실행된다.
+
+		// google.charts.setOnLoadCallback(drawChart);
+
+		/* 30초마다 재갱신
+
+		 google.charts.setOnLoadCallback(function(){
+
+		 setInterval(columnChart1(),30000);
+
+		
+
+		 }); */
+
+		// 묶은 세로 막대형 차트 1
+		function columnChart1(arrayList) {
+
+			// 실 데이터를 가진 데이터테이블 객체를 반환하는 메소드
+
+			var dataTable = google.visualization.arrayToDataTable(arrayList);
+
+			// 옵션객체 준비
+
+			var options = {
+
+				title : '거주지 별 인원수',
+
+				hAxis : {
+
+					title : '거주지',
+
+					titleTextStyle : {
+
+						color : 'red'
+
+	<script>
+		//구글 시각화 API를 로딩하는 메소드
+
+		google.charts.load('current', {
+			packages : [ 'corechart' ]
+		});
+
+		// 구글 시각화 API가 로딩이 완료되면,
+
+		// 인자로 전달된 콜백함수를 내부적으로 호출하여 차트를 그리는 메소드
+
+		// 화면이 실행될때 함께 실행된다.
+
+		// google.charts.setOnLoadCallback(drawChart);
+
+		/* 30초마다 재갱신
+
+		 google.charts.setOnLoadCallback(function(){
+
+		 setInterval(columnChart1(),30000);
+
+		
+
+		 }); */
+
+		// 묶은 세로 막대형 차트 1
+		function columnChart1(arrayList) {
+
+			// 실 데이터를 가진 데이터테이블 객체를 반환하는 메소드
+
+			var dataTable = google.visualization.arrayToDataTable(arrayList);
+
+			// 옵션객체 준비
+
+			var options = {
+
+				title : '거주지 별 인원수',
+
+				hAxis : {
+
+					title : '거주지',
+
+					titleTextStyle : {
+
+						color : 'red'
+
+	<script>
+		//구글 시각화 API를 로딩하는 메소드
+
+		google.charts.load('current', {
+			packages : [ 'corechart' ]
+		});
+
+		// 구글 시각화 API가 로딩이 완료되면,
+
+		// 인자로 전달된 콜백함수를 내부적으로 호출하여 차트를 그리는 메소드
+
+		// 화면이 실행될때 함께 실행된다.
+
+		// google.charts.setOnLoadCallback(drawChart);
+
+		/* 30초마다 재갱신
+
+		 google.charts.setOnLoadCallback(function(){
+
+		 setInterval(columnChart1(),30000);
+
+		
+
+		 }); */
+
+		// 묶은 세로 막대형 차트 1
+		function columnChart1(arrayList) {
+
+			// 실 데이터를 가진 데이터테이블 객체를 반환하는 메소드
+
+			var dataTable = google.visualization.arrayToDataTable(arrayList);
+
+			// 옵션객체 준비
+
+			var options = {
+
+				title : '거주지 별 인원수',
+
+				hAxis : {
+
+					title : '거주지',
+
+					titleTextStyle : {
+
+						color : 'red'
+
+	<script>
+		//구글 시각화 API를 로딩하는 메소드
+
+		google.charts.load('current', {
+			packages : [ 'corechart' ]
+		});
+
+		// 구글 시각화 API가 로딩이 완료되면,
+
+		// 인자로 전달된 콜백함수를 내부적으로 호출하여 차트를 그리는 메소드
+
+		// 화면이 실행될때 함께 실행된다.
+
+		// google.charts.setOnLoadCallback(drawChart);
+
+		/* 30초마다 재갱신
+
+		 google.charts.setOnLoadCallback(function(){
+
+		 setInterval(columnChart1(),30000);
+
+		
+
+		 }); */
+
+		// 묶은 세로 막대형 차트 1
+		function columnChart1(arrayList) {
+
+			// 실 데이터를 가진 데이터테이블 객체를 반환하는 메소드
+
+			var dataTable = google.visualization.arrayToDataTable(arrayList);
+
+			// 옵션객체 준비
+
+			var options = {
+
+				title : '거주지 별 인원수',
+
+				hAxis : {
+
+					title : '거주지',
+
+					titleTextStyle : {
+
+						color : 'red'
+
+	<script>
+		//구글 시각화 API를 로딩하는 메소드
+
+		google.charts.load('current', {
+			packages : [ 'corechart' ]
+		});
+
+		// 구글 시각화 API가 로딩이 완료되면,
+
+		// 인자로 전달된 콜백함수를 내부적으로 호출하여 차트를 그리는 메소드
+
+		// 화면이 실행될때 함께 실행된다.
+
+		// google.charts.setOnLoadCallback(drawChart);
+
+		/* 30초마다 재갱신
+
+		 google.charts.setOnLoadCallback(function(){
+
+		 setInterval(columnChart1(),30000);
+
+		
+
+		 }); */
+
+		// 묶은 세로 막대형 차트 1
+		function columnChart1(arrayList) {
+
+			// 실 데이터를 가진 데이터테이블 객체를 반환하는 메소드
+
+			var dataTable = google.visualization.arrayToDataTable(arrayList);
+
+			// 옵션객체 준비
+
+			var options = {
+
+				title : '거주지 별 인원수',
+
+				hAxis : {
+
+					title : '거주지',
+
+					titleTextStyle : {
+
+						color : 'red'
+
+	<script>
+		//구글 시각화 API를 로딩하는 메소드
+
+		google.charts.load('current', {
+			packages : [ 'corechart' ]
+		});
+
+		// 구글 시각화 API가 로딩이 완료되면,
+
+		// 인자로 전달된 콜백함수를 내부적으로 호출하여 차트를 그리는 메소드
+
+		// 화면이 실행될때 함께 실행된다.
+
+		// google.charts.setOnLoadCallback(drawChart);
+
+		/* 30초마다 재갱신
+
+		 google.charts.setOnLoadCallback(function(){
+
+		 setInterval(columnChart1(),30000);
+
+		
+
+		 }); */
+
+		// 묶은 세로 막대형 차트 1
+		function columnChart1(arrayList) {
+
+			// 실 데이터를 가진 데이터테이블 객체를 반환하는 메소드
+
+			var dataTable = google.visualization.arrayToDataTable(arrayList);
+
+			// 옵션객체 준비
+
+			var options = {
+
+				title : '거주지 별 인원수',
+
+				hAxis : {
+
+					title : '거주지',
+
+					titleTextStyle : {
+
+						color : 'red'
+
+	<script>
+		//구글 시각화 API를 로딩하는 메소드
+
+		google.charts.load('current', {
+			packages : [ 'corechart' ]
+		});
+
+		// 구글 시각화 API가 로딩이 완료되면,
+
+		// 인자로 전달된 콜백함수를 내부적으로 호출하여 차트를 그리는 메소드
+
+		// 화면이 실행될때 함께 실행된다.
+
+		// google.charts.setOnLoadCallback(drawChart);
+
+		/* 30초마다 재갱신
+
+		 google.charts.setOnLoadCallback(function(){
+
+		 setInterval(columnChart1(),30000);
+
+		
+
+		 }); */
+
+		// 묶은 세로 막대형 차트 1
+		function columnChart1(arrayList) {
+
+			// 실 데이터를 가진 데이터테이블 객체를 반환하는 메소드
+
+			var dataTable = google.visualization.arrayToDataTable(arrayList);
+
+			// 옵션객체 준비
+
+			var options = {
+
+				title : '거주지 별 인원수',
+
+				hAxis : {
+
+					title : '거주지',
+
+					titleTextStyle : {
+
+						color : 'red'
+
 	<script>
 		//구글 시각화 API를 로딩하는 메소드
 

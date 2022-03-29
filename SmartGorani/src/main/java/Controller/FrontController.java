@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import Inter.Command;
 import Service.CheckTotalPowerService;
+import Service.DeviceDeleteService;
 import Service.IDcheckService;
 import Service.Loginservice;
 import Service.LogoutService;
@@ -22,6 +23,7 @@ import Service.WriteBoardService;
 import Service.WriteReplyService;
 import Service.boardDeleteService;
 import Service.boardUpdateService;
+import Service.DeviceInsertService;
 import Service.RealtimeInfoService;
 
 @WebServlet("*.do")
@@ -93,6 +95,12 @@ public class FrontController extends HttpServlet {
 			nextpage = com.execute(request, response);
 		} else if (command.equals("boardUpdateService.do")) {		//게시글 수정
 			com = new boardUpdateService();
+			nextpage = com.execute(request, response);
+		} else if (command.equals("DeviceInsertService.do")) {		//디바이스추가
+			com = new DeviceInsertService();
+			nextpage = com.execute(request, response);
+		} else if (command.equals("DeviceDeleteService.do")) {  	//디바이스 삭제
+			com = new DeviceDeleteService();
 			nextpage = com.execute(request, response);
 		}
 		if (nextpage != null) {
