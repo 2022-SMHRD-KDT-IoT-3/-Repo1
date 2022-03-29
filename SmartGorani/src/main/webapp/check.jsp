@@ -33,6 +33,8 @@
 	%>
 
 
+
+
 	<!-- @ strat : Page Wrapper -->
 	<div id="wrapper">
 		<!-- Sidebar -->
