@@ -359,11 +359,12 @@
 								<%
 								}
 								%>
-								<button onclick="location='board.jsp'">돌아가기</button>
-								<button
-									onclick="location='boardDeleteService.do?qna_seq=<%=dto.getQna_seq()%>&mb_id=<%=info.getId()%>'">삭제</button>
-								<button
-									onclick="location='boardUpdate.jsp?num=<%=dto.getQna_seq()%>&mb_id=<%=info.getId()%>'">수정</button>
+								<a class="btn btn-primary" href="board.jsp">목록으로</a>
+								<a class="btn btn-primary" href="boardDeleteService.do?qna_seq=<%=dto.getQna_seq()%>&mb_id=<%=dto.getMb_id()%>">삭제</a>
+								
+								<% if(info.getId().equals(dto.getMb_id())){ %>
+								<a class="btn btn-primary" href="boardUpdate.jsp?num=<%=dto.getQna_seq()%>&mb_id=<%=dto.getMb_id()%>">수정</a>
+								<%} %>
 							</div>
 						</div>
 					</div>

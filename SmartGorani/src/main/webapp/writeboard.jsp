@@ -25,6 +25,7 @@
 
 <!-- Custom styles for this template -->
 <link href="css/sb-admin-2.min.css" rel="stylesheet">
+<link href="css/NewFile.css" rel="stylesheet">
 
 <!-- Custom styles for this page -->
 <link href="vendor/datatables/dataTables.bootstrap4.min.css"
@@ -39,12 +40,14 @@
 	%>
 
 	<!-- @ strat : Page Wrapper -->
+	
+
 	<div id="wrapper">
 		<!-- Sidebar -->
 		<ul
 			class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
 			id="accordionSidebar">
-
+			
 			<!-- Sidebar - Brand -->
 			<a href="main.jsp"> <img src="img/goraniface.png"
 				style="width: 25%; display: block; margin: 0px auto; margin-top: 20px"></a>
@@ -283,8 +286,8 @@
 														style="width: 100%; resize: none;"></textarea></td>
 											</tr>
 											<tr>
-												<td colspan="2"><input type="reset" value="초기화">
-													<input type="submit" value="업로드"></td>
+												<td colspan="2"><input class="btn btn-primary" type="reset" value="초기화">
+													<input class="btn btn-primary" type="submit" value="업로드"></td>
 											</tr>
 										</table>
 									</div>

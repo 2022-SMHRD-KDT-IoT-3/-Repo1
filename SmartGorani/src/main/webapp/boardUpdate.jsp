@@ -39,6 +39,7 @@
 		int num = Integer.parseInt(request.getParameter("num"));
 		BoardDAO dao = new BoardDAO();
 		BoardDTO dto = dao.boardSelectOne(num);
+		String mb_id = request.getParameter("mb_id");
 	%>
 
 	<!-- @ strat : Page Wrapper -->
@@ -260,18 +261,8 @@
 											</tr>
 											<tr>
 												<td>작성자</td>
-												<%
-												if (info != null) {
-												%>
-												<td><%=info.getId()%></td>
-												<%
-												} else {
-												%>
-												<td><input type="text" name="mb_id" size="20"
-													style="width: 100%;"></td>
-												<%
-												}
-												%>
+												<td><%=mb_id%></td>
+											
 											</tr>
 											<tr>
 												<td colspan="2">내용</td>
@@ -285,8 +276,8 @@
 														style="width: 100%; resize: none;"><%= dto.getContent() %></textarea></td>
 											</tr>
 											<tr>
-												<td colspan="2"><input type="reset" value="초기화">
-													<input type="submit" value="업로드"></td>
+												<td colspan="2"><input class="btn btn-primary" type="reset" value="초기화">
+													<input class="btn btn-primary" type="submit" value="업로드"></td>
 											</tr>
 										</table>
 									</div>
