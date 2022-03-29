@@ -98,8 +98,8 @@
 					aria-labelledby="headingPages" data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
 						<h6 class="collapse-header">my page</h6>
-						<a class="collapse-item" href="port.jsp">포트 추가 등록</a> <a
-							class="collapse-item" href="">제품 추가 등록</a> <a
+						<a class="collapse-item" href="port.jsp">포트 등록</a> <a
+							class="collapse-item" href="enrollproduct.jsp">제품 등록</a> <a
 							class="collapse-item" href="editinfo.jsp">회원 정보 수정</a>
 						<div class="collapse-divider"></div>
 					</div>
@@ -311,7 +311,7 @@
 				<div class="container-fluid">
 					<div
 						class="d-sm-flex align-items-center justify-content-between mb-4">
-						<h1 class="h3 mb-0 text-gray-800">포트 추가</h1>
+						<h1 class="h3 mb-0 text-gray-800">포트 등록</h1>
 
 					</div>
 					<div class="">

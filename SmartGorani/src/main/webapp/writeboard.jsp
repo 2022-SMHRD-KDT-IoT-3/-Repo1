@@ -104,8 +104,8 @@
 					aria-labelledby="headingPages" data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
 						<h6 class="collapse-header">my page</h6>
-						<a class="collapse-item" href="port.jsp">포트 추가 등록</a> <a
-							class="collapse-item" href="">제품 추가 등록</a> <a
+						<a class="collapse-item" href="port.jsp">포트 등록</a> <a
+							class="collapse-item" href="enrollproduct.jsp">제품 등록</a> <a
 							class="collapse-item" href="editinfo.jsp">회원 정보 수정</a>
 						<div class="collapse-divider"></div>
 					</div>

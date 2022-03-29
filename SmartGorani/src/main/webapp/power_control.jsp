@@ -98,8 +98,8 @@
 					aria-labelledby="headingPages" data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
 						<h6 class="collapse-header">my page</h6>
-						<a class="collapse-item" href="port.jsp">포트 추가 등록</a> <a
-							class="collapse-item" href="">제품 추가 등록</a> <a
+						<a class="collapse-item" href="port.jsp">포트 등록</a> <a
+							class="collapse-item" href="enrollproduct.jsp">제품 등록</a> <a
 							class="collapse-item" href="editinfo.jsp">회원 정보 수정</a>
 						<div class="collapse-divider"></div>
 					</div>
@@ -279,8 +279,11 @@
 								</div>
 
 							</div>
+							
 
 							<!-- Custom Text Color Utilities -->
+							
+							
 							<div class="card shadow mb-4">
 								<div class="card-header py-3">
 									<h6 class="m-0 font-weight-bold text-primary">포트별 전력 제어</h6>
@@ -305,27 +308,7 @@
 											<p>OFF</p></label>
 											<p style="display: none;">ON</p>
 									</div>
-									<div class="portName">
-										포트 4<label
-											class="switch"> <input type="checkbox">
-											<div class="slider round"></div>
-											<p>OFF</p></label>
-											<p style="display: none;">ON</p>
-									</div>
-									<div class="portName">
-										포트 5<label
-											class="switch"> <input type="checkbox">
-											<div class="slider round"></div>
-											<p>OFF</p></label>
-											<p style="display: none;">ON</p>
-									</div>
-									<div class="portName">
-										포트 6<label
-											class="switch"> <input type="checkbox">
-											<div class="slider round"></div>
-											<p>OFF</p></label>
-											<p style="display: none;">ON</p>
-									</div>
+									
 
 								</div>
 							</div>
@@ -350,11 +333,48 @@
 
 								</div>
 							</div>
+							<div class="card shadow mb-4">
+								<div class="card-header py-3">
+									<h6 class="m-0 font-weight-bold text-primary">대기 전력 제어</h6>
+								</div>
+								<div class="card-body">
+									<div class="portName">
+									<div class="portName">
+										전체 <label
+											class="switch"> <input type="checkbox">
+											<div class="slider round"></div>
+											<p>OFF</p></label>
+											<p style="display: none;">ON</p>
+									</div>
+									
+										포트 1<label
+											class="switch"> <input type="checkbox">
+											<div class="slider round"></div>
+											<p>OFF</p></label>
+											<p style="display: none;">ON</p>
+									</div>
+									<div class="portName">
+										포트 2<label
+											class="switch"> <input type="checkbox">
+											<div class="slider round"></div>
+											<p>OFF</p></label>
+											<p style="display: none;">ON</p>
+									</div>
+									<div class="portName">
+										포트 3<label
+											class="switch"> <input type="checkbox">
+											<div class="slider round"></div>
+											<p>OFF</p></label>
+											<p style="display: none;">ON</p>
+									</div>
+
+								</div>
+							</div>
 						</div>
 
 					</div>
 
-				</div>
+				</div>ㄴㄴ
 				<!-- /.container-fluid -->
 
 			</div>
