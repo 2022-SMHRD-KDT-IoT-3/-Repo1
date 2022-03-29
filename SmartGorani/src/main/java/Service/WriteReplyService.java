@@ -60,7 +60,6 @@ public class WriteReplyService implements Command {
 			System.out.println("mb_id : " + mb_id);
 			
 			ReplyDTO rdto = new ReplyDTO(0, q_seq, r_content, r_file, "", mb_id);
-			new ReplyDAO().replyinsert(rdto);
 //			BoardDTO dto = new BoardDTO(0, qna_title, content, file, "", mb_id); // 생성자안만들고 임의의값넣어줌 어차피 메소드호출해서
 																					// 디비에서 입력됨
 			int cnt = new ReplyDAO().replyinsert(rdto);

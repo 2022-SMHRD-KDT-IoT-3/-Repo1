@@ -230,8 +230,9 @@
 										<table hight="100%" width="100%">
 											<tr>
 												<td>제목</td>
-												<td><input type="text" name="r_title" size="20"
-													style="width: 100%;"></td>
+												<td> re : 
+												<%=dto.getQna_title() %>
+												</td>
 											</tr>
 											<tr>
 												<td>작성자</td>
@@ -240,13 +241,14 @@
 											<tr>
 												<td colspan="2">내용</td>
 											</tr>
-											<tr>
-												<td colspan="2"><input name="file" type="file"
-													style="float: right;"></td>
-											</tr>
+											
 											<tr>
 												<td colspan="2"><textarea name="content" rows="10"
 														style="width: 100%; resize: none;"></textarea></td>
+											</tr>
+											<tr>
+												<td colspan="2"><input name="file" type="file"
+													style="float: right;"></td>
 											</tr>
 											<tr>
 												<td colspan="2"><input class="btn btn-primary" type="reset" value="초기화">

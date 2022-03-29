@@ -277,13 +277,14 @@
 											<tr>
 												<td colspan="2">내용</td>
 											</tr>
-											<tr>
-												<td colspan="2"><input name="file" type="file"
-													style="float: right;"></td>
-											</tr>
+											
 											<tr>
 												<td colspan="2"><textarea name="content" rows="10"
 														style="width: 100%; resize: none;"></textarea></td>
+											</tr>
+											<tr>
+												<td colspan="2"><input name="file" type="file"
+													style="float: right;"></td>
 											</tr>
 											<tr>
 												<td colspan="2"><input class="btn btn-primary" type="reset" value="초기화">

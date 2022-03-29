@@ -54,7 +54,7 @@ public class ReplyDAO {
 		try {
 
 			dbconn();
-			String sql = "insert into tbl_reply values(tbl_reply_seq.nextval, ?, ?, ?, sysdate, ?)";
+			String sql = "insert into tbl_reply values(1, ?, ?, ?, sysdate, ?)";
 			psmt = conn.prepareStatement(sql);
 			
 			psmt.setInt(1, rdto.getQNA_SEQ());
