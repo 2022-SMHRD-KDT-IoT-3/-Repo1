@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import Inter.Command;
 import Model.BoardDAO;
 import Model.DeviceDAO;
+import Model.DeviceDTO;
 
 public class DeviceDeleteService implements Command {
 
@@ -19,7 +20,6 @@ public class DeviceDeleteService implements Command {
 
 		int dv_seq = Integer.parseInt(request.getParameter("dv_seq"));
 		String mb_id = request.getParameter("mb_id");
-
 		int cnt = new DeviceDAO().deviceDelete(dv_seq, mb_id);
 		
 		if(cnt>0) {

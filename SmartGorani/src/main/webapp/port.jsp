@@ -327,6 +327,11 @@
 											</tr>
 											<tr class="row100 body">
 												<td class="cell100 column1">
+													<p class="form-control border-0 small">제품 시리얼 번호</p>
+												</td>
+											</tr>
+											<tr class="row100 body">
+												<td class="cell100 column1">
 													<p class="form-control border-0 small">포트 번호</p>
 												</td>
 											</tr>
@@ -355,6 +360,12 @@
 													<tr class="row100 body">
 														<td class="cell100 column1"><span
 															class="form-control bg-light border-0 small"><%=info.getId()%></span></td>
+													</tr>
+													<tr class="row100 body">
+														<td class="cell100 column1"><input
+															class="form-control bg-light border-0 small" type="text"
+															name="p_serial"></td>
+															
 													</tr>
 													<tr class="row100 body">
 														<td class="cell100 column1"><input

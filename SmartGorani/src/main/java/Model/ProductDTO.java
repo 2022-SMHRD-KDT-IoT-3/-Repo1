@@ -1,50 +1,41 @@
 package Model;
 
 public class ProductDTO {
-	String P_SEQ;
-	String P_POWER;
-	String P_MA;
-	String MB_ID;
-	String P_INST_DATE;
-	public ProductDTO(String p_SEQ, String p_POWER, String p_MA, String mB_ID, String p_INST_DATE) {
+	int p_seq;
+	int p_power;
+	int p_ma;
+	String mb_id;
+	public ProductDTO(int p_seq, int p_power, int p_ma, String mb_id) {
 		super();
-		P_SEQ = p_SEQ;
-		P_POWER = p_POWER;
-		P_MA = p_MA;
-		MB_ID = mB_ID;
-		P_INST_DATE = p_INST_DATE;
+		this.p_seq = p_seq;
+		this.p_power = p_power;
+		this.p_ma = p_ma;
+		this.mb_id = mb_id;
 	}
-	public String getP_SEQ() {
-		return P_SEQ;
+	public int getP_seq() {
+		return p_seq;
 	}
-	public void setP_SEQ(String p_SEQ) {
-		P_SEQ = p_SEQ;
+	public void setP_seq(int p_seq) {
+		this.p_seq = p_seq;
 	}
-	public String getP_POWER() {
-		return P_POWER;
+	public int getP_power() {
+		return p_power;
 	}
-	public void setP_POWER(String p_POWER) {
-		P_POWER = p_POWER;
+	public void setP_power(int p_power) {
+		this.p_power = p_power;
 	}
-	public String getP_MA() {
-		return P_MA;
+	public int getP_ma() {
+		return p_ma;
 	}
-	public void setP_MA(String p_MA) {
-		P_MA = p_MA;
+	public void setP_ma(int p_ma) {
+		this.p_ma = p_ma;
 	}
-	public String getMB_ID() {
-		return MB_ID;
+	public String getMb_id() {
+		return mb_id;
 	}
-	public void setMB_ID(String mB_ID) {
-		MB_ID = mB_ID;
+	public void setMb_id(String mb_id) {
+		this.mb_id = mb_id;
 	}
-	public String getP_INST_DATE() {
-		return P_INST_DATE;
-	}
-	public void setP_INST_DATE(String p_INST_DATE) {
-		P_INST_DATE = p_INST_DATE;
-	}
-	
-	
+
 
 }

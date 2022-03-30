@@ -1,3 +1,6 @@
+<%@page import="Model.DeviceDTO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="Model.DeviceDAO"%>
 <%@page import="Model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -31,6 +34,7 @@
 
 	<%
 	MemberDTO info = (MemberDTO) session.getAttribute("info");
+	ArrayList<DeviceDTO> dlist = new DeviceDAO().DeviceSelect(info.getId());
 	%>
 
 
@@ -218,11 +222,12 @@
 							aria-expanded="false"> <%
  if (info != null) {
  %> <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getName()%>
-									<%
-									} else {
-									%> user name <%
-									}
-									%></span>
+							</span> <%
+ } else {
+ %> <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+									user name </span> <%
+ }
+ %>
 						</a> <!-- Dropdown - User Information -->
 							<div
 								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -279,36 +284,47 @@
 								</div>
 
 							</div>
-							
+
 
 							<!-- Custom Text Color Utilities -->
-							
-							
+
+
 							<div class="card shadow mb-4">
 								<div class="card-header py-3">
 									<h6 class="m-0 font-weight-bold text-primary">포트별 전력 제어</h6>
 								</div>
 								<div class="card-body">
+
+
+									<%
+									if (dlist != null) {
+										for (int i = 0; i < dlist.size(); i++) {
+									%>
 									<div class="portName">
-										포트 1<label class="switch"> <input type="checkbox">
+										<%=dlist.get(i).getDv_num()%>
+										<%=dlist.get(i).getConsent_name()%>
+										<label class="switch"> <input type="checkbox">
 											<div class="slider round"></div>
 											<p>OFF</p></label>
-											<p style="display: none;">ON</p>
+										<p style="display: none;">ON</p>
 									</div>
-									<div class="portName">
-										포트 2<label class="switch"> <input type="checkbox">
-											<div class="slider round"></div>
-											<p>OFF</p></label>
-											<p style="display: none;">ON</p>
-									</div>
-									<div class="portName">
-										포트 3<label
-											class="switch"> <input type="checkbox">
-											<div class="slider round"></div>
-											<p>OFF</p></label>
-											<p style="display: none;">ON</p>
-									</div>
-									
+
+									<%
+									}
+									%>
+									<%
+									} else {
+									%>
+									<span> 포트를 등록해주세요 ! </span>
+
+
+
+
+									<%
+									}
+									%>
+
+
 
 								</div>
 							</div>
@@ -338,35 +354,42 @@
 									<h6 class="m-0 font-weight-bold text-primary">대기 전력 제어</h6>
 								</div>
 								<div class="card-body">
-									<div class="portName">
-									<div class="portName">
-										전체 <label
-											class="switch"> <input type="checkbox">
-											<div class="slider round"></div>
-											<p>OFF</p></label>
-											<p style="display: none;">ON</p>
-									</div>
 									
-										포트 1<label
-											class="switch"> <input type="checkbox">
-											<div class="slider round"></div>
-											<p>OFF</p></label>
+										<div class="portName">
+											전체 <label class="switch"> <input type="checkbox">
+												<div class="slider round"></div>
+												<p>OFF</p></label>
 											<p style="display: none;">ON</p>
-									</div>
+										</div>
+										
+										<%
+									if (dlist != null) {
+										for (int i = 0; i < dlist.size(); i++) {
+									%>
 									<div class="portName">
-										포트 2<label
-											class="switch"> <input type="checkbox">
+										<%=dlist.get(i).getDv_num()%>
+										<%=dlist.get(i).getConsent_name()%>
+										<label class="switch"> <input type="checkbox">
 											<div class="slider round"></div>
 											<p>OFF</p></label>
-											<p style="display: none;">ON</p>
+										<p style="display: none;">ON</p>
 									</div>
-									<div class="portName">
-										포트 3<label
-											class="switch"> <input type="checkbox">
-											<div class="slider round"></div>
-											<p>OFF</p></label>
-											<p style="display: none;">ON</p>
-									</div>
+
+									<%
+									}
+									%>
+									<%
+									} else {
+									%>
+									<span> 포트를 등록해주세요 ! </span>
+
+
+
+
+									<%
+									}
+									%>
+										
 
 								</div>
 							</div>
@@ -374,7 +397,7 @@
 
 					</div>
 
-				</div>ㄴㄴ
+				</div>
 				<!-- /.container-fluid -->
 
 			</div>
@@ -491,11 +514,6 @@
 				return false;
 			}
 		}
-		
-		
-		
-		
-		
 	</script>
 	<script src="vendor/jquery/jquery.min.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

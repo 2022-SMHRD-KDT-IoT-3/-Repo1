@@ -122,10 +122,11 @@ public class MemberDAO {
 				id = rs.getString(1);
 				pw = rs.getString(2);
 				String name = rs.getString(3);
-				String type = rs.getString(4);
-				String reg_date = rs.getString(5);
+				String gender = rs.getString(4);
+				String type = rs.getString(5);
+				String reg_date = rs.getString(6);
 				// 실행결과
-				dto = new MemberDTO(id, pw, name, type, reg_date);
+				dto = new MemberDTO(id, pw, name, gender, type, reg_date);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

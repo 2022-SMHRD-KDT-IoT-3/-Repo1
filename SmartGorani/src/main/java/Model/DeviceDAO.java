@@ -48,12 +48,14 @@ public class DeviceDAO {
 	public int deviceInsert(DeviceDTO dto) {
 		dbconn();
 		try {
-			String sql = "insert into tbl_device values(0,?,?,?,?,0)";
+			String sql = "insert into tbl_device values(1,?,?,?,?,?)";
+			//첫번째컬럼은 d_seq값이라 자동생성 -- > 1 
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getMb_id());
-			psmt.setInt(2, dto.getDb_num());
+			psmt.setInt(2, dto.getDv_num());
 			psmt.setString(3, dto.getDv_desc());
 			psmt.setString(4, dto.getConsent_name());
+			psmt.setInt(5, dto.getP_seq());
 			cnt = psmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -99,7 +101,7 @@ public class DeviceDAO {
 			psmt.setString(1, mb_id);
 			rs = psmt.executeQuery();
 
-			if (rs.next()) {
+			while (rs.next()) {
 				int dv_seq = rs.getInt(1);
 				mb_id = rs.getString(2);
 				int dv_num = rs.getInt(3);

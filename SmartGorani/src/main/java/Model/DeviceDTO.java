@@ -3,15 +3,15 @@ package Model;
 public class DeviceDTO {
 	int dv_seq;
 	String mb_id;
-	int db_num;
+	int dv_num;
 	String dv_desc;
 	String consent_name;
 	int p_seq;
-	public DeviceDTO(int dv_seq, String mb_id, int db_num, String dv_desc, String consent_name, int p_seq) {
+	public DeviceDTO(int dv_seq, String mb_id, int dv_num, String dv_desc, String consent_name, int p_seq) {
 		super();
 		this.dv_seq = dv_seq;
 		this.mb_id = mb_id;
-		this.db_num = db_num;
+		this.dv_num = dv_num;
 		this.dv_desc = dv_desc;
 		this.consent_name = consent_name;
 		this.p_seq = p_seq;
@@ -28,11 +28,11 @@ public class DeviceDTO {
 	public void setMb_id(String mb_id) {
 		this.mb_id = mb_id;
 	}
-	public int getDb_num() {
-		return db_num;
+	public int getDv_num() {
+		return dv_num;
 	}
-	public void setDb_num(int db_num) {
-		this.db_num = db_num;
+	public void setDv_num(int dv_num) {
+		this.dv_num = dv_num;
 	}
 	public String getDv_desc() {
 		return dv_desc;
