@@ -13,7 +13,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>회원정보수정</title>
+<title>My Page</title>
 
 
 <!-- Custom fonts for this template-->
@@ -90,20 +90,18 @@
 
 
 			<!-- Nav Item - Pages Collapse Menu -->
-			<li class="nav-item"><a class="nav-link collapsed"
-				href="#" data-toggle="collapse"
-				data-target="#collapsePages" aria-expanded="true"
-				aria-controls="collapsePages"> <i class="fas fa-fw fa-folder"></i>
-					<span>환경설정</span>
+			<li class="nav-item"><a class="nav-link collapsed" href="#"
+				data-toggle="collapse" data-target="#collapsePages"
+				aria-expanded="true" aria-controls="collapsePages"> <i
+					class="fas fa-fw fa-folder"></i> <span>환경설정</span>
 			</a>
 				<div id="collapsePages" class="collapse"
 					aria-labelledby="headingPages" data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
-						<h6 class="collapse-header">my page:</h6>
-						<a class="collapse-item" href="port.jsp">포트 추가</a> <a
-							class="collapse-item" href="editinfo.jsp">회원 정보 수정</a> <a
-							class="collapse-item" href="forgot-password.html">Forgot
-							Password</a>
+						<h6 class="collapse-header">my page</h6>
+						<a class="collapse-item" href="port.jsp">포트 등록</a> <a
+							class="collapse-item" href="enrollproduct.jsp">제품 등록</a> <a
+							class="collapse-item" href="editinfo.jsp">회원 정보 수정</a>
 						<div class="collapse-divider"></div>
 					</div>
 				</div></li>
@@ -124,7 +122,7 @@
 		<!-- @ end -->
 
 
-		
+
 		<!-- End of Sidebar -->
 
 		<!-- Content Wrapper -->
