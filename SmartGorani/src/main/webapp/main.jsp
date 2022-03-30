@@ -289,16 +289,7 @@
 						</a> 
 						
 						
-						<!-- Dropdown - User Information -->
-							aria-expanded="false"> <%
- if (info != null) {
- %> <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getName()%>
-							</span> <%
- } else {
- %> <span class="mr-2 d-none d-lg-inline text-gray-600 small">
-									로그인을 하세요 </span> <%
- }
- %>
+				
 						</a> <!-- Dropdown - User Information -->
 							<div
 								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -504,7 +495,7 @@
 								<div
 									class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
 									<h6 class="m-0 font-weight-bold text-primary">실시간 사용요금 추이
-										: 차트는 수정하기 js/demo/차트 여있음</h6>
+										</h6>
 									<div class="dropdown no-arrow">
 										<a class="dropdown-toggle" href="#" role="button"
 											id="dropdownMenuLink" data-toggle="dropdown"
