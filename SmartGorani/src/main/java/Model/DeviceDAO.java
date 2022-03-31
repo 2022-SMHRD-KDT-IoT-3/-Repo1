@@ -69,13 +69,12 @@ public class DeviceDAO {
 	
 	//디바이스 삭제 메소드
 	
-	public int deviceDelete(int dv_seq, String mb_id) {
+	public int deviceDelete(int dv_seq) {
 		dbconn();
 		try {
-			String sql = "delete from tbl_device where dv_seq=? and mb_id=?";
+			String sql = "delete from tbl_device where dv_seq=?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, dv_seq);
-			psmt.setString(2, mb_id);
 			cnt = psmt.executeUpdate();
 
 		} catch (Exception e) {

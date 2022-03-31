@@ -102,7 +102,7 @@
 					aria-labelledby="headingPages" data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
 						<h6 class="collapse-header">my page</h6>
-						<a class="collapse-item" href="port.jsp">포트 등록</a> <a
+						<a class="collapse-item" href="port.jsp">포트 추가 제거</a> <a
 							class="collapse-item" href="enrollproduct.jsp">제품 등록</a> <a
 							class="collapse-item" href="editinfo.jsp">회원 정보 수정</a>
 						<div class="collapse-divider"></div>
@@ -373,7 +373,7 @@
 											<div class="slider round"></div>
 											<p>OFF</p></label>
 										<p style="display: none;">ON</p>
-									</div>
+									</div> 
 
 									<%
 									}
@@ -502,18 +502,31 @@
 		});
 
 		//삭제버튼 누를시 삭제되게 .. 
-		function deleteCheck() {
-			let checkBoxArr = [];
-			$("input:checkbox[name='port']:checked").each(function() {
-				checkBoxArr.push($(this).val()); // 체크된 것만 값을 뽑아서 배열에 push
-				console.log(checkBoxArr)
-			})
+/* 		function deleteCheck() {
+			
 			if (confirm("선택된 포트를 삭제 할까요?") == true) {
-				$("div").remove("#port1");
+				$.ajax({
+					url : 'DeviceDeleteService.do', //어디로 보낼지 주소
+					data : {
+					},
+					dataType : "text", // 결과값 text로 받아오기
+					success : function(result) {
+						if (result == 'true') {
+							$("p").toggle();
+						} else {
+							$("p").toggle();
+						}
+					},
+					error : function() {
+						alert('실패');
+					}
+
+				});
 			} else {
 				return false;
+				
 			}
-		}
+		} */
 	</script>
 	<script src="vendor/jquery/jquery.min.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

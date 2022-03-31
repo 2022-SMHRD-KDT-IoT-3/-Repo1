@@ -1,3 +1,6 @@
+<%@page import="Model.DeviceDAO"%>
+<%@page import="Model.DeviceDTO"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="Model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
@@ -33,6 +36,7 @@
 <body id="page-top">
 	<%
 	MemberDTO info = (MemberDTO) session.getAttribute("info");
+	ArrayList<DeviceDTO> dlist = new DeviceDAO().DeviceSelect(info.getId());
 	%>
 	<!-- @ strat : Page Wrapper -->
 	<div id="wrapper">
@@ -98,7 +102,7 @@
 					aria-labelledby="headingPages" data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
 						<h6 class="collapse-header">my page</h6>
-						<a class="collapse-item" href="port.jsp">포트 등록</a> <a
+						<a class="collapse-item" href="port.jsp">포트 추가 제거</a> <a
 							class="collapse-item" href="enrollproduct.jsp">제품 등록</a> <a
 							class="collapse-item" href="editinfo.jsp">회원 정보 수정</a>
 						<div class="collapse-divider"></div>
@@ -117,7 +121,7 @@
 		<!-- @ end -->
 
 
-		
+
 		<!-- End of Sidebar -->
 
 		<!-- Content Wrapper -->
@@ -353,8 +357,7 @@
 								<div class="wrap-table100-nextcols js-pscroll">
 									<div class="table100-nextcols">
 										<form
-											action="DeviceInsertService.do?mb_id=<%=info.getId()%>&p_seq="
-											method="post">
+											action="DeviceInsertService.do?mb_id=<%=info.getId()%> method="post">
 											<table>
 												<tbody>
 													<tr class="row100 body">
@@ -365,7 +368,7 @@
 														<td class="cell100 column1"><input
 															class="form-control bg-light border-0 small" type="text"
 															name="p_serial"></td>
-															
+
 													</tr>
 													<tr class="row100 body">
 														<td class="cell100 column1"><input
@@ -389,15 +392,83 @@
 							</div>
 						</div>
 					</div>
-					<br>
-
-					<button type="submit"
+					<br> <input type="submit"
 						class="d-none d-sm-block btn btn-sm btn-primary shadow-sm">
-						<i class="fa-sm text-white-50"></i>수정완료
-					</button>
+					<i class="fa-sm text-white-50"></i>수정완료
 					</form>
 				</div>
 				<!-- /.container-fluid -->
+
+
+
+				<!-- 포트 현황 및 제거 -->
+				<div class="container-fluid">
+					<div
+						class="d-sm-flex align-items-center justify-content-between mb-4">
+						<h1 class="h3 mb-0 text-gray-800">보유 포트 현황</h1>
+
+					</div>
+					<div class="">
+						<div class="wrap-table100">
+							<div class="table100 ver1">
+								<div class="table100-firstcol">
+								
+										<table>
+											<tbody>
+
+												<%
+												int i = 0;
+												if (dlist != null) {
+													for ( i = 0; i < dlist.size(); i++) {
+												%>
+												<tr class="row100 body">
+													<td class="cell100 column1">
+														<p class="form-control border-0 small">
+															포트 번호 <span> <%=dlist.get(i).getDv_num()%>
+															</span>
+														</p>
+													</td>
+													<td class="cell100 column1">
+														<p class="form-control border-0 small">
+															포트 설명 <span> <%=dlist.get(i).getDv_desc()%>
+															</span>
+														</p>
+													</td>
+													<td class="cell100 column1">
+														<p class="form-control border-0 small">
+															콘센트명 <span> <%=dlist.get(i).getConsent_name()%>
+															</span>
+														</p>
+													</td>
+													<td class="cell100 column1">
+														<button type="button" id="btnDelete" value=" <%= dlist.get(i).getDv_seq() %>"
+															class="d-none d-sm-block btn btn-sm btn-primary shadow-sm">
+															<i class="fa-sm text-white-50">삭제하기</i>
+														</button>
+													</td>
+												</tr>
+												<%
+												}
+												%>
+												<%
+												} else {
+												%>
+												<tr class="row100 body">
+													<td class="cell100 column1">
+														<p class="form-control border-0 small">포트를 등록해주세요 !</p>
+													</td>
+
+													<%
+													}
+													%>
+												
+											</tbody>
+										</table>
+
+
+								</div>
+
+								
 
 			</div>
 			<!-- End of Main Content -->
@@ -428,23 +499,91 @@
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
+				<%
+				if (info != null) {
+				%>
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+					<h5 class="modal-title" id="exampleModalLabel">로그아웃 하시겠습니까?</h5>
 					<button class="close" type="button" data-dismiss="modal"
 						aria-label="Close">
 						<span aria-hidden="true">×</span>
 					</button>
 				</div>
-				<div class="modal-body">Select "Logout" below if you are ready
-					to end your current session.</div>
+				<div class="modal-body">로그아웃 하시겠습니까?</div>
 				<div class="modal-footer">
 					<button class="btn btn-secondary" type="button"
-						data-dismiss="modal">Cancel</button>
-					<a class="btn btn-primary" href="login.html">Logout</a>
+						data-dismiss="modal">취소</button>
+					<a class="btn btn-primary" href="LogoutService.do">확인</a>
 				</div>
+				<%
+				}
+				%>
 			</div>
 		</div>
 	</div>
+	
+	<script type="text/javascript">
+	
+	//삭제버튼 누를시 삭제되게 .. 
+/* 	 		function DeviceDelete(dv_seq) {
+				
+				if (confirm("선택된 포트를 삭제 할까요?") == true) {
+					$.ajax({
+						url : 'DeviceDeleteService.do', //어디로 보낼지 주소
+						data : {
+							// 선택한 데이터를 .. 어떻게 보낼까
+						},
+						dataType : "text", // 결과값 text로 받아오기
+						success : function(result) {
+							if (result == 'true') {
+								alert('삭제 되었습니다.');
+							} else {
+								alert('삭제 실패!');
+							}
+						},
+						error : function() {
+							alert('실패');
+						}
+
+					});
+				} else {
+					return false;
+					
+				}
+			} */
+	
+	
+			
+			// #btnDelete 누르면 삭제 되게? --->테스트해봐야됨
+	 		$('#btnDelete').on('click', function() {
+	 			if (confirm("선택된 포트를 삭제 할까요?") == true) {
+				let dv_seq = $('button[id=btnDelete]').val();
+				$.ajax({
+					url : 'DeviceDeleteService.do',	//어디로 보낼지 주소
+					data : {
+						dv_seq : dv_seq 
+					},
+					dataType : "text",
+					success : function(result){
+						if (result == 'true') {
+							alert('삭제 되었습니다.');
+						} else {
+							alert('삭제 실패!');
+						}
+					},
+					error : function(){
+						alert('실패');
+					}
+
+				});
+	 			} else{
+	 				return false;
+	 			}
+			});
+	
+	</script>
+	
+	
 
 	<!-- Bootstrap core JavaScript-->
 	<script src="vendor/jquery/jquery.min.js"></script>

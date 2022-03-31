@@ -19,17 +19,18 @@ public class DeviceDeleteService implements Command {
 			throws ServletException, IOException {
 
 		int dv_seq = Integer.parseInt(request.getParameter("dv_seq"));
-		String mb_id = request.getParameter("mb_id");
-		int cnt = new DeviceDAO().deviceDelete(dv_seq, mb_id);
+		int cnt = new DeviceDAO().deviceDelete(dv_seq);
+		PrintWriter out = response.getWriter();
 		
 		if(cnt>0) {
 			System.out.println("dv 삭제 성공");
+			out.print(true);
 		} else {
 			System.out.println("dv 삭제 실패");
+			out.print(false);
 		}
 		
-		String nextpage = "main.jsp";
-		return nextpage;
+		return null;
 		
 	}
 

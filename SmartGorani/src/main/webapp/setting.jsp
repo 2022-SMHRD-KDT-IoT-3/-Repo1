@@ -99,7 +99,7 @@
 					aria-labelledby="headingPages" data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
 						<h6 class="collapse-header">my page</h6>
-						<a class="collapse-item" href="port.jsp">포트 등록</a> <a
+						<a class="collapse-item" href="port.jsp">포트 추가 제거</a> <a
 							class="collapse-item" href="enrollproduct.jsp">제품 등록</a> <a
 							class="collapse-item" href="editinfo.jsp">회원 정보 수정</a>
 						<div class="collapse-divider"></div>
@@ -378,6 +378,7 @@
 													</tr>
 												</tbody>
 											</table>
+											</form>
 									</div>
 								</div>
 							</div>
@@ -389,7 +390,6 @@
 						class="d-none d-sm-block btn btn-sm btn-primary shadow-sm">
 						<i class="fa-sm text-white-50"></i>수정완료
 					</button>
-					</form>
 				</div>
 				<!-- /.container-fluid -->
 
