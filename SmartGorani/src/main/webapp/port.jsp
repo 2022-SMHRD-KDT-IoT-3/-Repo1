@@ -357,12 +357,13 @@
 								<div class="wrap-table100-nextcols js-pscroll">
 									<div class="table100-nextcols">
 										<form
-											action="DeviceInsertService.do?mb_id=<%=info.getId()%>" method="post">
+											action="DeviceInsertService.do" method="post">
 											<table>
 												<tbody>
 													<tr class="row100 body">
 														<td class="cell100 column1"><span
-															class="form-control bg-light border-0 small"><%=info.getId()%></span></td>
+															class="form-control bg-light border-0 small"><%=info.getId()%></span>
+															<input type="hidden" name="mb_id" value="<%=info.getId()%>"> </td>
 													</tr>
 													<tr class="row100 body">
 														<td class="cell100 column1"><input
@@ -386,7 +387,7 @@
 															name="consent"></td>
 													</tr>
 												</tbody>
-											</table><br> <input type="submit"
+											</table><input type="submit"
 						class="d-none d-sm-block btn btn-sm btn-primary shadow-sm">
 					<i class="fa-sm text-white-50">수정완료</i>
 					</form>
