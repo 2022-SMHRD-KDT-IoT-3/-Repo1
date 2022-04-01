@@ -17,19 +17,20 @@ public class DeviceDeleteService implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		
 		int dv_seq = Integer.parseInt(request.getParameter("dv_seq"));
+		System.out.println(dv_seq);
+		
+		
 		int cnt = new DeviceDAO().deviceDelete(dv_seq);
 		PrintWriter out = response.getWriter();
-		
 		if(cnt>0) {
 			System.out.println("dv 삭제 성공");
-			out.print(true);
+			out.print("true");
 		} else {
 			System.out.println("dv 삭제 실패");
-			out.print(false);
 		}
-		
+		out.close();
 		return null;
 		
 	}

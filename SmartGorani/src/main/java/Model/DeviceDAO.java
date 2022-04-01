@@ -48,7 +48,7 @@ public class DeviceDAO {
 	public int deviceInsert(DeviceDTO dto) {
 		dbconn();
 		try {
-			String sql = "insert into tbl_device values(1,?,?,?,?,?)";
+			String sql = "insert into tbl_device values(tbl_device_seq.nextval,?,?,?,?,?)";
 			//첫번째컬럼은 d_seq값이라 자동생성 -- > 1 
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getMb_id());

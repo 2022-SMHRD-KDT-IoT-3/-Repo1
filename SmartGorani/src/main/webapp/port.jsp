@@ -357,7 +357,7 @@
 								<div class="wrap-table100-nextcols js-pscroll">
 									<div class="table100-nextcols">
 										<form
-											action="DeviceInsertService.do?mb_id=<%=info.getId()%> method="post">
+											action="DeviceInsertService.do?mb_id=<%=info.getId()%>" method="post">
 											<table>
 												<tbody>
 													<tr class="row100 body">
@@ -386,108 +386,101 @@
 															name="consent"></td>
 													</tr>
 												</tbody>
-											</table>
+											</table><br> <input type="submit"
+						class="d-none d-sm-block btn btn-sm btn-primary shadow-sm">
+					<i class="fa-sm text-white-50">수정완료</i>
+					</form>
 									</div>
+								
 								</div>
 							</div>
 						</div>
 					</div>
-					<br> <input type="submit"
-						class="d-none d-sm-block btn btn-sm btn-primary shadow-sm">
-					<i class="fa-sm text-white-50"></i>수정완료
-					</form>
-				</div>
-				<!-- /.container-fluid -->
+					
+					<!-- /.container-fluid -->
 
 
 
-				<!-- 포트 현황 및 제거 -->
-				<div class="container-fluid">
-					<div
-						class="d-sm-flex align-items-center justify-content-between mb-4">
-						<h1 class="h3 mb-0 text-gray-800">보유 포트 현황</h1>
+					<!-- 포트 현황 및 제거 -->
+
+					<h1 class="h3 mb-1 text-gray-800">보유 포트 현황</h1>
+					<p class="mb-4">
+						<%
+						if (info != null) {
+							out.print(info.getName() + "님이");
+						%>
+						보유한 포트 현황입니다. 더이상 사용 하지 않은 포트는 삭제할 수 있습니다!
+					</p>
+					<%
+					}
+					%>
+
+					<!-- Content Row -->
+					<div class="row">
+
+
+
+						<%
+						int i = 0;
+						if (dlist != null) {
+							for (i = 0; i < dlist.size(); i++) {
+						%>
+						<div class="col-lg-6">
+
+							<div class="card mb-4 py-3 border-left-primary">
+								<div class="card-body">
+									<span> <%=dlist.get(i).getDv_num()%></span> 
+									<span><%=dlist.get(i).getDv_desc()%></span> 
+									<span> <%=dlist.get(i).getConsent_name()%></span>
+									<input type="hidden" name="inputDelete" value="<%=dlist.get(i).getDv_seq()%>">
+									<button type="button" onclick="DeleteDevice()"
+										class="d-none d-sm-block btn btn-sm btn-primary shadow-sm">
+										<i class="fa-sm text-white-50">삭제하기</i>
+									</button>
+								</div>
+							</div>
+
+						</div>
+							<%}
+						} else {
+						%>
+						<div class="col-lg-6">
+
+							<div class="card mb-4 py-3 border-left-primary">
+								<div class="card-body">포트를 등록해주세요 !</div>
+							</div>
+
+						</div>
+
+						<%
+						}
+						%>
+
 
 					</div>
-					<div class="">
-						<div class="wrap-table100">
-							<div class="table100 ver1">
-								<div class="table100-firstcol">
-								
-										<table>
-											<tbody>
 
-												<%
-												int i = 0;
-												if (dlist != null) {
-													for ( i = 0; i < dlist.size(); i++) {
-												%>
-												<tr class="row100 body">
-													<td class="cell100 column1">
-														<p class="form-control border-0 small">
-															포트 번호 <span> <%=dlist.get(i).getDv_num()%>
-															</span>
-														</p>
-													</td>
-													<td class="cell100 column1">
-														<p class="form-control border-0 small">
-															포트 설명 <span> <%=dlist.get(i).getDv_desc()%>
-															</span>
-														</p>
-													</td>
-													<td class="cell100 column1">
-														<p class="form-control border-0 small">
-															콘센트명 <span> <%=dlist.get(i).getConsent_name()%>
-															</span>
-														</p>
-													</td>
-													<td class="cell100 column1">
-														<button type="button" id="btnDelete" value=" <%= dlist.get(i).getDv_seq() %>"
-															class="d-none d-sm-block btn btn-sm btn-primary shadow-sm">
-															<i class="fa-sm text-white-50">삭제하기</i>
-														</button>
-													</td>
-												</tr>
-												<%
-												}
-												%>
-												<%
-												} else {
-												%>
-												<tr class="row100 body">
-													<td class="cell100 column1">
-														<p class="form-control border-0 small">포트를 등록해주세요 !</p>
-													</td>
-
-													<%
-													}
-													%>
-												
-											</tbody>
-										</table>
-
-
-								</div>
-
-								
+				</div>
 
 			</div>
+
+
+
 			<!-- End of Main Content -->
 
 			<!-- Footer -->
 			<footer class="sticky-footer bg-white">
 				<div class="container my-auto">
 					<div class="copyright text-center my-auto">
-						<span>Copyright &copy; Your Website 2021</span>
+						<span>Copyright &copy; Smart Gorani 2022</span>
 					</div>
 				</div>
 			</footer>
 			<!-- End of Footer -->
 
 		</div>
-		<!-- End of Content Wrapper -->
-
 	</div>
-	<!-- End of Page Wrapper -->
+	<!-- End of Content Wrapper -->
+
 
 	<!-- Scroll to Top Button-->
 	<a class="scroll-to-top rounded" href="#page-top"> <i
@@ -521,69 +514,68 @@
 			</div>
 		</div>
 	</div>
-	
-	<script type="text/javascript">
-	
-	//삭제버튼 누를시 삭제되게 .. 
-/* 	 		function DeviceDelete(dv_seq) {
-				
-				if (confirm("선택된 포트를 삭제 할까요?") == true) {
-					$.ajax({
-						url : 'DeviceDeleteService.do', //어디로 보낼지 주소
-						data : {
-							// 선택한 데이터를 .. 어떻게 보낼까
-						},
-						dataType : "text", // 결과값 text로 받아오기
-						success : function(result) {
-							if (result == 'true') {
-								alert('삭제 되었습니다.');
-							} else {
-								alert('삭제 실패!');
-							}
-						},
-						error : function() {
-							alert('실패');
-						}
 
-					});
-				} else {
-					return false;
-					
-				}
-			} */
-	
-	
-			
-			// #btnDelete 누르면 삭제 되게? --->테스트해봐야됨
-	 		$('#btnDelete').on('click', function() {
-	 			if (confirm("선택된 포트를 삭제 할까요?") == true) {
-				let dv_seq = $('button[id=btnDelete]').val();
+	<script type="text/javascript">
+		//삭제버튼 누를시 삭제되게 .. 
+ 		function DeleteDevice() {
+ 			let dv_seq = $('input[name=inputDelete]').val();
+			console.log(dv_seq);
+		 if (confirm("선택된 포트를 삭제 할까요?") == true) {
+		 $.ajax({
+		 url : 'DeviceDeleteService.do', //어디로 보낼지 주소
+		 data : {
+		 // 선택한 데이터를 .. 어떻게 보낼까
+		 dv_seq : dv_seq
+		 },
+		 dataType : "text", // 결과값 text로 받아오기
+		 success : function(result) {
+		 if (result == 'true') {
+		 alert('삭제 되었습니다.');
+		 } else {
+		 alert('삭제 실패!');
+		 }
+		 },
+		 error : function() {
+		 alert('실패');
+		 }
+
+		 });
+		 } else {
+		 return false;
+		
+		 }
+		 } 
+
+		// #btnDelete 누르면 삭제 되게? --->테스트해봐야됨>>안됨..
+/* 		$('#btnDelete').on('click', function() {
+			if (confirm("선택된 포트를 삭제 할까요?") == true) {
+				let dv_seq = $('button[name=dv_seq]').val();
+				console.log(dv_seq);
 				$.ajax({
-					url : 'DeviceDeleteService.do',	//어디로 보낼지 주소
+					url : 'DeviceDeleteService.do', //어디로 보낼지 주소
 					data : {
-						dv_seq : dv_seq 
+						dv_seq : dv_seq
 					},
 					dataType : "text",
-					success : function(result){
+					success : function(result) {
 						if (result == 'true') {
 							alert('삭제 되었습니다.');
 						} else {
 							alert('삭제 실패!');
 						}
 					},
-					error : function(){
+					error : function() {
 						alert('실패');
 					}
 
 				});
-	 			} else{
-	 				return false;
-	 			}
-			});
-	
+			} else {
+				return false;
+			}
+		}); */
 	</script>
-	
-	
+
+
 
 	<!-- Bootstrap core JavaScript-->
 	<script src="vendor/jquery/jquery.min.js"></script>
