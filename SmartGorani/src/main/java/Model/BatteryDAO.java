@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class UssumDAO {
+public class BatteryDAO {
 	PreparedStatement psmt = null;
 	Connection conn = null;
 	ResultSet rs = null;
@@ -45,7 +45,7 @@ public class UssumDAO {
 		}
 	
 	// DB 데이터 삽입 메소드
-		public void insertUsage(UssumDTO dto) {
+		public void insertUsage(BatteryDTO dto) {
 			
 			String sql = "INSERT INTO tbl_battery\n"
 					+ "    (mb_portserial,\n"

@@ -1,11 +1,11 @@
 package Model;
 
-public class Us_EsumDTO {
+public class ElectricDTO {
 	
 	private String mb_portserial;
 	private double electric_useage;
 	
-	public Us_EsumDTO(String mb_portserial, double electric_useage) {
+	public ElectricDTO(String mb_portserial, double electric_useage) {
 		super();
 		this.mb_portserial = mb_portserial;
 		this.electric_useage = electric_useage;

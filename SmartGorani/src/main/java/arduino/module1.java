@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import Model.Us_EsumDAO;
-import Model.Us_EsumDTO;
-import Model.UssumDAO;
-import Model.UssumDTO;
+import Model.ElectricDAO;
+import Model.ElectricDTO;
+import Model.BatteryDAO;
+import Model.BatteryDTO;
 import arduino.send;
 
 
@@ -38,10 +38,10 @@ public class module1 extends HttpServlet {
       String port = request.getParameter("port");
       
       
-      UssumDTO dto = new UssumDTO(port,Integer.parseInt(battery),Double.parseDouble(battotalpower));
-      UssumDAO dao = new UssumDAO();
-      Us_EsumDTO edto = new Us_EsumDTO(port,Double.parseDouble(electotalpower));
-      Us_EsumDAO edao = new Us_EsumDAO();
+      BatteryDTO dto = new BatteryDTO(port,Integer.parseInt(battery),Double.parseDouble(battotalpower));
+      BatteryDAO dao = new BatteryDAO();
+      ElectricDTO edto = new ElectricDTO(port,Double.parseDouble(electotalpower));
+      ElectricDAO edao = new ElectricDAO();
       
       
 //      if(timecnt.equals("10")) {

@@ -48,14 +48,12 @@ public class DeviceDAO {
 	public int deviceInsert(DeviceDTO dto) {
 		dbconn();
 		try {
-			String sql = "insert into tbl_device values(1,?,?,?,?,?)";
-			//첫번째컬럼은 d_seq값이라 자동생성 -- > 1 
+			String sql = "insert into tbl_device values(?,?,?)";
+			// 각 mb_portserial, Dv name, usage 넣기
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, dto.getMb_id());
-			psmt.setInt(2, dto.getDv_num());
-			psmt.setString(3, dto.getDv_desc());
-			psmt.setString(4, dto.getConsent_name());
-			psmt.setInt(5, dto.getP_seq());
+			psmt.setString(1, dto.getMb_portserial());
+			psmt.setString(2, dto.getDv_name());
+			psmt.setDouble(3, dto.getDv_usage());
 			cnt = psmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -69,12 +67,12 @@ public class DeviceDAO {
 	
 	//디바이스 삭제 메소드
 	
-	public int deviceDelete(int dv_seq) {
+	public int deviceDelete(String mb_portserial) {
 		dbconn();
 		try {
-			String sql = "delete from tbl_device where dv_seq=?";
+			String sql = "delete from tbl_device where mb_poertserial=?";
 			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, dv_seq);
+			psmt.setString(1, mb_portserial);
 			cnt = psmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -89,27 +87,26 @@ public class DeviceDAO {
 
 	//디바이스 조회 메소드
 	
-	public ArrayList<DeviceDTO> DeviceSelect(String mb_id) {
+	public ArrayList<DeviceDTO> DeviceSelect(String mb_portserial) {
 
 		ArrayList<DeviceDTO> dlist = new ArrayList<DeviceDTO>();
 		dbconn();
 
 		try {
-			String sql = "select * from tbl_device where mb_id = ?";
+			String sql = "select * from tbl_device where mb_portserial = ?";
+			// 포트 시리얼로 조회하는게 ...맞겟죠?
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, mb_id);
+			psmt.setString(1, mb_portserial);
 			rs = psmt.executeQuery();
 
 			while (rs.next()) {
-				int dv_seq = rs.getInt(1);
-				mb_id = rs.getString(2);
-				int dv_num = rs.getInt(3);
-				String dv_desc = rs.getString(4);
-				String consent = rs.getString(5);
-				int p_seq  = rs.getInt(6);
+				mb_portserial = rs.getString(1);
+				String dv_name = rs.getString(2);
+				Double dv_usage = rs.getDouble(3);
+				String dv_date= rs.getString(4);
 
-				DeviceDTO dto = new DeviceDTO(dv_seq, mb_id, dv_num, dv_desc, consent, p_seq);
-				dlist.add(dto);
+		DeviceDTO dto = new DeviceDTO(mb_portserial, dv_name, dv_usage, dv_date);
+		dlist.add(dto);
 			}
 
 		} catch (Exception e) {

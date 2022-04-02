@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class Us_EsumDAO {
+public class ElectricDAO {
 	PreparedStatement psmt = null;
 	Connection conn = null;
 	ResultSet rs = null;
@@ -43,7 +43,7 @@ public class Us_EsumDAO {
 			}
 	
 	// DB 데이터 삽입 메소드
-	public void insertUseElectric(Us_EsumDTO dto) {
+	public void insertUseElectric(ElectricDTO dto) {
 		try {
 			String sql = "insert into tbl_electric values(?,?,sysdate)";
 			psmt = conn.prepareStatement(sql);
