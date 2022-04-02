@@ -1,6 +1,7 @@
 package Model;
 
 public class DeviceDTO {
+	private String mb_id;
 	private String mb_portserial;
 	private String dv_name;
 	private Double dv_usage;
@@ -8,9 +9,9 @@ public class DeviceDTO {
 	
 	
 	
-	// »ý¼ºÀÚ 
-	public DeviceDTO(String mb_portserial, String dv_name, Double dv_usage, String dv_date) {
+	public DeviceDTO(String mb_id, String mb_portserial, String dv_name, Double dv_usage, String dv_date) {
 		super();
+		this.mb_id = mb_id;
 		this.mb_portserial = mb_portserial;
 		this.dv_name = dv_name;
 		this.dv_usage = dv_usage;
@@ -18,6 +19,20 @@ public class DeviceDTO {
 	}
 	
 	
+	
+	
+	
+	public DeviceDTO(String mb_id, String mb_portserial, String dv_name) {
+		super();
+		this.mb_id = mb_id;
+		this.mb_portserial = mb_portserial;
+		this.dv_name = dv_name;
+	}
+
+
+
+
+
 	public String getMb_portserial() {
 		return mb_portserial;
 	}

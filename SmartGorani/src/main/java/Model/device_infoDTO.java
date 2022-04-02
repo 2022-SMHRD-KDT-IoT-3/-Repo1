@@ -1,7 +1,7 @@
 package Model;
 
 public class device_infoDTO {
-	
+	//아두이노에서 온 정보
 	private String mb_portserial;
 	private double dv_usage1;
 	private double dv_usage2;

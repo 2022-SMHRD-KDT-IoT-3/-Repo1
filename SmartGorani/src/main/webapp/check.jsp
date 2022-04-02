@@ -34,7 +34,7 @@
 
 	<%
 	MemberDTO info = (MemberDTO) session.getAttribute("info");
-	ArrayList<DeviceDTO> dlist = new DeviceDAO().DeviceSelect(info.getId());
+	ArrayList<DeviceDTO> dlist = new DeviceDAO().DeviceSelect(info.getMb_id());
 	%>
 
 

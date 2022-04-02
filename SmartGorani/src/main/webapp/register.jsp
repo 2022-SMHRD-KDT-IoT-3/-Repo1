@@ -30,21 +30,19 @@
 
 <body class="bg-gradient-primary">
 
-	<div class="container">
+	<div class="container" style="width: 50%">
 
 		<div class="card o-hidden border-0 shadow-lg my-5">
-			<div class="card-body p-0">
+			<div class="row justify-content-center">
 				<!-- Nested Row within Card Body -->
-				<div class="row">
-					<div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
-					<div class="col-lg-7">
+					<div class="col-lg-9">
 						<div class="p-5">
 							<div class="text-center">
 								<h1 class="h4 text-gray-900 mb-4">회원가입</h1>
 							</div>
 							<form class="user" action="RegisterService.do" method="post">
 								<div class="form-group">
-									<input type="text" class="form-control form-control-user"
+									<input type="text" class="form-control form-control-user" 
 										id="exampleInputEmail" name="id" placeholder="아이디를 입력해주세요.">
 									<div class="my-2"></div>
 									<a href="#" class="btn btn-success btn-icon-split"
@@ -71,17 +69,16 @@
 										id="exampleLastName" name="name" placeholder="사용자 이름을 입력하세요.">
 								</div>
 								<div class="form-group">
-									성별 &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio"
-										name="gender" value="M"><label>남자</label> &nbsp;
-									&nbsp; &nbsp; <input type="radio" name="gender" value="F"><label>여자</label>
-								</div>
-								<div class="form-group">
 									구분 &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="type"
 										value="HOME"><label>가정용</label> &nbsp; &nbsp; &nbsp; <input
 										type="radio" name="type" value="FARMING_INDUSTRY"><label>농업용</label>
 									&nbsp; &nbsp; &nbsp; <input type="radio" name="type"
 										value="INDUSTRY"><label>산업용</label>
 								</div>
+								<div class="form-group">
+								<input type="text" class="form-control form-control-user"
+									id="exampleLastName" name="serial" placeholder="포트시리얼을 입력하세요.">
+							</div>
 								<input type="submit" class="btn btn-primary btn-user btn-block"
 									value="회원가입">
 							</form>
@@ -92,34 +89,11 @@
 							<div class="text-center">
 								<a class="small" href="login.html">로그인하러 가기!</a>
 							</div>
-<<<<<<< HEAD
-=======
-							<div class="form-group">
-								<input type="text" class="form-control form-control-user"
-									id="exampleLastName" name="serial" placeholder="포트시리얼을 입력하세요.">
-							</div>
-							<div class="form-group">
-								구분 &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="type"
-									value="HOME"><label>가정용</label> &nbsp; &nbsp; &nbsp; <input
-									type="radio" name="type" value="FARMING_INDUSTRY"><label>농업용</label>
-								&nbsp; &nbsp; &nbsp; <input type="radio" name="type"
-									value="INDUSTRY"><label>산업용</label>
-							</div>
-							<input type="submit" class="btn btn-primary btn-user btn-block"
-								value="회원가입" onclick="functionAlert()" id="join">
-						</form>
-						<hr>
-						<div class="text-center">
-							<a class="small" href="forgot-password.html">비밀번호를 잊으셨나요?</a>
-						</div>
-						<div class="text-center">
-							<a class="small" href="login.html">로그인하러 가기!</a>
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-IoT-3/-Repo1
-						</div>
+					
 					</div>
 				</div>
-			</div>
 		</div>
+	</div>
 	</div>
 
 	<!-- 스크립트 파일 작성 -->
