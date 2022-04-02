@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import Model.Us_EsumDAO;
+import Model.Us_EsumDTO;
 import Model.UssumDAO;
 import Model.UssumDTO;
 import arduino.send;
@@ -38,11 +40,14 @@ public class module1 extends HttpServlet {
       
       UssumDTO dto = new UssumDTO(port,Integer.parseInt(battery),Double.parseDouble(battotalpower));
       UssumDAO dao = new UssumDAO();
+      Us_EsumDTO edto = new Us_EsumDTO(port,Double.parseDouble(electotalpower));
+      Us_EsumDAO edao = new Us_EsumDAO();
       
       
 //      if(timecnt.equals("10")) {
 //			dao.dbconn();
 //          dao.insertUsage(dto);
+//      	edao.insertUseElectric(edto);
 //      	dao.dbclose();
 //      }
       
