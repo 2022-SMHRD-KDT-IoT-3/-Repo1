@@ -14,7 +14,7 @@ public class ProductDAO {
 	Connection conn = null;
 	ResultSet rs = null;
 	int cnt = 0;
-	ProductDTO dto = null;
+	port_serialDTO dto = null;
 	Product_infoDTO info_dto = null;
 
 	// DB연결 메소드

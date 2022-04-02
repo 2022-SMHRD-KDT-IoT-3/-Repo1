@@ -92,6 +92,29 @@
 							<div class="text-center">
 								<a class="small" href="login.html">로그인하러 가기!</a>
 							</div>
+<<<<<<< HEAD
+=======
+							<div class="form-group">
+								<input type="text" class="form-control form-control-user"
+									id="exampleLastName" name="serial" placeholder="포트시리얼을 입력하세요.">
+							</div>
+							<div class="form-group">
+								구분 &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="type"
+									value="HOME"><label>가정용</label> &nbsp; &nbsp; &nbsp; <input
+									type="radio" name="type" value="FARMING_INDUSTRY"><label>농업용</label>
+								&nbsp; &nbsp; &nbsp; <input type="radio" name="type"
+									value="INDUSTRY"><label>산업용</label>
+							</div>
+							<input type="submit" class="btn btn-primary btn-user btn-block"
+								value="회원가입" onclick="functionAlert()" id="join">
+						</form>
+						<hr>
+						<div class="text-center">
+							<a class="small" href="forgot-password.html">비밀번호를 잊으셨나요?</a>
+						</div>
+						<div class="text-center">
+							<a class="small" href="login.html">로그인하러 가기!</a>
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-IoT-3/-Repo1
 						</div>
 					</div>
 				</div>

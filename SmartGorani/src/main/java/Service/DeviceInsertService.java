@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import Inter.Command;
 import Model.DeviceDAO;
 import Model.DeviceDTO;
-import Model.ProductDTO;
+import Model.port_serialDTO;
 import Model.ProductInfoDAO;
 import Model.Product_infoDTO;
 
