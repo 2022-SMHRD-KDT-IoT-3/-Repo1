@@ -80,9 +80,8 @@ body, h1, p, span, a {
 									id="exampleLastName" name="name" placeholder="사용자 이름을 입력하세요.">
 							</div>
 							<div class="form-group">
-								성별 &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="gender"
-									value="M"><label>남자</label> &nbsp; &nbsp; &nbsp; <input
-									type="radio" name="gender" value="F"><label>여자</label>
+								<input type="text" class="form-control form-control-user"
+									id="exampleLastName" name="serial" placeholder="포트시리얼을 입력하세요.">
 							</div>
 							<div class="form-group">
 								구분 &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="type"

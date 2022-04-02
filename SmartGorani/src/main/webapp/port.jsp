@@ -36,7 +36,7 @@
 <body id="page-top">
 	<%
 	MemberDTO info = (MemberDTO) session.getAttribute("info");
-	ArrayList<DeviceDTO> dlist = new DeviceDAO().DeviceSelect(info.getId());
+
 	%>
 	<!-- @ strat : Page Wrapper -->
 	<div id="wrapper">
@@ -420,8 +420,11 @@
 					<div class="row">
 
 
-
-						<%
+	<%	if(info!=null){
+			
+		
+	ArrayList<DeviceDTO> dlist = new DeviceDAO().DeviceSelect(info.getId());
+						
 						int i = 0;
 						if (dlist != null) {
 							for (i = 0; i < dlist.size(); i++) {
@@ -463,8 +466,7 @@
 				</div>
 
 			</div>
-
-
+<%} %>
 
 			<!-- End of Main Content -->
 

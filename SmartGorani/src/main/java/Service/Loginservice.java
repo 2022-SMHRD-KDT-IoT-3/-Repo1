@@ -30,9 +30,9 @@ public class Loginservice implements Command {
 		// 3-2. 회원가입 데이터 받아오기
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
-		String name = request.getParameter("name");
-		String type = request.getParameter("type");
-		String reg_date = request.getParameter("reg_date");
+//		String name = request.getParameter("name");
+//		String type = request.getParameter("type");
+//		String reg_date = request.getParameter("reg_date");
 		System.out.println(id + pw);
 //		
 //
@@ -46,7 +46,7 @@ public class Loginservice implements Command {
 
 		if (dto != null) {
 			// 관리자인지 판별
-			if (dto.getId().equals("admin")) {
+			if (dto.getMb_id().equals("admin")) {
 				userCheck = true;
 			}
 			if (userCheck) {
