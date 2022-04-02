@@ -51,7 +51,7 @@ public class DeviceDAO {
 			String sql = "insert into tbl_device values(?,?,?)";
 			// °¢ mb_portserial, Dv name, usage ³Ö±â
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, dto.getMb_portserial());
+			psmt.setString(1, dto.get());
 			psmt.setString(2, dto.getDv_name());
 			psmt.setDouble(3, dto.getDv_usage());
 			cnt = psmt.executeUpdate();

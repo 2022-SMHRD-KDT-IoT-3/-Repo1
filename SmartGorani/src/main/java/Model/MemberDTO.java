@@ -15,6 +15,19 @@ public class MemberDTO {
 		this.type = type;
 		this.mb_portserial = mb_portserial;
 	}
+	
+	
+	
+	public MemberDTO(String mb_id, String mb_pw, String mb_name, String type) {
+		super();
+		this.mb_id = mb_id;
+		this.mb_pw = mb_pw;
+		this.mb_name = mb_name;
+		this.type = type;
+	}
+
+
+
 	public String getMb_id() {
 		return mb_id;
 	}

@@ -284,7 +284,7 @@ justify-content: flex-end; /* flex-start / center / flex-end */
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> <%
  if (info != null) {
- %> <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getName()%>
+ %> <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getMb_name()%>
 									<%
 									} else {
 									%> user name <%
