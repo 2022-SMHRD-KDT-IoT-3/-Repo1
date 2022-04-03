@@ -115,7 +115,7 @@
 					aria-labelledby="headingPages" data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
 						<h6 class="collapse-header">my page</h6>
-						<a class="collapse-item" href="port.jsp">포트 등록</a> <a
+						<a class="collapse-item" href="port.jsp">포트 추가 제거</a> <a
 							class="collapse-item" href="enrollproduct.jsp">제품 등록</a> <a
 							class="collapse-item" href="editinfo.jsp">회원 정보 수정</a>
 						<div class="collapse-divider"></div>
@@ -276,7 +276,7 @@
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> <%
  if (info != null) {
- %> <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getName()%>
+ %> <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getMb_name()%>
 							</span> <%
  } else {
  %> <span class="mr-2 d-none d-lg-inline text-gray-600 small">user
@@ -374,7 +374,7 @@
 								<a class="btn btn-primary" href="board.jsp">목록으로</a>
 								<a class="btn btn-primary" href="boardDeleteService.do?qna_seq=<%=dto.getQna_seq()%>&mb_id=<%=dto.getMb_id()%>">삭제</a>
 								
-								<% if(info.getId().equals(dto.getMb_id())){ %>
+								<% if(info.getMb_id().equals(dto.getMb_id())){ %>
 								<a class="btn btn-primary" href="boardUpdate.jsp?num=<%=dto.getQna_seq()%>&mb_id=<%=dto.getMb_id()%>">수정</a>
 								<%} %>
 							</div>

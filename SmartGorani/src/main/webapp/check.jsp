@@ -34,7 +34,7 @@
 
 	<%
 	MemberDTO info = (MemberDTO) session.getAttribute("info");
-	ArrayList<DeviceDTO> dlist = new DeviceDAO().DeviceSelect(info.getId());
+	ArrayList<DeviceDTO> dlist = new DeviceDAO().DeviceSelect(info.getMb_id());
 	%>
 
 
@@ -221,7 +221,7 @@
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> <%
  if (info != null) {
- %> <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getName()%>
+ %> <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getMb_name()%>
 							</span> <%
  } else {
  %> <span class="mr-2 d-none d-lg-inline text-gray-600 small">

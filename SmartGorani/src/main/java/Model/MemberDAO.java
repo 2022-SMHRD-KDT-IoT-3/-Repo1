@@ -59,18 +59,17 @@ public class MemberDAO {
 
 			dbconn();
 			// 2. SQL문 작성
-			String sql = "insert into tbl_member values(?, ?, ?, ?, ?, sysdate)";
+			String sql = "insert into tbl_member values(?, ?, ?, ?, ?)";
 
 			// sql문 DB에 전달
 			psmt = conn.prepareStatement(sql);
 
 			// ?에 값 채우기
-			psmt.setString(1, dto.getId());
-			psmt.setString(2, dto.getPw());
-			psmt.setString(3, dto.getName());
-			psmt.setString(4, dto.getGender());
-			psmt.setString(5, dto.getType());
-//			psmt.setString(5, dto.getReg_date());
+			psmt.setString(1, dto.getMb_id());
+			psmt.setString(2, dto.getMb_pw());
+			psmt.setString(3, dto.getMb_name());
+			psmt.setString(4, dto.getType());
+			psmt.setString(5, dto.getMb_portserial());
 
 			// sql문 실행(실행된 행의 숫자로 반환)
 			cnt = psmt.executeUpdate();
@@ -122,11 +121,10 @@ public class MemberDAO {
 				id = rs.getString(1);
 				pw = rs.getString(2);
 				String name = rs.getString(3);
-				String gender = rs.getString(4);
-				String type = rs.getString(5);
-				String reg_date = rs.getString(6);
+				String type = rs.getString(4);
+				String mb_portserial = rs.getString(5);
 				// 실행결과
-				dto = new MemberDTO(id, pw, name, gender, type, reg_date);
+				dto = new MemberDTO(id, pw, name, type, mb_portserial);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -158,13 +156,12 @@ public class MemberDAO {
 	public int update(MemberDTO dto) {
 		dbconn();
 		try {
-			String sql = "update tbl_member set mb_name =?, mb_pw = ?, mb_type = ?, mb_gender = ? where mb_id = ?";
+			String sql = "update tbl_member set mb_pw = ?, mb_name=?, mb_type = ? where mb_id = ?";
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, dto.getName());
-			psmt.setString(2, dto.getPw());
+			psmt.setString(1, dto.getMb_pw());
+			psmt.setString(2, dto.getMb_name());
 			psmt.setString(3, dto.getType());
-			psmt.setString(4, dto.getGender());
-			psmt.setString(5, dto.getId());
+			psmt.setString(4, dto.getMb_id());
 			cnt = psmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -188,9 +185,8 @@ public class MemberDAO {
 				String pw = rs.getString(2);
 				String name = rs.getString(3);
 				String type = rs.getString(4);
-				String gender = rs.getString(5);
-				String reg_date = rs.getString(6);
-				MemberDTO dto = new MemberDTO(id, pw, name, type, gender,reg_date);
+				String portserial = rs.getString(5);
+				MemberDTO dto = new MemberDTO(id, pw, name, type, portserial);
 				list.add(dto);
 			}
 

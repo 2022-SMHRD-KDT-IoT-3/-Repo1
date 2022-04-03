@@ -1,57 +1,64 @@
 package Model;
 
 public class DeviceDTO {
-	int dv_seq;
-	String mb_id;
-	int dv_num;
-	String dv_desc;
-	String consent_name;
-	int p_seq;
-	public DeviceDTO(int dv_seq, String mb_id, int dv_num, String dv_desc, String consent_name, int p_seq) {
+	private String mb_id;
+	private String mb_portserial;
+	private String dv_name;
+	private Double dv_usage;
+	private String dv_date;
+	
+	
+	
+	public DeviceDTO(String mb_id, String mb_portserial, String dv_name, Double dv_usage, String dv_date) {
 		super();
-		this.dv_seq = dv_seq;
 		this.mb_id = mb_id;
-		this.dv_num = dv_num;
-		this.dv_desc = dv_desc;
-		this.consent_name = consent_name;
-		this.p_seq = p_seq;
+		this.mb_portserial = mb_portserial;
+		this.dv_name = dv_name;
+		this.dv_usage = dv_usage;
+		this.dv_date = dv_date;
 	}
-	public int getDv_seq() {
-		return dv_seq;
-	}
-	public void setDv_seq(int dv_seq) {
-		this.dv_seq = dv_seq;
-	}
-	public String getMb_id() {
-		return mb_id;
-	}
-	public void setMb_id(String mb_id) {
+	
+	
+	
+	
+	
+	public DeviceDTO(String mb_id, String mb_portserial, String dv_name) {
+		super();
 		this.mb_id = mb_id;
+		this.mb_portserial = mb_portserial;
+		this.dv_name = dv_name;
 	}
-	public int getDv_num() {
-		return dv_num;
+
+
+
+
+
+	public String getMb_portserial() {
+		return mb_portserial;
 	}
-	public void setDv_num(int dv_num) {
-		this.dv_num = dv_num;
+	public void setMb_portserial(String mb_portserial) {
+		this.mb_portserial = mb_portserial;
 	}
-	public String getDv_desc() {
-		return dv_desc;
+	public String getDv_name() {
+		return dv_name;
 	}
-	public void setDv_desc(String dv_desc) {
-		this.dv_desc = dv_desc;
+	public void setDv_name(String dv_name) {
+		this.dv_name = dv_name;
 	}
-	public String getConsent_name() {
-		return consent_name;
+	public Double getDv_usage() {
+		return dv_usage;
 	}
-	public void setConsent_name(String consent_name) {
-		this.consent_name = consent_name;
+	public void setDv_usage(Double dv_usage) {
+		this.dv_usage = dv_usage;
 	}
-	public int getP_seq() {
-		return p_seq;
+	public String getDv_date() {
+		return dv_date;
 	}
-	public void setP_seq(int p_seq) {
-		this.p_seq = p_seq;
+	public void setDv_date(String dv_date) {
+		this.dv_date = dv_date;
 	}
+	
+	
 	
 	
 }

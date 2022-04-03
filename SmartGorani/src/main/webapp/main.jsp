@@ -275,7 +275,7 @@
 							aria-expanded="false"> 
 							<% if (info != null) {%> 
 							<span class="mr-2 d-none d-lg-inline text-gray-600 small"> 
-							<%=info.getName()%>
+							<%=info.getMb_name()%>
 							</span> 
 							<% } else {%> 
 							<span class="mr-2 d-none d-lg-inline text-gray-600 small"> 
@@ -291,7 +291,91 @@
 								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
 								aria-labelledby="userDropdown">
 								<%
-								if (info.getName().equals("admin")) {
+								if (info.getMb_name().equals("admin")) {
+								%>
+								<a class="dropdown-item" href="updateinfo.jsp"> <i
+									class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
+								</a> <a class="dropdown-item" href="admin_member.jsp"> <i
+									class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i> Admin
+									page
+								</a>
+								<%
+								} else {
+								%>
+								<a class="dropdown-item" href="updateinfo.jsp"> <i
+									class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
+								</a>
+								<%
+								}
+								%>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="#" data-toggle="modal"
+									data-target="#logoutModal"> <%
+ if (info != null) {
+ %> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+									Logout <%
+ } else {
+ %> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+									Login <%
+ }
+ %>
+<%
+ if (info != null) {
+ %> <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getMb_name()%>
+							</span> <%
+ } else {
+ %> <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+									로그인을 하세요 </span> <%
+ }
+ %>
+						</a> <!-- Dropdown - User Information -->
+							<div
+								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+								aria-labelledby="userDropdown">
+								<%
+								if (info.getMb_name().equals("admin")) {
+								%>
+								<a class="dropdown-item" href="updateinfo.jsp"> <i
+									class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
+								</a> <a class="dropdown-item" href="admin_member.jsp"> <i
+									class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i> Admin
+									page
+								</a>
+								<%
+								} else {
+								%>
+								<a class="dropdown-item" href="updateinfo.jsp"> <i
+									class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
+								</a>
+								<%
+								}
+								%>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="#" data-toggle="modal"
+									data-target="#logoutModal"> <%
+ if (info != null) {
+ %> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+									Logout <%
+ } else {
+ %> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+									Login <%
+ }
+ %>
+<%
+ if (info != null) {
+ %> <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getMb_name()%>
+							</span> <%
+ } else {
+ %> <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+									로그인을 하세요 </span> <%
+ }
+ %>
+						</a> <!-- Dropdown - User Information -->
+							<div
+								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+								aria-labelledby="userDropdown">
+								<%
+								if (info.getMb_name().equals("admin")) {
 								%>
 								<a class="dropdown-item" href="updateinfo.jsp"> <i
 									class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
@@ -321,7 +405,7 @@
  %>
 							aria-expanded="false"> <%
  if (info != null) {
- %> <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getName()%>
+ %> <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getMb_name()%>
 							</span> <%
  } else {
  %> <span class="mr-2 d-none d-lg-inline text-gray-600 small">
@@ -333,91 +417,7 @@
 								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
 								aria-labelledby="userDropdown">
 								<%
-								if (info.getName().equals("admin")) {
-								%>
-								<a class="dropdown-item" href="updateinfo.jsp"> <i
-									class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
-								</a> <a class="dropdown-item" href="admin_member.jsp"> <i
-									class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i> Admin
-									page
-								</a>
-								<%
-								} else {
-								%>
-								<a class="dropdown-item" href="updateinfo.jsp"> <i
-									class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
-								</a>
-								<%
-								}
-								%>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#" data-toggle="modal"
-									data-target="#logoutModal"> <%
- if (info != null) {
- %> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-									Logout <%
- } else {
- %> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-									Login <%
- }
- %>
-							aria-expanded="false"> <%
- if (info != null) {
- %> <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getName()%>
-							</span> <%
- } else {
- %> <span class="mr-2 d-none d-lg-inline text-gray-600 small">
-									로그인을 하세요 </span> <%
- }
- %>
-						</a> <!-- Dropdown - User Information -->
-							<div
-								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-								aria-labelledby="userDropdown">
-								<%
-								if (info.getName().equals("admin")) {
-								%>
-								<a class="dropdown-item" href="updateinfo.jsp"> <i
-									class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
-								</a> <a class="dropdown-item" href="admin_member.jsp"> <i
-									class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i> Admin
-									page
-								</a>
-								<%
-								} else {
-								%>
-								<a class="dropdown-item" href="updateinfo.jsp"> <i
-									class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
-								</a>
-								<%
-								}
-								%>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#" data-toggle="modal"
-									data-target="#logoutModal"> <%
- if (info != null) {
- %> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-									Logout <%
- } else {
- %> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-									Login <%
- }
- %>
-							aria-expanded="false"> <%
- if (info != null) {
- %> <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getName()%>
-							</span> <%
- } else {
- %> <span class="mr-2 d-none d-lg-inline text-gray-600 small">
-									로그인을 하세요 </span> <%
- }
- %>
-						</a> <!-- Dropdown - User Information -->
-							<div
-								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-								aria-labelledby="userDropdown">
-								<%
-								if (info.getName().equals("admin")) {
+								if (info.getMb_name().equals("admin")) {
 								%>
 								<a class="dropdown-item" href="updateinfo.jsp"> <i
 									class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile

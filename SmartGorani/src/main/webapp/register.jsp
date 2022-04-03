@@ -13,8 +13,8 @@
 <meta name="author" content="">
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<link rel="shortcut icon" href="./img/favi.ico">
-<title>Join</title>
+
+<title>회원가입</title>
 
 <!-- Custom fonts for this template-->
 <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
@@ -26,89 +26,118 @@
 <!-- Custom styles for this template-->
 <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
-<!-- font -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-	href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap"
-	rel="stylesheet">
-
-<style>
-body, h1, p, span, a {
-	font-family: 'Nanum Gothic', cursive;
-}
-</style>
-
 </head>
 
 <body class="bg-gradient-primary">
 
-	<div class="container">
+	<div class="container" style="width: 50%">
 
-		<div class="card o-hidden border-0 my-5">
-			<div class="card-body p-0">
+		<div class="card o-hidden border-0 shadow-lg my-5">
+			<div class="row justify-content-center">
 				<!-- Nested Row within Card Body -->
-				<div style="width: 100%">
-
-					<div class="p-5">
-						<div class="text-center">
-							<h1 class="h4 text-gray-900 mb-4">회원가입</h1>
-						</div>
-						<form class="user" action="RegisterService.do" method="post">
-							<div class="form-group">
-								<input type="text" class="form-control form-control-user"
-									id="exampleInputEmail" name="id" placeholder="아이디를 입력해주세요.">
-								<div class="my-2"></div>
-								<a href="#" class="btn btn-success btn-icon-split"
-									id="idcheck_btn"> <span class="icon text-white-50">
-										<i class="fas fa-check"></i>
-								</span> <span class="text"> 아이디 중복체크</span> <a id="idcheck"></a>
-								</a>
+					<div class="col-lg-9">
+						<div class="p-5">
+							<div class="text-center">
+								<h1 class="h4 text-gray-900 mb-4">회원가입</h1>
 							</div>
-							<div class="form-group row">
-								<div class="col-sm-6 mb-3 mb-sm-0">
-									<input type="password" class="form-control form-control-user"
-										id="exampleInputPassword" name="pw" placeholder="비밀번호 입력">
+							<form class="user" action="RegisterService.do" method="post">
+								<div class="form-group">
+									<input type="text" class="form-control form-control-user" 
+										id="exampleInputEmail" name="id" placeholder="아이디를 입력해주세요.">
+									<div class="my-2"></div>
+									<a href="#" class="btn btn-success btn-icon-split"
+										id="idcheck_btn"> <span class="icon text-white-50">
+											<i class="fas fa-check"></i>
+									</span> <span class="text"> 아이디 중복체크</span> <a id="idcheck"></a>
+									</a>
 								</div>
-								<div class="col-sm-6">
-									<input type="password" class="form-control form-control-user"
-										id="exampleRepeatPassword" placeholder="비밀번호 확인">
+								<div class="form-group row">
+									<div class="col-sm-6 mb-3 mb-sm-0">
+										<input type="password" class="form-control form-control-user"
+											id="pw" name="pw" placeholder="비밀번호 입력">
+									</div>
+									<div class="col-sm-6">
+										<input type="password" class="form-control form-control-user"
+										id="pwcheck" name="pwcheck" placeholder="비밀번호 확인">
+		<!-- 준범 손봄  윗줄부터  -->			 <span class="icon text-white-60">
+									</span> <span class="text"> </span> <a id="pwcheck2"></a>
+									
+									</div>
 								</div>
-							</div>
-							<div class="form-group">
+								<div class="form-group">
+									<input type="text" class="form-control form-control-user"
+										id="exampleLastName" name="name" placeholder="사용자 이름을 입력하세요.">
+								</div>
+								<div class="form-group">
+									구분 &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="type"
+										value="HOME"><label>가정용</label> &nbsp; &nbsp; &nbsp; <input
+										type="radio" name="type" value="FARMING_INDUSTRY"><label>농업용</label>
+									&nbsp; &nbsp; &nbsp; <input type="radio" name="type"
+										value="INDUSTRY"><label>산업용</label>
+								</div>
+								<div class="form-group">
 								<input type="text" class="form-control form-control-user"
-									id="exampleLastName" name="name" placeholder="사용자 이름을 입력하세요.">
+									id="exampleLastName" name="serial" placeholder="포트시리얼을 입력하세요.">
 							</div>
-							<div class="form-group">
-								성별 &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="gender"
-									value="M"><label>남자</label> &nbsp; &nbsp; &nbsp; <input
-									type="radio" name="gender" value="F"><label>여자</label>
+								<input type="submit" class="btn btn-primary btn-user btn-block"
+									value="회원가입">
+							</form>
+							<hr>
+							<div class="text-center">
+								<a class="small" href="forgot-password.html">비밀번호를 잊으셨나요?</a>
 							</div>
-							<div class="form-group">
-								구분 &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="type"
-									value="HOME"><label>가정용</label> &nbsp; &nbsp; &nbsp; <input
-									type="radio" name="type" value="FARMING_INDUSTRY"><label>농업용</label>
-								&nbsp; &nbsp; &nbsp; <input type="radio" name="type"
-									value="INDUSTRY"><label>산업용</label>
+							<div class="text-center">
+								<a class="small" href="login.html">로그인하러 가기!</a>
 							</div>
-							<input type="submit" class="btn btn-primary btn-user btn-block"
-								value="회원가입" onclick="functionAlert()" id="join">
-						</form>
-						<hr>
-						<div class="text-center">
-							<a class="small" href="forgot-password.html">비밀번호를 잊으셨나요?</a>
-						</div>
-						<div class="text-center">
-							<a class="small" href="login.html">로그인하러 가기!</a>
-						</div>
+					
 					</div>
 				</div>
-			</div>
 		</div>
+	</div>
 	</div>
 
 	<!-- 스크립트 파일 작성 -->
 	<script type="text/javascript">
+		function pwCheck(){
+			
+			let pw = $('input[name=pw]').val()
+			console.log(pw)
+			let pwcheck = $('input[name=pwcheck]').val()
+			console.log(pwcheck)
+
+			// 2. ajax로 id 보내기 (IdCheckServiceCon)
+			$.ajax({
+				url : 'PWcheckService.do', /* 어디로 보낼지*/
+				data : { /* 입력한 email data 보내기*/
+					pw : pw,
+					pwcheck : pwcheck
+				},
+				dataType : "text", /* 중복체크 결과값 text로 받아오기*/
+				success : function(result) {
+					if (result == 'false') {
+						// 중복 x
+						$('#pwcheck2').html('&emsp; 비밀번호가 일치하지 않습니다.')
+					} else {
+						// 중복 O
+						$('#pwcheck2').html('&emsp; 비밀번호가 일치합니다.')
+					}
+				},
+				error : function() {
+				}
+			})
+			
+			
+						
+		}
+		
+		
+		$('#pwcheck').on('input', pwCheck)
+		
+		
+		
+		
+		
+		
 		// 0. 아이디 중복체크 버튼을 클릭했을 때
 		$('#idcheck_btn').on('click', function() {
 			// 1. 입력한 id 가져오기
@@ -136,16 +165,8 @@ body, h1, p, span, a {
 			})
 
 		})
-
-		// 회원가입 알림창
-		let joinalert = document.getElementById("join")
-		joinalert.addEventListener('click', function() {
-			if(confirm("회원가입을 하시겠습니까?")==true){
-				alert("회원가입이 완료되었습니다.")
-				document.form.submit()
-				
-			}
-		})
+		
+		
 	</script>
 
 	<!-- Bootstrap core JavaScript-->

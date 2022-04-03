@@ -278,7 +278,7 @@
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> <%
  if (info != null) {
- %> <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getName()%>
+ %> <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getMb_name()%>
 									<%
 									} else {
 									%> user name <%
@@ -359,22 +359,17 @@
 													<tr class="row100 body">
 														<td class="cell100 column1"><input
 															class="form-control bg-light border-0 small" name="id"
-															value="<%=info.getId()%>" readonly></td>
+															value="<%=info.getMb_id()%>" readonly></td>
 													</tr>
 													<tr class="row100 body">
 														<td class="cell100 column1"><input
 															class="form-control bg-light border-0 small" name="pw"
-															value="<%=info.getPw()%>"></td>
+															value="<%=info.getMb_pw()%>"></td>
 													</tr>
 													<tr class="row100 body">
 														<td class="cell100 column1"><input
 															class="form-control bg-light border-0 small"
-															value="<%=info.getName()%>" name="name"></td>
-													</tr>
-													<tr class="row100 body">
-														<td class="cell100 column1"><input
-															class="form-control bg-light border-0 small"
-															value="<%=info.getGender()%>" name="gender"></td>
+															value="<%=info.getMb_name()%>" name="name"></td>
 													</tr>
 													<tr class="row100 body">
 														<td class="cell100 column1"><input

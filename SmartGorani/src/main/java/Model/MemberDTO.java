@@ -2,59 +2,49 @@ package Model;
 
 public class MemberDTO {
 
-	private String id;
-	private String pw;
-	private String name;
-	private String gender;
+	private String mb_id;
+	private String mb_pw;
+	private String mb_name;
 	private String type;
-	private String reg_date;
-	
-	public MemberDTO() {
+	private String mb_portserial;
+	public MemberDTO(String mb_id, String mb_pw, String mb_name, String type, String mb_portserial) {
 		super();
-	}
-	public MemberDTO(String id, String pw, String name, String gender, String type, String reg_date) {
-		super();
-		this.id = id;
-		this.pw = pw;
-		this.name = name;
-		this.gender = gender;
+		this.mb_id = mb_id;
+		this.mb_pw = mb_pw;
+		this.mb_name = mb_name;
 		this.type = type;
-		this.reg_date = reg_date;
+		this.mb_portserial = mb_portserial;
 	}
 	
-
-	public MemberDTO(String id, String pw, String name, String gender, String type) {
+	
+	
+	public MemberDTO(String mb_id, String mb_pw, String mb_name, String type) {
 		super();
-		this.id = id;
-		this.pw = pw;
-		this.name = name;
-		this.gender = gender;
+		this.mb_id = mb_id;
+		this.mb_pw = mb_pw;
+		this.mb_name = mb_name;
 		this.type = type;
 	}
 
-	public String getId() {
-		return id;
+
+
+	public String getMb_id() {
+		return mb_id;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setMb_id(String mb_id) {
+		this.mb_id = mb_id;
 	}
-	public String getPw() {
-		return pw;
+	public String getMb_pw() {
+		return mb_pw;
 	}
-	public void setPw(String pw) {
-		this.pw = pw;
+	public void setMb_pw(String mb_pw) {
+		this.mb_pw = mb_pw;
 	}
-	public String getName() {
-		return name;
+	public String getMb_name() {
+		return mb_name;
 	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getGender() {
-		return gender;
-	}
-	public void setGender(String gender) {
-		this.gender = gender;
+	public void setMb_name(String mb_name) {
+		this.mb_name = mb_name;
 	}
 	public String getType() {
 		return type;
@@ -62,12 +52,13 @@ public class MemberDTO {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public String getReg_date() {
-		return reg_date;
+	public String getMb_portserial() {
+		return mb_portserial;
 	}
-	public void setReg_date(String reg_date) {
-		this.reg_date = reg_date;
+	public void setMb_portserial(String mb_portserial) {
+		this.mb_portserial = mb_portserial;
 	}
 	
+
 	
 }

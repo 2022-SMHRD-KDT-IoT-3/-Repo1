@@ -48,14 +48,12 @@ public class DeviceDAO {
 	public int deviceInsert(DeviceDTO dto) {
 		dbconn();
 		try {
-			String sql = "insert into tbl_device values(1,?,?,?,?,?)";
-			//첫번째컬럼은 d_seq값이라 자동생성 -- > 1 
+			String sql = "insert into tbl_device values(?,?,?)";
+			// 각 mb_portserial, Dv name, usage 넣기
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, dto.getMb_id());
-			psmt.setInt(2, dto.getDv_num());
-			psmt.setString(3, dto.getDv_desc());
-			psmt.setString(4, dto.getConsent_name());
-			psmt.setInt(5, dto.getP_seq());
+			psmt.setString(1, dto.get());
+			psmt.setString(2, dto.getDv_name());
+			psmt.setDouble(3, dto.getDv_usage());
 			cnt = psmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -69,12 +67,12 @@ public class DeviceDAO {
 	
 	//디바이스 삭제 메소드
 	
-	public int deviceDelete(int dv_seq) {
+	public int deviceDelete(String mb_portserial) {
 		dbconn();
 		try {
-			String sql = "delete from tbl_device where dv_seq=?";
+			String sql = "delete from tbl_device where mb_poertserial=?";
 			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, dv_seq);
+			psmt.setString(1, mb_portserial);
 			cnt = psmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -96,20 +94,20 @@ public class DeviceDAO {
 
 		try {
 			String sql = "select * from tbl_device where mb_id = ?";
+			// id당 여러개 포트가 있어서 아이디로 조회
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, mb_id);
 			rs = psmt.executeQuery();
 
 			while (rs.next()) {
-				int dv_seq = rs.getInt(1);
-				mb_id = rs.getString(2);
-				int dv_num = rs.getInt(3);
-				String dv_desc = rs.getString(4);
-				String consent = rs.getString(5);
-				int p_seq  = rs.getInt(6);
+				mb_id=rs.getString(1);
+				String mb_portserial = rs.getString(2);
+				String dv_name = rs.getString(3);
+				Double dv_usage = rs.getDouble(4);
+				String dv_date= rs.getString(5);
 
-				DeviceDTO dto = new DeviceDTO(dv_seq, mb_id, dv_num, dv_desc, consent, p_seq);
-				dlist.add(dto);
+		DeviceDTO dto = new DeviceDTO(mb_id, mb_portserial, dv_name,dv_usage,dv_date);
+		dlist.add(dto);
 			}
 
 		} catch (Exception e) {
