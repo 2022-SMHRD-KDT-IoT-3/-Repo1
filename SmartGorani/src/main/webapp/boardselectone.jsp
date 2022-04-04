@@ -405,7 +405,6 @@
 	<a class="scroll-to-top rounded" href="#page-top"> <i
 		class="fas fa-angle-up"></i>
 	</a>
-
 	<!-- Logout Modal-->
 	<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -415,7 +414,7 @@
 				if (info != null) {
 				%>
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">로그아웃 하시겠습니까?</h5>
+					<h5 class="modal-title" id="exampleModalLabel">로그아웃</h5>
 					<button class="close" type="button" data-dismiss="modal"
 						aria-label="Close">
 						<span aria-hidden="true">×</span>
@@ -428,10 +427,10 @@
 					<a class="btn btn-primary" href="LogoutService.do">확인</a>
 				</div>
 				<%
-				} else {
-				%>
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">로그인 하시겠습니까?</h5>
+				} else {%>
+					
+					<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">로그인</h5>
 					<button class="close" type="button" data-dismiss="modal"
 						aria-label="Close">
 						<span aria-hidden="true">×</span>
@@ -443,13 +442,15 @@
 						data-dismiss="modal">취소</button>
 					<a class="btn btn-primary" href="login.html">확인</a>
 				</div>
-				<%
-				}
+					
+					
+					
+			<%	}
 				%>
-
 			</div>
 		</div>
 	</div>
+
 
 	<!-- Bootstrap core JavaScript-->
 	<script src="vendor/jquery/jquery.min.js"></script>

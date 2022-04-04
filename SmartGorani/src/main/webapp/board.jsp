@@ -283,34 +283,48 @@ justify-content: flex-end; /* flex-start / center / flex-end */
 							class="nav-link dropdown-toggle" href="#" id="userDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> <%
- if (info != null) {
- %> <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getMb_name()%>
+ 							if (info != null) {
+ 							%> <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getMb_name()%>
 									<%
 									} else {
 									%> user name <%
 									}
 									%>
 							</span>
-						</a> <!-- Dropdown - User Information -->
-							<div
-								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+						</a> 
+						
+						
+						<!-- Dropdown - User Information -->
+						
+						<%if(info !=null) {%>
+							<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
 								aria-labelledby="userDropdown">
-								<a class="dropdown-item" href="#"> <i
-									class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
-								</a> <a class="dropdown-item" href="#"> <i
+								<a class="dropdown-item" href="editinfo.jsp"> <i
 									class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
 									Settings
-								</a> <a class="dropdown-item" href="#"> <i
-									class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-									Activity Log
-								</a>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="#" data-toggle="modal"
 									data-target="#logoutModal"> <i
 									class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
 									Logout
-								</a>
+								</a> 
 							</div></li>
+							
+							
+							
+							<% } else { %>
+							<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+								aria-labelledby="userDropdown">
+								<a class="dropdown-item" href="#" data-toggle="modal"
+									data-target="#logoutModal"> <i
+									class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+									Login
+								</a> 
+							</div></li>
+							
+							<% } %>
+							
+							
 					</ul>
 
 				</nav>
@@ -419,7 +433,7 @@ justify-content: flex-end; /* flex-start / center / flex-end */
 				if (info != null) {
 				%>
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">로그아웃 하시겠습니까?</h5>
+					<h5 class="modal-title" id="exampleModalLabel">로그아웃</h5>
 					<button class="close" type="button" data-dismiss="modal"
 						aria-label="Close">
 						<span aria-hidden="true">×</span>
@@ -432,10 +446,10 @@ justify-content: flex-end; /* flex-start / center / flex-end */
 					<a class="btn btn-primary" href="LogoutService.do">확인</a>
 				</div>
 				<%
-				} else {
-				%>
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">로그인 하시겠습니까?</h5>
+				} else {%>
+					
+					<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">로그인</h5>
 					<button class="close" type="button" data-dismiss="modal"
 						aria-label="Close">
 						<span aria-hidden="true">×</span>
@@ -447,13 +461,15 @@ justify-content: flex-end; /* flex-start / center / flex-end */
 						data-dismiss="modal">취소</button>
 					<a class="btn btn-primary" href="login.html">확인</a>
 				</div>
-				<%
-				}
+					
+					
+					
+			<%	}
 				%>
-
 			</div>
 		</div>
 	</div>
+
 
 	<script type="text/javascript">
 		$('.btn-two').click(function(event) {
