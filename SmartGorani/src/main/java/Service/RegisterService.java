@@ -12,8 +12,6 @@ import Inter.Command;
 import Model.MemberDAO;
 import Model.MemberDTO;
 
-
-
 // 1. command 인터페이스 구현
 public class RegisterService implements Command {
 	// 2. 인터페이스에 있는 execute() 메소드 오버라이딩
@@ -32,17 +30,21 @@ public class RegisterService implements Command {
 		// 3-2. 회원가입 데이터 받아오기
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
+		String pwcheck = request.getParameter("pwcheck");
 		String name = request.getParameter("name");
 		String type = request.getParameter("type");
 		String serial = request.getParameter("serial");
+
 		//String reg_date = request.getParameter("reg_date");  DB sysdate로 즉시저장 됨
 
 		System.out.println("id : " + id);
 		System.out.println("pw : " + pw);
+		System.out.println("pwcheck : " + pwcheck);
 		System.out.println("name : " + name);
 		System.out.println("type : " + type);
 		System.out.println("serial : " + serial);
-
+		
+		if(pw.equals(pwcheck)) {
 		// 3-3. 데이터 DTO로 묶기
 		MemberDTO dto = new MemberDTO(id, pw, name, type,serial);
 
@@ -52,6 +54,7 @@ public class RegisterService implements Command {
 
 		// 세션 선언
 		HttpSession session = request.getSession();
+		
 
 		// 3-5. 실행결과 확인
 		if (cnt > 0) {
@@ -64,6 +67,15 @@ public class RegisterService implements Command {
 		}
 		
 		// 4. 메소드 return 값으로 nextpage
+		}
+		else {
+			System.out.println("--비밀번호가 일치하지 않습니다---");
+			nextpage = "register.jsp"; 
+		}
+	
 		return nextpage;
+	
+	
 	}
+
 }

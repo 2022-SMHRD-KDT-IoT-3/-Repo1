@@ -7,6 +7,20 @@ public class MemberDTO {
 	private String mb_name;
 	private String type;
 	private String mb_portserial;
+	private String mb_pwcheck;
+	
+	public String getMb_pwcheck() {
+		return mb_pwcheck;
+	}
+
+
+
+	public void setMb_pwcheck(String mb_pwcheck) {
+		this.mb_pwcheck = mb_pwcheck;
+	}
+
+
+
 	public MemberDTO(String mb_id, String mb_pw, String mb_name, String type, String mb_portserial) {
 		super();
 		this.mb_id = mb_id;

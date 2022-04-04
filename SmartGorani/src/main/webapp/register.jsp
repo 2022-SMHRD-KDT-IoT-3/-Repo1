@@ -79,7 +79,7 @@
 								<input type="text" class="form-control form-control-user"
 									id="exampleLastName" name="serial" placeholder="포트시리얼을 입력하세요.">
 							</div>
-								<input type="submit" class="btn btn-primary btn-user btn-block"
+	<!--준범 alert 2-->		<input type="submit" class="btn btn-primary btn-user btn-block" id = "pwc"
 									value="회원가입">
 							</form>
 							<hr>
@@ -98,75 +98,131 @@
 
 	<!-- 스크립트 파일 작성 -->
 	<script type="text/javascript">
-		function pwCheck(){
-			
-			let pw = $('input[name=pw]').val()
+	  function pwCheck(){
+	         
+	         let pw = $('input[name=pw]').val()
+	         console.log(pw)
+	         let pwcheck = $('input[name=pwcheck]').val()
+	         console.log(pwcheck)
+
+	         // 2. ajax로 id 보내기 (IdCheckServiceCon)
+	         $.ajax({
+	            url : 'PWcheckService.do', /* 어디로 보낼지*/
+	            data : { /* 입력한 email data 보내기*/
+	               pw : pw,
+	               pwcheck : pwcheck
+	            },
+	            dataType : "text", /* 중복체크 결과값 text로 받아오기*/
+	            success : function(result) {
+	               if (result == 'false') {
+	                  // 중복 x
+	                  $('#pwcheck2').html('&emsp; 비밀번호가 일치하지 않습니다.')
+	               } else {
+	                  // 중복 O
+	                  $('#pwcheck2').html('&emsp; 비밀번호가 일치합니다.')
+	               }
+	            },
+	            error : function() {
+	            }
+	         })
+	         
+	         
+	                  
+	      }
+	      
+	      
+	      $('#pwcheck').on('input', pwCheck)
+	      
+	      
+	      
+	      
+	      
+	      
+	      // 0. 아이디 중복체크 버튼을 클릭했을 때
+	      $('#idcheck_btn').on('click', function() {
+	         // 1. 입력한 id 가져오기
+	         let id = $('input[name=id]').val()
+	         console.log(id)
+
+	         // 2. ajax로 id 보내기 (IdCheckServiceCon)
+	         $.ajax({
+	            url : 'IDcheckService.do', /* 어디로 보낼지*/
+	            data : { /* 입력한 email data 보내기*/
+	               id : id
+	            },
+	            dataType : "text", /* 중복체크 결과값 text로 받아오기*/
+	            success : function(result) {
+	               if (result == 'false') {
+	                  // 중복 x
+	                  $('#idcheck').html('&emsp; 중복되는 아이디가 없습니다.')
+	               } else {
+	                  // 중복 O
+	                  $('#idcheck').html('&emsp; 아이디가 중복됩니다.')
+	               }
+	            },
+	            error : function() {
+	            }
+	         })
+
+	      }
+	      )
+
+      
+      
+      
+      // 준범 회원가입 alert 수정 
+      
+      
+      
+         // 0. 아이디 중복체크 버튼을 클릭했을 때
+	      $('#pwc').on('click', function() {
+	         // 1. 입력한 id 가져오기
+	        let pw = $('input[name=pw]').val()
 			console.log(pw)
 			let pwcheck = $('input[name=pwcheck]').val()
 			console.log(pwcheck)
 
-			// 2. ajax로 id 보내기 (IdCheckServiceCon)
-			$.ajax({
-				url : 'PWcheckService.do', /* 어디로 보낼지*/
-				data : { /* 입력한 email data 보내기*/
-					pw : pw,
+
+	         // 2. ajax로 id 보내기 (IdCheckServiceCon)
+	         $.ajax({
+	            url : 'PWcheckService.do', /* 어디로 보낼지*/
+	            data : { /* 입력한 email data 보내기*/
+	            	pw : pw,
 					pwcheck : pwcheck
-				},
-				dataType : "text", /* 중복체크 결과값 text로 받아오기*/
-				success : function(result) {
-					if (result == 'false') {
-						// 중복 x
-						$('#pwcheck2').html('&emsp; 비밀번호가 일치하지 않습니다.')
-					} else {
-						// 중복 O
-						$('#pwcheck2').html('&emsp; 비밀번호가 일치합니다.')
-					}
-				},
-				error : function() {
-				}
-			})
+	            },
+	            dataType : "text", /* 중복체크 결과값 text로 받아오기*/
+	            success : function(result) {
+	               if (result == 'false') {
+	                  // 중복 x
+	            	   alert("회원가입에 실패하였습니다");
+	               } else {
+	                  // 중복 O
+	            	   alert("회원가입에 성공하였습니다");
+	               }
+	            },
+	            error : function() {
+	            }
+	         })
+
+	      }
+	      )
+		
+				
 			
 			
-						
-		}
-		
-		
-		$('#pwcheck').on('input', pwCheck)
-		
-		
-		
-		
-		
-		
-		// 0. 아이디 중복체크 버튼을 클릭했을 때
-		$('#idcheck_btn').on('click', function() {
-			// 1. 입력한 id 가져오기
-			let id = $('input[name=id]').val()
-			console.log(id)
 
-			// 2. ajax로 id 보내기 (IdCheckServiceCon)
-			$.ajax({
-				url : 'IDcheckService.do', /* 어디로 보낼지*/
-				data : { /* 입력한 email data 보내기*/
-					id : id
-				},
-				dataType : "text", /* 중복체크 결과값 text로 받아오기*/
-				success : function(result) {
-					if (result == 'false') {
-						// 중복 x
-						$('#idcheck').html('&emsp; 중복되는 아이디가 없습니다.')
-					} else {
-						// 중복 O
-						$('#idcheck').html('&emsp; 아이디가 중복됩니다.')
-					}
-				},
-				error : function() {
-				}
-			})
+		
+      
 
-		})
 		
 		
+		
+		
+		
+		
+		
+		
+			
 	</script>
 
 	<!-- Bootstrap core JavaScript-->
