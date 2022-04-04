@@ -128,13 +128,12 @@ public class BoardDAO {
 
 	// 게시글 삭제 메소드
 
-	public int boardDelete(int qna_seq, String mb_id) {
+	public int boardDelete(int qna_seq) {
 		dbconn();
 		try {
-			String sql = "delete from tbl_qna where qna_seq=? and mb_id=?";
+			String sql = "delete from tbl_qna where qna_seq=?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, qna_seq);
-			psmt.setString(2, mb_id);
 			cnt = psmt.executeUpdate();
 
 		} catch (Exception e) {

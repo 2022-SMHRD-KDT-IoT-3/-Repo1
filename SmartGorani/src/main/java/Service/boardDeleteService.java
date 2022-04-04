@@ -18,9 +18,8 @@ public class boardDeleteService implements Command {
 		
 		
 		int qna_seq = Integer.parseInt(request.getParameter("qna_seq"));
-		String mb_id = request.getParameter("mb_id");
 
-		int cnt = new BoardDAO().boardDelete(qna_seq, mb_id);
+		int cnt = new BoardDAO().boardDelete(qna_seq);
 		
 		if(cnt>0) {
 			System.out.println("게시글 삭제 성공");

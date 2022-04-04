@@ -98,8 +98,7 @@
 					aria-labelledby="headingPages" data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
 						<h6 class="collapse-header">my page</h6>
-						<a class="collapse-item" href="port.jsp">포트 등록</a> <a
-							class="collapse-item" href="enrollproduct.jsp">제품 등록</a> <a
+						<a class="collapse-item" href="port.jsp">보유 제품 현황</a> <a
 							class="collapse-item" href="editinfo.jsp">회원 정보 수정</a>
 						<div class="collapse-divider"></div>
 					</div>
@@ -164,158 +163,58 @@
 								</form>
 							</div></li>
 
-						<!-- Nav Item - Alerts -->
-						<li class="nav-item dropdown no-arrow mx-1"><a
-							class="nav-link dropdown-toggle" href="#" id="alertsDropdown"
-							role="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false"> <i class="fas fa-bell fa-fw"></i> <!-- Counter - Alerts -->
-								<span class="badge badge-danger badge-counter">3+</span>
-						</a> <!-- Dropdown - Alerts -->
-							<div
-								class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-								aria-labelledby="alertsDropdown">
-								<h6 class="dropdown-header">Alerts Center</h6>
-								<a class="dropdown-item d-flex align-items-center" href="#">
-									<div class="mr-3">
-										<div class="icon-circle bg-primary">
-											<i class="fas fa-file-alt text-white"></i>
-										</div>
-									</div>
-									<div>
-										<div class="small text-gray-500">December 12, 2019</div>
-										<span class="font-weight-bold">A new monthly report is
-											ready to download!</span>
-									</div>
-								</a> <a class="dropdown-item d-flex align-items-center" href="#">
-									<div class="mr-3">
-										<div class="icon-circle bg-success">
-											<i class="fas fa-donate text-white"></i>
-										</div>
-									</div>
-									<div>
-										<div class="small text-gray-500">December 7, 2019</div>
-										$290.29 has been deposited into your account!
-									</div>
-								</a> <a class="dropdown-item d-flex align-items-center" href="#">
-									<div class="mr-3">
-										<div class="icon-circle bg-warning">
-											<i class="fas fa-exclamation-triangle text-white"></i>
-										</div>
-									</div>
-									<div>
-										<div class="small text-gray-500">December 2, 2019</div>
-										Spending Alert: We've noticed unusually high spending for your
-										account.
-									</div>
-								</a> <a class="dropdown-item text-center small text-gray-500"
-									href="#">Show All Alerts</a>
-							</div></li>
 
-						<!-- Nav Item - Messages -->
-						<li class="nav-item dropdown no-arrow mx-1"><a
-							class="nav-link dropdown-toggle" href="#" id="messagesDropdown"
-							role="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false"> </a> <!-- Dropdown - Messages -->
-							<div
-								class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-								aria-labelledby="messagesDropdown">
-								<h6 class="dropdown-header">Message Center</h6>
-								<a class="dropdown-item d-flex align-items-center" href="#">
-									<div class="dropdown-list-image mr-3">
-										<img class="rounded-circle" src="img/undraw_profile_1.svg"
-											alt="...">
-										<div class="status-indicator bg-success"></div>
-									</div>
-									<div class="font-weight-bold">
-										<div class="text-truncate">Hi there! I am wondering if
-											you can help me with a problem I've been having.</div>
-										<div class="small text-gray-500">Emily Fowler · 58m</div>
-									</div>
-								</a> <a class="dropdown-item d-flex align-items-center" href="#">
-									<div class="dropdown-list-image mr-3">
-										<img class="rounded-circle" src="img/undraw_profile_2.svg"
-											alt="...">
-										<div class="status-indicator"></div>
-									</div>
-									<div>
-										<div class="text-truncate">I have the photos that you
-											ordered last month, how would you like them sent to you?</div>
-										<div class="small text-gray-500">Jae Chun · 1d</div>
-									</div>
-								</a> <a class="dropdown-item d-flex align-items-center" href="#">
-									<div class="dropdown-list-image mr-3">
-										<img class="rounded-circle" src="img/undraw_profile_3.svg"
-											alt="...">
-										<div class="status-indicator bg-warning"></div>
-									</div>
-									<div>
-										<div class="text-truncate">Last month's report looks
-											great, I am very happy with the progress so far, keep up the
-											good work!</div>
-										<div class="small text-gray-500">Morgan Alvarez · 2d</div>
-									</div>
-								</a> <a class="dropdown-item d-flex align-items-center" href="#">
-									<div class="dropdown-list-image mr-3">
-										<img class="rounded-circle"
-											src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="...">
-										<div class="status-indicator bg-success"></div>
-									</div>
-									<div>
-										<div class="text-truncate">Am I a good boy? The reason I
-											ask is because someone told me that people say this to all
-											dogs, even if they aren't good...</div>
-										<div class="small text-gray-500">Chicken the Dog · 2w</div>
-									</div>
-								</a> <a class="dropdown-item text-center small text-gray-500"
-									href="#">Read More Messages</a>
-							</div></li>
 
 						<div class="topbar-divider d-none d-sm-block"></div>
 
-												<!-- Nav Item - User Information -->
+						<!-- Nav Item - User Information -->
 						<li class="nav-item dropdown no-arrow"><a
 							class="nav-link dropdown-toggle" href="#" id="userDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> <%
- 							if (info != null) {
- 							%> <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getMb_name()%>
-									<%
-									} else {
-									%> user name <%
-									}
-									%>
+ if (info != null) {
+ %> <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+									<%=info.getMb_name()%> <%
+ } else {
+ %> user name <%
+ }
+ %>
 							</span>
-						</a> 
-						
-						<!-- Dropdown - User Information -->
-						
-						<%if(info !=null) {%>
-							<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+						</a> <!-- Dropdown - User Information --> <%
+ if (info != null) {
+ %>
+							<div
+								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
 								aria-labelledby="userDropdown">
 								<a class="dropdown-item" href="editinfo.jsp"> <i
 									class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
 									Settings
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#" data-toggle="modal"
-									data-target="#logoutModal"> <i
-									class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-									Logout
-								</a> 
+									<div class="dropdown-divider"></div> <a class="dropdown-item"
+									href="#" data-toggle="modal" data-target="#logoutModal"> <i
+										class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+										Logout
+								</a>
 							</div></li>
-							
-							
-							
-							<% } else { %>
-							<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-								aria-labelledby="userDropdown">
-								<a class="dropdown-item" href="#" data-toggle="modal"
-									data-target="#logoutModal"> <i
-									class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-									Login
-								</a> 
-							</div></li>
-							
-							<% } %>
+
+
+
+						<%
+						} else {
+						%>
+						<div
+							class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+							aria-labelledby="userDropdown">
+							<a class="dropdown-item" href="#" data-toggle="modal"
+								data-target="#logoutModal"> <i
+								class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+								Login
+							</a>
+						</div>
+						</li>
+
+						<%
+						}
+						%>
 					</ul>
 
 				</nav>
@@ -329,45 +228,42 @@
 
 					</div>
 					<div class="">
-						<div class="wrap-table100">
-							<div class="table100 ver1">
-								<div class="table100-firstcol">
-									<table>
-										<tbody>
-											<tr class="row100 body">
-												<td class="cell100 column1">
-													<p class="form-control border-0 small">아이디</p>
-												</td>
-											</tr>
-											<tr class="row100 body">
-												<td class="cell100 column1">
-													<p class="form-control border-0 small">비밀번호</p>
-												</td>
-											</tr>
-											<tr class="row100 body">
-												<td class="cell100 column1">
-													<p class="form-control border-0 small">이름</p>
-												</td>
-											</tr>
-											<tr class="row100 body">
-												<td class="cell100 column1">
-													<p class="form-control border-0 small">성별</p>
-												</td>
-											</tr>
-											<tr class="row100 body">
-												<td class="cell100 column1">
-													<p class="form-control border-0 small">구분</p>
-												</td>
-											</tr>
+						<form action="UpdateInfoService.do" method="post">
+
+							<div class="wrap-table100">
+								<div class="table100 ver1">
+									<div class="table100-firstcol">
+										<table>
+											<tbody>
+												<tr class="row100 body">
+													<td class="cell100 column1">
+														<p class="form-control border-0 small">아이디</p>
+													</td>
+												</tr>
+												<tr class="row100 body">
+													<td class="cell100 column1">
+														<p class="form-control border-0 small">비밀번호</p>
+													</td>
+												</tr>
+												<tr class="row100 body">
+													<td class="cell100 column1">
+														<p class="form-control border-0 small">이름</p>
+													</td>
+												</tr>
+												<tr class="row100 body">
+													<td class="cell100 column1">
+														<p class="form-control border-0 small">구분</p>
+													</td>
+												</tr>
+												<tr><td></td></tr>
 
 
-										</tbody>
-									</table>
-								</div>
+											</tbody>
+										</table>
+									</div>
 
-								<div class="wrap-table100-nextcols js-pscroll">
-									<div class="table100-nextcols">
-										<form action="UpdateInfoService.do" method="post">
+									<div class="wrap-table100-nextcols js-pscroll">
+										<div class="table100-nextcols">
 											<table>
 												<tbody>
 													<tr class="row100 body">
@@ -390,38 +286,44 @@
 															class="form-control bg-light border-0 small" name="type"
 															value="<%=info.getType()%>"></td>
 													</tr>
+													<tr>
+													<td >
+													<button type="submit"
+														class="d-none d-sm-block btn btn-sm btn-primary shadow-sm">
+														<i class="fa-sm text-white-50"></i>수정완료
+													</button></td>
+												</tr>
 												</tbody>
+
+
 											</table>
-									</div>
-								</div>
-							</div>
-						</div>
+						</form>
 					</div>
-					<br>
-
-					<button type="submit"
-						class="d-none d-sm-block btn btn-sm btn-primary shadow-sm">
-						<i class="fa-sm text-white-50"></i>수정완료
-					</button>
-					</form>
 				</div>
-				<!-- /.container-fluid -->
-
 			</div>
-			<!-- End of Main Content -->
-
-			<!-- Footer -->
-			<footer class="sticky-footer bg-white">
-				<div class="container my-auto">
-					<div class="copyright text-center my-auto">
-						<span>Copyright &copy; Your Website 2021</span>
-					</div>
-				</div>
-			</footer>
-			<!-- End of Footer -->
-
 		</div>
-		<!-- End of Content Wrapper -->
+	</div>
+	<br>
+
+
+	</div>
+	<!-- /.container-fluid -->
+
+	</div>
+	<!-- End of Main Content -->
+
+	<!-- Footer -->
+	<footer class="sticky-footer bg-white">
+		<div class="container my-auto">
+			<div class="copyright text-center my-auto">
+				<span>Copyright &copy; SmartGorani 2022</span>
+			</div>
+		</div>
+	</footer>
+	<!-- End of Footer -->
+
+	</div>
+	<!-- End of Content Wrapper -->
 
 	</div>
 	<!-- End of Page Wrapper -->
@@ -453,9 +355,10 @@
 					<a class="btn btn-primary" href="LogoutService.do">확인</a>
 				</div>
 				<%
-				} else {%>
-					
-					<div class="modal-header">
+				} else {
+				%>
+
+				<div class="modal-header">
 					<h5 class="modal-title" id="exampleModalLabel">로그인</h5>
 					<button class="close" type="button" data-dismiss="modal"
 						aria-label="Close">
@@ -468,10 +371,11 @@
 						data-dismiss="modal">취소</button>
 					<a class="btn btn-primary" href="login.html">확인</a>
 				</div>
-					
-					
-					
-			<%	}
+
+
+
+				<%
+				}
 				%>
 			</div>
 		</div>

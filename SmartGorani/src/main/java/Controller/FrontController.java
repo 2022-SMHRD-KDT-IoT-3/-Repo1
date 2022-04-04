@@ -23,6 +23,7 @@ import Service.ResetPwService;
 import Service.UpdateInfoService;
 import Service.WriteBoardService;
 import Service.WriteReplyService;
+import Service.boardDeleteService;
 import Service.RealtimeInfoService;
 
 @WebServlet("*.do")
@@ -97,6 +98,9 @@ public class FrontController extends HttpServlet {
 			nextpage = com.execute(request, response);
 		} else if (command.equals("DeviceDeleteService.do")) {	//디바이스 삭제
 			com = new DeviceDeleteService();
+			nextpage = com.execute(request, response);
+		} else if (command.equals("boardDeleteService.do")) {	//디바이스 삭제
+			com = new boardDeleteService();
 			nextpage = com.execute(request, response);
 		}
 		if (nextpage != null) {

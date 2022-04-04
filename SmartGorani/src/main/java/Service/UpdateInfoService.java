@@ -49,7 +49,7 @@ public class UpdateInfoService implements Command {
 		} else {
 			System.out.println("-- 회원정보수정 실패");
 		}
-		String nextpage = "updateinfo.jsp";
+		String nextpage = "editinfo.jsp";
 		return nextpage;
 	}
 }
