@@ -11,6 +11,8 @@ import javax.servlet.http.HttpSession;
 
 import Inter.Command;
 import Service.CheckTotalPowerService;
+import Service.DeviceDeleteService;
+import Service.DeviceInsertService;
 import Service.IDcheckService;
 import Service.Loginservice;
 import Service.LogoutService;
@@ -89,6 +91,12 @@ public class FrontController extends HttpServlet {
 			nextpage = com.execute(request, response);
 		} else if (command.equals("PWcheckService.do")) {
 			com = new PWcheckService();
+			nextpage = com.execute(request, response);
+		} else if (command.equals("DeviceInsertService.do")) { //디바이스 추가
+			com = new DeviceInsertService();
+			nextpage = com.execute(request, response);
+		} else if (command.equals("DeviceDeleteService.do")) {	//디바이스 삭제
+			com = new DeviceDeleteService();
 			nextpage = com.execute(request, response);
 		}
 		if (nextpage != null) {

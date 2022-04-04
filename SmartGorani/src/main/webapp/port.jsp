@@ -364,8 +364,8 @@
 												<tbody>
 													<tr class="row100 body">
 														<td class="cell100 column1"><span
-															class="form-control bg-light border-0 small"><%=info.getId()%></span>
-															<input type="hidden" name="mb_id" value="<%=info.getId()%>"> </td>
+															class="form-control bg-light border-0 small"><%=info.getMb_id()%></span>
+															<input type="hidden" name="mb_id" value="<%=info.getMb_id()%>"> </td>
 													</tr>
 													<tr class="row100 body">
 														<td class="cell100 column1"><input
@@ -410,7 +410,7 @@
 					<p class="mb-4">
 						<%
 						if (info != null) {
-							out.print(info.getName() + "님이");
+							out.print(info.getMb_name() + "님이");
 						%>
 						보유한 포트 현황입니다. 더이상 사용 하지 않은 포트는 삭제할 수 있습니다!
 					</p>
@@ -425,15 +425,28 @@
 	<%	if(info!=null){
 			
 		
-<<<<<<< HEAD
-	ArrayList<DeviceDTO> dlist = new DeviceDAO().DeviceSelect(info.getId());
-=======
 	ArrayList<DeviceDTO> dlist = new DeviceDAO().DeviceSelect(info.getMb_id());
 	MemberDTO pk_dv = new MemberDAO().DevicePKSelect(info.getMb_id());
+	
+		%>
+		
+		<div class="col-lg-6">
 
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-IoT-3/-Repo1
+			<div class="card mb-4 py-3 border-left-primary">
+				<div class="card-body">
+					<span> <%=pk_dv.getMb_portserial()%></span> 
+					<input type="hidden" name="inputDelete"
+						value="<%=pk_dv.getMb_portserial()%>">
+					<button type="button" onclick="DeleteDevice()"
+						class="d-none d-sm-block btn btn-sm btn-primary shadow-sm">
+						<i class="fa-sm text-white-50">삭제하기</i>
+					</button>
+				</div>
+			</div>
+
+		</div>
 						
-						int i = 0;
+						<%int i = 0;
 						if (dlist != null) {
 							for (i = 0; i < dlist.size(); i++) {
 						%>
@@ -441,10 +454,9 @@
 
 							<div class="card mb-4 py-3 border-left-primary">
 								<div class="card-body">
-									<span> <%=dlist.get(i).getDv_num()%></span> 
-									<span><%=dlist.get(i).getDv_desc()%></span> 
-									<span> <%=dlist.get(i).getConsent_name()%></span>
-									<input type="hidden" name="inputDelete" value="<%=dlist.get(i).getDv_seq()%>">
+									<span> <%=dlist.get(i).getDv_name()%></span> 
+									<span><%=dlist.get(i).getMb_portserial()%></span> 
+									<input type="hidden" name="inputDelete" value="<%=dlist.get(i).getMb_portserial()%>">
 									<button type="button" onclick="DeleteDevice()"
 										class="d-none d-sm-block btn btn-sm btn-primary shadow-sm">
 										<i class="fa-sm text-white-50">삭제하기</i>

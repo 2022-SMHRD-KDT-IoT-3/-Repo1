@@ -51,9 +51,9 @@ public class DeviceDAO {
 			String sql = "insert into tbl_device values(?,?,?,'','')";
 			// °¢ mb_portserial, Dv name, Mb_id ³Ö±â
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, dto.getMb_portserial());
-			psmt.setString(2, dto.getDv_name());
-			psmt.setDouble(3, dto.getDv_usage());
+			psmt.setString(1, dto.getMb_id());
+			psmt.setString(2, dto.getMb_portserial());
+			psmt.setString(3, dto.getDv_name());
 			cnt = psmt.executeUpdate();
 
 		} catch (Exception e) {
