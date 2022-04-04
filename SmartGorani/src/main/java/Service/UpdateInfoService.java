@@ -24,19 +24,22 @@ public class UpdateInfoService implements Command {
 		request.setCharacterEncoding("UTF-8");
 
 		// °ª 5°³
-		String name = request.getParameter("name");
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
+		String name = request.getParameter("name");
 		String type = request.getParameter("type");
+		String serial = request.getParameter("serial");
 		// String reg_date = request.getParameter("reg_date");
 
 		System.out.println("name : " + name);
 		System.out.println("id : " + id);
 		System.out.println("pw : " + pw);
 		System.out.println("type : " + type);
+		System.out.println("serial : " + serial);
+		
 		//System.out.println("reg_date : " + reg_date);
 
-		MemberDTO dto = new MemberDTO(id, pw, type, name);
+		MemberDTO dto = new MemberDTO(id, pw, name, type, serial);
 				
 		int cnt = new MemberDAO().update(dto);
 		

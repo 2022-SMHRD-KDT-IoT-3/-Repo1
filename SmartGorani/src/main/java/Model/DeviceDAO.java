@@ -48,10 +48,9 @@ public class DeviceDAO {
 	public int deviceInsert(DeviceDTO dto) {
 		dbconn();
 		try {
-			String sql = "insert into tbl_device values(?,?,?,'','')";
+			String sql = "insert into tbl_device values(?,?,'','')";
 			// 각 mb_portserial, Dv name, Mb_id 넣기
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, dto.getMb_id());
 			psmt.setString(2, dto.getMb_portserial());
 			psmt.setString(3, dto.getDv_name());
 			cnt = psmt.executeUpdate();
@@ -87,26 +86,22 @@ public class DeviceDAO {
 
 	//디바이스 조회 메소드
 	
-	public ArrayList<DeviceDTO> DeviceSelect(String mb_id) {
+	public ArrayList<DeviceDTO> DeviceSelect(String serial) {
 
 		ArrayList<DeviceDTO> dlist = new ArrayList<DeviceDTO>();
 		dbconn();
 
 		try {
-			String sql = "select * from tbl_device where mb_id = ?";
-			// id당 여러개 포트가 있어서 아이디로 조회
+			String sql = "select distinct dv_name from tbl_device where MB_PORTSERIAL = ?";
+			// 한개의 제품에 여러 콘센트 값
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, mb_id);
+			psmt.setString(1, serial);
 			rs = psmt.executeQuery();
 
 			while (rs.next()) {
-				mb_id=rs.getString(1);
-				String mb_portserial = rs.getString(2);
-				String dv_name = rs.getString(3);
-				Double dv_usage = rs.getDouble(4);
-				String dv_date= rs.getString(5);
+				String dv_name = rs.getString(1);
 
-		DeviceDTO dto = new DeviceDTO(mb_id, mb_portserial, dv_name,dv_usage,dv_date);
+		DeviceDTO dto = new DeviceDTO(dv_name);
 		dlist.add(dto);
 			}
 
@@ -120,4 +115,38 @@ public class DeviceDAO {
 	}
 
 	
+	//디바이스별 전력 조회 메소드
+	
+	public ArrayList<DeviceDTO> DeviceSum(String serial) {
+
+		ArrayList<DeviceDTO> dlist = new ArrayList<DeviceDTO>();
+		dbconn();
+
+		try {
+			String sql = "select * from tbl_device where MB_PORTSERIAL = ?";
+			
+			//조건 sum으로 다시 수정하기
+			// 한개의 제품에 여러 콘센트 값
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, serial);
+			rs = psmt.executeQuery();
+
+			while (rs.next()) {
+				String mb_portserial = rs.getString(1);
+				String dv_name = rs.getString(2);
+				Double dv_usage = rs.getDouble(3);
+				String dv_date= rs.getString(4);
+
+		DeviceDTO dto = new DeviceDTO(mb_portserial, dv_name,dv_usage, dv_date);
+		dlist.add(dto);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			dbclose();
+		}
+
+		return dlist;
+	}
 }

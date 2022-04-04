@@ -17,7 +17,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>회원정보수정</title>
+<title>보유 제품 현황</title>
 
 
 <!-- Custom fonts for this template-->
@@ -144,7 +144,7 @@
 					<ul class="navbar-nav ml-auto">
 
 
-	
+
 						<div class="topbar-divider d-none d-sm-block"></div>
 
 						<!-- Nav Item - User Information -->
@@ -153,12 +153,12 @@
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> <%
  if (info != null) {
- %> <span class="mr-2 d-none d-lg-inline text-gray-600 small">
-									<%=info.getMb_name()%> <%
- } else {
- %> user name <%
- }
- %>
+ %> <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getMb_name()%>
+									<%
+									} else {
+									%> user name <%
+									}
+									%>
 							</span>
 						</a> <!-- Dropdown - User Information --> <%
  if (info != null) {
@@ -205,9 +205,22 @@
 				<div class="container-fluid">
 					<div
 						class="d-sm-flex align-items-center justify-content-between mb-4">
-						<h1 class="h3 mb-0 text-gray-800">포트 등록</h1>
-
+						<h1 class="h3 mb-1 text-gray-800">보유 제품</h1>
 					</div>
+					<%
+					if (info != null) {
+					%>
+					<p class="mb-4">
+						<%
+						out.print(info.getMb_name() + "님이");
+						%>
+						보유한 제품 현황입니다.
+					</p>
+					<%
+					}
+					%>
+
+
 					<div class="">
 						<div class="wrap-table100">
 							<div class="table100 ver1">
@@ -226,45 +239,28 @@
 											</tr>
 
 
-											<tr class="row100 body">
-												<td class="cell100 column1">
-													<p class="form-control border-0 small">포트 이름</p>
-												</td>
-											</tr>
-
 										</tbody>
 									</table>
 								</div>
 
 								<div class="wrap-table100-nextcols js-pscroll">
 									<div class="table100-nextcols">
-										<form action="DeviceInsertService.do" method="post">
-											<table>
-												<tbody>
-													<tr class="row100 body">
-														<td class="cell100 column1"><span
-															class="form-control bg-light border-0 small"><%=info.getMb_id()%></span>
-															<input type="hidden" name="mb_id"
-															value="<%=info.getMb_id()%>"></td>
-													</tr>
-													<tr class="row100 body">
-														<td class="cell100 column1"><input
-															class="form-control bg-light border-0 small" type="text"
-															name="mb_portserial"></td>
+										<table>
+											<tbody>
+												<tr class="row100 body">
+													<td class="cell100 column1"><span
+														class="form-control bg-light border-0 small"><%=info.getMb_id()%></span>
+														<input type="hidden" name="mb_id"
+														value="<%=info.getMb_id()%>"></td>
+												</tr>
+												<tr class="row100 body">
+													<td class="cell100 column1"><span
+														class="form-control bg-light border-0 small"><%=info.getMb_portserial()%></span></td>
 
-													</tr>
-													<tr class="row100 body">
-														<td class="cell100 column1"><input
-															class="form-control bg-light border-0 small" type="text"
-															name="dv_name"></td>
-													</tr>
+												</tr>
+											</tbody>
+										</table>
 
-												</tbody>
-											</table>
-											<input type="submit"
-												class="d-none d-sm-block btn btn-sm btn-primary shadow-sm">
-											<i class="fa-sm text-white-50">수정완료</i>
-										</form>
 									</div>
 
 								</div>
@@ -277,14 +273,17 @@
 
 
 					<!-- 포트 현황 및 제거 -->
-
-					<h1 class="h3 mb-1 text-gray-800">보유 포트 현황</h1>
+					<br>
+					<div
+						class="d-sm-flex align-items-center justify-content-between mb-4">
+						<h1 class="h3 mb-1 text-gray-800">보유 디바이스 현황</h1>
+					</div>
 					<p class="mb-4">
 						<%
 						if (info != null) {
 							out.print(info.getMb_name() + "님이");
 						%>
-						보유한 포트 현황입니다. 더이상 사용 하지 않은 포트는 삭제할 수 있습니다!
+						보유한 디바이스 현황입니다. 더이상 사용 하지 않은 포트는 삭제할 수 있습니다!
 					</p>
 					<%
 					}
@@ -297,38 +296,17 @@
 						<%
 						if (info != null) {
 
-							ArrayList<DeviceDTO> dlist = new DeviceDAO().DeviceSelect(info.getMb_id());
-							MemberDTO pk_dv = new MemberDAO().DevicePKSelect(info.getMb_id());
-						%>
-
-						<div class="col-lg-6">
-
-							<div class="card mb-4 py-3 border-left-primary">
-								<div class="card-body">
-									<span> <%=pk_dv.getMb_portserial()%></span> <input
-										type="hidden" name="inputDelete"
-										value="<%=pk_dv.getMb_portserial()%>">
-									<button type="button" onclick="DeleteDevice()"
-										class="d-none d-sm-block btn btn-sm btn-primary shadow-sm">
-										<i class="fa-sm text-white-50">삭제하기</i>
-									</button>
-								</div>
-							</div>
-
-						</div>
-
-						<%
-						int i = 0;
-						if (dlist != null) {
-							for (i = 0; i < dlist.size(); i++) {
+							ArrayList<DeviceDTO> dlist = new DeviceDAO().DeviceSelect(info.getMb_portserial());
+							if (dlist != null) {
+								for (int i = 0; i < dlist.size(); i++) {
 						%>
 						<div class="col-lg-6">
 
 							<div class="card mb-4 py-3 border-left-primary">
 								<div class="card-body">
-									<span> <%=dlist.get(i).getDv_name()%></span> <span><%=dlist.get(i).getMb_portserial()%></span>
+									<span> <%=dlist.get(i).getDv_name()%></span> 
 									<input type="hidden" name="inputDelete"
-										value="<%=dlist.get(i).getMb_portserial()%>">
+										value="<%=dlist.get(i).getDv_name()%>">
 									<button type="button" onclick="DeleteDevice()"
 										class="d-none d-sm-block btn btn-sm btn-primary shadow-sm">
 										<i class="fa-sm text-white-50">삭제하기</i>
@@ -407,9 +385,10 @@
 					<a class="btn btn-primary" href="LogoutService.do">확인</a>
 				</div>
 				<%
-				} else {%>
-					
-					<div class="modal-header">
+				} else {
+				%>
+
+				<div class="modal-header">
 					<h5 class="modal-title" id="exampleModalLabel">로그인</h5>
 					<button class="close" type="button" data-dismiss="modal"
 						aria-label="Close">
@@ -422,10 +401,11 @@
 						data-dismiss="modal">취소</button>
 					<a class="btn btn-primary" href="login.html">확인</a>
 				</div>
-					
-					
-					
-			<%	}
+
+
+
+				<%
+				}
 				%>
 			</div>
 		</div>

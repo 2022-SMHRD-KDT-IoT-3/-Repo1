@@ -33,7 +33,7 @@ public class DeviceInsertService implements Command {
 		
 		
 		
-		DeviceDTO d_dto = new DeviceDTO(mb_id, p_serial, dv_name);
+		DeviceDTO d_dto = new DeviceDTO(p_serial, dv_name,0.0,"");
 		int cnt = new DeviceDAO().deviceInsert(d_dto);
 		if(cnt>0) {
 			System.out.println("추가 성공");

@@ -228,7 +228,6 @@
 
 					</div>
 					<div class="">
-						<form action="UpdateInfoService.do" method="post">
 
 							<div class="wrap-table100">
 								<div class="table100 ver1">
@@ -264,6 +263,8 @@
 
 									<div class="wrap-table100-nextcols js-pscroll">
 										<div class="table100-nextcols">
+																<form action="UpdateInfoService.do" method="post">
+										
 											<table>
 												<tbody>
 													<tr class="row100 body">
@@ -284,7 +285,14 @@
 													<tr class="row100 body">
 														<td class="cell100 column1"><input
 															class="form-control bg-light border-0 small" name="type"
-															value="<%=info.getType()%>"></td>
+															value="<%=info.getType()%>" name="type">
+															
+															<input type="hidden"
+															class="form-control bg-light border-0 small" name="serial"
+															value="<%=info.getMb_portserial() %>">
+															
+															</td>
+															
 													</tr>
 													<tr>
 													<td >
