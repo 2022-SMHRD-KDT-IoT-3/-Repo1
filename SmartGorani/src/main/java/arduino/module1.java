@@ -44,7 +44,7 @@ public class module1 extends HttpServlet {
       ElectricDAO edao = new ElectricDAO();
       
       
-      if(timecnt.equals("10")) {
+      if(timecnt.equals("9")) {
 			dao.dbconn();
           dao.insertUsage(dto);
       	edao.insertUseElectric(edto);
