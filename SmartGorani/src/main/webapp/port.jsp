@@ -37,8 +37,6 @@
 <body id="page-top">
 	<%
 	MemberDTO info = (MemberDTO) session.getAttribute("info");
-
-
 	%>
 	<!-- @ strat : Page Wrapper -->
 	<div id="wrapper">
@@ -333,22 +331,14 @@
 											</tr>
 											<tr class="row100 body">
 												<td class="cell100 column1">
-													<p class="form-control border-0 small">제품 시리얼 번호</p>
+													<p class="form-control border-0 small">시리얼 번호</p>
 												</td>
 											</tr>
+
+
 											<tr class="row100 body">
 												<td class="cell100 column1">
-													<p class="form-control border-0 small">포트 번호</p>
-												</td>
-											</tr>
-											<tr class="row100 body">
-												<td class="cell100 column1">
-													<p class="form-control border-0 small">포트 설명</p>
-												</td>
-											</tr>
-											<tr class="row100 body">
-												<td class="cell100 column1">
-													<p class="form-control border-0 small">콘센트명</p>
+													<p class="form-control border-0 small">포트 이름</p>
 												</td>
 											</tr>
 
@@ -358,48 +348,40 @@
 
 								<div class="wrap-table100-nextcols js-pscroll">
 									<div class="table100-nextcols">
-										<form
-											action="DeviceInsertService.do" method="post">
+										<form action="DeviceInsertService.do" method="post">
 											<table>
 												<tbody>
 													<tr class="row100 body">
 														<td class="cell100 column1"><span
 															class="form-control bg-light border-0 small"><%=info.getMb_id()%></span>
-															<input type="hidden" name="mb_id" value="<%=info.getMb_id()%>"> </td>
+															<input type="hidden" name="mb_id"
+															value="<%=info.getMb_id()%>"></td>
 													</tr>
 													<tr class="row100 body">
 														<td class="cell100 column1"><input
 															class="form-control bg-light border-0 small" type="text"
-															name="p_serial"></td>
+															name="mb_portserial"></td>
 
 													</tr>
 													<tr class="row100 body">
 														<td class="cell100 column1"><input
 															class="form-control bg-light border-0 small" type="text"
-															name="dv_num"></td>
+															name="dv_name"></td>
 													</tr>
-													<tr class="row100 body">
-														<td class="cell100 column1"><input
-															class="form-control bg-light border-0 small" type="text"
-															name="dv_desc"></td>
-													</tr>
-													<tr class="row100 body">
-														<td class="cell100 column1"><input
-															class="form-control bg-light border-0 small" type="text"
-															name="consent"></td>
-													</tr>
+
 												</tbody>
-											</table><input type="submit"
-						class="d-none d-sm-block btn btn-sm btn-primary shadow-sm">
-					<i class="fa-sm text-white-50">수정완료</i>
-					</form>
+											</table>
+											<input type="submit"
+												class="d-none d-sm-block btn btn-sm btn-primary shadow-sm">
+											<i class="fa-sm text-white-50">수정완료</i>
+										</form>
 									</div>
-								
+
 								</div>
 							</div>
 						</div>
 					</div>
-					
+
 					<!-- /.container-fluid -->
 
 
@@ -422,41 +404,20 @@
 					<div class="row">
 
 
-	<%	if(info!=null){
-			
-		
-	ArrayList<DeviceDTO> dlist = new DeviceDAO().DeviceSelect(info.getMb_id());
-	MemberDTO pk_dv = new MemberDAO().DevicePKSelect(info.getMb_id());
-	
-		%>
-		
-		<div class="col-lg-6">
+						<%
+						if (info != null) {
 
-			<div class="card mb-4 py-3 border-left-primary">
-				<div class="card-body">
-					<span> <%=pk_dv.getMb_portserial()%></span> 
-					<input type="hidden" name="inputDelete"
-						value="<%=pk_dv.getMb_portserial()%>">
-					<button type="button" onclick="DeleteDevice()"
-						class="d-none d-sm-block btn btn-sm btn-primary shadow-sm">
-						<i class="fa-sm text-white-50">삭제하기</i>
-					</button>
-				</div>
-			</div>
-
-		</div>
-						
-						<%int i = 0;
-						if (dlist != null) {
-							for (i = 0; i < dlist.size(); i++) {
+							ArrayList<DeviceDTO> dlist = new DeviceDAO().DeviceSelect(info.getMb_id());
+							MemberDTO pk_dv = new MemberDAO().DevicePKSelect(info.getMb_id());
 						%>
+
 						<div class="col-lg-6">
 
 							<div class="card mb-4 py-3 border-left-primary">
 								<div class="card-body">
-									<span> <%=dlist.get(i).getDv_name()%></span> 
-									<span><%=dlist.get(i).getMb_portserial()%></span> 
-									<input type="hidden" name="inputDelete" value="<%=dlist.get(i).getMb_portserial()%>">
+									<span> <%=pk_dv.getMb_portserial()%></span> <input
+										type="hidden" name="inputDelete"
+										value="<%=pk_dv.getMb_portserial()%>">
 									<button type="button" onclick="DeleteDevice()"
 										class="d-none d-sm-block btn btn-sm btn-primary shadow-sm">
 										<i class="fa-sm text-white-50">삭제하기</i>
@@ -465,7 +426,29 @@
 							</div>
 
 						</div>
-							<%}
+
+						<%
+						int i = 0;
+						if (dlist != null) {
+							for (i = 0; i < dlist.size(); i++) {
+						%>
+						<div class="col-lg-6">
+
+							<div class="card mb-4 py-3 border-left-primary">
+								<div class="card-body">
+									<span> <%=dlist.get(i).getDv_name()%></span> <span><%=dlist.get(i).getMb_portserial()%></span>
+									<input type="hidden" name="inputDelete"
+										value="<%=dlist.get(i).getMb_portserial()%>">
+									<button type="button" onclick="DeleteDevice()"
+										class="d-none d-sm-block btn btn-sm btn-primary shadow-sm">
+										<i class="fa-sm text-white-50">삭제하기</i>
+									</button>
+								</div>
+							</div>
+
+						</div>
+						<%
+						}
 						} else {
 						%>
 						<div class="col-lg-6">
@@ -486,7 +469,9 @@
 				</div>
 
 			</div>
-<%} %>
+			<%
+			}
+			%>
 
 			<!-- End of Main Content -->
 
@@ -540,46 +525,17 @@
 
 	<script type="text/javascript">
 		//삭제버튼 누를시 삭제되게 .. 
- 		function DeleteDevice() {
- 			let dv_seq = $('input[name=inputDelete]').val();
+		function DeleteDevice() {
+			let portserial = $('input[name=inputDelete]').val();
 			console.log(dv_seq);
-		 if (confirm("선택된 포트를 삭제 할까요?") == true) {
-		 $.ajax({
-		 url : 'DeviceDeleteService.do', //어디로 보낼지 주소
-		 data : {
-		 // 선택한 데이터를 .. 어떻게 보낼까
-		 dv_seq : dv_seq
-		 },
-		 dataType : "text", // 결과값 text로 받아오기
-		 success : function(result) {
-		 if (result == 'true') {
-		 alert('삭제 되었습니다.');
-		 } else {
-		 alert('삭제 실패!');
-		 }
-		 },
-		 error : function() {
-		 alert('실패');
-		 }
-
-		 });
-		 } else {
-		 return false;
-		
-		 }
-		 } 
-
-		// #btnDelete 누르면 삭제 되게? --->테스트해봐야됨>>안됨..
-/* 		$('#btnDelete').on('click', function() {
 			if (confirm("선택된 포트를 삭제 할까요?") == true) {
-				let dv_seq = $('button[name=dv_seq]').val();
-				console.log(dv_seq);
 				$.ajax({
 					url : 'DeviceDeleteService.do', //어디로 보낼지 주소
 					data : {
-						dv_seq : dv_seq
+						// 선택한 데이터를 .. 어떻게 보낼까
+						portserial : portserial
 					},
-					dataType : "text",
+					dataType : "text", // 결과값 text로 받아오기
 					success : function(result) {
 						if (result == 'true') {
 							alert('삭제 되었습니다.');
@@ -594,8 +550,37 @@
 				});
 			} else {
 				return false;
+
 			}
-		}); */
+		}
+
+		// #btnDelete 누르면 삭제 되게? --->테스트해봐야됨>>안됨..
+		/* 		$('#btnDelete').on('click', function() {
+		 if (confirm("선택된 포트를 삭제 할까요?") == true) {
+		 let dv_seq = $('button[name=dv_seq]').val();
+		 console.log(dv_seq);
+		 $.ajax({
+		 url : 'DeviceDeleteService.do', //어디로 보낼지 주소
+		 data : {
+		 dv_seq : dv_seq
+		 },
+		 dataType : "text",
+		 success : function(result) {
+		 if (result == 'true') {
+		 alert('삭제 되었습니다.');
+		 } else {
+		 alert('삭제 실패!');
+		 }
+		 },
+		 error : function() {
+		 alert('실패');
+		 }
+
+		 });
+		 } else {
+		 return false;
+		 }
+		 }); */
 	</script>
 
 

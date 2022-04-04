@@ -18,11 +18,11 @@ public class DeviceDeleteService implements Command {
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		String mb_portserial = request.getParameter("mb_portserial");
-		System.out.println(mb_portserial);
+		String portserial = request.getParameter("portserial");
+		System.out.println(portserial);
 		
 		
-		int cnt = new DeviceDAO().deviceDelete(mb_portserial);
+		int cnt = new DeviceDAO().deviceDelete(portserial);
 		PrintWriter out = response.getWriter();
 		if(cnt>0) {
 			System.out.println("dv 삭제 성공");

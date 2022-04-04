@@ -70,7 +70,7 @@ public class DeviceDAO {
 	public int deviceDelete(String mb_portserial) {
 		dbconn();
 		try {
-			String sql = "delete from tbl_device where mb_poertserial=?";
+			String sql = "delete from tbl_device where mb_portserial=?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, mb_portserial);
 			cnt = psmt.executeUpdate();
