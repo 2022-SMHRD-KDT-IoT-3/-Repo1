@@ -44,8 +44,16 @@ public class ElectricDAO {
 	
 	// DB 데이터 삽입 메소드
 	public void insertUseElectric(ElectricDTO dto) {
+		String sql = "INSERT INTO tbl_electric\n"
+				+ "    (mb_portserial,\n"
+				+ "    electric_useage, \n"
+				+ "    electric_date) \n"
+				+ "VALUES\n"
+				+ "    (?,\n"
+				+ "    ?, \n"
+				+ "    sysdate) \n";
+
 		try {
-			String sql = "insert into tbl_electric values(?,?,sysdate)";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getMb_portserial());
 			psmt.setDouble(2, dto.getElectric_useage());

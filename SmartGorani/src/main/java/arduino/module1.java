@@ -46,9 +46,12 @@ public class module1 extends HttpServlet {
       
       if(timecnt.equals("9")) {
 			dao.dbconn();
-          dao.insertUsage(dto);
-      	edao.insertUseElectric(edto);
-      	dao.dbclose();
+			dao.insertUsage(dto);
+			dao.dbclose();
+			edao.dbconn();
+			edao.insertUseElectric(edto);
+			edao.dbclose();
+      	
       }
       
       

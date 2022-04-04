@@ -19,7 +19,7 @@ public class LogoutService implements Command {
 		HttpSession session = request.getSession();
 		session.removeAttribute("info");
 		System.out.println("로그아웃 성공");
-		String nextpage = "login.html";
+		String nextpage = "main.jsp";
 		return nextpage;
 		}
 
