@@ -1,3 +1,4 @@
+<%@page import="Model.MemberDAO"%>
 <%@page import="Model.DeviceDAO"%>
 <%@page import="Model.DeviceDTO"%>
 <%@page import="java.util.ArrayList"%>
@@ -36,6 +37,7 @@
 <body id="page-top">
 	<%
 	MemberDTO info = (MemberDTO) session.getAttribute("info");
+
 
 	%>
 	<!-- @ strat : Page Wrapper -->
@@ -404,6 +406,8 @@
 			
 		
 	ArrayList<DeviceDTO> dlist = new DeviceDAO().DeviceSelect(info.getMb_id());
+	MemberDTO pk_dv = new MemberDAO().DevicePKSelect(info.getMb_id());
+
 						
 						int i = 0;
 						if (dlist != null) {

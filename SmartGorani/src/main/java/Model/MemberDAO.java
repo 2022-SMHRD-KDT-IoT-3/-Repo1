@@ -199,5 +199,38 @@ public class MemberDAO {
 		return list;
 
 	}
+	
+	
+	public MemberDTO DevicePKSelect(String mb_id) {
+
+		
+		dbconn();
+
+		try {
+			String sql = "select * from tbl_member where mb_id = ?";
+			// id당 여러개 포트가 있어서 아이디로 조회
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, mb_id);
+			rs = psmt.executeQuery();
+
+			if (rs.next()) {
+				mb_id=rs.getString(1);
+				String pw = rs.getString(2);
+				String name = rs.getString(3);
+				String type = rs.getString(4);
+				String portserial= rs.getString(5);
+
+				dto = new MemberDTO(mb_id, pw, name, type, portserial);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			dbclose();
+		}
+
+		return dto;
+	}
+	
 
 }

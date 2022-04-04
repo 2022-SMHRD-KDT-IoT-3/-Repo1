@@ -29,7 +29,12 @@ public class DeviceDTO {
 		this.dv_name = dv_name;
 	}
 
-
+	public String getMb_id() {
+		return mb_id;
+	}
+	public void setMb_id(String mb_id) {
+		this.mb_id = mb_id;
+	}
 
 
 

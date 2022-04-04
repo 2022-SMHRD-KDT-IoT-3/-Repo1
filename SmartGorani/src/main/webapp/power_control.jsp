@@ -1,3 +1,4 @@
+<%@page import="Model.MemberDAO"%>
 <%@page import="Model.DeviceDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Model.DeviceDAO"%>
@@ -35,6 +36,7 @@
 	<%
 	MemberDTO info = (MemberDTO) session.getAttribute("info");
 	ArrayList<DeviceDTO> dlist = new DeviceDAO().DeviceSelect(info.getMb_id());
+	MemberDTO pk_dv = new MemberDAO().DevicePKSelect(info.getMb_id());
 	%>
 
 
@@ -297,12 +299,23 @@
 
 
 									<%
+									if(pk_dv!=null){ %>
+									<div class="portName">
+									<%= pk_dv.getMb_portserial() %>
+									<label class="switch"> <input type="checkbox">
+										<div class="slider round"></div>
+										<p>OFF</p></label>
+										<p style="display: none;">ON</p>
+									</div>
+									<%} %>	
+										
+									<%
 									if (dlist != null) {
 										for (int i = 0; i < dlist.size(); i++) {
 									%>
 									<div class="portName">
-										<%=dlist.get(i).getDv_num()%>
-										<%=dlist.get(i).getConsent_name()%>
+										<%=dlist.get(i).getDv_name()%>
+										<%=dlist.get(i).getMb_portserial() %>
 										<label class="switch"> <input type="checkbox">
 											<div class="slider round"></div>
 											<p>OFF</p></label>
@@ -322,6 +335,7 @@
 
 									<%
 									}
+									
 									%>
 
 
@@ -367,8 +381,8 @@
 										for (int i = 0; i < dlist.size(); i++) {
 									%>
 									<div class="portName">
-										<%=dlist.get(i).getDv_num()%>
-										<%=dlist.get(i).getConsent_name()%>
+										<%=dlist.get(i).getDv_name()%>
+										<%=dlist.get(i).getMb_portserial()%>
 										<label class="switch"> <input type="checkbox">
 											<div class="slider round"></div>
 											<p>OFF</p></label>
