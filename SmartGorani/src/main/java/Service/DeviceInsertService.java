@@ -20,18 +20,20 @@ public class DeviceInsertService implements Command {
 			throws ServletException, IOException {
 		String nextpage = "";
 		request.setCharacterEncoding("utf-8");
-		String mb_portserial = request.getParameter("mb_portserial");
+
+	
+
+		String mb_id = request.getParameter("mb_id");
+		String p_serial = request.getParameter("mb_portserial");
 		String dv_name = request.getParameter("dv_name");
-		Double dv_usage = Double.parseDouble(request.getParameter("dv_usage"));
-		String dv_date = request.getParameter("dv_date");
 		
 		//Product_infoDTO infodto = new ProductInfoDAO().pseqFind(p_serial);
 		
-		System.out.println(mb_portserial + ", " + dv_name  + ", " + dv_usage  + ", "+ dv_date);
+		System.out.println(mb_id + ", " + p_serial  + ", " + dv_name);
 		
 		
 		
-		DeviceDTO d_dto = new DeviceDTO(mb_portserial,dv_name,dv_usage,dv_date );
+		DeviceDTO d_dto = new DeviceDTO(mb_id, p_serial, dv_name);
 		int cnt = new DeviceDAO().deviceInsert(d_dto);
 		if(cnt>0) {
 			System.out.println("추가 성공");

@@ -87,25 +87,26 @@ public class DeviceDAO {
 
 	//디바이스 조회 메소드
 	
-	public ArrayList<DeviceDTO> DeviceSelect(String mb_portserial) {
+	public ArrayList<DeviceDTO> DeviceSelect(String mb_id) {
 
 		ArrayList<DeviceDTO> dlist = new ArrayList<DeviceDTO>();
 		dbconn();
 
 		try {
-			String sql = "select * from tbl_device where mb_portserial = ?";
-			// 포트 시리얼로 조회하는게 ...맞겟죠?
+			String sql = "select * from tbl_device where mb_id = ?";
+			// id당 여러개 포트가 있어서 아이디로 조회
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, mb_portserial);
+			psmt.setString(1, mb_id);
 			rs = psmt.executeQuery();
 
 			while (rs.next()) {
-				mb_portserial = rs.getString(1);
-				String dv_name = rs.getString(2);
-				Double dv_usage = rs.getDouble(3);
-				String dv_date= rs.getString(4);
+				mb_id=rs.getString(1);
+				String mb_portserial = rs.getString(2);
+				String dv_name = rs.getString(3);
+				Double dv_usage = rs.getDouble(4);
+				String dv_date= rs.getString(5);
 
-		DeviceDTO dto = new DeviceDTO(mb_portserial, dv_name, dv_usage, dv_date);
+		DeviceDTO dto = new DeviceDTO(mb_id, mb_portserial, dv_name,dv_usage,dv_date);
 		dlist.add(dto);
 			}
 

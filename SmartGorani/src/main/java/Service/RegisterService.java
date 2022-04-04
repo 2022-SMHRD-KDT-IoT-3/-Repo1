@@ -41,7 +41,7 @@ public class RegisterService implements Command {
 		System.out.println("pw : " + pw);
 		System.out.println("name : " + name);
 		System.out.println("type : " + type);
-		System.out.println("gender : " + serial);
+		System.out.println("serial : " + serial);
 
 		// 3-3. 데이터 DTO로 묶기
 		MemberDTO dto = new MemberDTO(id, pw, name, type,serial);

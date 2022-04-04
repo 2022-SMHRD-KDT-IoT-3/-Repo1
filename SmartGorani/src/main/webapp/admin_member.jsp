@@ -310,7 +310,7 @@
 													<td>PW</td>
 													<td>이름</td>
 													<td>유형</td>
-													<td>가입일</td>
+													<td>포트 넘버</td>
 												</tr>
 											</thead>
 											<tbody>
@@ -319,11 +319,11 @@
 												for (int i = 0; i < list.size(); i++) {
 												%>
 												<tr>
-													<td><%=list.get(i).getId()%></a></td>
-													<td><%=list.get(i).getPw()%></td>
-													<td><%=list.get(i).getName()%></td>
+													<td><%=list.get(i).getMb_id()%></a></td>
+													<td><%=list.get(i).getMb_pw()%></td>
+													<td><%=list.get(i).getMb_name()%></td>
 													<td><%=list.get(i).getType()%></td>
-													<td><%=list.get(i).getReg_date()%></td>
+													<td><%=list.get(i).getMb_portserial()%></td>
 												</tr>
 
 												<%

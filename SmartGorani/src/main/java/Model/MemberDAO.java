@@ -156,13 +156,12 @@ public class MemberDAO {
 	public int update(MemberDTO dto) {
 		dbconn();
 		try {
-			String sql = "update tbl_member set mb_name =?, mb_pw = ?, mb_type = ?, mb_portserial = ? where mb_id = ?";
+			String sql = "update tbl_member set mb_pw = ?, mb_name=?, mb_type = ? where mb_id = ?";
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, dto.getMb_name());
-			psmt.setString(2, dto.getMb_pw());
+			psmt.setString(1, dto.getMb_pw());
+			psmt.setString(2, dto.getMb_name());
 			psmt.setString(3, dto.getType());
-			psmt.setString(4, dto.getMb_portserial());
-			psmt.setString(5, dto.getMb_id());
+			psmt.setString(4, dto.getMb_id());
 			cnt = psmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
