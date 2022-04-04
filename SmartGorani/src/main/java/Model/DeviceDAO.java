@@ -48,8 +48,8 @@ public class DeviceDAO {
 	public int deviceInsert(DeviceDTO dto) {
 		dbconn();
 		try {
-			String sql = "insert into tbl_device values(?,?,?)";
-			// 각 mb_portserial, Dv name, usage 넣기
+			String sql = "insert into tbl_device values(?,?,?,'','')";
+			// 각 mb_portserial, Dv name, Mb_id 넣기
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getMb_portserial());
 			psmt.setString(2, dto.getDv_name());
