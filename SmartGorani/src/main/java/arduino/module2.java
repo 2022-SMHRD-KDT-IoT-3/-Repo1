@@ -49,15 +49,15 @@ public class module2 extends HttpServlet {
       dto.setDv_usage2(Double.parseDouble(totalpower2));
       dto.setDv_usage3(Double.parseDouble(totalpower3));
       
-//      if(timecnt.equals("9")) {
-//    	  
-//    	 dao.dbconn();
-//         dao.insertUsage1(dto);
-//         dao.insertUsage2(dto);
-//         dao.insertUsage3(dto);
-//         dao.dbclose();
-//    	 
-//      }
+      if(timecnt.equals("9")) {
+    	  
+    	 dao.dbconn();
+         dao.insertUsage1(dto);
+         dao.insertUsage2(dto);
+         dao.insertUsage3(dto);
+         dao.dbclose();
+    	 
+      }
     	  
       
       String con1 = send.con1;
