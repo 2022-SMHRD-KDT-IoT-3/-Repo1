@@ -1,6 +1,9 @@
+<%@page import="Model.ElectricDAO"%>
 <%@page import="Model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@ page import="java.util.Date"%>
+<%@ page import="java.text.SimpleDateFormat"%>
 <!DOCTYPE html>
 <html>
 
@@ -26,6 +29,16 @@
 <!-- Custom styles for this template-->
 <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
+<!-- 현재시간 가져오기 -->
+<%
+Date nowTime = new Date();
+SimpleDateFormat sf = new SimpleDateFormat("yyyy년 MM월 dd일 a hh:mm:ss");
+%>
+<!-- 전체 사용량 조회 -->
+<%
+ElectricDAO elDAO = new ElectricDAO();
+
+%>
 </head>
 
 <body id="page-top">
@@ -94,7 +107,7 @@
 					aria-labelledby="headingPages" data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
 						<h6 class="collapse-header">my page</h6>
-						<a class="collapse-item" href="port.jsp">제품 보유 현황</a>  <a
+						<a class="collapse-item" href="port.jsp">제품 보유 현황</a> <a
 							class="collapse-item" href="editinfo.jsp">회원 정보 수정</a>
 						<div class="collapse-divider"></div>
 					</div>
@@ -159,7 +172,7 @@
 								</form>
 							</div></li>
 
-						
+
 
 
 						<div class="topbar-divider d-none d-sm-block"></div>
@@ -169,45 +182,49 @@
 							class="nav-link dropdown-toggle" href="#" id="userDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> <%
- 							if (info != null) {
- 							%> <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getMb_name()%>
-									<%
-									} else {
-									%> user name <%
-									}
-									%>
+ if (info != null) {
+ %> <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+									<%=info.getMb_name()%> <%
+ } else {
+ %> user name <%
+ }
+ %>
 							</span>
-						</a> 
-						
-						<!-- Dropdown - User Information -->
-						
-						<%if(info !=null) {%>
-							<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+						</a> <!-- Dropdown - User Information --> <%
+ if (info != null) {
+ %>
+							<div
+								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
 								aria-labelledby="userDropdown">
 								<a class="dropdown-item" href="editinfo.jsp"> <i
 									class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
 									Settings
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#" data-toggle="modal"
-									data-target="#logoutModal"> <i
-									class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-									Logout
-								</a> 
+									<div class="dropdown-divider"></div> <a class="dropdown-item"
+									href="#" data-toggle="modal" data-target="#logoutModal"> <i
+										class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+										Logout
+								</a>
 							</div></li>
-							
-							
-							
-							<% } else { %>
-							<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-								aria-labelledby="userDropdown">
-								<a class="dropdown-item" href="#" data-toggle="modal"
-									data-target="#logoutModal"> <i
-									class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-									Login
-								</a> 
-							</div></li>
-							
-							<% } %>
+
+
+
+						<%
+						} else {
+						%>
+						<div
+							class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+							aria-labelledby="userDropdown">
+							<a class="dropdown-item" href="#" data-toggle="modal"
+								data-target="#logoutModal"> <i
+								class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+								Login
+							</a>
+						</div>
+						</li>
+
+						<%
+						}
+						%>
 
 					</ul>
 
@@ -224,7 +241,7 @@
 					<div class="row"></div>
 
 					<!-- Content Row -->
-
+					
 					<div class="row">
 						<!-- Earnings (Monthly) Card Example -->
 						<div class="col-xl-10 col-md-6 mb-4">
@@ -235,7 +252,8 @@
 											<div
 												class="text-xs font-weight-bold text-primary text-uppercase mb-1">
 												이번달 예상 요금</div>
-											<div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+											<div class="h5 mb-0 font-weight-bold text-gray-800"><%=elDAO.monthFare()%>원</div>
+											<%=sf.format(nowTime)%>
 										</div>
 										<div class="col-auto">
 											<i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -332,8 +350,8 @@
 
 						<div class="card-body">
 							구매하신 "ssems"를 설치한 후, 고유번호를 등록해야만 smartgorani 서비스를 이용하실 수 있습니다. 다음
-							버튼을 클릭하여 제품을 등록해주세요. <br>
-							<br> <a href="enrollproduct.jsp"
+							버튼을 클릭하여 제품을 등록해주세요. <br> <br> <a
+								href="enrollproduct.jsp"
 								class="btn btn-primary btn-icon-split btn-sm"> <span
 								class="icon text-white-50"> <i class="fas fa-flag"></i>
 							</span> <span class="text">제품 등록하기</span>
@@ -392,9 +410,10 @@
 					<a class="btn btn-primary" href="LogoutService.do">확인</a>
 				</div>
 				<%
-				} else {%>
-					
-					<div class="modal-header">
+				} else {
+				%>
+
+				<div class="modal-header">
 					<h5 class="modal-title" id="exampleModalLabel">로그인</h5>
 					<button class="close" type="button" data-dismiss="modal"
 						aria-label="Close">
@@ -407,10 +426,11 @@
 						data-dismiss="modal">취소</button>
 					<a class="btn btn-primary" href="login.html">확인</a>
 				</div>
-					
-					
-					
-			<%	}
+
+
+
+				<%
+				}
 				%>
 			</div>
 		</div>
