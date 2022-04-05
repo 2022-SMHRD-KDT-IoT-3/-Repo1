@@ -230,10 +230,7 @@ justify-content: flex-end; /* flex-start / center / flex-end */
 					<li>관리자가 공지사항을 게시합니다</li>
 
 					<li>사용시 불편사항을 해당 게시판에 작성하시면 관리자가 답변해줍니다.</li>
-					<li>글쓰기 버튼을 클릭해주세요!</li> <a target="_blank"
-						href="https://datatables.net">official DataTables
-						documentation</a> 데이터 테이블 사용설명서
-					</p>
+					<li>글쓰기 버튼을 클릭해주세요!</li> 
 
 					<!-- 2. DataTales Example -->
 

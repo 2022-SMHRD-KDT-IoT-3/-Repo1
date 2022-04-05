@@ -35,8 +35,7 @@
 
 	<%
 	MemberDTO info = (MemberDTO) session.getAttribute("info");
-	ArrayList<DeviceDTO> dlist = new DeviceDAO().DeviceSelect(info.getMb_id());
-	MemberDTO pk_dv = new MemberDAO().DevicePKSelect(info.getMb_id());
+	ArrayList<DeviceDTO> dlist = new DeviceDAO().DeviceSelect(info.getMb_portserial());
 	%>
 
 
@@ -145,50 +144,54 @@
 
 						<div class="topbar-divider d-none d-sm-block"></div>
 
-												<!-- Nav Item - User Information -->
+						<!-- Nav Item - User Information -->
 						<li class="nav-item dropdown no-arrow"><a
 							class="nav-link dropdown-toggle" href="#" id="userDropdown"
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> <%
- 							if (info != null) {
- 							%> <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getMb_name()%>
-									<%
-									} else {
-									%> user name <%
-									}
-									%>
+ if (info != null) {
+ %> <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+									<%=info.getMb_name()%> <%
+ } else {
+ %> user name <%
+ }
+ %>
 							</span>
-						</a> 
-						
-						<!-- Dropdown - User Information -->
-						
-						<%if(info !=null) {%>
-							<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+						</a> <!-- Dropdown - User Information --> <%
+ if (info != null) {
+ %>
+							<div
+								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
 								aria-labelledby="userDropdown">
 								<a class="dropdown-item" href="editinfo.jsp"> <i
 									class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
 									Settings
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#" data-toggle="modal"
-									data-target="#logoutModal"> <i
-									class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-									Logout
-								</a> 
+									<div class="dropdown-divider"></div> <a class="dropdown-item"
+									href="#" data-toggle="modal" data-target="#logoutModal"> <i
+										class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+										Logout
+								</a>
 							</div></li>
-							
-							
-							
-							<% } else { %>
-							<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-								aria-labelledby="userDropdown">
-								<a class="dropdown-item" href="#" data-toggle="modal"
-									data-target="#logoutModal"> <i
-									class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-									Login
-								</a> 
-							</div></li>
-							
-							<% } %>
+
+
+
+						<%
+						} else {
+						%>
+						<div
+							class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+							aria-labelledby="userDropdown">
+							<a class="dropdown-item" href="#" data-toggle="modal"
+								data-target="#logoutModal"> <i
+								class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+								Login
+							</a>
+						</div>
+						</li>
+
+						<%
+						}
+						%>
 
 					</ul>
 
@@ -236,25 +239,15 @@
 								</div>
 								<div class="card-body">
 
+									<%
+									if (info != null) {
 
-									<%
-									if(pk_dv!=null){ %>
-									<div class="portName">
-									<%= pk_dv.getMb_portserial() %>
-									<label class="switch"> <input type="checkbox">
-										<div class="slider round"></div>
-										<p>OFF</p></label>
-										<p style="display: none;">ON</p>
-									</div>
-									<%} %>	
-										
-									<%
-									if (dlist != null) {
-										for (int i = 0; i < dlist.size(); i++) {
+										if (dlist != null) {
+											for (int i = 0; i < dlist.size(); i++) {
 									%>
+
 									<div class="portName">
 										<%=dlist.get(i).getDv_name()%>
-										<%=dlist.get(i).getMb_portserial() %>
 										<label class="switch"> <input type="checkbox">
 											<div class="slider round"></div>
 											<p>OFF</p></label>
@@ -263,18 +256,17 @@
 
 									<%
 									}
-									%>
-									<%
+
 									} else {
 									%>
-									<span> 포트를 등록해주세요 ! </span>
+									<span> 디바이스를 등록해주세요 ! </span>
 
 
 
 
 									<%
 									}
-									
+									}
 									%>
 
 
@@ -307,26 +299,26 @@
 									<h6 class="m-0 font-weight-bold text-primary">대기 전력 제어</h6>
 								</div>
 								<div class="card-body">
-									
-										<div class="portName">
-											전체 <label class="switch"> <input type="checkbox">
-												<div class="slider round"></div>
-												<p>OFF</p></label>
-											<p style="display: none;">ON</p>
-										</div>
-										
-										<%
-									if (dlist != null) {
-										for (int i = 0; i < dlist.size(); i++) {
+
+									<div class="portName">
+										전체 <label class="switch"> <input type="checkbox">
+											<div class="slider round"></div>
+											<p>OFF</p></label>
+										<p style="display: none;">ON</p>
+									</div>
+
+									<%
+									if (info != null) {
+										if (dlist != null) {
+											for (int i = 0; i < dlist.size(); i++) {
 									%>
 									<div class="portName">
 										<%=dlist.get(i).getDv_name()%>
-										<%=dlist.get(i).getMb_portserial()%>
 										<label class="switch"> <input type="checkbox">
 											<div class="slider round"></div>
 											<p>OFF</p></label>
 										<p style="display: none;">ON</p>
-									</div> 
+									</div>
 
 									<%
 									}
@@ -334,15 +326,16 @@
 									<%
 									} else {
 									%>
-									<span> 포트를 등록해주세요 ! </span>
+									<span> 디바이스를 등록해주세요 ! </span>
 
 
 
 
 									<%
 									}
+									}
 									%>
-										
+
 
 								</div>
 							</div>
@@ -399,9 +392,10 @@
 					<a class="btn btn-primary" href="LogoutService.do">확인</a>
 				</div>
 				<%
-				} else {%>
-					
-					<div class="modal-header">
+				} else {
+				%>
+
+				<div class="modal-header">
 					<h5 class="modal-title" id="exampleModalLabel">로그인</h5>
 					<button class="close" type="button" data-dismiss="modal"
 						aria-label="Close">
@@ -414,10 +408,11 @@
 						data-dismiss="modal">취소</button>
 					<a class="btn btn-primary" href="login.html">확인</a>
 				</div>
-					
-					
-					
-			<%	}
+
+
+
+				<%
+				}
 				%>
 			</div>
 		</div>
@@ -457,31 +452,31 @@
 		});
 
 		//삭제버튼 누를시 삭제되게 .. 
-/* 		function deleteCheck() {
-			
-			if (confirm("선택된 포트를 삭제 할까요?") == true) {
-				$.ajax({
-					url : 'DeviceDeleteService.do', //어디로 보낼지 주소
-					data : {
-					},
-					dataType : "text", // 결과값 text로 받아오기
-					success : function(result) {
-						if (result == 'true') {
-							$("p").toggle();
-						} else {
-							$("p").toggle();
-						}
-					},
-					error : function() {
-						alert('실패');
-					}
+		/* 		function deleteCheck() {
+		
+		 if (confirm("선택된 포트를 삭제 할까요?") == true) {
+		 $.ajax({
+		 url : 'DeviceDeleteService.do', //어디로 보낼지 주소
+		 data : {
+		 },
+		 dataType : "text", // 결과값 text로 받아오기
+		 success : function(result) {
+		 if (result == 'true') {
+		 $("p").toggle();
+		 } else {
+		 $("p").toggle();
+		 }
+		 },
+		 error : function() {
+		 alert('실패');
+		 }
 
-				});
-			} else {
-				return false;
-				
-			}
-		} */
+		 });
+		 } else {
+		 return false;
+		
+		 }
+		 } */
 	</script>
 	<script src="vendor/jquery/jquery.min.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

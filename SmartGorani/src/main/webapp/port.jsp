@@ -416,8 +416,8 @@
 		//삭제버튼 누를시 삭제되게 .. 
 		function DeleteDevice() {
 			let portserial = $('input[name=inputDelete]').val();
-			console.log(dv_seq);
-			if (confirm("선택된 포트를 삭제 할까요?") == true) {
+			console.log(portserial);
+			if (confirm("선택된 디바이스를 삭제 할까요?") == true) {
 				$.ajax({
 					url : 'DeviceDeleteService.do', //어디로 보낼지 주소
 					data : {
