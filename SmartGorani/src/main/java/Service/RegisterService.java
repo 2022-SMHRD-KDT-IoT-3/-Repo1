@@ -21,8 +21,8 @@ public class RegisterService implements Command {
 			throws ServletException, IOException {
 		// 3. 페이지 이동 response ... -> 삭제
 		// String nextpage = "이동할 주소"
-		String nextpage ="";
-		
+		String nextpage = "";
+
 		// 회원가입 기능
 		// 3-1. post방식 인코딩
 		request.setCharacterEncoding("UTF-8");
@@ -35,7 +35,7 @@ public class RegisterService implements Command {
 		String type = request.getParameter("type");
 		String serial = request.getParameter("serial");
 
-		//String reg_date = request.getParameter("reg_date");  DB sysdate로 즉시저장 됨
+		// String reg_date = request.getParameter("reg_date"); DB sysdate로 즉시저장 됨
 
 		System.out.println("id : " + id);
 		System.out.println("pw : " + pw);
@@ -43,39 +43,29 @@ public class RegisterService implements Command {
 		System.out.println("name : " + name);
 		System.out.println("type : " + type);
 		System.out.println("serial : " + serial);
-		
-		if(pw.equals(pwcheck)) {
-		// 3-3. 데이터 DTO로 묶기
-		MemberDTO dto = new MemberDTO(id, pw, name, type,serial);
 
-		// 3-4. DB연결할 DAO 호출 및 join메소드 실행
-		MemberDAO dao = new MemberDAO();
-		int cnt = dao.join(dto);
+		if (pw.equals(pwcheck)) {
+			// 3-3. 데이터 DTO로 묶기
+			MemberDTO dto = new MemberDTO(id, pw, name, type, serial);
 
-		// 세션 선언
-		HttpSession session = request.getSession();
-		
+			// 3-4. DB연결할 DAO 호출 및 join메소드 실행
+			MemberDAO dao = new MemberDAO();
+			int cnt = dao.join(dto);
 
-		// 3-5. 실행결과 확인
-		if (cnt > 0) {
-			
-			System.out.println("-- 회원가입 성공");
-			nextpage = "login.html";
-		} else {
-			System.out.println("-- 회원가입 실패");
-			nextpage = "register.jsp";
+			// 세션 선언
+			HttpSession session = request.getSession();
+
+			// 3-5. 실행결과 확인
+			if (cnt > 0) {
+				System.out.println("-- 회원가입 성공");
+				nextpage = "login.html";
+			} else {
+				System.out.println("-- 회원가입 실패");
+				nextpage = "register.jsp";
+			}
+
 		}
-		
-		// 4. 메소드 return 값으로 nextpage
-		}
-		else {
-			System.out.println("--비밀번호가 일치하지 않습니다---");
-			nextpage = "register.jsp"; 
-		}
-	
 		return nextpage;
-	
-	
 	}
 
 }
