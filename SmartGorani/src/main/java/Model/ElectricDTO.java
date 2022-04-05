@@ -5,6 +5,10 @@ public class ElectricDTO {
 	private String mb_portserial;
 	private double electric_useage;
 	
+	public ElectricDTO() {
+		super();
+	}
+
 	public ElectricDTO(String mb_portserial, double electric_useage) {
 		super();
 		this.mb_portserial = mb_portserial;

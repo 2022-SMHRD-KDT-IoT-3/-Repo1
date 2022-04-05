@@ -37,7 +37,6 @@ SimpleDateFormat sf = new SimpleDateFormat("yyyy년 MM월 dd일 a hh:mm:ss");
 <!-- 전체 사용량 조회 -->
 <%
 ElectricDAO elDAO = new ElectricDAO();
-
 %>
 </head>
 
