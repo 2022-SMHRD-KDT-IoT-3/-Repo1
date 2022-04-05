@@ -115,7 +115,7 @@ public class DeviceDAO {
 	}
 
 	
-	//디바이스별 전력 조회 메소드
+	//디바이스별 전력 조회 메소드 ------------수정해야됨
 	
 	public ArrayList<DeviceDTO> DeviceSum(String serial) {
 
