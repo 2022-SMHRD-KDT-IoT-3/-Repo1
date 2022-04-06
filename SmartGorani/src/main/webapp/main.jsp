@@ -20,6 +20,7 @@
 
 
 <!-- Custom fonts for this template-->
+<link href="css/mainimg.css" rel="stylesheet">
 <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
 	type="text/css">
 <link
@@ -28,6 +29,8 @@
 
 <!-- Custom styles for this template-->
 <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+
 
 <!-- 현재시간 가져오기 -->
 <%
@@ -182,12 +185,12 @@ ElectricDAO elDAO = new ElectricDAO();
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> <%
  if (info != null) {
- %> <span class="mr-2 d-none d-lg-inline text-gray-600 small">
-									<%=info.getMb_name()%> <%
- } else {
- %> user name <%
- }
- %>
+ %> <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=info.getMb_name()%>
+									<%
+									} else {
+									%> user name <%
+									}
+									%>
 							</span>
 						</a> <!-- Dropdown - User Information --> <%
  if (info != null) {
@@ -237,10 +240,21 @@ ElectricDAO elDAO = new ElectricDAO();
 
 
 					<!-- Content Row -->
-					<div class="row"></div>
+					<div class="row">
+						<div class="main-view">
+							<ul>
+								<li><img src="img/mainimg.jpg " width="80%" /></li>
+								<li><img src="img/consent.jpg" width="80%" /></li>
+								<li><img src="img/풍선.jpg" width="80%" /></li>
+							</ul>
+
+						</div>
+
+
+					</div>
 
 					<!-- Content Row -->
-					
+
 					<div class="row">
 						<!-- Earnings (Monthly) Card Example -->
 						<div class="col-xl-10 col-md-6 mb-4">
@@ -251,7 +265,8 @@ ElectricDAO elDAO = new ElectricDAO();
 											<div
 												class="text-xs font-weight-bold text-primary text-uppercase mb-1">
 												이번달 예상 요금</div>
-											<div class="h5 mb-0 font-weight-bold text-gray-800"><%=elDAO.monthFare()%>원</div>
+											<div class="h5 mb-0 font-weight-bold text-gray-800"><%=elDAO.monthFare()%>원
+											</div>
 											<%=sf.format(nowTime)%>
 										</div>
 										<div class="col-auto">
@@ -265,27 +280,29 @@ ElectricDAO elDAO = new ElectricDAO();
 						<!-- Area Chart -->
 						<div class="card shadow mb-4">
 							<div class="card-header py-3">
-						<h6 class="m-0 font-weight-bold text-primary">"스마트 고라니"란?</h6>
+								<h6 class="m-0 font-weight-bold text-primary">"스마트 고라니"란?</h6>
 
 							</div>
-								<div class="card-body">
-						● 국내 전기요금 인상 및 전기사용량의 증가에 따라 효율적인 전기 소비를 원하는 이용자들을 위한 "에너지사용 효율증진을 위한 스마트 그리드 서비스"입니다.
-						<br>
-						● 고라니라는 이름을 쓴 이유는 고라니는 우리나라에서만 서식하는 동물입니다, 저희도 고라니처럼 희귀성을 나타내기 위함입니다!
-						<span class="icon text-white-50"> </span> 
-								</div>
+							<div class="card-body">
+								● 국내 전기요금 인상 및 전기사용량의 증가에 따라 효율적인 전기 소비를 원하는 이용자들을 위한 "에너지사용
+								효율증진을 위한 스마트 그리드 서비스"입니다. <br> ● 고라니라는 이름을 쓴 이유는 고라니는
+								우리나라에서만 서식하는 동물입니다, 저희도 고라니처럼 희귀성을 나타내기 위함입니다! <span
+									class="icon text-white-50"> </span>
+							</div>
 						</div>
-								
+
 						<!-- Pie Chart -->
 						<div class="card shadow mb-4">
 							<div class="card-header py-3">
-						<h6 class="m-0 font-weight-bold text-primary">"스마트 고라니" 사용설명</h6>
+								<h6 class="m-0 font-weight-bold text-primary">"스마트 고라니"
+									사용설명</h6>
 
 							</div>
-								<div class="card-body">
-						● 저희 "스마트 고라니"는 전력사용이 많은 전자제품에 장착하여 태양광 패널로 배터리에 전력 충전 후 배터리에 충전되어있는 전력을 방전하여 누진세를 줄여주기 위한 제품입니다.
-						<span class="icon text-white-50"> </span> 
-								</div>
+							<div class="card-body">
+								● 저희 "스마트 고라니"는 전력사용이 많은 전자제품에 장착하여 태양광 패널로 배터리에 전력 충전 후 배터리에
+								충전되어있는 전력을 방전하여 누진세를 줄여주기 위한 제품입니다. <span
+									class="icon text-white-50"> </span>
+							</div>
 						</div>
 					</div>
 				</div>
