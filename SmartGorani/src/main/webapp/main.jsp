@@ -263,103 +263,31 @@ ElectricDAO elDAO = new ElectricDAO();
 						</div>
 
 						<!-- Area Chart -->
-						<div class="col-xl-5 col-lg-7">
-							<div class="card shadow mb-4">
-								<!-- Card Header - Dropdown -->
-								<div
-									class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-									<h6 class="m-0 font-weight-bold text-primary">실시간 사용요금 추이
-									</h6>
-									<div class="dropdown no-arrow">
-										<a class="dropdown-toggle" href="#" role="button"
-											id="dropdownMenuLink" data-toggle="dropdown"
-											aria-haspopup="true" aria-expanded="false"> <i
-											class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-										</a>
-										<div
-											class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-											aria-labelledby="dropdownMenuLink">
-											<div class="dropdown-header">Dropdown Header:</div>
-											<a class="dropdown-item" href="#">Action</a> <a
-												class="dropdown-item" href="#">Another action</a>
-											<div class="dropdown-divider"></div>
-											<a class="dropdown-item" href="#">Something else here</a>
-										</div>
-									</div>
-								</div>
-								<!-- Card Body -->
-								<div class="card-body">
-									<div class="chart-area">
-										<canvas id="myAreaChart"></canvas>
-									</div>
-								</div>
-							</div>
-						</div>
+						<div class="card shadow mb-4">
+							<div class="card-header py-3">
+						<h6 class="m-0 font-weight-bold text-primary">"스마트 고라니"란?</h6>
 
+							</div>
+								<div class="card-body">
+						● 국내 전기요금 인상 및 전기사용량의 증가에 따라 효율적인 전기 소비를 원하는 이용자들을 위한 "에너지사용 효율증진을 위한 스마트 그리드 서비스"입니다.
+						<br>
+						● 고라니라는 이름을 쓴 이유는 고라니는 우리나라에서만 서식하는 동물입니다, 저희도 고라니처럼 희귀성을 나타내기 위함입니다!
+						<span class="icon text-white-50"> </span> 
+								</div>
+						</div>
+								
 						<!-- Pie Chart -->
-						<div class="col-xl-5 col-lg-7">
-							<div class="card shadow mb-4">
-								<!-- Card Header - Dropdown -->
-								<div
-									class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-									<h6 class="m-0 font-weight-bold text-primary">디바이스 전력 사용 :
-										차트는 수정하기</h6>
-									<div class="dropdown no-arrow">
-										<a class="dropdown-toggle" href="#" role="button"
-											id="dropdownMenuLink" data-toggle="dropdown"
-											aria-haspopup="true" aria-expanded="false"> <i
-											class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-										</a>
-										<div
-											class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-											aria-labelledby="dropdownMenuLink">
-											<div class="dropdown-header">Dropdown Header:</div>
-											<a class="dropdown-item" href="#">Action</a> <a
-												class="dropdown-item" href="#">Another action</a>
-											<div class="dropdown-divider"></div>
-											<a class="dropdown-item" href="#">Something else here</a>
-										</div>
-									</div>
-								</div>
-								<!-- Card Body -->
-								<div class="card-body">
-									<div class="chart-pie pt-4 pb-2">
-										<canvas id="myPieChart"></canvas>
-									</div>
-									<div class="mt-4 text-center small">
-										<span class="mr-2"> <i
-											class="fas fa-circle text-primary"></i> Direct
-										</span> <span class="mr-2"> <i
-											class="fas fa-circle text-success"></i> Social
-										</span> <span class="mr-2"> <i class="fas fa-circle text-info"></i>
-											Referral
-										</span>
-									</div>
-								</div>
+						<div class="card shadow mb-4">
+							<div class="card-header py-3">
+						<h6 class="m-0 font-weight-bold text-primary">"스마트 고라니" 사용설명</h6>
+
 							</div>
-						</div>
-
-					</div>
-					<!-- Basic Card Example -->
-					<div class="card shadow mb-4">
-						<div class="card-header py-3">
-							<h6 class="m-0 font-weight-bold text-primary">제품 등록하기</h6>
-
-						</div>
-
-						<div class="card-body">
-							구매하신 "ssems"를 설치한 후, 고유번호를 등록해야만 smartgorani 서비스를 이용하실 수 있습니다. 다음
-							버튼을 클릭하여 제품을 등록해주세요. <br> <br> <a
-								href="enrollproduct.jsp"
-								class="btn btn-primary btn-icon-split btn-sm"> <span
-								class="icon text-white-50"> <i class="fas fa-flag"></i>
-							</span> <span class="text">제품 등록하기</span>
-							</a>
+								<div class="card-body">
+						● 저희 "스마트 고라니"는 전력사용이 많은 전자제품에 장착하여 태양광 패널로 배터리에 전력 충전 후 배터리에 충전되어있는 전력을 방전하여 누진세를 줄여주기 위한 제품입니다.
+						<span class="icon text-white-50"> </span> 
+								</div>
 						</div>
 					</div>
-
-
-
 				</div>
 				<!-- /.container-fluid -->
 
