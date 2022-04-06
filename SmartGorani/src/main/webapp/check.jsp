@@ -25,12 +25,16 @@
 <!-- Custom styles for this template-->
 <link href="css/sb-admin-2.min.css" rel="stylesheet">
 <link href="css/onoff-button.css" rel="stylesheet">
-<script type="text/javascript"
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
 <!-- google 차트 -->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript"
+	src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript"
+	src="https://cdn.jsdelivr.net/npm/echarts@5.3.1/dist/echarts.min.js"></script>
+
 <!-- 구글차트 스크립트 -->
 <script>
 	// 월별 사용량 조회 막대그래프
@@ -159,7 +163,112 @@
 
 	});
 </script>
+<script type="text/javascript">
+var dom = document.getElementById("chart_div3");
+var myChart = echarts.init(dom);
+var app = {};
 
+var option;
+
+var ROOT_PATH = 'https://cdn.jsdelivr.net/gh/apache/echarts-website@asf-site/examples'
+
+$.get(
+  ROOT_PATH + '/data/asset/data/life-expectancy-table.json',
+  function (_rawData) {
+    run(_rawData);
+  }
+);
+function run(_rawData) {
+  // var countries = ['Australia', 'Canada', 'China', 'Cuba', 'Finland', 'France', 'Germany', 'Iceland', 'India', 'Japan', 'North Korea', 'South Korea', 'New Zealand', 'Norway', 'Poland', 'Russia', 'Turkey', 'United Kingdom', 'United States'];
+  const countries = [
+	    'Finland',
+	    'France',
+	    'Germany',
+	    'Iceland',
+	    'Norway',
+	    'Poland',
+	    'Russia',
+	    'United Kingdom'
+	  ];
+  const datasetWithFilters = [];
+  const seriesList = [];
+  echarts.util.each(countries, function (country) {
+    var datasetId = 'dataset_' + country;
+    datasetWithFilters.push({
+      id: datasetId,
+      fromDatasetId: 'dataset_raw',
+      transform: {
+        type: 'filter',
+        config: {
+          and: [
+            { dimension: 'Year', gte: 1950 },
+            { dimension: 'Country', '=': country }
+          ]
+        }
+      }
+    });
+    seriesList.push({
+      type: 'line',
+      datasetId: datasetId,
+      showSymbol: false,
+      name: country,
+      endLabel: {
+        show: true,
+        formatter: function (params) {
+          return params.value[3] + ': ' + params.value[0];
+        }
+      },
+      labelLayout: {
+        moveOverlap: 'shiftY'
+      },
+      emphasis: {
+        focus: 'series'
+      },
+      encode: {
+        x: 'Year',
+        y: 'Income',
+        label: ['Country', 'Income'],
+        itemName: 'Year',
+        tooltip: ['Income']
+      }
+    });
+  });
+  option = {
+    animationDuration: 10000,
+    dataset: [
+      {
+        id: 'dataset_raw',
+        source: _rawData
+      },
+      ...datasetWithFilters
+    ],
+    title: {
+      text: 'Income of Germany and France since 1950'
+    },
+    tooltip: {
+      order: 'valueDesc',
+      trigger: 'axis'
+    },
+    xAxis: {
+      type: 'category',
+      nameLocation: 'middle'
+    },
+    yAxis: {
+      name: 'Income'
+    },
+    grid: {
+      right: 140
+    },
+    series: seriesList
+  };
+  myChart.setOption(option);
+}
+
+if (option && typeof option === 'object') {
+    myChart.setOption(option);
+}
+
+        </script>
 
 </head>
 <body>
@@ -364,7 +473,7 @@
 							<h6 class="m-0 font-weight-bold text-primary">월별 사용량 조회</h6>
 						</div>
 						<div class="card-body">
-							<div id="chart_div1" style="heigt: 80%;"></div>
+							<div id="chart_div1" style="weight: 80%;"></div>
 						</div>
 					</div>
 					<!-- 디바이스별 사용량 조회 원그래프 -->
@@ -373,11 +482,142 @@
 							<h6 class="m-0 font-weight-bold text-primary">디바이스별 사용량 조회</h6>
 						</div>
 						<div class="card-body">
-							<div id="chart_div2" style="heigt: 80%;"></div>
+							<div id="chart_div2" style="weight: 80%;"></div>
+						</div>
+					</div>
+					<!-- 실시간 디바이스 사용량 조회 초단위 선그래프 -->
+					<div class="card shadow mb-4">
+						<div class="card-header py-3">
+							<h6 class="m-0 font-weight-bold text-primary">실시간 디바이스 사용량</h6>
+						</div>
+						<div class="card-body">
+							<div id="container" style="height: 100%"></div>
 						</div>
 					</div>
 				</div>
+				<script type="text/javascript"
+					src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+				<script type="text/javascript"
+					src="https://cdn.jsdelivr.net/npm/echarts@5.3.2/dist/echarts.min.js"></script>
+				<!-- Uncomment this line if you want to dataTool extension
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.3.2/dist/extension/dataTool.min.js"></script>
+        -->
+				<!-- Uncomment this line if you want to use gl extension
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+        -->
+				<!-- Uncomment this line if you want to echarts-stat extension
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+        -->
+				<!-- Uncomment this line if you want to use map
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.3.2/map/js/china.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.3.2/map/js/world.js"></script>
+        -->
+				<!-- Uncomment these two lines if you want to use bmap extension
+        <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=<Your Key Here>"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@{{version}}/dist/extension/bmap.min.js"></script>
+        -->
 
+				<script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+
+var option;
+
+var ROOT_PATH = 'https://cdn.jsdelivr.net/gh/apache/echarts-website@asf-site/examples'
+
+$.get(
+  ROOT_PATH + '/data/asset/data/life-expectancy-table.json',
+  function (_rawData) {
+    run(_rawData);
+  }
+);
+function run(_rawData) {
+  // var countries = ['Australia', 'Canada', 'China', 'Cuba', 'Finland', 'France', 'Germany', 'Iceland', 'India', 'Japan', 'North Korea', 'South Korea', 'New Zealand', 'Norway', 'Poland', 'Russia', 'Turkey', 'United Kingdom', 'United States'];
+  const countries = [
+    'Finland',
+    'France',
+    'Germany',
+  ];
+  const datasetWithFilters = [];
+  const seriesList = [];
+  echarts.util.each(countries, function (country) {
+    var datasetId = 'dataset_' + country;
+    datasetWithFilters.push({
+      id: datasetId,
+      fromDatasetId: 'dataset_raw',
+      transform: {
+        type: 'filter',
+        config: {
+          and: [
+            { dimension: 'Year', gte: 1950 },
+            { dimension: 'Country', '=': country }
+          ]
+        }
+      }
+    });
+    seriesList.push({
+      type: 'line',
+      datasetId: datasetId,
+      showSymbol: false,
+      name: country,
+      endLabel: {
+        show: true,
+        formatter: function (params) {
+          return params.value[3] + ': ' + params.value[0];
+        }
+      },
+      labelLayout: {
+        moveOverlap: 'shiftY'
+      },
+      emphasis: {
+        focus: 'series'
+      },
+      encode: {
+        x: 'Year',
+        y: 'Income',
+        label: ['Country', 'Income'],
+        itemName: 'Year',
+        tooltip: ['Income']
+      }
+    });
+  });
+  option = {
+    animationDuration: 10000,
+    dataset: [
+      {
+        id: 'dataset_raw',
+        source: _rawData
+      },
+      ...datasetWithFilters
+    ],
+    title: {
+      text: 'Income of Germany and France since 1950'
+    },
+    tooltip: {
+      order: 'valueDesc',
+      trigger: 'axis'
+    },
+    xAxis: {
+      type: 'category',
+      nameLocation: 'middle'
+    },
+    yAxis: {
+      name: 'Income'
+    },
+    grid: {
+      right: 140
+    },
+    series: seriesList
+  };
+  myChart.setOption(option);
+}
+
+if (option && typeof option === 'object') {
+    myChart.setOption(option);
+}
+
+        </script>
 				<!-- /.container-fluid -->
 
 			</div>
@@ -442,8 +682,6 @@
 						data-dismiss="modal">취소</button>
 					<a class="btn btn-primary" href="login.html">확인</a>
 				</div>
-
-
 
 				<%
 				}

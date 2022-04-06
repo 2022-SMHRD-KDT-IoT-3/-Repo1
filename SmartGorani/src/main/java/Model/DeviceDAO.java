@@ -163,7 +163,7 @@ public class DeviceDAO {
 		return dlist;
 	}
 
-	// 디바이스별 월별 전력량 조회 json --(4월꺼만 조회됨 수정해야함)
+	// 디바이스별 월별 전력량 조회 json --(4월6일꺼만 조회됨 수정해야함)
 	public JSONArray devicemonthUsage() {
 		dbconn();
 
@@ -188,6 +188,48 @@ public class DeviceDAO {
 				JSONArray rowArray = new JSONArray();
 				rowArray.add(rs.getString("디바이스이름"));
 				// rowArray.add(rs.getString("포트번호"));
+				rowArray.add(rs.getInt("사용량"));
+				jsonArray.add(rowArray);
+
+			}
+		} catch (Exception e) {
+
+			e.printStackTrace();
+
+		} finally {
+
+			dbclose();
+
+		}
+
+		return jsonArray;
+
+	}
+	// 디바이스별 실시간 전력 조회 (초단위) json-- 4/6일거만 조회됨 수정해야함
+	public JSONArray devicesecUsage() {
+		dbconn();
+
+		JSONArray jsonArray = new JSONArray();
+
+		JSONArray colNameArray = new JSONArray(); // 컬 타이틀 설정
+
+		colNameArray.add("DATE");
+		colNameArray.add("디바이스 이름");
+		colNameArray.add("사용량(단위:w)");
+		jsonArray.add(colNameArray);
+
+		// 쿼리로 조회
+		try {
+
+			String sql = "SELECT TO_CHAR(DV_DATE, 'YYYY-MM-DD HH24:MI:SS') as 시간, dv_name as 디바이스이름, dv_usage as 사용량 \r\n"
+					+ "FROM TBL_DEVICE \r\n"
+					+ "where mb_portserial = 'pt-001'and TO_CHAR(DV_DATE, 'YYYY-MM-DD HH24:MI:SS')>='2022-04-03 00:00:00'";
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				JSONArray rowArray = new JSONArray();
+				rowArray.add(rs.getString("시간"));
+				rowArray.add(rs.getString("디바이스이름"));
 				rowArray.add(rs.getInt("사용량"));
 				jsonArray.add(rowArray);
 
