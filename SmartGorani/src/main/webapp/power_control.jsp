@@ -219,7 +219,7 @@
 								</div>
 								<div class="card-body">
 									<div>
-										<label class="switch"> <input type="checkbox">
+										<label class="switch"> <input type="checkbox" name="allelec">
 											<div class="slider round"></div>
 											<p>OFF</p>
 											<p style="display: none;">ON</p>
@@ -248,7 +248,7 @@
 
 									<div class="portName">
 										<%=dlist.get(i).getDv_name()%>
-										<label class="switch"> <input type="checkbox">
+										<label class="switch"> <input type="checkbox" name="deviceelce">
 											<div class="slider round"></div>
 											<p>OFF</p></label>
 										<p style="display: none;">ON</p>
@@ -286,7 +286,7 @@
 								</div>
 								<div class="card-body">
 									<div>
-										<label class="switch"> <input type="checkbox">
+										<label class="switch"> <input type="checkbox" name="batelec">
 											<div class="slider round"></div>
 											<p>OFF</p>
 											<p style="display: none;">ON</p>
@@ -422,17 +422,17 @@
 	<!-- Bootstrap core JavaScript-->
 	<script type="text/javascript">
 		//토글버튼으로 on off 제어하기....
-		let check = $("input[type='checkbox']");
-		check.click(function() {
+		let check1 = $("input[name='allelec']");
+		check1.click(function() {
 			$("p").toggle();
-			let control = this.checked;
-			console.log(control);
+			let alleleccon = this.checked;
+			console.log(alleleccon);
 			//location.href = "PowerControlService.do?control="+control;
 
 			$.ajax({
 				url : 'PowerControlService.do', //어디로 보낼지 주소
 				data : {
-					control : control
+					alleleccon : alleleccon
 				//입력한 email data 보내기
 				},
 				dataType : "text", // 결과값 text로 받아오기
@@ -451,6 +451,37 @@
 
 		});
 
+		// 배터리 일반전기 선택
+		let check2 = $("input[name='batelec']");
+		check2.click(function() {
+			$("p").toggle();
+			let bateleccon = this.checked;
+			console.log(bateleccon);
+			//location.href = "PowerControlService.do?control="+control;
+
+			$.ajax({
+				url : 'PowerControlService.do', //어디로 보낼지 주소
+				data : {
+					bateleccon : bateleccon
+				//입력한 email data 보내기
+				},
+				dataType : "text", // 결과값 text로 받아오기
+				success : function(result) {
+					if (result == 'true') {
+						$("p").toggle();
+					} else {
+						$("p").toggle();
+					}
+				},
+				error : function() {
+					alert('실패');
+				}
+
+			});
+
+		});
+		
+		
 		//삭제버튼 누를시 삭제되게 .. 
 		/* 		function deleteCheck() {
 		

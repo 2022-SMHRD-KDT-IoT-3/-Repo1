@@ -13,19 +13,25 @@ public class PowerControlService implements Command{
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String control = request.getParameter("control");
-		System.out.println(control);
+		String alleleccon = request.getParameter("alleleccon");
+		System.out.println(alleleccon);
+		String bateleccon = request.getParameter("bateleccon");
+		System.out.println(bateleccon);
+		
+		
+		
 		String nextpage = "power_control.jsp";
-		if(control.equals("true")) {
-			
-			// 아두이노 on
-			
-		}else if(control.equals("false")) {
-			//아두이노 off
-			
-		}
+		
 		PrintWriter out = response.getWriter();
-		out.print(control);
+		out.print(alleleccon);
+		
+		
+		
+		
+		out.print(bateleccon);
+		
+		
+		
 		return null;
 	}
 }
