@@ -1,4 +1,4 @@
-	package Model;
+package Model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,7 +6,22 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import org.json.simple.JSONArray;
+
 public class DeviceDAO {
+
+	// json 만들기 위한 함수
+	private static DeviceDAO DeviceDAO = new DeviceDAO();
+
+	public DeviceDAO() {
+
+	}
+
+	public static DeviceDAO getInstance() {
+
+		return DeviceDAO;
+
+	}
 
 	PreparedStatement psmt = null;
 	Connection conn = null;
@@ -43,8 +58,7 @@ public class DeviceDAO {
 		}
 	}
 
-	
-	//디바이스 추가 메소드
+	// 디바이스 추가 메소드
 	public int deviceInsert(DeviceDTO dto) {
 		dbconn();
 		try {
@@ -63,9 +77,9 @@ public class DeviceDAO {
 		}
 		return cnt;
 	}
-	
-	//디바이스 삭제 메소드
-	
+
+	// 디바이스 삭제 메소드
+
 	public int deviceDelete(String mb_portserial) {
 		dbconn();
 		try {
@@ -84,8 +98,8 @@ public class DeviceDAO {
 		return cnt;
 	}
 
-	//디바이스 조회 메소드
-	
+	// 디바이스 조회 메소드
+
 	public ArrayList<DeviceDTO> DeviceSelect(String serial) {
 
 		ArrayList<DeviceDTO> dlist = new ArrayList<DeviceDTO>();
@@ -101,8 +115,8 @@ public class DeviceDAO {
 			while (rs.next()) {
 				String dv_name = rs.getString(1);
 
-		DeviceDTO dto = new DeviceDTO(dv_name);
-		dlist.add(dto);
+				DeviceDTO dto = new DeviceDTO(dv_name);
+				dlist.add(dto);
 			}
 
 		} catch (Exception e) {
@@ -114,9 +128,8 @@ public class DeviceDAO {
 		return dlist;
 	}
 
-	
-	//디바이스별 전력 조회 메소드 ------------수정해야됨
-	
+	// 디바이스별 전력 조회 메소드 ------------수정해야됨
+
 	public ArrayList<DeviceDTO> DeviceSum(String serial) {
 
 		ArrayList<DeviceDTO> dlist = new ArrayList<DeviceDTO>();
@@ -124,8 +137,8 @@ public class DeviceDAO {
 
 		try {
 			String sql = "select * from tbl_device where MB_PORTSERIAL = ?";
-			
-			//조건 sum으로 다시 수정하기
+
+			// 조건 sum으로 다시 수정하기
 			// 한개의 제품에 여러 콘센트 값
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, serial);
@@ -135,10 +148,10 @@ public class DeviceDAO {
 				String mb_portserial = rs.getString(1);
 				String dv_name = rs.getString(2);
 				Double dv_usage = rs.getDouble(3);
-				String dv_date= rs.getString(4);
+				String dv_date = rs.getString(4);
 
-		DeviceDTO dto = new DeviceDTO(mb_portserial, dv_name,dv_usage, dv_date);
-		dlist.add(dto);
+				DeviceDTO dto = new DeviceDTO(mb_portserial, dv_name, dv_usage, dv_date);
+				dlist.add(dto);
 			}
 
 		} catch (Exception e) {
@@ -148,5 +161,48 @@ public class DeviceDAO {
 		}
 
 		return dlist;
+	}
+
+	// 디바이스별 월별 전력량 조회 json --(4월꺼만 조회됨 수정해야함)
+	public JSONArray devicemonthUsage() {
+		dbconn();
+
+		JSONArray jsonArray = new JSONArray();
+
+		JSONArray colNameArray = new JSONArray(); // 컬 타이틀 설정
+
+		colNameArray.add("디바이스이름");
+		colNameArray.add("사용량(단위:w)");
+		jsonArray.add(colNameArray);
+
+		// 쿼리로 조회
+		try {
+
+			String sql = "select dv_name as 디바이스이름, sum(dv_usage) as 사용량\r\n"
+					+ "from tbl_device\r\n"
+					+ "where mb_portserial = 'pt-001' AND TO_CHAR(DV_DATE , 'YYYY/MM') >='2022/04'\r\n"
+					+ "group by dv_name";
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				JSONArray rowArray = new JSONArray();
+				rowArray.add(rs.getString("디바이스이름"));
+				// rowArray.add(rs.getString("포트번호"));
+				rowArray.add(rs.getInt("사용량"));
+				jsonArray.add(rowArray);
+
+			}
+		} catch (Exception e) {
+
+			e.printStackTrace();
+
+		} finally {
+
+			dbclose();
+
+		}
+
+		return jsonArray;
+
 	}
 }

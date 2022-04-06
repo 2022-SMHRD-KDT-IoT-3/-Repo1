@@ -134,7 +134,7 @@
 		var dataTable = google.visualization.arrayToDataTable(arrayList);
 
 		var options = {
-			title : 'My Daily Activities'
+			title : '디바이스별 월별 사용량'
 		};
 
 		var chart = new google.visualization.PieChart(document
@@ -364,7 +364,7 @@
 							<h6 class="m-0 font-weight-bold text-primary">월별 사용량 조회</h6>
 						</div>
 						<div class="card-body">
-							<div id="chart_div1" style="width: 100%;"></div>
+							<div id="chart_div1" style="heigt: 80%;"></div>
 						</div>
 					</div>
 					<!-- 디바이스별 사용량 조회 원그래프 -->
@@ -373,7 +373,7 @@
 							<h6 class="m-0 font-weight-bold text-primary">디바이스별 사용량 조회</h6>
 						</div>
 						<div class="card-body">
-							<div id="chart_div2" style="width: 900px; height: 500px;"></div>
+							<div id="chart_div2" style="heigt: 80%;"></div>
 						</div>
 					</div>
 				</div>
