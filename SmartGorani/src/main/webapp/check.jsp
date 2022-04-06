@@ -33,6 +33,7 @@
 <script src="https://www.gstatic.com/charts/loader.js"></script>
 <!-- 구글차트 스크립트 -->
 <script>
+	// 월별 사용량 조회 막대그래프
 	//구글 시각화 API를 로딩하는 메소드
 
 	google.charts.load('current', {
@@ -86,7 +87,7 @@
 
 		// 차트를 그릴 영역인 div 객체를 가져옴
 
-		var objDiv = document.getElementById('column_chart_div1');
+		var objDiv = document.getElementById('chart_div1');
 
 		// 인자로 전달한 div 객체의 영역에 컬럼차트를 그릴수 있는 차트객체를 반환
 
@@ -116,6 +117,50 @@
 
 	});
 </script>
+<script type="text/javascript">
+	// 디바이스별 사용량 조회 원그래프
+	google.charts.load('current', {
+		'packages' : [ 'corechart' ]
+	});
+
+	google.charts.setOnLoadCallback(function() {
+
+		setInterval(columnChart2(), 30000);
+
+	});
+
+	function columnChart2(arrayList) {
+
+		var dataTable = google.visualization.arrayToDataTable(arrayList);
+
+		var options = {
+			title : 'My Daily Activities'
+		};
+
+		var chart = new google.visualization.PieChart(document
+				.getElementById('chart_div2'));
+
+		chart.draw(dataTable, options);
+	}
+
+	$(document).ready(function() {
+
+		$.ajax({
+
+			url : 'json_jsp/jsonmonthdeviceusage.jsp',
+
+			success : function(result) {
+
+				columnChart2(result);
+
+			}
+
+		});
+
+	});
+</script>
+
+
 </head>
 <body>
 <body id="page-top">
@@ -283,23 +328,19 @@
 										class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
 										Logout
 								</a>
+							</div> </l
+							i> <%
+ } else {
+ %>
+							<div
+								class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+								aria-labelledby="userDropdown">
+								<a class="dropdown-item" href="#" data-toggle="modal"
+									data-target="#logoutModal"> <i
+									class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+									Login
+								</a>
 							</div></li>
-
-
-
-						<%
-						} else {
-						%>
-						<div
-							class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-							aria-labelledby="userDropdown">
-							<a class="dropdown-item" href="#" data-toggle="modal"
-								data-target="#logoutModal"> <i
-								class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-								Login
-							</a>
-						</div>
-						</li>
 
 						<%
 						}
@@ -315,21 +356,26 @@
 				<div class="container-fluid">
 
 					<!-- Page Heading -->
-					<h1 class="h3 mb-1 text-gray-800">조회</h1>
-					<p class="mb-4"></p>
-
+					<!-- 차트페이지 -->
 					<!-- Content Row -->
-					<!-- 차트 그리는 곳 -->
+					<!-- 월별사용량조회 막대그래프 -->
 					<div class="card shadow mb-4">
 						<div class="card-header py-3">
 							<h6 class="m-0 font-weight-bold text-primary">월별 사용량 조회</h6>
 						</div>
-
 						<div class="card-body">
-							<div id="column_chart_div1" style="width: 100%;"></div>
+							<div id="chart_div1" style="width: 100%;"></div>
 						</div>
 					</div>
-					
+					<!-- 디바이스별 사용량 조회 원그래프 -->
+					<div class="card shadow mb-4">
+						<div class="card-header py-3">
+							<h6 class="m-0 font-weight-bold text-primary">디바이스별 사용량 조회</h6>
+						</div>
+						<div class="card-body">
+							<div id="chart_div2" style="width: 900px; height: 500px;"></div>
+						</div>
+					</div>
 				</div>
 
 				<!-- /.container-fluid -->
@@ -416,4 +462,6 @@
 	<!-- Custom scripts for all pages-->
 	<script src="js/sb-admin-2.min.js"></script>
 </body>
+
+
 </html>
