@@ -4,7 +4,10 @@ public class BatteryDTO {
 	private String mb_portserial;
 	private int battery_capacity;
 	private double battery_usage;
-	
+
+
+
+
 	public BatteryDTO(String mb_portserial, int battery_capacity, double battery_usage) {
 		super();
 		this.mb_portserial = mb_portserial;
@@ -12,6 +15,7 @@ public class BatteryDTO {
 		this.battery_usage = battery_usage;
 	}
 	
+
 
 	public String getMb_portserial() {
 		return mb_portserial;

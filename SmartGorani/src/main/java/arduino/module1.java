@@ -3,6 +3,7 @@ package arduino;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -43,7 +44,6 @@ public class module1 extends HttpServlet {
       ElectricDTO edto = new ElectricDTO(port,Double.parseDouble(electotalpower));
       ElectricDAO edao = new ElectricDAO();
       
-      
       if(timecnt.equals("9")) {
 			dao.dbconn();
 			dao.insertUsage(dto);
@@ -75,7 +75,6 @@ public class module1 extends HttpServlet {
       System.out.println("servlet 일반전기전력 총합 :"+electotalpower+"mW");
       System.out.println("port넘버 : "+port);
 	  
-      
 	  
 
    

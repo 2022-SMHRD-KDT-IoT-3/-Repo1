@@ -15,7 +15,7 @@ public class device_infoDAO {
 	// json 만들기 위한 함수
 	private static device_infoDAO Device_infoDAO = new device_infoDAO();
 
-	private device_infoDAO() {
+	public device_infoDAO() {
 
 	}
 
