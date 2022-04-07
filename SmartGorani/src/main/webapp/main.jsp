@@ -234,31 +234,21 @@ ElectricDAO elDAO = new ElectricDAO();
 				<!-- End of Topbar -->
 
 				<!-- Begin Page Content -->
-				<div class="container-fluid">
+				<div class="container-fluid" style=" text-align: center;">
 
 					<!-- Page Heading -->
 
 
-					<!-- Content Row -->
-					<div class="row">
-						<div class="main-view">
-							<ul>
-								<li><img src="img/mainimg.jpg " width="80%" /></li>
-								<li><img src="img/consent.jpg" width="80%" /></li>
-								<li><img src="img/풍선.jpg" width="80%" /></li>
-							</ul>
+						<img src="img/logomainfin.png" width="80%" />
 
-						</div>
-
-
-					</div>
 
 					<!-- Content Row -->
 
-					<div class="row">
+					<div class="row" style="display: inline-block;">
 						<!-- Earnings (Monthly) Card Example -->
-						<div class="col-xl-10 col-md-6 mb-4">
-							<div class="card border-left-primary shadow h-100 py-2">
+						<div class="col-xl-10 col-md-6 mb-4" style="display: inline-block; margin-left: 100px;">
+							<div class="card border-left-primary shadow h-100 py-2"
+								style="width: 70%;">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
@@ -278,30 +268,31 @@ ElectricDAO elDAO = new ElectricDAO();
 						</div>
 
 						<!-- Area Chart -->
-						<div class="card shadow mb-4">
+						<div class="card shadow mb-4" style="display: inline-block; width: 80%;">
 							<div class="card-header py-3">
 								<h6 class="m-0 font-weight-bold text-primary">"스마트 고라니"란?</h6>
 
 							</div>
 							<div class="card-body">
-								● 국내 전기요금 인상 및 전기사용량의 증가에 따라 효율적인 전기 소비를 원하는 이용자들을 위한 "에너지사용
-								효율증진을 위한 스마트 그리드 서비스"입니다. <br> ● 고라니라는 이름을 쓴 이유는 고라니는
-								우리나라에서만 서식하는 동물입니다, 저희도 고라니처럼 희귀성을 나타내기 위함입니다! <span
-									class="icon text-white-50"> </span>
+								<span class="icon text-black-50">● 국내 전기요금 인상 및 전기사용량의
+									증가에 따라 효율적인 전기 소비를 원하는 이용자들을 위한 "에너지사용 효율증진을 위한 스마트 그리드
+									서비스"입니다. <br> ● 고라니라는 이름을 쓴 이유는 고라니는 우리나라에서만 서식하는 동물입니다,
+									저희도 고라니처럼 희귀성을 나타내기 위함입니다!
+								</span>
 							</div>
 						</div>
 
 						<!-- Pie Chart -->
-						<div class="card shadow mb-4">
+						<div class="card shadow mb-4" style="display: inline-block; width: 80%;">
 							<div class="card-header py-3">
 								<h6 class="m-0 font-weight-bold text-primary">"스마트 고라니"
 									사용설명</h6>
 
 							</div>
 							<div class="card-body">
-								● 저희 "스마트 고라니"는 전력사용이 많은 전자제품에 장착하여 태양광 패널로 배터리에 전력 충전 후 배터리에
-								충전되어있는 전력을 방전하여 누진세를 줄여주기 위한 제품입니다. <span
-									class="icon text-white-50"> </span>
+								<span class="icon text-black-50">● 저희 "스마트 고라니"는 전력사용이 많은
+									전자제품에 장착하여 태양광 패널로 배터리에 전력 충전 후 배터리에 충전되어있는 전력을 방전하여 누진세를 줄여주기
+									위한 제품입니다. </span>
 							</div>
 						</div>
 					</div>
