@@ -1,3 +1,4 @@
+<%@page import="Model.BatteryDTO"%>
 <%@page import="Model.MemberDAO"%>
 <%@page import="Model.DeviceDTO"%>
 <%@page import="java.util.ArrayList"%>
@@ -36,6 +37,7 @@
 	<%
 	MemberDTO info = (MemberDTO) session.getAttribute("info");
 	ArrayList<DeviceDTO> dlist = new DeviceDAO().DeviceSelect(info.getMb_portserial());
+	
 	%>
 
 
@@ -213,17 +215,7 @@
 						<div class="card-body">
 
 							<!-- Custom Font Size Utilities -->
-							<div class="card shadow mb-4">
-								<div class="card-header py-3">
-									<h6 class="m-0 font-weight-bold text-primary">전체 전력 제어</h6>
-								</div>
-								<div class="card-body">
-									<div>
-										<label class="switch"> <input type="checkbox" name="allelec">
-											<div class="slider round"></div>
-											<p>OFF</p>
-											<p style="display: none;">ON</p>
-									</div>
+							
 
 								</div>
 
@@ -239,37 +231,31 @@
 								</div>
 								<div class="card-body">
 
-									<%
-									if (info != null) {
-
-										if (dlist != null) {
-											for (int i = 0; i < dlist.size(); i++) {
-									%>
 
 									<div class="portName">
-										<%=dlist.get(i).getDv_name()%>
-										<label class="switch"> <input type="checkbox" name="deviceelce">
+										1번
+										<label class="switch">  <input type="checkbox" name="dl1" id="dl1" checked="false">
 											<div class="slider round"></div>
-											<p>OFF</p></label>
-										<p style="display: none;">ON</p>
+											</label>
+										
 									</div>
 
-									<%
-									}
-
-									} else {
-									%>
-									<span> 디바이스를 등록해주세요 ! </span>
-
-
-
-
-									<%
-									}
-									}
-									%>
-
-
+									<div class="portName">
+										2번
+										<label class="switch">  <input type="checkbox" name="dl2" id="dl2" checked="false">
+											<div class="slider round"></div>
+											</label>
+										
+									</div>
+									
+									<div class="portName">
+										3번
+										<label class="switch">  <input type="checkbox" name="dl3" id="dl3" checked="false">
+											<div class="slider round"></div>
+											</label>
+										
+									</div>
+								
 
 								</div>
 							</div>
@@ -286,56 +272,16 @@
 								</div>
 								<div class="card-body">
 									<div>
-										<label class="switch"> <input type="checkbox" name="batelec">
+										<label class="switch"> <input type="checkbox" name="batelec" id = "bl">
 											<div class="slider round"></div>
-											<p>OFF</p>
-											<p style="display: none;">ON</p>
+											
+											
 									</div>
-
+								<p>배터리전기</p>
+								<p style="display: none;">일반전기</p>
 								</div>
 							</div>
-							<div class="card shadow mb-4">
-								<div class="card-header py-3">
-									<h6 class="m-0 font-weight-bold text-primary">대기 전력 제어</h6>
-								</div>
-								<div class="card-body">
-
-									<div class="portName">
-										전체 <label class="switch"> <input type="checkbox">
-											<div class="slider round"></div>
-											<p>OFF</p></label>
-										<p style="display: none;">ON</p>
-									</div>
-
-									<%
-									if (info != null) {
-										if (dlist != null) {
-											for (int i = 0; i < dlist.size(); i++) {
-									%>
-									<div class="portName">
-										<%=dlist.get(i).getDv_name()%>
-										<label class="switch"> <input type="checkbox">
-											<div class="slider round"></div>
-											<p>OFF</p></label>
-										<p style="display: none;">ON</p>
-									</div>
-
-									<%
-									}
-									%>
-									<%
-									} else {
-									%>
-									<span> 디바이스를 등록해주세요 ! </span>
-
-
-
-
-									<%
-									}
-									}
-									%>
-
+							
 
 								</div>
 							</div>
@@ -422,16 +368,248 @@
 	<!-- Bootstrap core JavaScript-->
 	<script type="text/javascript">
 		//토글버튼으로 on off 제어하기....
-		let check1 = $("input[name='allelec']");
-		check1.click(function() {
+		//전체 전원제어
+		
+       $('#al').click(function() {
+            // 1. 입력한 id 가져오기
+          //  <input type='checkbox' /*value='on'*/>
+           let allelec = $('input[name=allelec]').val();
+	       let batelec = $('input[name=batelec]').val();
+	       let dl1 = $('input[name=dl1]').val();
+	       let dl2 = $('input[name=dl2]').val();
+	       let dl3 = $('input[name=dl3]').val();
+            
+
+            console.log($('input[name=allelec]').is(':checked'));
+            console.log($('input[name=batelec]').is(':checked'));
+            console.log($('input[name=dl1]').is(':checked'));
+            console.log($('input[name=dl2]').is(':checked'));
+            console.log($('input[name=dl3]').is(':checked'));
+            // 2. ajax로 id 보내기 (PowerControlService.do)
+            $.ajax({
+               url : 'PowerControlService', /* 어디로 보낼지*/
+               data : { /* 입력한 email data 보내기*/
+            	   allelec : $('input[name=allelec]').is(':checked'),
+            	   batelec : $('input[name=batelec]').is(':checked'),
+            	   dl1 : $('input[name=dl1]').is(':checked'),
+            	   dl2 : $('input[name=dl2]').is(':checked'),
+            	   dl3 : $('input[name=dl3]').is(':checked')
+               },
+               dataType : "text", // 결과값 text로 받아오기
+				success : function(result) {
+					if (result == 'true') {
+						$("p").toggle();
+					} else {
+						$("p").toggle();
+					}
+				},
+				error : function() {
+					alert('실패');
+				}
+
+			});
+
+		});
+		
+					
+		
+		
+		
+		
+	
+		
+/*----------------------------------------모든 전기 제어 완료---------------------------------- */		
+		//배터리 일반전기 선택
+
+		
+		
+		 $('#bl').click(function() {
+            // 1. 입력한 id 가져오기
+           let allelec = $('input[name=allelec]').val();
+	       let batelec = $('input[name=batelec]').val();
+	       let dl1 = $('input[name=dl1]').val();
+	       let dl2 = $('input[name=dl2]').val();
+	       let dl3 = $('input[name=dl3]').val();
+            
+
+            console.log($('input[name=allelec]').is(':checked'));
+            console.log($('input[name=batelec]').is(':checked'));
+            console.log($('input[name=dl1]').is(':checked'));
+            console.log($('input[name=dl2]').is(':checked'));
+            console.log($('input[name=dl3]').is(':checked'));
+            // 2. ajax로 id 보내기 (PowerControlService.do)
+            $.ajax({
+               url : 'PowerControlService', /* 어디로 보낼지*/
+               data : { /* 입력한 email data 보내기*/
+ 
+            	   allelec : $('input[name=allelec]').is(':checked'),
+            	   batelec : $('input[name=batelec]').is(':checked'),
+            	   dl1 : $('input[name=dl1]').is(':checked'),
+            	   dl2 : $('input[name=dl2]').is(':checked'),
+            	   dl3 : $('input[name=dl3]').is(':checked')
+            	
+               },
+               dataType : "text", // 결과값 text로 받아오기
+				success : function(result) {
+					if (result == 'true') {
+						$("p").toggle();
+					} else {
+						$("p").toggle();
+					}
+				},
+				error : function() {
+					alert('실패');
+				}
+
+			});
+
+		});
+		
+		
+		 $('#dl1').click(function() {
+	            // 1. 입력한 id 가져오기
+	           	let allelec = $('input[name=allelec]').val();
+	            let batelec = $('input[name=batelec]').val();
+	            let dl1 = $('input[name=dl1]').val();
+	            let dl2 = $('input[name=dl2]').val();
+	            let dl3 = $('input[name=dl3]').val();
+
+	            
+	            console.log($('input[name=allelec]').is(':checked'));
+	            console.log($('input[name=batelec]').is(':checked'));
+	            console.log($('input[name=dl1]').is(':checked'));
+	            console.log($('input[name=dl2]').is(':checked'));
+	            console.log($('input[name=dl3]').is(':checked'));
+	            
+	            // 2. ajax로 id 보내기 (PowerControlService.do)
+	            $.ajax({
+	               url : 'PowerControlService', /* 어디로 보낼지*/
+	               data : { /* 입력한 email data 보내기*/
+	            	   allelec : $('input[name=allelec]').is(':checked'),
+	            	   batelec : $('input[name=batelec]').is(':checked'),
+	            	   dl1 : $('input[name=dl1]').is(':checked'),
+	            	   dl2 : $('input[name=dl2]').is(':checked'),
+	            	   dl3 : $('input[name=dl3]').is(':checked')
+	               },
+	               dataType : "text", // 결과값 text로 받아오기
+					success : function(result) {
+						if (result == 'true') {
+							$("p").toggle();
+						} else {
+							$("p").toggle();
+						}
+					},
+					error : function() {
+						alert('실패');
+					}
+
+				});
+
+			});
+		
+		
+		
+		 $('#dl2').click(function() {
+	            // 1. 입력한 id 가져오기
+	           	let allelec = $('input[name=allelec]').val();
+	            let batelec = $('input[name=batelec]').val();
+	            let dl1 = $('input[name=dl1]').val();
+	            let dl2 = $('input[name=dl2]').val();
+	            let dl3 = $('input[name=dl3]').val();
+
+	            
+	            console.log($('input[name=allelec]').is(':checked'));
+	            console.log($('input[name=batelec]').is(':checked'));
+	            console.log($('input[name=dl1]').is(':checked'));
+	            console.log($('input[name=dl2]').is(':checked'));
+	            console.log($('input[name=dl3]').is(':checked'));
+	            
+	            // 2. ajax로 id 보내기 (PowerControlService.do)
+	            $.ajax({
+	               url : 'PowerControlService', /* 어디로 보낼지*/
+	               data : { /* 입력한 email data 보내기*/
+	            	   allelec : $('input[name=allelec]').is(':checked'),
+	            	   batelec : $('input[name=batelec]').is(':checked'),
+	            	   dl1 : $('input[name=dl1]').is(':checked'),
+	            	   dl2 : $('input[name=dl2]').is(':checked'),
+	            	   dl3 : $('input[name=dl3]').is(':checked')
+	               },
+	               dataType : "text", // 결과값 text로 받아오기
+					success : function(result) {
+						if (result == 'true') {
+							$("p").toggle();
+						} else {
+							$("p").toggle();
+						}
+					},
+					error : function() {
+						alert('실패');
+					}
+
+				});
+
+			});
+		
+		
+		
+		 $('#dl3').click(function() {
+	            // 1. 입력한 id 가져오기
+	           	let allelec = $('input[name=allelec]').val();
+	            let batelec = $('input[name=batelec]').val();
+	            let dl1 = $('input[name=dl1]').val();
+	            let dl2 = $('input[name=dl2]').val();
+	            let dl3 = $('input[name=dl3]').val();
+
+	            
+	            console.log($('input[name=allelec]').is(':checked'));
+	            console.log($('input[name=batelec]').is(':checked'));
+	            console.log($('input[name=dl1]').is(':checked'));
+	            console.log($('input[name=dl2]').is(':checked'));
+	            console.log($('input[name=dl3]').is(':checked'));
+	            
+	            // 2. ajax로 id 보내기 (PowerControlService.do)
+	            $.ajax({
+	               url : 'PowerControlService', /* 어디로 보낼지*/
+	               data : { /* 입력한 email data 보내기*/
+	            	   allelec : $('input[name=allelec]').is(':checked'),
+	            	   batelec : $('input[name=batelec]').is(':checked'),
+	            	   dl1 : $('input[name=dl1]').is(':checked'),
+	            	   dl2 : $('input[name=dl2]').is(':checked'),
+	            	   dl3 : $('input[name=dl3]').is(':checked')
+	               },
+	               dataType : "text", // 결과값 text로 받아오기
+					success : function(result) {
+						if (result == 'true') {
+							$("p").toggle();
+						} else {
+							$("p").toggle();
+						}
+					},
+					error : function() {
+						alert('실패');
+					}
+
+				});
+
+			});
+		
+		
+		
+		
+		
+		// 배터리 일반전기 선택
+		/*let check2 = $("input[name='batelec']");
+		check2.click(function() {
 			$("p").toggle();
-			let alleleccon = this.checked;
-			console.log(alleleccon);
+			let bateleccon = this.checked;
+			let alleleccon = $("input[name='batelec']");
+			console.log(bateleccon);
 			//location.href = "PowerControlService.do?control="+control;
 
 			$.ajax({
 				url : 'PowerControlService.do', //어디로 보낼지 주소
 				data : {
+					bateleccon : bateleccon,
 					alleleccon : alleleccon
 				//입력한 email data 보내기
 				},
@@ -449,10 +627,10 @@
 
 			});
 
-		});
-
-		// 배터리 일반전기 선택
-		let check2 = $("input[name='batelec']");
+		});     */
+		
+		// 디바이스별 전력 제어 1번 포트
+/*		let check3 = $("input[name='batelec']");
 		check2.click(function() {
 			$("p").toggle();
 			let bateleccon = this.checked;
@@ -479,7 +657,7 @@
 
 			});
 
-		});
+		});   */
 		
 		
 		//삭제버튼 누를시 삭제되게 .. 

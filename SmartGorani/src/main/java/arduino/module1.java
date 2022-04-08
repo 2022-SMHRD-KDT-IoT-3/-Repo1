@@ -1,5 +1,6 @@
 package arduino;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -10,9 +11,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 
 import Model.ElectricDAO;
 import Model.ElectricDTO;
+import Service.PowerControlService;
 import Model.BatteryDAO;
 import Model.BatteryDTO;
 import arduino.send;
@@ -21,8 +24,10 @@ import arduino.send;
 
 @WebServlet("/module1")
 public class module1 extends HttpServlet {
+	
+	
    protected void service(HttpServletRequest request, HttpServletResponse response)
-         throws ServletException, IOException {
+         throws ServletException, IOException {                                       
 	  	  
       response.setContentType("text/html; charset=UTF-8");
       request.setCharacterEncoding("UTF-8");
@@ -43,6 +48,8 @@ public class module1 extends HttpServlet {
       BatteryDAO dao = new BatteryDAO();
       ElectricDTO edto = new ElectricDTO(port,Double.parseDouble(electotalpower));
       ElectricDAO edao = new ElectricDAO();
+      BatteryDTO controldto = new BatteryDTO();
+      
       
       if(timecnt.equals("9")) {
 			dao.dbconn();
@@ -54,13 +61,15 @@ public class module1 extends HttpServlet {
       	
       }
       
+     
       
-      
-      String select = send.select;
-      
-      if(select.equals("1")) {
+     
+	 String select = PowerControlService.batelec;
+      System.out.println(select);
+      if(select.equals("true")) {
 			out.print("{\"SELECT\":\"1\"}"); //메모장 복붙시 "앞에 자동으로 \넣어줌
-		}else if(select.equals("0")) {
+			
+		}else if(select.equals("false")) {
 			out.print("{\"SELECT\":\"0\"}");
 		}
      
@@ -74,9 +83,9 @@ public class module1 extends HttpServlet {
       System.out.println("servlet 배터리전력 총합 :"+battotalpower+"mW");
       System.out.println("servlet 일반전기전력 총합 :"+electotalpower+"mW");
       System.out.println("port넘버 : "+port);
-	  
-	  
 
-   
+	     
    }
+   
+   
 }

@@ -4,7 +4,20 @@ public class BatteryDTO {
 	private String mb_portserial;
 	private int battery_capacity;
 	private double battery_usage;
+	private String controlstr;
 
+
+
+
+	public String getControlstr() {
+		return controlstr;
+	}
+
+
+
+	public void setControlstr(String controlstr) {
+		this.controlstr = controlstr;
+	}
 
 
 
@@ -15,6 +28,18 @@ public class BatteryDTO {
 		this.battery_usage = battery_usage;
 	}
 	
+
+
+	public BatteryDTO() {
+		// TODO Auto-generated constructor stub
+	}
+
+
+
+	public String BatteryDTO() {
+		return controlstr;
+	}
+
 
 
 	public String getMb_portserial() {

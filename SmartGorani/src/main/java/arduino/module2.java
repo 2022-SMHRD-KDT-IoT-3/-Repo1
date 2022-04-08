@@ -19,6 +19,7 @@ import Model.BatteryDAO;
 import Model.BatteryDTO;
 import Model.device_infoDAO;
 import Model.device_infoDTO;
+import Service.PowerControlService;
 
 @WebServlet("/module2")
 public class module2 extends HttpServlet {
@@ -68,28 +69,32 @@ protected void service(HttpServletRequest request, HttpServletResponse response)
     	 
       }
     	  
-      
-      String con1 = send.con1;
-      String con2 = send.con2;
-      String con3 = send.con3;
-      
-      
-      if(con1.equals("1")) {
-			out.print("{\"CON1\":\"1\","); //메모장 복붙시 "앞에 자동으로 \넣어줌
-		}else if(con1.equals("0")) {
-			out.print("{\"CON1\":\"0\",");
+    
+    
+	 String con1 = PowerControlService.dl1;
+	 String con2 = PowerControlService.dl2;
+	 String con3 = PowerControlService.dl3;
+     System.out.println(con1);
+     System.out.println(con2);
+     System.out.println(con3);
+     if(con1.equals("true")) {
+			out.print("{\"CON1\":\"0\","); //메모장 복붙시 "앞에 자동으로 \넣어줌
+		}else if(con1.equals("false")) {
+			out.print("{\"CON1\":\"1\",");
 		}
-      if(con2.equals("1")) {
-    	  out.print("\"CON2\":\"1\","); //메모장 복붙시 "앞에 자동으로 \넣어줌
-      }else if(con2.equals("0")) {
-    	  out.print("\"CON2\":\"0\",");
-      }
-      if(con3.equals("1")) {
-    	  out.print("\"CON3\":\"1\"}"); //메모장 복붙시 "앞에 자동으로 \넣어줌
-      }else if(con3.equals("0")) {
-    	  out.print("\"CON3\":\"0\"}");
-      }
-
+     
+     if(con2.equals("true")) {
+			out.print("\"CON2\":\"0\","); //메모장 복붙시 "앞에 자동으로 \넣어줌
+		}else if(con2.equals("false")) {
+			out.print("\"CON2\":\"1\",");
+		}
+     
+     if(con3.equals("true")) {
+			out.print("\"CON3\":\"0\"}"); //메모장 복붙시 "앞에 자동으로 \넣어줌
+		}else if(con3.equals("false")) {
+			out.print("\"CON3\":\"1\"}");
+		}
+      
       
       
       
