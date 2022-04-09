@@ -66,7 +66,7 @@ public class ElectricDAO {
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getMb_portserial());
-			psmt.setDouble(2, dto.getElectric_useage());
+			psmt.setDouble(2, dto.getElectric_useage()/3600);
 
 			psmt.executeUpdate();
 		} catch (Exception e) {
