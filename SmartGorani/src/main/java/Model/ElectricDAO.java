@@ -26,7 +26,7 @@ public class ElectricDAO {
 	Connection conn = null;
 	ResultSet rs = null;
 	int cnt = 0;
-
+	double sss =0;
 	// DB연결 메소드
 	public void dbconn() {
 		try {
@@ -75,46 +75,46 @@ public class ElectricDAO {
 	}
 
 	// 월별 electric (포트 - 고유제품) 사용량 조회 메소드 @최근 월의 값 불러오기
-	public int monthElectric() {
+	public double monthElectric() {
 		dbconn();
 		try {
-			String sql = "SELECT * FROM MONTHLY_USAGE where 날짜='202204'";
+			String sql = "SELECT * FROM MONTHLY_USAGE where 년월='2022/04'";
 			psmt = conn.prepareStatement(sql);
 
 			rs = psmt.executeQuery();
 			if (rs.next()) {
 				String month = rs.getString(1);
 				String serialport = rs.getString(2);
-				int usage = rs.getInt(3);
-				cnt = usage;
+				double usage = rs.getInt(3);
+				sss =usage;
 			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			dbclose();
-		}
-		return cnt;
+		}	
+		return sss;
 	}
 
 	public double monthFare() {
-		double fare = 0;
-		monthElectric();
+	      double fare = 0;
+	      sss = monthElectric();
 
-		// 들어오는 데이터 mW 이나 W라고 가정하고 계산함
-		double wh = cnt / 3600;
+	      // 들어오는 데이터 mW 이나 W라고 가정하고 계산함
+	      int wh =  (int)sss;
 
-		if (wh <= 300) {
-			fare = wh * 88.3 + 910;
-		} else if (wh < 450) {
-			fare = (wh - 300) * 182.9 + 1600 + (300 * 88.3);
+	      if (wh <= 300) {
+	         fare = wh * 88.3 + 910;
+	      } else if (wh < 450) {
+	         fare = (wh - 300) * 182.9 + 1600 + (300 * 88.3);
 
-		} else {
-			fare = (wh - 450) * 275.6 + 7300 + (300 * 88.3) + (150 * 182.9);
-		}
-
-		return fare;
-	}
+	      } else {
+	         fare = (wh - 450) * 275.6 + 7300 + (300 * 88.3) + (150 * 182.9);
+	      }
+	      System.out.println(Math.round(fare));
+	      return Math.round(fare);
+	   }
 
 
 	// json 구조 - 월별 사용량
@@ -127,7 +127,7 @@ public class ElectricDAO {
 
 		colNameArray.add("년/월");
 		//colNameArray.add("포트번호");
-		colNameArray.add("사용량(단위:w)");
+		colNameArray.add("사용량(단위:kWh)");
 		jsonArray.add(colNameArray);
 
 		// MONTHLY_USAGE view 조회

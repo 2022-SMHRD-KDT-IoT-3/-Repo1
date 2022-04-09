@@ -138,7 +138,7 @@
 		var dataTable = google.visualization.arrayToDataTable(arrayList);
 
 		var options = {
-			title : '디바이스별 월별 사용량'
+			title : '디바이스별 월별 사용량'			
 		};
 
 		var chart = new google.visualization.PieChart(document

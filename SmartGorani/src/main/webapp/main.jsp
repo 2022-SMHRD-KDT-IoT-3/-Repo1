@@ -255,7 +255,7 @@ ElectricDAO elDAO = new ElectricDAO();
 											<div
 												class="text-xs font-weight-bold text-primary text-uppercase mb-1">
 												이번달 예상 요금</div>
-											<div class="h5 mb-0 font-weight-bold text-gray-800"><%=elDAO.monthFare()%>원
+											<div class="h5 mb-0 font-weight-bold text-gray-800"><%=Math.round(elDAO.monthFare())%>원
 											</div>
 											<%=sf.format(nowTime)%>
 										</div>
