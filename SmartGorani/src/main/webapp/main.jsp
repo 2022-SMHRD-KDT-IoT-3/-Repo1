@@ -29,8 +29,7 @@
 
 <!-- Custom styles for this template-->
 <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
-
+<link rel="shortcut icon" href="./img/favi.ico">
 
 <!-- 현재시간 가져오기 -->
 <%
@@ -246,9 +245,9 @@ ElectricDAO elDAO = new ElectricDAO();
 
 					<div class="row" style="display: inline-block;">
 						<!-- Earnings (Monthly) Card Example -->
-						<div class="col-xl-10 col-md-6 mb-4" style="display: inline-block; margin-left: 100px;">
+						<div class="col-xl-10 col-md-6 mb-4" style="display: inline-block; width: 99%">
 							<div class="card border-left-primary shadow h-100 py-2"
-								style="width: 70%;">
+							>
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
@@ -384,9 +383,6 @@ ElectricDAO elDAO = new ElectricDAO();
 	<!-- Page level plugins -->
 	<script src="vendor/chart.js/Chart.min.js"></script>
 
-	<!-- Page level custom scripts -->
-	<script src="js/demo/chart-area-demo.js"></script>
-	<script src="js/demo/chart-pie-demo.js"></script>
 </body>
 
 </html>
