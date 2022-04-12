@@ -39,4 +39,4 @@
 |김준범|DB설계 구축 JSP/Servlet|
 |이진옥|HTML/CSS JSP/Servlet|
 |정준호|프론트 웹페이지 기능구현,아두이노 웹 전송 기능구현,DB 데이터 피드백|
-|최고은|HTML/CSS JSP/Servlet|
+|최고은|웹 메뉴, 게시판, 관리자, 설정 페이지 프론트 기능 구현|
