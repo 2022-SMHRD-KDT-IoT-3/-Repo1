@@ -31,6 +31,8 @@
 
 ## 제작일정
 ![image](https://user-images.githubusercontent.com/76724574/162857737-80e7d15f-adda-44fa-89f5-cee10a14870b.png)
+![image](https://user-images.githubusercontent.com/101301507/162862186-7edde367-ff29-4473-855f-7eb7f5d3d418.png)
+
 
 ## 팀원 업무 분장표
 |이름 | 역할 |
