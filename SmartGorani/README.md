@@ -33,3 +33,10 @@
 ![image](https://user-images.githubusercontent.com/76724574/162857737-80e7d15f-adda-44fa-89f5-cee10a14870b.png)
 
 ## 팀원 업무 분장표
+|이름 | 역할 |
+|---|---|
+|박진수|프로젝트총괄|
+|김준범|DB설계 구축 JSP/Servlet|
+|이진옥|HTML/CSS JSP/Servlet|
+|정준호|아두이노 JSP/Servlet|
+|최고은|HTML/CSS JSP/Servlet|
