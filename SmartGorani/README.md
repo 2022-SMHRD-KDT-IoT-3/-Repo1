@@ -26,7 +26,7 @@
 ![image](https://user-images.githubusercontent.com/76724574/162857610-ba4b62b7-03b4-464c-9942-b150dde6c112.png)
 
 ## 회로도
-
+![배선도](https://user-images.githubusercontent.com/101301669/162861337-e16efe71-b162-42a0-abd3-125ead902dea.png)
 ## 완성 제품
 
 ## 제작일정
