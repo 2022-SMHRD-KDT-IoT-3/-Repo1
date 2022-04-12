@@ -14,11 +14,10 @@
 ![image](https://user-images.githubusercontent.com/76724574/162856880-8ec6ad8e-179d-4be1-b788-d81e0b2c75fd.png)
 
 ## 대표이미지
-![image](https://user-images.githubusercontent.com/76724574/162857518-cf0b3a87-ce3e-4037-aa7b-42f03bd60f46.png)
-![image](https://user-images.githubusercontent.com/76724574/162857540-0aec4623-aea7-412c-929f-b5d9153337fd.png)
-![image](https://user-images.githubusercontent.com/76724574/162857560-26d63e55-a008-4e17-a913-eb3fe3fb1316.png)
+![image](https://user-images.githubusercontent.com/76724574/162857817-732c9d44-3d75-4c66-81b3-650717669f9c.png)
+![image](https://user-images.githubusercontent.com/76724574/162857858-d800c696-21bd-4da3-9220-b7fcd7af5e20.png)
+![image](https://user-images.githubusercontent.com/76724574/162857869-55b999eb-6984-4b23-ac3f-d5b90854f6e8.png)
 ![image](https://user-images.githubusercontent.com/76724574/162857570-bda18112-e02a-427e-bd3d-13f5fcba50a3.png)
-
 
 ## 기능 흐름도
 ![image](https://user-images.githubusercontent.com/76724574/162857497-230c5c02-1146-4267-be71-08f01770dc6b.png)
