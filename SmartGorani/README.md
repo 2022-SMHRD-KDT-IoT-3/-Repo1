@@ -14,6 +14,7 @@
 ![image](https://user-images.githubusercontent.com/76724574/162856880-8ec6ad8e-179d-4be1-b788-d81e0b2c75fd.png)
 
 ## 대표이미지
+
 ![image](https://user-images.githubusercontent.com/76724574/162857817-732c9d44-3d75-4c66-81b3-650717669f9c.png)
 ![image](https://user-images.githubusercontent.com/76724574/162857858-d800c696-21bd-4da3-9220-b7fcd7af5e20.png)
 ![image](https://user-images.githubusercontent.com/76724574/162857869-55b999eb-6984-4b23-ac3f-d5b90854f6e8.png)
@@ -28,6 +29,8 @@
 ## 회로도
 ![배선도](https://user-images.githubusercontent.com/101301669/162861337-e16efe71-b162-42a0-abd3-125ead902dea.png)
 ## 완성 제품
+![제품](https://user-images.githubusercontent.com/101301507/162863071-ebc513e9-3a48-42aa-90c0-b631e5a92ae9.png)
+
 
 ## 제작일정
 ![image](https://user-images.githubusercontent.com/101301507/162862186-7edde367-ff29-4473-855f-7eb7f5d3d418.png)
