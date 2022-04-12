@@ -30,7 +30,6 @@
 ## 완성 제품
 
 ## 제작일정
-![image](https://user-images.githubusercontent.com/76724574/162857737-80e7d15f-adda-44fa-89f5-cee10a14870b.png)
 ![image](https://user-images.githubusercontent.com/101301507/162862186-7edde367-ff29-4473-855f-7eb7f5d3d418.png)
 
 
@@ -41,4 +40,4 @@
 |김준범|DB설계 구축 JSP/Servlet|
 |이진옥|HTML/CSS JSP/Servlet|
 |정준호|프론트 웹페이지 기능구현,아두이노 웹 전송 기능구현,DB 데이터 피드백|
-|최고은|웹 페이지 레이아웃, 메뉴, 게시판, 관리자, 설정 페이지 프론트 기능 구현|
+|최고은|웹 페이지 레이아웃, 메뉴, 게시판, 관리자, 사용자 설정 페이지 기능 구현|
